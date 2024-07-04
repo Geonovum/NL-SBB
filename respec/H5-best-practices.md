@@ -322,27 +322,27 @@ De eenheid van beheer is het geheel van gegevensobjecten die als één gezamenli
 
 Het toepassen van de kernprincipes voor versiebeheer leidt tot het volgende model.
 
-![](respec/media/versiebeheer.conceptueel.svg)
+![](respec/media/versiebeheer.conceptueel.svg "conceptueel model versiebeheer")
 
 Het uitgangspunt is dat een dataset iets anders is als een gegevensobject en een gegevensobject iets anders is als een object.
 
 #### A. Begripsbeschrijving als eenheid van beheer
 
-![](respec/media/versiebeheer.begripsbeschrijving.svg)
+![](respec/media/versiebeheer.begripsbeschrijving.svg "Variant A")
 
 Versiebeheer op begripsbeschrijving gaat ervan uit dat er een gegevensobject per begrip in een begrippenkader wordt gemaakt en dat het beheer op dat niveau wordt gereregeld.
 Elke wijziging op een individuele begripsbeschrijving heeft geen impact op de andere begripsbeschrijvingen.
 
 #### B. Begrippenkaderbeschrijving als eenheid van beheer
 
-![](respec/media/versiebeheer.begrippenkaderbeschrijving.svg)
+![](respec/media/versiebeheer.begrippenkaderbeschrijving.svg "Variant B")
 
 Bij versiebeheer op begrippenenkaderniveau zitten alle gegevensobjecten die horen bij de beschrijving van een begrippenkader onder de beheerset van dat begrippenkader.
 Wanneer een begripsbeschrijving wijzigt is er sprake van een nieuwe versie van de begrippenkaderbeschrijvingbeheerset.
 
 #### C. Begripsbeschrijving deel als eenheid van beheer
 
-![](respec/media/versiebeheer.begripsbeschrijvingDeel.svg)
+![](respec/media/versiebeheer.begripsbeschrijvingDeel.svg "Variant C")
 
 Versiebeheer op een deel van de complete begripsbeschrijving gaat er van uit dat bepaalde gegevens over een begrip tezamen beheerd worden, bijvoorbeeld harmonisatieregels of hierarchische relaties. Ieder begrip heeft zo mogelijk meerdere, complementaire, gegevensobjecten. Deze gegevensobjecten kunnen conform Variant A individueel, of conform Variant B als verzameling beheerd worden.
 

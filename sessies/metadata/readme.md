@@ -1,2 +1,4 @@
 Werkgroep metadata voor een begrippenkader
-eerste bespreking op 20 april
+
+- Eeerste bespreking op 20 april
+- Restart op 9 oktober 2024.

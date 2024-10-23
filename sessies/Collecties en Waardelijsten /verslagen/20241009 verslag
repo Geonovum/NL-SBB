@@ -1,1 +1,13 @@
 
+Aanwezig: Nicole Groot-Nibbeling,Fred Termaat, Arjen Santema en Kees Trautwein
+
+We hebben het veel over collecties en waardelijsten gehad in de context van informatiemodellen en dan met name MIM. 
+
+Een conclusie is dat *waardelijst* een verkeerde term is. Het is beter is onderscheid te maken tussen:
+
+- Referentielijsten, die zelf uit twee soorten kunnen bestaan: 
+	- Lijsten met dingen, of beter de waardes die "populaties" bevatten
+	- Lijsten met concepten = begrippen
+- Lijsten met daarin een rijtje gegevens zonder samenhang. Deze komen met name voor in het Logisch en Technische/implementatie niveau. Volgens naamgeving NEN3610: 
+	- Enumeraties: intern beheerd
+	- CodelijstenL extern beheerd

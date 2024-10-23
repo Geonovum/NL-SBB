@@ -653,7 +653,7 @@ skosapnl:ConceptScheme-hasTopConcept
   sh:group skosapnl:SemanticRelationPropertyGroup ;
   sh:order 20 ;
   sh:nodeKind sh:IRI ;
-  #sh:severity sh:Warning ; Er is een severity dat geef een Warning tijdens upload. Tijdelijke uit zetten.
+  sh:severity sh:Warning ; 
   sh:path skos:hasTopConcept .
 
 skosapnl:ConceptScheme-comment
@@ -832,4 +832,4 @@ skosapnl:OrphanConcept
       ?this skos:broader | ^skos:broader | skos:narrower | ^skos:narrower | skos:related | ^skos:related ?other .
       }
     }""" ;
-  sh:severity sh:Warning .
+  sh:severity sh:Info .

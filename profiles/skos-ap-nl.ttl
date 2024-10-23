@@ -653,7 +653,7 @@ skosapnl:ConceptScheme-hasTopConcept
   sh:group skosapnl:SemanticRelationPropertyGroup ;
   sh:order 20 ;
   sh:nodeKind sh:IRI ;
-  sh:severity sh:Warning ; 
+  sh:severity sh:Warning ;
   sh:path skos:hasTopConcept .
 
 skosapnl:ConceptScheme-comment

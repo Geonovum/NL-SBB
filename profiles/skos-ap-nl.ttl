@@ -832,4 +832,4 @@ skosapnl:OrphanConcept
       ?this skos:broader | ^skos:broader | skos:narrower | ^skos:narrower | skos:related | ^skos:related ?other .
       }
     }""" ;
-  sh:severity sh:Warning .
+  sh:severity sh:Info .

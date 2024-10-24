@@ -1,0 +1,1 @@
+Dit document bevat best practices en optionele uitbreidingen voor de Standaard voor het beschrijven van begrippen [[NLSBB]]. 

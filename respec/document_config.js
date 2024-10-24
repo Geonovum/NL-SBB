@@ -25,7 +25,7 @@ var documentConfig =
   title: "NL-SBB - Standaard voor het beschrijven van begrippen",
   shortName: "nl-sbb",
   pubDomain: "NL-SBB",
-  specStatus: "vv",
+  specStatus: "wv",
   specType: "st",
   license: "cc-by",
   latestVersion: [

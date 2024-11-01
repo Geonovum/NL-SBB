@@ -1,0 +1,84 @@
+Verslag werkgroep NL-SBB 31-10-2024
+
+Afgemeld: Rick(CROW), Linda van den Brink (Geonovum), Nicole Groot Nibbelink (Belastingdienst)
+
+Aanwezig: Arjen Santema (Kadaster), Jesse Bakker (Kadaster), Kees Trautwein(Logius), Martijn Wisse (Ministerie van Justitie en Veiligheid), Frank Terpstra(Geonovum), Hans Overbeek(Koop), Frans van der Zande(Logius), Tanja Ronzhina (Geonovum),Wijnand van Riel(IHW), Pano Maria(Skemu), Ad Termaat(Belastingdienst)
+
+
+1) Mededelingen
+
+   * status standaard (Frank, Jesse)
+   Expertbijeenkomst forum standaardisatie heeft plaatsgevonden. Positief advies van de expertgroep. Vervolg: publike consulatie van verslag, behandeling door het forum, als alles goed gaat vaststelling door OBDO in mei.
+   
+   * beheer (Frank)
+   Eerste gesprekken implementatieervaringen met belastingdienst en Logius geweest. Verslag wordt nog gemaakt en volgt na afstemming met betrokken partijen.
+   Plannen voor volgend jaar besproken met BZK. Zou moeten passen binnen beschikbare financiering.
+ 
+2) Verslag en actiepunten vorige keer
+
+Verslag Akkoord
+
+   * Actie Frank: issues nog overzetten
+   openstaande issues zijn overgezet met link naar oorpronkelijk isseu op PLDN (afgerond)
+
+   vervolgactie Frank, in readme toelichten dat oude gesloten issues te vinden zijn op PLDN
+   
+   * Actie Linda: H5 en H6 uitsplitsen in een apart document. In leeswijzer verwijzing naar H4 corrigeren(evt ook markdown bestand). Nogmaals doorlezen tekst op inconsistenties.
+   Is afgerond, 
+   vervolgactie: details opgeschonen, toevoeging aan de readme, errors en warnings in respec wegwerken, links goed laten werken.
+   
+   * Actie Linda: [Issue #2](https://github.com/Geonovum/NL-SBB/issues) van Ad Gerrits besproken verwerking wordt gedeeltelijk meegenomen in laatste redactionele slag.
+   nog open
+   
+   * [Issue 29](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues/29) Uitwerking Organisatie metadata. Voorbereiding in werkgroepje OLV Kees Trautwein met Pano, Marco en Jesse/Arjen. Voor verdere uitwerking. Metadata voor regels, modellen etc.. zouden met elkaar in lijn moeten zijn. Marco doet graag mee. DONL (DCAT voor data.overheid.nl) RONL (DCAT voor regels.overheid.nl). Hiervoor contact zoeken met Steven Gort(ICTU) en Toine Schijvenaars (NORA expertgroep begrippen) - zie agendapunt 3).
+   (sub) werkgroep aantal maal bijeengekomen, zie agendapunt 3. Issue is nog open.
+   
+   * Actie Nicole, Fred: voor de URI strategie zijn er EU stukken voor waar je naar zou kunnen verwijzen. De Belastingdienst heeft hier een uitwerking van in het Nederlands die gedeeld kan worden (afgerond).
+   
+   * Actie Nicole, Arjen, Kees: Hoe om te gaan met collecties (af te stemmen met MIM community waar voor waardelijsten hetzelfde speelt) Hoe om te gaan met waardelijsten. Het zijn twee gerelateerde onderwerpen maar wel apart te behandelen. wordt later opgepakt na afronding Organisatie Metadata. Voorbereiding in klein werkgroepje door Nicole, Arjen, Kees - zie agendapunt 4).
+   
+   * Actie Frank: begrippenkader op staging.definities.geostandaarden hanteert nog de oude titel. Dit moet geüpdatet worden naar de nieuwe titel (afgerond).
+   
+   * Actie Arjen: presentatie in MIM community en afstemmen met Danny Greefhorst over NL-SBB community - zie ook agendapunt 7. (afgerond)
+   
+3) stand van zaken metadata (Kees)
+
+Werkgroep 2x bijeen geweest in oktober. Drie soorten metadatsets benoemd: beheerdataset, provenancedataset, publiecatiedataset, welke properties zijn er bruikbaar. DCAT niet geschikt voor provenance. Resultaat zal worden een set met aanbevolen metadata.
+Zie https://github.com/Geonovum/NL-SBB/tree/main/sessies/metadata/verslagen voor verslagen van de werkgroep. 
+
+4) stand van zaken collecties en waardelijsten (Kees)
+
+Twee overleggen geweest, helaas belanstingdienst door fout in uitnodiging niet aanwezig geweest bij tweede overleg.  Er zijn veel verschillende soorten waardelijsten, niet allemaal bevatten ze begrippen. Wanneer zet je collecties in en wanneer zet je begrippenkaders in? Arjen gaat dit laatste verwoorden. 3e overleg is gepland. In dit overleg gaan we beter definieëren wat opgeleverd wordt en of alle usecases vanuit scope NL-SBB daarmee gedekt worden.
+Zie https://github.com/Geonovum/NL-SBB/tree/main/sessies/collecties-en-waardelijsten/verslagen voor verslagen van de werkgroep.
+
+5) Openstaande issues
+
+Zie tijdens de vergadering bijgewerkte en aangemaakte issues op github https://github.com/Geonovum/NL-SBB/issues
+
+6) Stand van zaken [Beheerplan](https://github.com/Geonovum/NL-SBB/blob/main/sessies/agenda/beheerplan%20standaard%20voor%20beschrijven%20van%20begrippen-deinitief.pdf)
+
+Zie mededelingen over beheer bovenaan verslag.
+
+7) Organisatie werkgroep <-> community 2025 en verder
+
+   * kernteam voor doorontwikkeling <-> klankbordgroep en/of community
+   pragmatische aanpak, grotere groep waar per onderwerp mensen in klein verband iets uitwerken.
+   Voorlopy werken we aan een 1.1 versie
+
+   * gezamenlijk evenement met MIM. Hierbij optrekken met FDS en forum standaardisatie in communicatie en afstemming qua evenementen. Instituut beeld en geluid, termennetwerk NDE, leveranciers tooling, KNVI als mediapartner
+
+8) W.v.v.t.k.
+
+Versionering, we gaan in volgende gepubliceerde versies expliciet het versienummer in de publicatie opnemen. Direct zichtbaar bovenin de standaard.
+
+Actielijst:
+
+*	Actie Frank, in readme toelichten dat oude gesloten issues te vinden zijn op PLDN
+
+*	Actie beheer, na uitsplitsen document: details opgeschonen, toevoeging aan de readme, errors en warnings in respec wegwerken, links goed laten werken.
+
+*	Actie Linda: [Issue #2](https://github.com/Geonovum/NL-SBB/issues) van Ad Gerrits besproken verwerking wordt gedeeltelijk meegenomen in laatste redactionele slag.
+
+*	Actie Kees Trautwein met Pano, Marco en Jesse/Arjen [Issue 29](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues/29) Uitwerking Organisatie metadata.
+
+*	Actie Nicole, Arjen, Kees: Hoe om te gaan met collecties (af te stemmen met MIM community waar voor waardelijsten hetzelfde speelt) Hoe om te gaan met waardelijsten.

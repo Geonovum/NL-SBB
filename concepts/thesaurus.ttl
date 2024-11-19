@@ -7,6 +7,7 @@
 @prefix beg-sbb: <http://begrippen.nlbegrip.nl/sbb/id/concept/> .
 @prefix begkr-sbb: <http://begrippen.nlbegrip.nl/id/begrippenkader/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 # DIT BEGRIPPENKADER
 

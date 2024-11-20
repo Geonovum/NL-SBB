@@ -1,3 +1,5 @@
+<zie ook waardelijsten.md>
+
 Het NL-SBB werkgroepje "Collectie en waardenlijsten" is tot een aantal conclusies gekomen.
 
 # Uitangspunten

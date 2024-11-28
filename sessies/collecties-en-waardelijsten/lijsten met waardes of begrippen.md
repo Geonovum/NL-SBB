@@ -2,7 +2,7 @@
 
 Het NL-SBB werkgroepje "Collectie en waardenlijsten" is tot een aantal conclusies gekomen.
 
-# Uitangspunten
+# Uitgangspunten
 We willen aansluiten op afspraken en standaarden die elders al worden gebruikt. Daarvoor kijken we met name naar:
 https://standaarden.overheid.nl/tooi/doc/tooi-waardelijstontologie/#subklassen-van-tooiontwaardelijst voor Registerwaardelijsten vs Conceptwaardelijsten
 https://interoperable-europe.ec.europa.eu/sites/default/files/custom-page/attachment/methodology_and_tools_for_metadata_governance_and_management_for_eu_institutions.pdf

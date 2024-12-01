@@ -32,13 +32,13 @@ Een dataset kan in DCAT zowel betrekking hebben op een versie van een dataset al
 |beschrijving|[description](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-description)|[dct:description](http://purl.org/dc/terms/description)|1..n|Verplicht||
 |distributie|[distribution](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-dataset-distribution)|[dct:distribution](http://www.w3.org/ns/dcat#distribution)|0..n|Conditioneel|Verplicht voor elk formaat waarin de publicatie beschikbaar wordt gesteld|
 |identificatie|[identifier](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-identifier)|[dct:identifier](http://purl.org/dc/terms/identifier)|1..1|Verplicht||
-|naam|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|[rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)|1..n|**Verplicht**|Gelijk aan «titel»|
+|*naam*|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|[rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)|1..n|**Verplicht**|Gelijk aan «titel»|
 |trefwoord|[keyword](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-keyword)|[dcat:keyword](http://www.w3.org/ns/dcat#keyword)|0..n|Aanbevolen||
 |webpagina|[landing page](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-landing-page)|[dcat:landingPage](http://www.w3.org/ns/dcat#landingPage)|**1**..n|**Verplicht**|Dit is de webpagina waar de publicatie gevonden kan worden|
 |taal|[language](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-language)|[dct:language](http://purl.org/dc/terms/language)|0..n|Aanbevolen||
 |*licentie*|[license](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-licence)|[dct:license](http://purl.org/dc/terms/license)|0..1|Conditioneel|Verplicht, tenzij de licentie verschilt per distributie. De verwachting is dat dit vrijwel nooit zal gebeuren en in veel gevallen zal hier de categorie [«publiek domein»](http://creativecommons.org/publicdomain/mark/1.0/deed.nl) gekozen zijn.|
-|versiedatum|[modification date](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-modification-date)|[dct:modified](http://purl.org/dc/terms/modified)|0..1|**Aanbevolen**|Aanbevolen is om deze altijd te gebruiken|
-|*voorgaande versie*|[previous version](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_previous_version)|[dcat:previousVersion](https://www.w3.org/ns/dcat#previousVersion)|0..1|Optioneel|Gebruik deze om de vorige versie van deze publicatieset aan te geven, bijvoorbeeld een vorige ter review aangeboden versie. Gebruik juist [dct:replaces](http://purl.org/dc/terms/replaces) om de verbinding te leggen met eerder gepubliceerde versies.|
+|versiedatum|[modification date](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-modification-date)|[dct:modified](http://purl.org/dc/terms/modified)|0..1|**Aanbevolen**|Aanbevolen is om deze altijd te gebruiken. Mag gelijk zijn aan «publicatiedatum»|
+|*voorgaande versie*|[previous version](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_previous_version)|[dcat:previousVersion](https://www.w3.org/ns/dcat#previousVersion)|0..1|Optioneel|Gebruik deze om de vorige versie van deze publicatieset aan te geven, bijvoorbeeld een vorige ter review aangeboden versie. Gebruik juist «vervangt» om de verbinding te leggen met eerder gepubliceerde versies.|
 |uitgever|[publisher](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-publisher)|[dct:publisher](http://purl.org/dc/terms/publisher)|1..1|Verplicht||
 |publicatiedatum|[release date](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-release-date)|[dct:issued](http://purl.org/dc/terms/issued)|0..1|**Conditioneel**|Verplicht indien sprake is van een (definitieve) publicatie|
 |*vervangt*|[replaces](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_replaces)|[dct:replaces](http://purl.org/dc/terms/replaces)|0..n|Optioneel|Gebruik deze om van een publicatieversie aan te geven welke (oudere) publicatie(s) deze vervangt.|
@@ -48,7 +48,7 @@ Een dataset kan in DCAT zowel betrekking hebben op een versie van een dataset al
 |versie|[version](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-version)|[dcat:version](http://www.w3.org/ns/dcat#version)|0..1|**Aanbevolen**|Aanbevolen wordt om naast de publicatiedatum ook een versie(aanduiding) op te nemen.|
 |versienotities|[version notes](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-version-notes)|[adms:versionNotes](http://www.w3.org/ns/adms#versionNotes)|0..n|Optioneel||
 
-Ter volledigheid geeft onderstaande tabel aan wat de afwijkingen zijn ten opzichte van [DCAT-AP-NL3.0](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30):
+Ter volledigheid geeft onderstaande tabel aan wat de aanpassingen zijn ten opzichte van [DCAT-AP-NL3.0](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30). Waar rubrieken niet zijn gebruikt, betreffen dit altijd rubriek die optioneel zijn in DCAT-AP-NL3.0:
 
 |Naam in DCAT-AP-NL3.0|Afwijking|Rationale|
 |---------------------|---------|---------|
@@ -60,7 +60,7 @@ Ter volledigheid geeft onderstaande tabel aan wat de afwijkingen zijn ten opzich
 |[HVD category](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-hvd-category)|Niet gebruikt|Niet van toepassing voor begrippen|
 |[in series](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-in-series)|Niet gebruikt|Weinig zinvol bij begrippen|
 |[is reference by](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-is-referenced-by)|Niet gebruikt|Nu nog niet in gebruik. Mogelijk zou je dit kunnen gebruiken om lineage mee te beschrijven met een MIM-model|
-|[label]((https://www.w3.org/TR/rdf11-schema/#ch_label))|Toegevoegd|Het is een best-practice om altijd een rdfs:label toe te voegen aan een resource, zoals de naam van een html-link bij een URL. Dit is in DCAT niet expliciet opgenomen, in NL-SBB is dit expliciet gemaakt om deze best-practice niet te vergeten|
+|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|Toegevoegd|Het is een best-practice om altijd een rdfs:label toe te voegen aan een resource, zoals de naam van een html-link bij een URL. Dit is in DCAT niet expliciet opgenomen, in NL-SBB is dit expliciet gemaakt om deze best-practice niet te vergeten|
 |[landing page](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-landing-page)|Verplicht gemaakt|Dit moet de pagina zijn waar de publicatie te vinden is|
 |[license](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-licence)|Herstelt vanuit DCAT|Voor begrippen is een licentie op dataset-niveau in de meeste gevallen voldoende (en niet nodig om dit per distributie te specificeren)|
 |[modification date](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-modification-date)|Aanbevolen gemaakt|Bij begrippen is deze eigenschap vaak duidelijk en bijzonder relevant|
@@ -90,14 +90,14 @@ Publicaties van begripsbeschrijvingen behoren niet alleen als voor mensen leesba
 |toegangs-URL|[access URL](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-access-url)|[dcat:accessURL](http://www.w3.org/ns/dcat#accessURL)|1..1|Verplicht|Mag gelijk zijn aan download-URL|
 |download-URL|[download URL](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-download-url)|[dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)|0..1|**Conditioneel**|Verplicht indien de distributie te downloaden is. Dit zal vrijwel altijd het geval zijn|
 |bestandsformaat|[format](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-format)|[dct:format](http://purl.org/dc/terms/format)|0..1|Optioneel||
-|naam|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|[rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)|1..n|**Verplicht**|Aanbevolen is om deze gelijk te maken aan «bestandsindeling» of aan «titel» als hiervoor is gekozen.|
+|*naam*|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|[rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)|1..n|**Verplicht**|Aanbevolen is om deze gelijk te maken aan «bestandsindeling» of aan «titel» als hiervoor is gekozen.|
 |taal|[language](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-language)|[dct:language](http://purl.org/dc/terms/language)|0..1|Aanbevolen|Aanbevolen als de distributie in één taal is en/of als distributies van elkaar gescheiden zijn door taal. Gebruik taal juist niet als sprake is van meerdere talen in één distributie|
 |licentie|[license](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-licence)|[dct:license](http://purl.org/dc/terms/license)|1..1|Verplicht|Neem deze over van de dataset indien deze per distributie niet verschilt|
 |voldoet aan schema|[linked schemas](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-linked-schemas)|[dct:conformsTo](http://purl.org/dc/terms/conformsTo)|0..n|Aanbevolen|Aanbevolen wordt om minimaal te verwijzen naar de shape-graph van NL-SBB. Daarnaast kunnen ook berichtschemas voor technische formaten worden toegevoegd|
 |bestandsindeling|[media type](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-media-type)|[dcat:mediaType](http://www.w3.org/ns/dcat#mediaType)|0..1|Conditioneel|Verplicht indien een download-URL bestaat. Dit zal vrijwel altijd het geval zijn|
 |titel|[title](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-title)|[dct:title](http://purl.org/dc/terms/title)|0..n|Optioneel|Gebruik deze als distributies meer van elkaar verschillen dan alleen de bestandsindeling|
 
-Ter volledigheid geeft onderstaande tabel aan wat de afwijkingen zijn ten opzichte van [DCAT-AP-NL3.0](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30):
+Ter volledigheid geeft onderstaande tabel aan wat de aanpassingen zijn ten opzichte van [DCAT-AP-NL3.0](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30). Waar rubrieken niet zijn gebruikt, betreffen dit altijd rubriek die optioneel zijn in DCAT-AP-NL3.0:
 
 |Naam in DCAT-AP-NL3.0|Afwijking|Rationale|
 |---------------------|---------|---------|
@@ -107,15 +107,15 @@ Ter volledigheid geeft onderstaande tabel aan wat de afwijkingen zijn ten opzich
 |[byte size](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-byte-size)|Niet gebruikt|Weinig zinvol bij begrippen|
 |[checksum](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-checksum)|Niet gebruikt|Lijkt niet nodig bij begrippen|
 |[compression format](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-compression-format)|Niet gebruikt|Weinig zinvol bij begrippen|
-|[description](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-description)|Niet gebruikt|Weinig zinvol bij distributies van begrippen, wordt op het niveau van de dataset beschreven|
+|[description](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-description)|Niet gebruikt|Weinig zinvol op het niveau van distributie|
 |[documentation](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-documentation)|Niet gebruikt|Weinig zinvol bij distributies van begrippen|
 |[download URL](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-download-url)|Conditioneel verplicht gemaakt|Bij distributies van begrippen zal er vrijwel altijd een download-URL zijn|
 |[has policy](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-has-policy)|Niet gebruikt|Weinig zinvol bij begrippen|
-|[label]((https://www.w3.org/TR/rdf11-schema/#ch_label))|Toegevoegd|Het is een best-practice om altijd een rdfs:label toe te voegen aan een resource, zoals de naam van een html-link bij een URL. Dit is in DCAT niet expliciet opgenomen, in NL-SBB is dit expliciet gemaakt om deze best-practice niet te vergeten|
+|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|Toegevoegd|Het is een best-practice om altijd een rdfs:label toe te voegen aan een resource, zoals de naam van een html-link bij een URL. Dit is in DCAT niet expliciet opgenomen, in NL-SBB is dit expliciet gemaakt om deze best-practice niet te vergeten|
 |[modification date](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-modification-date)|Niet gebruikt|Deze eigenschap wordt op het niveau van de dataset bijgehouden|
 |[packaging format](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-packaging-format)|Niet gebruikt|Weinig zinvol bij begrippen|
 |[release date](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-release-date)|Niet gebruikt|Weinig zinvol bij begrippen|
-|[rights](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-rights)|Niet gebruikt|Weinig zinvol bij distributie van begrippen|
+|[rights](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-rights)|Niet gebruikt|Weinig zinvol op het niveau van distributie|
 |[spatial resolution](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-spatial-resolution)|Niet gebruikt|Weinig zinvol bij begrippen|
-|[status](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-status)|Niet gebruikt|Weinig zinvol bij distributie van begrippen|
+|[status](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-status)|Niet gebruikt|Weinig zinvol op het niveau van distributie|
 |[temporal resolution](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-temporal-resolution)|Niet gebruikt|Weinig zinvol bij begrippen|

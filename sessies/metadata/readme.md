@@ -5,10 +5,14 @@
 - Eeerste bespreking op 20 april
 - Restart op 9 oktober 2024.
 - 2e bijeenkomst op 24 oktober
+- 3e bijeenkomst op 28 november
+- 4e bijeenkomst op 5 december, bedoeling is om dan met een definitief voorstel van de werkgroep te komen.
 
 ## Huidige conclusies en uitwerking
 
-De huidige uitwerking is opgenomen in het bestand: [Voorstel meta-informatie.xlsx](Voorstel meta-informatie.xlsx).
+Het huidige conceptvoorstel is hier te vinden: [voorstel meta-informatie.md](voorstel meta-informatie.md).
+
+Het werkdocument is opgenomen in het bestand: [Voorstel meta-informatie.xlsx](Voorstel meta-informatie.xlsx).
 
 Doelstelling is harmonisatie met (Geonovum) DCAT-AP-NL 3.0 en (W3c) DCAT-AP 3.0.
 

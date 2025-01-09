@@ -66,6 +66,8 @@ skosapnl:Concept
 
 skosapnl:SourceDocument
   a sh:NodeShape ;
+    sh:name "source document"@en, "brondocument"@nl;
+    sh:description "a document wit the source information"@en, "een brondocument"@nl;
   rdfs:comment "Een Bron is een document, of fragment van een document, die als bron dient voor een bepaald begrip."@nl ;
   rdfs:label "Brondocument"@nl ;
   sh:targetObjectsOf dct:source ;
@@ -98,6 +100,7 @@ skosapnl:ConceptScheme
   sh:name 
     "Begrippenkader"@nl ,
     "ConceptScheme"@en ;
+  sh:description "Een node shape voor begrippenkader"@nl, "A node shape for the concept scheme"@en;
   rdfs:label "ConceptScheme"@en ;
   sh:property
     skosapnl:ConceptScheme-hasTopConcept ,
@@ -124,6 +127,8 @@ skosapnl:SemanticRelationPropertyGroup a sh:PropertyGroup ;
   sh:order 2 .
 
 skosapnl:NotesPropertyGroup a sh:PropertyGroup ;
+  sh:name "Notes property group"@nl, "Notitites properties groep"@en;
+  sh:description "Deze shape beschrijvt notes"@nl, "This shapes is the notes property group shape"@en;
   rdfs:label 
     "Notes"@en, 
     "Notities"@nl ;
@@ -283,6 +288,8 @@ skosapnl:Concept-example
   sh:severity sh:Warning ;
   sh:path skos:example .
 
+
+
 skosapnl:Concept-narrowerPartitive
   a sh:PropertyShape ;
   rdfs:label "omvat"@nl ;
@@ -390,7 +397,8 @@ skosapnl:Concept-topConceptOf
   rdfs:label "is topbegrip van"@nl ;
   sh:class skos:ConceptScheme ;
   sh:group skosapnl:SemanticRelationPropertyGroup ;
-  sh:name "is topbegrip van"@nl ;
+  sh:name "is topbegrip van"@nl, "is a top concept of"@en;
+  sh:description "is top begrip van"@nl, "is a top concept of "@en;
   sh:order 23 ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Warning ;
@@ -406,7 +414,7 @@ skosapnl:Concept-altLabel
     skos:hiddenLabel ,
     skos:prefLabel ;
   sh:group skosapnl:LabelsAndDescriptionPropertyGroup ;
-  sh:name "alternatieve term"@nl ;
+  sh:name "alternatieve term"@nl, "alternative name"@en ;
   sh:datatype rdf:langString ;
   sh:order 1 ;
   sh:nodeKind sh:Literal ;
@@ -419,7 +427,7 @@ skosapnl:Concept-broaderGeneric
   sh:class skos:Concept ;
   sh:description "Relateert een begrip aan een meer generieker begrip"@nl ;
   sh:group skosapnl:Iso-thesRelationships ;
-  sh:name "is specialisatie van"@nl ;
+  sh:name "is specialisatie van"@nl, "is specialization of"@en;
   sh:order 51 ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Warning ;
@@ -429,9 +437,9 @@ skosapnl:Concept-narrowerGeneric
   a sh:PropertyShape ;
   rdfs:label "Is generalisatie van"@nl ;
   sh:class skos:Concept ;
-  sh:description "Relateert een begrip aan een meer specifieker begrip"@nl ;
+  sh:description "Relateert een begrip aan een meer specifieker begrip"@nl, "Related a concept to a more specific concept"@en ;
   sh:group skosapnl:Iso-thesRelationships ;
-  sh:name "is generalisatie van"@nl ;
+  sh:name "is generalisatie van"@nl, "is generalisation of"@en ;
   sh:order 52 ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Warning ;

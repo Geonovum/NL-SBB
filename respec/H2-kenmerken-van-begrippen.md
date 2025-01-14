@@ -350,7 +350,7 @@ Hoewel een al dan niet transitief onderliggend of bovenliggend begrip vaak gebru
 | **definitie**        | Omvat relateert een begrip aan een minder omvattend begrip. |
 | **heeft bron** | http://purl.org/iso25964/skos-thes#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12 |
 | **toelichting** | De hiërarchische geheel-deel-relatie omvat een beperkt aantal situaties. Het gaat daarbij om situaties waarin een deel van een entiteit of systeem behoort tot een bepaald geheel. Dit geldt voor vier soorten begrippen, namelijk: (1) systemen en organen van het lichaam, (2) geografische locaties, (3) disciplines onderzoeksgebieden of (4) hiërarchische sociale structuren. De meeste andere gevallen van de geheel-deelrelatie komen niet in aanmerking voor een hiërarchische koppeling omdat het deel tot meer dan één geheel kan behoren. |
-| **voorbeeld** | (1) een bloedvat kan een slagader zijn, (2) in de provincie Utrecht ligt Amersfoort, (3) biologie heeft als discipline zoölogie, (4) een legereenheid kan een bataljon zijn. Fout is de omvat relatie tussen een fiets en een wiel omdat een loopfiets bijvoorbeeld geen wielen heeft. |
+| **voorbeeld** | (1) een bloedvat kan een slagader zijn, (2) in de provincie Utrecht ligt Amersfoort, (3) biologie heeft als discipline zoölogie, (4) een legereenheid kan een bataljon zijn. Fout is de omvat relatie tussen een fiets en de trappers omdat een loopfiets bijvoorbeeld geen trappers heeft. |
 | **code** | NTP |
 
 </br> 

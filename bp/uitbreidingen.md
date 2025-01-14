@@ -1,6 +1,6 @@
 # Uitbreidingen
 
-De hieronder beschreven uitbreidingen vallen buiten de scope van standaard begrippelijsten, taxonomieën en thesauri. De beschrijvingen zijn hier opgenomen als voorbeeld van een uitbreiding op een standaard thesaurus.
+De hieronder beschreven uitbreidingen vallen buiten de scope van standaard begrippenlijsten, taxonomieën en thesauri. De beschrijvingen zijn hier opgenomen als voorbeeld van een uitbreiding op een standaard thesaurus.
 
 ## Aanvullingen
 Voor specifieke domeinen kan het handig zijn om de samenhang van begrippen gedetailleerder te beschrijven dan in een standaard thesauri. Dat kan door begrippen en/of relaties nader te typeren. Op zo'n manier voldoet het betreffende domein aan de hier beschreven standaard en kan de aanvullende informatie worden meegenomen. Voor de hieronder genoemde uitbreidingen geldt dat vastgesteld is dat sprake is van een aanvulling op de voorliggende standaard. Dergelijke nieuwe aanvullingen kunnen aangemeld worden via een [melding](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues/new)). Domeinen die gebruik maken van een dergelijke aanvulling worden geadviseerd hiervan gebruik te maken, zodat een dergelijke vaststelling als uitbreiding kan worden opgenomen. Daarmee wordt de toepassing van dergelijke uitbreidingen ook voor anderen bruikbaar.

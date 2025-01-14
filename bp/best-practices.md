@@ -276,7 +276,7 @@ Om versiebeheer uit te werken, hanteren we de volgende kernprincipes die we hier
 2. Om het over een onderwerp te kunnen hebben, zul je er aan moeten kunnen refereren.
 3. Onderwerpen kunnen gerelateerd aan elkaar zijn, hiervoor zijn geen gegevens nodig.
 4. We versioneren gegevens, niet de onderwerpen waarover de gegevens gaan.
-5. Als we het over de gegevens *zelf* hebben, dan hebben we het over meta-gegevens.
+5. Als we de gegevens zelf beschrijven, doen we dat met meta-gegevens.
 6. Van één onderwerp kunnen er meerdere gegevensobjecten zijn.
 7. De eenheid van beheer bestaat uit één of meerdere gegevensobjecten.
 

@@ -21,20 +21,21 @@ Een conclusie is dat waardelijst een verkeerde term is. Het is beter is ondersch
 
 * Referentielijsten, die zelf uit twee soorten kunnen bestaan: 
 	* Lijsten met referenties naar *dingen*.
-    * Een voorbeeld hiervan is de lijst met Nederlandse gemeenten. Dit zijn instanties van de klasse gemeente. Gemeenten met hun bestuurlijke gebieden en andere relevante kenmerking worden in een of ander informatiesysteem bijgehouden. Vanuit zo'n registratie wordt een lijst gepubliceerd die buiten de context van dat systeem kan worden gebruikt. 
+
+   		* Een voorbeeld hiervan is de lijst met Nederlandse gemeenten. Dit zijn instanties van de klasse gemeente. Gemeenten met hun bestuurlijke gebieden en andere relevante kenmerking worden in een of ander informatiesysteem bijgehouden. Vanuit zo'n registratie wordt een lijst gepubliceerd die buiten de context van dat systeem kan worden gebruikt. 
 	* Lijsten met referenties naar begrippen (concepten).
-    * Een voorbeeld hiervan is de lijst met zakelijke rechten in de Basisregistratie Kadaster. Dit deze bevat verwijzingen naar de betreffende concepten, die worden gedefieerd en uitgelegd in het begippenkader voor deze basisregistratie.
+		* Een voorbeeld hiervan is de lijst met zakelijke rechten in de Basisregistratie Kadaster. Dit deze bevat verwijzingen naar de betreffende concepten, die worden gedefieerd en uitgelegd in het begippenkader voor deze basisregistratie.
 * 'zuivere' waardelijsten, dat wil zeggen Lijsten met termen en/of bijbehorende codes.  Volgens naamgeving NEN3610: 
 	* Enumeraties: intern beheerd.
-    * Enumeraties worden als onderdeel van het informatiemodel beheerd. Vaak wordt de keuze man/vrouw/x/onbekend als enumeratie opgenomen.
-    * Enumeraties worden gebruikt voor coderingen die vrijwel nooit veranderen en daarmee geen eigen beheersysteem nodig hebben.
-    * Enumeraties horen op de laag van de technische oplossing. Enumeraties vind je in databases en Front-end e.d.
-    * Het kan zijn dat een partij een koppeling bijhoudt tussen een lijst van begrippen en een enumeratie in een (IT) oplossing, maar binnen NL-SBB doen we daarover geen uitspraak. In NL-SBB hebben we het dus niet over enumraties.
+    		* Enumeraties worden als onderdeel van het informatiemodel beheerd. Vaak wordt de keuze man/vrouw/x/onbekend als enumeratie opgenomen.
+   		 * Enumeraties worden gebruikt voor coderingen die vrijwel nooit veranderen en daarmee geen eigen beheersysteem nodig hebben.
+   		 * Enumeraties horen op de laag van de technische oplossing. Enumeraties vind je in databases en Front-end e.d.
+    		* Het kan zijn dat een partij een koppeling bijhoudt tussen een lijst van begrippen en een enumeratie in een (IT) oplossing, maar binnen NL-SBB doen we daarover geen uitspraak. In NL-SBB hebben we het dus niet over enumraties.
 	* Codelijsten: extern beheerd.
-    * Codelijsten zijn vergelijkbaar met enumeraties, maar worden als lijstje buiten het informatiemodel beheerd.
-    * Daardoor hoeft bij een nieuwe, gewijzigde of vervallen code geen nieuwe versie van het informatiemodel te worden gemaakt.
-    * Een voorbeeld is het AfsluitmiddelType in de aquo standaard, met als waarden 'niet afsluitbaar', 'tolklep', 'terugslagklep', 'schuif', 'zandzakken', 'schotbalk sponning', 'deur'.  Deze termen worden niet gedefinieerd, hoewel je dat hier wel zou kunnen doen ze ook kunnen worden opgevat als begrippen.
-    * Een ander voorbeeld is de breedteklasse in de Basisregistratie Topografie (0,5 - 3 meter, 3 - 6 meter, 6 - 12 meter, 12 - 50 meter, 50 - 125 meter, > 125 meter). Dit is letterlijk een lijstje met waarden (van de breedteklasse).
+   		* Codelijsten zijn vergelijkbaar met enumeraties, maar worden als lijstje buiten het informatiemodel beheerd.
+  		  * Daardoor hoeft bij een nieuwe, gewijzigde of vervallen code geen nieuwe versie van het informatiemodel te worden gemaakt.
+  			  * Een voorbeeld is het AfsluitmiddelType in de aquo standaard, met als waarden 'niet afsluitbaar', 'tolklep', 'terugslagklep', 'schuif', 'zandzakken', 'schotbalk sponning', 'deur'.  Deze termen worden niet gedefinieerd, hoewel je dat hier wel zou kunnen doen ze ook kunnen worden opgevat als begrippen.
+  			  * Een ander voorbeeld is de breedteklasse in de Basisregistratie Topografie (0,5 - 3 meter, 3 - 6 meter, 6 - 12 meter, 12 - 50 meter, 50 - 125 meter, > 125 meter). Dit is letterlijk een lijstje met waarden (van de breedteklasse).
 
 Enumeraties en codelijsten vallen buiten het kader van NL-SBB. 
 Referentielijsten met referenties naar 'dingen' kennen een informatiemodel conform MIM en vallen eveneens buiten het kader van NL-SBB.

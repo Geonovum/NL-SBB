@@ -1,6 +1,6 @@
 # Standaard voor het beschrijven van begrippen (NL-SBB)
 
-Deze repository is voortgekomen de activiteiten voor de PLDN Werkgroep Nederlands profiel voor stelselcatalogi. Historische issues zijn nog te vinden op de [gearviveerde PLDN github](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues?q=is%3Aissue). Inmiddels is de standaard in beheer bij Geonovum en faciliteert zij ook de werkgroep, ook actuele issues zijn in deze Github te vinden.
+Deze repository is voortgekomen de activiteiten voor de PLDN Werkgroep Nederlands profiel voor stelselcatalogi. Historische issues zijn nog te vinden op de [gearchiveerde PLDN github](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues?q=is%3Aissue). Inmiddels is de standaard in beheer bij Geonovum en faciliteert zij ook de werkgroep, ook actuele issues zijn in deze Github te vinden.
 
 De werkversie van het profiel is te vinden op [https://geonovum.github.io/NL-SBB/](https://geonovum.github.io/NL-SBB/).
  

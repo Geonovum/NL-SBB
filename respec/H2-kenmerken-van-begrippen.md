@@ -13,7 +13,7 @@ In [2.6](#collectie) beschrijven we hoe begrippen los van hun semantische samenh
 
 ## Conventies
 * Het beschrijven van de kenmerken van een *begrip*, *begrippenkader* of *collectie* doen we conform onze eigen standaard (practice what you preach). Dat betekent dat we voor ieder kenmerk van een begrip de volgende kenmerken beschrijven:
-  * [=voorkeursterm=]. De Engelse term nemen we over uit SKOS, maar soms ook uit een daarmee samenhangende standaard zoals iso-thes. In het profiel geven we de Nederlandse definitie.
+  * [=voorkeursterm=]. De Engelse term nemen we over uit SKOS, maar soms ook uit een daarmee samenhangende standaard zoals iso-thes. In het profiel geven we de Nederlandse voorkeursterm.
   * [=definitie=]. De definitie in het Engels nemen we over uit SKOS of een daarmee samenhangende standaard. In het profiel geven we de Nederlandse definitie. 
   * [=toelichting=]. De toelichting in het Engels nemen we over uit SKOS of een daarmee samenhangende standaard. De ISO 25964 geeft vaak ook een waardevolle (Engelse) toelichting. De ISO 25964 geeft zelf aan dat de toelichting misschien nog wel belangrijker is dan de definitie. Zowel de SKOS- als de ISO toelichting zijn naar het Nederlands vertaald.
   * [=code=]. De ISO 25964 hanteert voor een groot aantal concepten een code. Bij de concepten waarvoor deze ISO standaard een code kent wordt deze code meegegeven.
@@ -53,7 +53,7 @@ Begrippen kunnen als zelfstandige entiteiten worden gezien, maar meestal worden 
 
 </br>
 
-Een perceel in de Basisregsitratie Kadaster is een ander begrip dan een perceel in een boek over wisselteelt. Een begrippenkader is vergelijkbaar met een taal die in een bepaald gebied gesproken wordt. Net als een reguliere taal is een begrippenkader een open systeem. Zo kan een taal ook groeien na introductie van nieuwe woorden vanuit talen uit nabijgelegen gebieden. Dat wil zeggen dat een begrippenkader, net als een taal, naast vertalingen (mappings) ook leenwoorden kent. Zoals "computer", een van origine Engels woord, ook behoort tot de Nederlandse taal. Het beschrijven van welke begrippen behoren tot een begrippenkader is essentieel; maar hoe deze 'vertaald' kunnen worden naar begrippen uit andere begrippenkaders ook. Voor dit laatste gebruiken we [=harmonisatierelatie=]s.
+Een perceel in de Basisregistratie Kadaster is een ander begrip dan een perceel in een boek over wisselteelt. Een begrippenkader is vergelijkbaar met een taal die in een bepaald gebied gesproken wordt. Net als een reguliere taal is een begrippenkader een open systeem. Zo kan een taal ook groeien na introductie van nieuwe woorden vanuit talen uit nabijgelegen gebieden. Dat wil zeggen dat een begrippenkader, net als een taal, naast vertalingen (mappings) ook leenwoorden kent. Zoals "computer", een van origine Engels woord, ook behoort tot de Nederlandse taal. Het beschrijven van welke begrippen behoren tot een begrippenkader is essentieel; maar hoe deze 'vertaald' kunnen worden naar begrippen uit andere begrippenkaders ook. Voor dit laatste gebruiken we [=harmonisatierelatie=]s.
 
 |                       |                                       |
 |-----------------------|---------------------------------------|
@@ -208,7 +208,7 @@ De volgende notities zijn aanvullende documentaire notities.
 | **voorkeursterm**   | <dfn>wijzigingsnotitie</dfn> |
 | **definitie**        | Een wijzigingsnotitie is een notitie over een wijziging aan het begrip. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes |
-| **toelichting** | Een wijzigingsnota documenteert fijnmazige wijzigingen aan een begrip, ten behoeve van beheer en onderhoud. |
+| **toelichting** | Een wijzigingsnotitie documenteert fijnmazige wijzigingen aan een begrip, ten behoeve van beheer en onderhoud. |
 
 </br> 
 
@@ -350,7 +350,7 @@ Hoewel een al dan niet transitief onderliggend of bovenliggend begrip vaak gebru
 | **definitie**        | Omvat relateert een begrip aan een minder omvattend begrip. |
 | **heeft bron** | http://purl.org/iso25964/skos-thes#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12 |
 | **toelichting** | De hiërarchische geheel-deel-relatie omvat een beperkt aantal situaties. Het gaat daarbij om situaties waarin een deel van een entiteit of systeem behoort tot een bepaald geheel. Dit geldt voor vier soorten begrippen, namelijk: (1) systemen en organen van het lichaam, (2) geografische locaties, (3) disciplines onderzoeksgebieden of (4) hiërarchische sociale structuren. De meeste andere gevallen van de geheel-deelrelatie komen niet in aanmerking voor een hiërarchische koppeling omdat het deel tot meer dan één geheel kan behoren. |
-| **voorbeeld** | (1) een bloedvat kan een slagader zijn, (2) in de provincie Utrecht ligt Amersfoort, (3) biologie heeft als discipline zoölogie, (4) een legereenheid kan een bataljon zijn. Fout is de omvat relatie tussen een fiets en een wiel omdat een loopfiets bijvoorbeeld geen wielen heeft. |
+| **voorbeeld** | (1) een bloedvat kan een slagader zijn, (2) in de provincie Utrecht ligt Amersfoort, (3) biologie heeft als discipline zoölogie, (4) een legereenheid kan een bataljon zijn. Fout is de omvat relatie tussen een fiets en de trappers omdat een loopfiets bijvoorbeeld geen trappers heeft. |
 | **code** | NTP |
 
 </br> 
@@ -372,7 +372,7 @@ Hoewel een al dan niet transitief onderliggend of bovenliggend begrip vaak gebru
 | **definitie**        | «is categorie van» relateert een begrip, de categorie, aan een begrip dat exemplarisch is voor eerstgenoemde begrip. |
 | **heeft bron** | http://purl.org/iso25964/skos-thes#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12 |
 | **toelichting** | Bij deze instantiële relatie gaat het om begrippen die een bovengeschikte positie in een hiërarchie hebben. Het gaat hierbij om een hogere categorie van individuele voorbeelden en niet van soorten of delen van deze catagorie. |
-| **voorbeeld** | Een van de povinciehoofdsteden is Utrecht. |
+| **voorbeeld** | Een van de provinciehoofdsteden is Utrecht. |
 | **code** | NTI |
 
 </br> 

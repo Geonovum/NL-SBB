@@ -395,7 +395,7 @@ beg-sbb:NarrowerInstantial
   skos:scopeNote
     "Bij deze instantiële relatie gaat het om begrippen die een bovengeschikte positie in een hiërarchie hebben. Het gaat hierbij om een hogere categorie van individuele voorbeelden en niet van soorten of delen van deze catagorie. "@nl;
   skos:example
-    "Een van de povinciehoofdsteden is Utrecht."@nl;
+    "Een van de provinciehoofdsteden is Utrecht."@nl;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     skosthes: ;
@@ -799,7 +799,7 @@ beg-sbb:ChangeNote
     "A note about a modification to a concept."@en ,
     "Een wijzigingsnotitie is een notitie over een wijziging aan het begrip."@nl ;
   skos:scopeNote 
-    "Een wijzigingsnota documenteert fijnmazige wijzigingen aan een begrip, ten behoeve van beheer en onderhoud."@nl,
+    "Een wijzigingsnotitie documenteert fijnmazige wijzigingen aan een begrip, ten behoeve van beheer en onderhoud."@nl,
     "A change note documents fine-grained changes to a concept, for the purposes of administration and maintenance."@en ;
   dct:source
     skos: ,

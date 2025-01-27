@@ -37,7 +37,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 |                       |                                       |
 |-----------------------|---------------------------------------|
 | **voorkeursterm**   | <dfn>begrip</dfn> |
-| **definitie**        | Een begrip is een eenheid van denken - idee, betekenis of categorisering. |
+| **definitie**        | Een begrip is een eenheid van denken zoals een idee, een betekenis of een categorisering. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#concepts |
 | **toelichting** | De belangrijkste toepassing voor een begrippenkader is het ophalen van informatie, waarbij het doel is om naar begrippen te zoeken. Begrippen worden weergegeven door termen. Elke term in een thesaurus moet een enkel begrip (of denkeenheid) vertegenwoordigen. Begrippen kunnen variëren van eenvoudig (bijv. katten) tot zeer complex (bijv. rassendiscriminatie onder etnische minderheden). Samengestelde termen of zinsdelen zijn over het algemeen nodig om de meer complexe begrippen uit te drukken. |
 

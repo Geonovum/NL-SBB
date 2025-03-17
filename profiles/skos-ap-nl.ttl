@@ -160,7 +160,6 @@ skosapnl:Concept-definition
   rdfs:label "definitie"@nl ;
   sh:datatype rdf:langString ;
   sh:description
-    "A statement or formal explanation of the meaning of a concept."@en ,
     "Een definitie van een begrip is een tekstuele beschrijving van de betekenis van dit begrip waarmee het begrip kan worden onderscheiden van andere begrippen."@nl, "A statement or formal explanation of the meaning of a concept."@en ;
   sh:group skosapnl:DefinitionPropertyGroup ;
   sh:minCount 1 ;
@@ -270,8 +269,8 @@ skosapnl:Concept-example
     "An example of the use of a concept."@en ,
     "Een voorbeeld van het gebruik van het concept."@nl ;
   sh:group skosapnl:NotesPropertyGroup ;
-  sh:name 
-    "example"@en, 
+  sh:name
+    "example"@en,
     "voorbeeld"@nl ;
   rdfs:label "voorbeeld"@nl ;
   sh:order 35 ;
@@ -279,8 +278,6 @@ skosapnl:Concept-example
   sh:nodeKind sh:Literal ;
   sh:severity sh:Warning ;
   sh:path skos:example .
-
-
 
 skosapnl:Concept-narrowerPartitive
   a sh:PropertyShape ;
@@ -305,22 +302,19 @@ skosapnl:Concept-hiddenLabel
   sh:nodeKind sh:Literal ;
   sh:severity sh:Warning ;
   sh:path skos:hiddenLabel ;
-  sh:disjoint 
-    skos:altLabel , 
+  sh:disjoint
+    skos:altLabel ,
     skos:prefLabel .
 
 skosapnl:Concept-relatedMatch
   a sh:PropertyShape ;
   rdfs:label "is overeenkomstig verwant"@nl ;
   sh:class skos:Concept ;
-  sh:description 
-
+  sh:description
     "Used to state an associative mapping link between two conceptual resources in different concept schemes."@en ,
     "Relateert een begrip aan een verwant begrip uit een ander begrippenkader."@nl ;
   sh:name "is overeenkomstig verwant"@nl, "has related match"@en ;
-
   sh:group skosapnl:MatchingRelationshipsPropertyGroup ;
-  sh:name "is overeenkomstig verwant"@nl, "is correspondingly related"@en ;
   sh:disjoint skos:broadMatch ;
   sh:disjoint skos:closeMatch ;
   sh:disjoint skos:exactMatch ;
@@ -334,8 +328,7 @@ skosapnl:Concept-prefLabel
   sh:description "The preferred lexical label for a resource, in a given language."@en, "Een naam die in een specifieke taal de geprefereerde lexicale naam is."@nl ;
   rdfs:label "Voorkeursterm"@nl ;
   sh:datatype rdf:langString ;
-  sh:description "The preferred lexical label for a resource, in a given language."@en, "Het voorkeursterm voor een bron, in een bepaalde taal."@nl ;
-  sh:disjoint 
+  sh:disjoint
     skos:altLabel ;
   sh:name "voorkeursterm"@nl, "preferred label"@en;
   sh:group skosapnl:LabelsAndDescriptionPropertyGroup ;
@@ -468,7 +461,7 @@ skosapnl:Concept-source
 
 skosapnl:Concept-comment
   a sh:PropertyShape ;
-  rdfs:comment "A description of the subject resource in simple language, at language level B1, which can be understood without further context."@en , "Een beschrijving van iets in eenvoudige taal, op taalniveau B1, die zonder verdere context begrepen kan worden."@nl ;
+  sh:description "A description of the subject resource in simple language, at language level B1, which can be understood without further context."@en , "Een beschrijving van iets in eenvoudige taal, op taalniveau B1, die zonder verdere context begrepen kan worden."@nl ;
   sh:group skosapnl:LabelsAndDescriptionPropertyGroup ;
   sh:name 
     "comment"@en ,
@@ -550,7 +543,6 @@ skosapnl:Concept-label
   sh:name "naam"@nl, "label"@en ;
   sh:order 4 ;
   sh:nodeKind sh:Literal ;
-  sh:description "Een naam is een mensleesbare term ter aanduiding van het begrip."@nl, "A word or phrase used to label the concept."@en ;
   sh:path rdfs:label .
 
 skosapnl:SourceDocument-label
@@ -687,7 +679,7 @@ skosapnl:DisjointConceptAndConceptScheme
     }""" ;
   ] .
 
-skosapnl::DisjointConceptAndCollection
+skosapnl:DisjointConceptAndCollection
   a sh:NodeShape ;
   sh:targetSubjectsOf skos:narrower ;
   sh:targetSubjectsOf skos:broader ;

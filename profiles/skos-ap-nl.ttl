@@ -718,7 +718,6 @@ skosapnl:MappingRelationsMisuse
   sh:sparql [
     sh:prefixes skosapnl: ;
     sh:message
-      "Mapping relations should be asserted to concepts being members of different concept schemes"@en ,
       "Harmonisatierelaties mogen niet gebruikt worden tussen begrippen die tot hetzelfde begrippenkader behoren."@nl ;
     sh:select """
     SELECT $this
@@ -761,7 +760,6 @@ skosapnl:SemanticRelations
 skosapnl:UnambiguousNotations
   a sh:SPARQLConstraint ;
   sh:message
-    "Duplicate notations within concept scheme"@en ,
     "Begrippen binnen een begrippenkader mogen geen codes delen."@nl ;
   sh:severity sh:Violation ;
   sh:prefixes skosapnl: ;
@@ -777,9 +775,7 @@ skosapnl:UnambiguousNotations
 
 skosapnl:UniquePreflabelWithinConceptScheme
   a sh:SPARQLConstraint ;
-  sh:message
-    "Duplicate preffered labels within concept scheme."@en ,
-    "Meerdere begrippen met dezelfde voorkeursterm binnen een begrippenkader"@nl ;
+  sh:message    "Meerdere begrippen met dezelfde voorkeursterm binnen een begrippenkader"@nl ;
   sh:severity sh:Violation ;
   sh:prefixes skosapnl: ;
   sh:select """SELECT $this

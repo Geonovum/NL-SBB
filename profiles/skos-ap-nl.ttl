@@ -19,7 +19,12 @@ skosapnl:
   sh:declare [
     sh:prefix "skos" ;
     sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-  ] .
+  ] ;
+  owl:imports
+    <http://www.w3.org/2004/02/skos/core> ,
+    <http://purl.org/iso25964/skos-thes> ,
+    dct: ,
+    foaf: .
 
 skosapnl:Concept
   a sh:NodeShape ;

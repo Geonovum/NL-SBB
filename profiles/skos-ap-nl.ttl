@@ -532,7 +532,8 @@ skosapnl:Concept-notation
   sh:order 3 ;
   sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme."@en, "Een code voor een begrip is een tekenreeks ter aanduiding van precies één begrip uit een begrippenkader."@nl ;
   sh:severity sh:Warning ;
-  sh:name "code"@nl, "notation"@en .
+  sh:name "code"@nl, "notation"@en ;
+  sh:path skos:notation .
 
 skosapnl:Concept-label
   a sh:PropertyShape ;
@@ -566,7 +567,8 @@ skosapnl:SourceDocument-comment
   sh:order 5 ;
   sh:nodeKind sh:Literal ;
   sh:severity sh:Warning ;
-  sh:description "Een beschrijving van het brondocument in eenvoudige taal, op taalniveau B1, die zonder verdere context begrepen kan worden."@nl, "A description of the source document in simple language, at language level B1, which can be understood without further context."@en .
+  sh:description "Een beschrijving van het brondocument in eenvoudige taal, op taalniveau B1, die zonder verdere context begrepen kan worden."@nl, "A description of the source document in simple language, at language level B1, which can be understood without further context."@en ;
+  sh:path rdfs:comment .
 
 skosapnl:SourceDocument-page
   a sh:PropertyShape ;
@@ -588,7 +590,8 @@ skosapnl:SourceDocument-bibliographicCitation
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:severity sh:Warning ;
-  sh:description "Een bibliografische referentie naar het brondocument."@nl, "A bibliographic reference for the resource."@en  .
+  sh:description "Een bibliografische referentie naar het brondocument."@nl, "A bibliographic reference for the resource."@en ;
+  sh:path dct:bibliographicCitation .
 
 skosapnl:Collection-label
   a sh:PropertyShape ;

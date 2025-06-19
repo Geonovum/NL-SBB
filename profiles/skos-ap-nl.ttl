@@ -21,7 +21,15 @@ skosapnl:
     sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
   ] .
 
-skosapnl:Concept
+skosapnl:ConceptIntern a sh:NodeShape;
+  sh:targetSubjectsOf skos:inScheme;
+  sh:property
+    skosapnl:Concept-prefLabel ,
+    skosapnl:Concept-inScheme ,
+    skosapnl:Concept-definition
+.
+
+skosapnl:ConceptAlgemeen
   a sh:NodeShape ;
   rdfs:comment 
     "Een abstract idee of notie."@nl, 
@@ -374,6 +382,7 @@ skosapnl:Concept-inScheme
   sh:group skosapnl:LabelsAndDescriptionPropertyGroup ;
   sh:name "in kader"@nl, "in scheme"@en;
   sh:order 6 ;
+  sh:minCount 1 ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Violation ;
   sh:path skos:inScheme .
@@ -517,6 +526,7 @@ skosapnl:Concept-closeMatch
   sh:class skos:Concept ;
   sh:group skosapnl:MatchingRelationshipsPropertyGroup ;
   sh:description "Relates two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications."@en, "Relateert twee begrippen uit verschillende begrippenkaders die zoveel op elkaar lijken dat ze in sommige toepassingen door elkaar kunnen worden gebruikt voor het ophalen van informatie. De betekenis van deze begrippen is ongeveer gelijk aan elkaar."@nl ;
+  sh:disjoint skos:broadMatch ;
   sh:disjoint skos:exactMatch ;
   sh:disjoint skos:narrowMatch ;
   sh:disjoint skos:relatedMatch ;
@@ -553,6 +563,7 @@ skosapnl:SourceDocument-label
   sh:minCount 1 ;
   sh:order 4 ;
   sh:description "Een naam is een voor mensen leesbare term ter aanduiding van het brondocument."@nl, "A word or phrase used to label the source document."@en ;
+  sh:nodeKind sh:Literal ;
   sh:severity sh:Info ;
   sh:path dct:title ;
   sh:name "naam"@nl, "label"@en .
@@ -566,7 +577,8 @@ skosapnl:SourceDocument-comment
   sh:order 5 ;
   sh:nodeKind sh:Literal ;
   sh:severity sh:Warning ;
-  sh:description "Een beschrijving van het brondocument in eenvoudige taal, op taalniveau B1, die zonder verdere context begrepen kan worden."@nl, "A description of the source document in simple language, at language level B1, which can be understood without further context."@en .
+  sh:description "Een beschrijving van het brondocument in eenvoudige taal, op taalniveau B1, die zonder verdere context begrepen kan worden."@nl, "A description of the source document in simple language, at language level B1, which can be understood without further context."@en ;
+  sh:path rdfs:comment .
 
 skosapnl:SourceDocument-page
   a sh:PropertyShape ;
@@ -588,7 +600,8 @@ skosapnl:SourceDocument-bibliographicCitation
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:severity sh:Warning ;
-  sh:description "Een bibliografische referentie naar het brondocument."@nl, "A bibliographic reference for the resource."@en  .
+  sh:description "Een bibliografische referentie naar het brondocument."@nl, "A bibliographic reference for the resource."@en ;
+   sh:path dct:bibliographicCitation .
 
 skosapnl:Collection-label
   a sh:PropertyShape ;

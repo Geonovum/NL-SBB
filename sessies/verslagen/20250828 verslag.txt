@@ -1,0 +1,55 @@
+
+# Verslag werkgroep NL-SBB 28 augustus 2025
+
+*Aanwezig:* Frank Terpstra, Tanja Rhonzina, Jesse Bakker, Jos van der Arend, Marco Brattinga, Hans Overbeek, Pano Maria,  Frans van der Zande,
+
+*Afwezig*:  Kees Trautwein, Arjen Santema, Annemieke Vliegen, Martijn Wisse
+
+## Mededelingen
+Op 4 september beslist het OBDO dat NL_SBB op de ‘pas toe of leg uit’-lijst komt. 
+Vanuit EU wordt voor de data act gewerkt aan een trusted EU data framework. Ze kijken daarbij welke standaarden er al zijn bij de lidstaten en bekijken of deze tot EU niveau kunnen worden opgetild. Een aantal van de elementen van NL-SBB zouden we daarbij kunnen inbrengen. Daarnaast ook interesse vanuit duitse ICTU voor een NL-SBB achtgie standaard. Hiervoor is er contact met ICTU.
+
+## Verslag vorige keer
+Verslag goedgekeurd
+
+## Actiepunten
+- issue 48 jesse reviewed, mogelijk meer dan één shape graph nodig. Review gedaan, actiepunt afgesloten, issue nog niet.
+- Jesse contact zoeken met ProRail. afgerond, contact is gelegd
+- aan eenieder de vraag input te leveren voor sessies voor fysiek evenement 
+
+## EA toolbox begrippenbeheer 
+We willen graag kenbaar maken dat de tooling er is. Hij is met name geschikt voor intern gebruik (niet voor publicatie op het web). Beheer door Geonovum van deze tool lijkt niet van toepassing. Daarnaast heeft justitie een tool waarmee vanuit ttl respec gegenereerd kan worden. Daar gaan we vanuit Geonovum NL-SBB naar verwijzen.
+
+## NL-SBB in de beslisboom Open Standaarden
+Op 4 september beslist het OBDO dat NL_SBB op de ‘pas toe of leg uit’-lijst komt. Dan moet NL_SBB ook naar voren komen als mensen de Beslisboom Open Standaarden invullen met een concreet ICT-project in gedachten. Ik wil jullie vragen om naar de Beslisoom Open Standaarden te kijken en mij te helpen bij het beantwoorden van onderstaande drie vragen.
+
+* Om wat voor soort opdrachten/ aanbestedingen moet het gaan in de praktijk?
+Zie voor voorbeelden van projecten hoofdstuk 2 van de Handreiking open standaarden bij aanschaf ICT | Forum Standaardisatie
+
+* Is het een standaard die we kunnen clusteren met SKOS? Dat wil zeggen, is iedere keer dat SKOS relevant is, NL_SBB ook relevant in de praktijk?
+
+* Ontbreekt in de Beslisboom nu een vraag die er echt in moet als je kijkt naar NL_SBB?
+
+We zoeken een subwerkgroepje om dit te beantwoorden:
+Frank, Hans, Jesse komen woensdag 3 september bijeen.
+
+## Releaseplanning NL-SBB
+Werkgroep akkoord met planning, Frank maakt voorstel voor tafel gegvensuitwisseling.
+Lijst met issues voor inhoudelijke release door de werkgroep gevalideerd.
+
+## Ervaringen SHACL-validatie - We gaan bevindingen delen en bespreken n.a.v. validatie van een aantal begrippenkaders.
+We gaan kritisch kijken naar violations in SHACL. Specifieke geval Meerdere begrippen met dezelfde voorkeursterm binnen een begrippenkader gaat naar warning. Beter onderscheid tussen wat geen begrippenkader is wat een slecht begrippenkader is en wat een goed begrippenkader.
+Constraint op uniekheid van preflabels binnen begrippenkader is niet goed genoeg omschreven. daarvoor is een issue.
+We gaan violations bij de SHACL beter uitleggen.
+
+Resultaten verschillen per validatie engines, misschien moeten we een engine aanbevelen. Alternatief altijd aangeven welke engine je gebruikt bij validatie resultaten. 
+ 
+## Openstaande issues
+issues 66 t/m 69 doorlopen voorzien van labels en commentaar.
+issue 67 afgesloten vanwege dubbeling met #48 en #56
+
+## w.v.t.t.k.
+Jesse: Kunnen we in de doorontwikkeling kijken hoe we in de toekomst via informatiemodel kunnen borgen dat over verschillende uitwisselformaten heen consistent wordt uitgewisseld. Kandidaad voor MIM 2.0. toassingsprofiel in SHACL wordt dan MIM niveau 3. Jesse maakt issue aan voor volgende inhoudelijke release.
+
+Linda: Bij de OGC is er een call for participation voor een vocabulary service tender. https://www.ogc.org/requests/vocabulary-service-standard/ . Doel is een gestandaardiseerde API voor toegang tot vocabulaires. Geonovum gaat dit volgen/meedoen.
+

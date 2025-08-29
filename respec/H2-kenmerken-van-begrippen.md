@@ -39,7 +39,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 | **voorkeursterm**   | <dfn>begrip</dfn> |
 | **definitie**        | Een begrip is een eenheid van denken zoals een idee, een betekenis of een categorisering. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#concepts |
-| **toelichting** | De belangrijkste toepassing voor een begrippenkader is het ophalen van informatie, waarbij het doel is om naar begrippen te zoeken. Begrippen worden weergegeven door termen. Elke term in een thesaurus moet een enkel begrip (of denkeenheid) vertegenwoordigen. Begrippen kunnen variëren van eenvoudig (bijv. katten) tot zeer complex (bijv. rassendiscriminatie onder etnische minderheden). Samengestelde termen of zinsdelen zijn over het algemeen nodig om de meer complexe begrippen uit te drukken. |
+| **toelichting** | De belangrijkste toepassing voor een begrippenkader is het ophalen van informatie, waarbij het doel is om te weten wat de betekenis van een begrip is. Begrippen worden weergegeven door termen. Elke term in een thesaurus moet een enkel begrip (of denkeenheid) vertegenwoordigen. Begrippen kunnen variëren van eenvoudig (bijv. katten) tot zeer complex (bijv. rassendiscriminatie onder etnische minderheden). Samengestelde termen of zinsdelen zijn over het algemeen nodig om de meer complexe begrippen uit te drukken. |
 
 ## Begrippenkader
 Begrippen kunnen als zelfstandige entiteiten worden gezien, maar meestal worden ze opgesteld als onderdeel van een samenhangend begrippenkader. Een [=begrippenkader=] is een verzameling van [=begrip=]pen die in een bepaalde context relevant zijn. Voorbeelden van zo'n context zijn een bepaalde basisregistratie of een boek. Zo bevat het begrippenkader voor de Basisregistratie alle begrippen die in deze registratie worden gebruikt. Een ander voorbeeld is een index achterin een boek. 
@@ -199,7 +199,7 @@ De volgende notities zijn aanvullende documentaire notities.
 | **voorkeursterm**   | <dfn>voorbeeld</dfn> |
 | **definitie**        | Een voorbeeld is een notitie die meer duidelijkheid geeft over het gebruik van een begrip. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://nl.wikipedia.org/wiki/Voorbeeld, https://www.w3.org/TR/skos-reference/#notes |
-| **toelichting** | Een voorbeeld is een beschrijving van een begrip met als doel het abstracte idee toe te lichten met een concrete voorstelling. |
+| **toelichting** | Een voorbeeld heeft als doel de beschrijving van het abstracte idee toe te lichten met een concrete voorstelling van het begrip in de praktijk. |
 
 </br> 
 

@@ -72,7 +72,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
 
 Met het conceptueel model en de taalbinding die daar aan toegevoegd is kunnen we een dataspecificatie opstellen. Deze wordt in dit hoofdstuk besproken. De specificatie is ook in SHACL beschreven en is [hier](https://raw.githubusercontent.com/Geonovum/NL-SBB/refs/heads/main/profiles/skos-ap-nl.ttl) beschikbaar. 
 
-## Specificatie Begrippenkader
+## Specificatie begrippenkader
 
 Een begrippenkader wordt gerepresenteerd als een `skos:ConceptScheme`. Deze typering is verplicht.
 
@@ -86,7 +86,7 @@ Een begrippenkader wordt gerepresenteerd als een `skos:ConceptScheme`. Deze type
 | [=uitleg=]          | [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)            | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
 | [=heeft topbegrip=] | [skos:hasTopConcept](http://www.w3.org/2004/02/skos/core#hasTopConcept) | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)             |
 
-## Specificatie Begrip
+## Specificatie begrip
 
 Een begrip wordt gerepresenteerd als een `skos:Concept`. Deze typering is verplicht.
 
@@ -122,9 +122,9 @@ Een begrip wordt gerepresenteerd als een `skos:Concept`. Deze typering is verpli
 | [=is categorie van=]                  | [isothes:narrowerInstantial](http://purl.org/iso25964/skos-thes#narrowerInstantial) | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)             |
 | [=naam=]                              | [rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)                            | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
 
-## Specificatie Brondocument
+## Specificatie brondocument
 
-Een Brondocument wordt gerepresenteerd als een `foaf:Document`. Deze typering wordt aangeraden.
+Een brondocument wordt gerepresenteerd als een `foaf:Document`. Deze typering wordt aangeraden.
 
 | Conceptueel element | Eigenschap                                                                  | Kardinaliteit | Type                                                                    |
 | ------------------- | --------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------- |
@@ -133,7 +133,7 @@ Een Brondocument wordt gerepresenteerd als een `foaf:Document`. Deze typering wo
 | [=url=]             | [foaf:page](http://xmlns.com/foaf/0.1/page)                                 | 0..*          | [sh:IRI](http://www.w3.org/ns/shacl#IRI)                                |
 | [=bronverwijzing=]  | [dct:bibliographicCitation](http://purl.org/dc/terms/bibliographicCitation) | 0..*          | [xsd:string](http://www.w3.org/2001/XMLSchema#string)                   |
 
-## Specificatie Collectie
+## Specificatie collectie
 
 Een collectie wordt gerepresenteerd als een `skos:Collection`. Deze typering is verplicht.
 

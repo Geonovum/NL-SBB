@@ -484,7 +484,7 @@ Het wordt aangeraden om een brondocument altijd te beschrijven met een **[=bronv
 </br>
 
 ## Collectie
-Het gebruik van [=Collectie=]s is altijd optioneel binnen deze standaard. Collecties zijn geen onderdeel van een begrippenlijst, taxonomie of thesaurus. 
+Het gebruik van [=collectie=]s is altijd optioneel binnen deze standaard. Collecties zijn geen onderdeel van een begrippenlijst, taxonomie of thesaurus. 
 
 Collecties bieden de mogelijkheid om binnen een begrippenkader begrippen die voor hun betekenis niet direct via semantische relaties met elkaar zijn verbonden te groeperen. Zo hebben het begrip 'vervuild' dat in milieuwetgeving wordt gedefinieerd en het begrip 'landgoed' dat in de natuurschoonwet wordt gedefinieerd semantisch geen relatie. Beiden leiden tot beperkingen op het mogelijke gebruik van onroerende zaken en moeten als zodanig kenbaar worden gemaakt in het kader van de Wet Kenbaarheid Publiekrechtelijke Beperkingen (WKPB). Door deze begrippen samen te brengen in een collectie, kan er een lijst van publiekrechtelijke beperkingen worden gemaakt.
 

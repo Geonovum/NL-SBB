@@ -99,7 +99,7 @@ beg-sbb:Concept
     "A concept is a unit of thought — idea, meaning or category"@en ;
   skos:scopeNote
     "The prime application for a thesaurus is in information retrieval, where the aim is to search for concepts. Concepts are represented by terms. Each term included in a thesaurus should represent a single concept (or unit of thought). Concepts can range from the simple (e.g. cats) to the very complex (e.g. racial discrimination among ethnic minorities). Compound terms or phrases are generally needed to express the more complex concepts."@en ,
-    "De belangrijkste toepassing voor een begrippenkader is het ophalen van informatie, waarbij het doel is om naar begrippen te zoeken. Begrippen worden weergegeven door termen. Elke term in een thesaurus moet een enkel begrip (of denkeenheid) vertegenwoordigen. Begrippen kunnen variëren van eenvoudig (bijv. katten) tot zeer complex (bijv. rassendiscriminatie onder etnische minderheden). Samengestelde termen of zinsdelen zijn over het algemeen nodig om de meer complexe begrippen uit te drukken."@nl ;
+    "De belangrijkste toepassing voor een begrippenkader is het ophalen van informatie, waarbij het doel is om te weten wat de betekenis van een begrip is. Begrippen worden weergegeven door termen. Elke term in een thesaurus moet een enkel begrip (of denkeenheid) vertegenwoordigen. Begrippen kunnen variëren van eenvoudig (bijv. katten) tot zeer complex (bijv. rassendiscriminatie onder etnische minderheden). Samengestelde termen of zinsdelen zijn over het algemeen nodig om de meer complexe begrippen uit te drukken."@nl ;
   dct:source
     skos: ,
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
@@ -463,7 +463,7 @@ beg-sbb:NarrowerGeneric
   skos:scopeNote
     "The hierarchical relationship should be established between a pair of concepts when the scope of one of them falls completely within the scope of the other. It should be based on degrees or levels of superordination and subordination, where the superordinate concept represents a class or whole, and subordinate concepts refer to its members or species. A generalization is used when it is relevant to distinguish the relation from a partial or instantaneous hierarchical relation."@en,
     "De hiërarchische relatie tussen een paar begrippen wordt gebruikt wanneer de reikwijdte van het ene begrip volledig binnen de reikwijdte van het andere begrip valt. Deze relatie is gebaseerd op graden of niveaus van bovenliggend en onderliggend, waarbij het bovenliggende concept een klasse of geheel vertegenwoordigt, en onderliggende begrippen verwijzen naar haar leden of soorten. Een generalisatie wordt gebruikt wanneer het relevant is om deze relatie te onderscheiden van een partiële of instantiële hiërarchische relatie."@nl;
-  skos:example: "Een pers is een kat en een kat is een dier."@nl;
+  skos:example "Een pers is een kat en een kat is een dier."@nl;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     skosthes: ;
@@ -754,7 +754,7 @@ beg-sbb:Example
     "An example of the use of a concept."@en ,
     "Een voorbeeld is een notitie die meer duidelijkheid geeft over het gebruik van een begrip."@nl ;
   skos:scopeNote
-    "Een voorbeeld is beschrijving van een begrip met als doel het abstracte idee toe te lichten met een concrete voorstelling."@nl,
+    "Een voorbeeld heeft als doel de beschrijving van het abstracte idee toe te lichten met een concrete voorstelling van het begrip in de praktijk."@nl,
     "An example is a description of a concept with the aim of explaining the abstract idea with a concrete representation."@en;
   dct:source
     <https://www.w3.org/TR/skos-reference/#notes> ,
@@ -1072,4 +1072,3 @@ beg-sbb:Member
     "bevat"@nl ;
   skos:inScheme begkr-sbb:nlbegrip ;
   rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
-

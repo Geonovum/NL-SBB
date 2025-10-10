@@ -32,8 +32,9 @@ var documentConfig =
     "https://docs.geostandaarden.nl/NL-SBB"
   ],
   publishDate: "2024-04-16",
-  previousPublishDate: "2024-03-01",
-  previousMaturity: "vv",
+  publishVersion: [],
+  previousPublishDate: "2024-10-10",
+  previousMaturity: "def",
   edDraftURI: "https://geonovum.github.io/NL-SBB/",
   authors: [
         {

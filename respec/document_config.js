@@ -87,6 +87,9 @@ var documentConfig =
         },
         {
             name: "Jan Willem van Veen (ArchiXL)"
+        },
+                {
+            name: "Tanja Ronzhina (Geonovum)"
         }
   ],
   editors: [
@@ -108,7 +111,7 @@ var documentConfig =
     alternateFormats: [
         {
           label: "SHACL",
-          uri: "https://raw.githubusercontent.com/geonovum/NL-SBB/main/profiles/skos-ap-nl.ttl",
+          uri: "https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl",
         },
         {
           label: "SKOS",

@@ -549,6 +549,7 @@ skosapnl:Concept-label
   sh:name "naam"@nl, "label"@en ;
   sh:order 4 ;
   sh:nodeKind sh:Literal ;
+  sh:severity sh:Warning;
   sh:path rdfs:label .
 
 skosapnl:SourceDocument-label
@@ -645,6 +646,7 @@ skosapnl:ConceptScheme-hasTopConcept
   sh:group skosapnl:SemanticRelationPropertyGroup ;
   sh:order 20 ;
   sh:nodeKind sh:IRI ;
+  sh:severity sh:Warning;
   sh:name "heeft topbegrip"@nl, "has top concept"@en ;
   sh:path skos:hasTopConcept .
 

@@ -208,6 +208,10 @@ skosapnl:Concept-broadMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig bovenliggend"@nl ;
   sh:class skos:Concept ;
+    sh:or (
+     [ sh:nodeKind sh:IRI ; ]
+     [ sh:node skosapnl:Concept]
+  );
   sh:description
     "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ,
     "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ;
@@ -226,6 +230,10 @@ skosapnl:Concept-narrowMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig onderliggend"@nl ;
   sh:class skos:Concept ;
+    sh:or (
+     [ sh:nodeKind sh:IRI ; ]
+     [ sh:node skosapnl:Concept]
+  );
   sh:disjoint skos:broadMatch ;
   sh:disjoint skos:closeMatch ;
   sh:disjoint skos:exactMatch ;
@@ -242,6 +250,10 @@ skosapnl:Concept-broader
   a sh:PropertyShape ;
   rdfs:label "heeft bovenliggend begrip"@nl ;
   sh:class skos:Concept ;
+    sh:or (
+     [ sh:nodeKind sh:IRI ; ]
+     [ sh:node skosapnl:Concept]
+  );
   sh:description
     "Relateert een begrip aan een bovenliggend begrip in de hierarchie."@nl ,
     "Relates a concept to a concept that is more general in meaning."@en ;
@@ -257,6 +269,10 @@ skosapnl:Concept-narrower
   a sh:PropertyShape ;
   rdfs:label "heeft onderliggend begrip"@nl ;
   sh:class skos:Concept ;
+    sh:or (
+     [ sh:nodeKind sh:IRI ; ]
+     [ sh:node skosapnl:Concept]
+  );
   sh:description
     "Relateert een begrip aan een onderliggend begrip in de hierarchie."@nl ,
     "Relates a concept to a concept that is more specific in meaning."@en ;
@@ -288,6 +304,10 @@ skosapnl:Concept-narrowerPartitive
   a sh:PropertyShape ;
   rdfs:label "omvat"@nl ;
   sh:class skos:Concept ;
+    sh:or (
+     [ sh:nodeKind sh:IRI ; ]
+     [ sh:node skosapnl:Concept]
+  );
   sh:description "Relateert een begrip aan een minder omvattend begrip."@nl, "Relates a concept to a less including concept."@en;
   sh:group skosapnl:Iso-thesRelationships ;
   sh:name "omvat"@nl, "narrower term (partitive)"@en ;

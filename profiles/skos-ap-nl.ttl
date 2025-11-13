@@ -67,7 +67,7 @@ skosapnl:Concept
     skosapnl:TopConceptHavingBroader ,
     skosapnl:UnambiguousNotations ,
     skosapnl:UniquePreflabelWithinConceptScheme ;
-  # sh:Violation sh:Warning;
+  sh:Violation sh:Warning;
   sh:targetClass skos:Concept .
 
 skosapnl:SourceDocument

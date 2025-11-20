@@ -1,0 +1,41 @@
+# Verslag werkgroep NL-SBB 13 november 2025 
+
+*Aanwezig:* Frank Terpstra(Geonovum) , Linda van den Brink(Geonovum), Jesse Bakker(Kadaster), Hans Overbeek(KOOP), Mehmet Duran (IPO), Jos van der Arend (Kennisnet), Marco Brattinga (Sopra Steria), Kees Trautwein (Logius), Martijn Wisse (Justitie en Veiligheid), Annemieke Vliegen (Belastingdienst), Tanja Rhonzina (Geonovum),
+
+*Afwezig*: Arjen Santema(Kadaster), Frans van der Zande (Logius), Pano Maria (Skemu),
+
+## Mededelingen
+
+*update OGC werkgroep*
+OGC heeft oproep gedaan of er interesse is een vocabulary service werkgroep op te richten. Wordt momenteel geschreven aan Charter(oprichtingsdocument met scope activiteiten, relaties met ander werk ) dat is eerste stap voor oprichting. Heet nu Terminology werkgroep, zal iets bredere scope krijgen.
+Link naar github OGC https://github.com/opengeospatial/geosemantics-dwg/blob/master/terminology_swg_charter/swg_charter.pdf
+Mogelijk kan Geonovum deelnemen en ervaring NL-SBB inbrengen, alsook internationale ervaring ophalen. Wel enigszins curieus dat OGC een niet geo onderwerp oppakt.
+
+
+## Verslag vorige keer
+
+Paar kleine redactionele aanpassingen daarmee goedgekeurd. Aangepaste verslag staat hier: https://github.com/Geonovum/NL-SBB/blob/main/sessies/verslagen/20251002%20verslag.md
+
+
+## Actiepunten
+
+Frank geeft terugkoppeling over Exceltemplate, eerste versie is in klein commité besproken. Feedback wordt verwerkt en daarna nogmaals besproken. Scope is inlezen begrippenkaders. Exporteren vanuit tooling om grote bewerkingen te doen en dan weer te importeren is buiten scope. SKOS is beoogd formaat dat de excel produceerd voor controleerbaarheid met SHACL. Custom excel/CSV imports vanuit NL-SBB ondersteunen lijkt onwenselijk.
+
+## Versienummering volgende release
+
+Vanwege de relatief grote veranderingen o.a. opsplitsen in twee documenten, aangepaste definities besluiten we er een 1.1 versie van te maken.
+Releaseplan is gepresenteerd aan GDI tafel gegevensuitwisseling. Er zijn nu twee verschillende procedures voor vaststelling. Die voor Logius standaarden en degene die is vastgesteld bij de uitbreiding GDI governance met Geonovum standaarden (DCAT-AP-NL en NL-SBB). De tafel zoekt uit wat de geharmoniseerde procedure wordt. Bij logius Y wijzigingen(dat is een 1.1 versie) hoeft alleen de tafel gegevensuitwisseling de wijziging na consultatie vast te stellen. PGDI is dan niet nodig
+
+## Nieuwe issues
+
+https://github.com/Geonovum/NL-SBB/issues/77  (machine leesbare/door reasoners leesbare) Verwijzingen, komt een klein werkgroepje met Kees, Hans, Annemieke, Jesse om in detail naar dit probleem te kijken.
+https://github.com/Geonovum/NL-SBB/issues/76 (gebruik van eigen standaard voor definiëren eigen standaard) wordt in de aankomende redactionele beter toegelicht.
+https://github.com/Geonovum/NL-SBB/issues/75 (schema’s voor code(lijsten)) nemen we mee als onderwerp voor de volgende inhoudelijke release. Dit is een uitbreiding in functionaliteit.
+
+## Oppakken issues 1.2
+
+Voorgestelde wijzigingen zijn uitbreidingen en inhoudelijk gezien geen breaking changes. De SHACL zou mogelijk wel een breaking change geven. Bij volgende versie heldere beschrijving van de wijzigingen t.o.v. van vorige 1.1 versie.
+
+## w.v.t.t.k.
+
+Volgende vergadering 15 januari 2026, 15.00 - 17.00.

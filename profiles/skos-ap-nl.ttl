@@ -67,7 +67,14 @@ skosapnl:Concept
     skosapnl:TopConceptHavingBroader ,
     skosapnl:UnambiguousNotations ,
     skosapnl:UniquePreflabelWithinConceptScheme ;
+    sh:severity sh:Warning;
   sh:targetClass skos:Concept .
+
+skosapnl:Concept-UniquePrefLabelWithinSchemeShape
+  a sh:NodeShape ;
+  sh:targetClass skos:Concept ;
+  sh:sparql skosapnl:UniquePreflabelWithinConceptScheme ;
+  sh:severity sh:Warning .
 
 skosapnl:SourceDocument
   a sh:NodeShape ;
@@ -208,6 +215,7 @@ skosapnl:Concept-broadMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig bovenliggend"@nl ;
   sh:class skos:Concept ;
+
   sh:description
     "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ,
     "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ;
@@ -226,6 +234,7 @@ skosapnl:Concept-narrowMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig onderliggend"@nl ;
   sh:class skos:Concept ;
+
   sh:disjoint skos:broadMatch ;
   sh:disjoint skos:closeMatch ;
   sh:disjoint skos:exactMatch ;
@@ -242,6 +251,7 @@ skosapnl:Concept-broader
   a sh:PropertyShape ;
   rdfs:label "heeft bovenliggend begrip"@nl ;
   sh:class skos:Concept ;
+
   sh:description
     "Relateert een begrip aan een bovenliggend begrip in de hierarchie."@nl ,
     "Relates a concept to a concept that is more general in meaning."@en ;
@@ -257,6 +267,7 @@ skosapnl:Concept-narrower
   a sh:PropertyShape ;
   rdfs:label "heeft onderliggend begrip"@nl ;
   sh:class skos:Concept ;
+
   sh:description
     "Relateert een begrip aan een onderliggend begrip in de hierarchie."@nl ,
     "Relates a concept to a concept that is more specific in meaning."@en ;
@@ -342,7 +353,7 @@ skosapnl:Concept-prefLabel
   sh:path skos:prefLabel ;
   sh:nodeKind sh:Literal ;
   sh:uniqueLang true ;
-  sh:severity sh:Violation .
+  sh:severity sh:Warning .
 
 skosapnl:Concept-broaderPartitive
   a sh:PropertyShape ;
@@ -549,6 +560,7 @@ skosapnl:Concept-label
   sh:name "naam"@nl, "label"@en ;
   sh:order 4 ;
   sh:nodeKind sh:Literal ;
+  sh:severity sh:Warning;
   sh:path rdfs:label .
 
 skosapnl:SourceDocument-label
@@ -645,6 +657,7 @@ skosapnl:ConceptScheme-hasTopConcept
   sh:group skosapnl:SemanticRelationPropertyGroup ;
   sh:order 20 ;
   sh:nodeKind sh:IRI ;
+  sh:severity sh:Warning;
   sh:name "heeft topbegrip"@nl, "has top concept"@en ;
   sh:path skos:hasTopConcept .
 

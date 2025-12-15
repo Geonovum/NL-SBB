@@ -22,17 +22,18 @@ De meta-informatie MOET per publicatieset invulling geven aan de metadata-rubrie
 
 Een dataset kan in DCAT zowel betrekking hebben op een versie van een dataset als een abstractie daarvan die zelf versies heeft (bijvoorbeeld de dataset van gemeentenamen, en daar dan verschillende versies van). Voor publicatiesets speelt dit niet. We zien het begrippenkader *zelf* (skos:ConceptScheme) als de abstractie en een publicatieset als een *versie van* zo'n begrippenkader. Het staat een ieder vrij om toch een versie-loze dataset te introduceren en daarbij de eigenschap dcat:hasVersion te gebruiken om te verwijzen naar een specifieke publicatieset.
 
-|Naam in NL-SBB|Naam in DCAT-AP-NL3.0|Taalbinding|Kardinaliteit|Optionaliteit|Toelichting|
+|Naam in NL-SBB|Kenmerk|Taalbinding|Kardinaliteit|Optionaliteit|Toelichting|
 |--------------|---------------------|-----------|-------------|-------------|-----------|
 |toegangsrechten|[access rights](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-access-rights)|[dct:accessRights](http://purl.org/dc/terms/accessRights)|1..1|Verplicht|Zal in veel gevallen de categorie [«public»](http://publications.europa.eu/resource/authority/access-right/PUBLIC) zijn.|
-|betreft regelgeving|[applicable legislation](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-applicable-legislation)|[dcatap:applicableLegislation](http://data.europa.eu/r5r/applicableLegislation)|0..n|Optioneel|Hiermee kun je aangeven welke regelgeving in deze publicatie is uitgewerkt. Dit zal ook op het niveau van begrippen gebeuren, indien gewenst kan dit hier worden samengevat|
+|betreft regelgeving|[applicable legislation](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-applicable-legislation)|[dcatap:applicableLegislation](http://data.europa.eu/r5r/applicableLegislation)|0..n|Optioneel|Hiermee kan worden aangegeven welke regelgeving de publicatie van deze publicatieset verplicht stelt.
+Dit betreft juridische grondslagen (bijvoorbeeld EU- of nationale wetgeving) die eisen dat deze gegevens beschikbaar worden gesteld. Niet bedoeld voor regelgeving waar begrippen inhoudelijk uit zijn afgeleid of waarin begrippen worden gebruikt. In de praktijk zal deze eigenschap voor veel NL-SBB-publicaties niet worden ingevuld.|
 |voldoet aan specificatie|[conforms to](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-conforms-to)|[dct:conformsTo](http://purl.org/dc/terms/conformsTo)|**1**..n|**Verplicht**|Moet tenminst de URL bevatten van de betreffende versie van NL-SBB|
 |contactpunt|[contact point](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-contact-point)|[dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)|1..1|Verplicht||
 |bronhouder|[creator](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-creator)|[dct:creator](http://purl.org/dc/terms/creator)|1..n|Verplicht||
 |beschrijving|[description](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-description)|[dct:description](http://purl.org/dc/terms/description)|1..n|Verplicht||
 |distributie|[distribution](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-dataset-distribution)|[dct:distribution](http://www.w3.org/ns/dcat#distribution)|0..n|Conditioneel|Verplicht voor elk formaat waarin de publicatie beschikbaar wordt gesteld|
 |identificatie|[identifier](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-identifier)|[dct:identifier](http://purl.org/dc/terms/identifier)|1..1|Verplicht||
-|*naam*|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|[rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)|1..n|**Verplicht**|Gelijk aan «titel»|
+|*naam*|[label](https://www.w3.org/TR/rdf11-schema/#ch_label)|[rdfs:label](http://www.w3.org/2000/01/rdf-schema#label)|1..n|**Verplicht**|De primaire, mens-leesbare naam van de publicatieset. Per taal wordt maximaal één rdfs:label vastgelegd, voor zover die taal relevant is. Kan gelijk zijn aan «titel».|
 |trefwoord|[keyword](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-keyword)|[dcat:keyword](http://www.w3.org/ns/dcat#keyword)|0..n|Aanbevolen||
 |webpagina|[landing page](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-landing-page)|[dcat:landingPage](http://www.w3.org/ns/dcat#landingPage)|**1**..n|**Verplicht**|Dit is de webpagina waar de publicatie gevonden kan worden|
 |taal|[language](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-language)|[dct:language](http://purl.org/dc/terms/language)|0..n|Aanbevolen||
@@ -50,7 +51,7 @@ Een dataset kan in DCAT zowel betrekking hebben op een versie van een dataset al
 
 Ter volledigheid geeft onderstaande tabel aan wat de aanpassingen zijn ten opzichte van [DCAT-AP-NL3.0](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30). Waar rubrieken niet zijn gebruikt, betreffen dit altijd rubriek die optioneel zijn in DCAT-AP-NL3.0:
 
-|Naam in DCAT-AP-NL3.0|Afwijking|Rationale|
+|Kenmerk|Afwijking|Rationale|
 |---------------------|---------|---------|
 |[conforms to](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-conforms-to)|Verplicht gemaakt|Dient te verwijzen naar de NL-SBB standaard, maakt duidelijk *dat* je NL-SBB volgt|
 |[documentation](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#dataset-documentation)|Niet gebruikt|Voor NL-SBB lijkt deze overbodig t.o.v. landing page|
@@ -85,7 +86,7 @@ Ter volledigheid geeft onderstaande tabel aan wat de aanpassingen zijn ten opzic
 
 Publicaties van begripsbeschrijvingen behoren niet alleen als voor mensen leesbare variant beschikbaar te zijn, maar ook in één of meerdere technische, machine-leesbare formaten. Voor elk van deze formaten dient een distributie beschreven te zijn in de metadata. De tabel hieronder volgt dezelfde opbouw en structuur zoals bij datasets is beschreven.
 
-|Naam in NL-SBB|Naam in DCAT-AP-NL3.0|Taalbinding|Kardinaliteit|Optionaliteit|Toelichting|
+|Naam in NL-SBB|Kenmerk|Taalbinding|Kardinaliteit|Optionaliteit|Toelichting|
 |--------------|---------------------|-----------|-------------|-------------|-----------|
 |toegangs-URL|[access URL](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-access-url)|[dcat:accessURL](http://www.w3.org/ns/dcat#accessURL)|1..1|Verplicht|Mag gelijk zijn aan download-URL|
 |download-URL|[download URL](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-download-url)|[dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)|0..1|**Conditioneel**|Verplicht indien de distributie te downloaden is. Dit zal vrijwel altijd het geval zijn|
@@ -99,7 +100,7 @@ Publicaties van begripsbeschrijvingen behoren niet alleen als voor mensen leesba
 
 Ter volledigheid geeft onderstaande tabel aan wat de aanpassingen zijn ten opzichte van [DCAT-AP-NL3.0](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30). Waar rubrieken niet zijn gebruikt, betreffen dit altijd rubriek die optioneel zijn in DCAT-AP-NL3.0:
 
-|Naam in DCAT-AP-NL3.0|Afwijking|Rationale|
+|Kenmerk|Afwijking|Rationale|
 |---------------------|---------|---------|
 |[access service](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-access-service)|Niet gebruikt|Voor NL-SBB maken we niet gebruik van data services|
 |[applicable legislation](https://docs.geostandaarden.nl/dcat/dcat-ap-nl30/#distribution-applicable-legislation)|Niet gebruikt|Wordt voor begrippen op het niveau van datasets beschreven|

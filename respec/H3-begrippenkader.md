@@ -36,7 +36,7 @@ Dezen kunnen we in een taxonomie opnemen. In een lijst ziet die er als volgt uit
   * [=toelichting=]
   * [=voorbeeld=]
   * [=redactionele notitie=]
-  * [=historie notitie=]
+  * [=historienotitie=]
   * [=wijzigingsnotitie=]
 * [=relatie=]
   * [=semantische relatie=]

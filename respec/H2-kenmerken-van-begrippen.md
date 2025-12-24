@@ -256,7 +256,7 @@ Een topbegrip kan worden gedefinieerd vanuit een begrip in relatie tot een begri
 | **voorkeursterm** | <dfn>topbegrip</dfn>            |
 | **definitie** |  Een topbegrip is een begrip dat bovenaan de hiërarchie staat in een begrippenkader. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#schemes |
-| **toelichting** | Bovenaan wilt zeggen; het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen. |
+| **toelichting** | Bovenaan wil zeggen: het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen. |
 
 </br> 
 

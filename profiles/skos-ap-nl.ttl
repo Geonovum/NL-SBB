@@ -62,7 +62,7 @@ skosapnl:Concept
     skosapnl:Concept-broaderInstantial ,
     skosapnl:Concept-narrowerGeneric ,
     skosapnl:Concept-broadMatch ;
-  sh:sparql 
+  sh:sparql
     skosapnl:OrphanConcept ,
     skosapnl:TopConceptHavingBroader ,
     skosapnl:UnambiguousNotations ,
@@ -145,8 +145,11 @@ skosapnl:Iso-thesRelationships a sh:PropertyGroup ;
 
 skosapnl:Concept-related
   a sh:PropertyShape ;
+  sh:or (
+  [ sh:class skos:Concept ]
+  [ sh:node skosapnl:ExternalConcept ]
+) ;
   rdfs:label "is gerelateerd aan"@nl ;
-  sh:class skos:Concept ;
   sh:description
     "Een concept met een associatieve semantische relatie"@nl,
     "Relates a concept to a concept with which there is an associative semantic relationship."@en ;
@@ -204,15 +207,15 @@ skosapnl:Concept-changeNote
   sh:path skos:changeNote ;
   sh:severity sh:Warning ;
   sh:datatype rdf:langString .
+### Allow internal (skos:Concept) and external (skosapnl:ExternalConcept) concepts consistently
 
 skosapnl:Concept-broadMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig bovenliggend"@nl ;
-  sh:class skos:Concept ;
-    sh:or (
-     [ sh:nodeKind sh:IRI ; ]
-     [ sh:node skosapnl:Concept]
-  );
+  sh:or (
+    [ sh:class skos:Concept ]
+    [ sh:node skosapnl:ExternalConcept ]
+  ) ;
   sh:description
     "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ,
     "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ;
@@ -230,31 +233,42 @@ skosapnl:Concept-broadMatch
 skosapnl:Concept-narrowMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig onderliggend"@nl ;
-  sh:class skos:Concept ;
-    sh:or (
-     [ sh:nodeKind sh:IRI ; ]
-     [ sh:node skosapnl:Concept]
-  );
+  sh:or (
+    [ sh:class skos:Concept ]
+    [ sh:node skosapnl:ExternalConcept ]
+  ) ;
+  sh:path [
+    sh:alternativePath (
+      skos:broader
+      skos:narrower
+      skos:related
+      skos:exactMatch
+      skos:closeMatch
+      skos:broadMatch
+      skos:narrowMatch
+      skos:relatedMatch
+    )
+  ] ;
   sh:disjoint skos:broadMatch ;
   sh:disjoint skos:closeMatch ;
   sh:disjoint skos:exactMatch ;
   sh:disjoint skos:relatedMatch ;
   sh:group skosapnl:MatchingRelationshipsPropertyGroup ;
   sh:name "heeft overeenkomstig onderliggend"@nl, "has narrower match"@en ;
-  sh:description "Relateert een begrip aan een specifieker begrip uit een ander begrippenkader."@nl, "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en;
+  sh:description
+    "Relateert een begrip aan een specifieker begrip uit een ander begrippenkader."@nl ,
+    "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ;
   sh:order 41 ;
   sh:nodeKind sh:IRI ;
-  sh:severity sh:Warning ;
-  sh:path skos:narrowMatch .
+  sh:severity sh:Warning .
 
 skosapnl:Concept-broader
   a sh:PropertyShape ;
   rdfs:label "heeft bovenliggend begrip"@nl ;
-  sh:class skos:Concept ;
-    sh:or (
-     [ sh:nodeKind sh:IRI ; ]
-     [ sh:node skosapnl:Concept]
-  );
+  sh:or (
+    [ sh:class skos:Concept ]
+    [ sh:node skosapnl:ExternalConcept ]
+  ) ;
   sh:description
     "Relateert een begrip aan een bovenliggend begrip in de hierarchie."@nl ,
     "Relates a concept to a concept that is more general in meaning."@en ;
@@ -265,15 +279,14 @@ skosapnl:Concept-broader
   sh:disjoint skos:related ;
   sh:severity sh:Warning ;
   sh:path skos:broader .
-  
+
 skosapnl:Concept-narrower
   a sh:PropertyShape ;
   rdfs:label "heeft onderliggend begrip"@nl ;
-  sh:class skos:Concept ;
-    sh:or (
-     [ sh:nodeKind sh:IRI ; ]
-     [ sh:node skosapnl:Concept]
-  );
+  sh:or (
+    [ sh:class skos:Concept ]
+    [ sh:node skosapnl:ExternalConcept ]
+  ) ;
   sh:description
     "Relateert een begrip aan een onderliggend begrip in de hierarchie."@nl ,
     "Relates a concept to a concept that is more specific in meaning."@en ;
@@ -691,8 +704,24 @@ skosapnl:ConceptScheme-label
   sh:severity sh:Warning ;
   sh:path dct:title ;
   sh:description "Een mensleesbare term ter aanduiding van het begrippenkader."@nl, "A word or phrase used to label the concept scheme."@en .
+
 ## logical constraints
 
+skosapnl:
+  a owl:Ontology ;
+  sh:declare [
+    sh:prefix "skos" ;
+    sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+  ] ;
+  sh:declare [
+    sh:prefix "skosapnl" ;
+    sh:namespace "http://nlbegrip.nl/def/skosapnl#"^^xsd:anyURI ;
+  ] ;
+  sh:declare [
+    sh:prefix "isothes" ;
+    sh:namespace "http://purl.org/iso25964/skos-thes#"^^xsd:anyURI ;
+  ] .
+  
 skosapnl:DisjointConceptAndConceptScheme
   a sh:NodeShape ;
   sh:targetClass skos:Concept ;
@@ -777,11 +806,41 @@ skosapnl:SemanticRelations
   sh:sparql [
     sh:prefixes skosapnl: ;
     sh:message "Semantische relaties verwijzen altijd van en naar begrippen."@nl ;
+    sh:prefixes <http://nlbegrip.nl/def/skosapnl#> ;
     sh:select """
-    SELECT $this
-    WHERE {
-      FILTER NOT EXISTS { $this a skos:Concept }
-    }""" ;
+      SELECT $this
+      WHERE {
+        {
+          $this ?p ?o .
+          FILTER (?p IN (
+            skos:broader,
+            skos:narrower,
+            skos:related,
+            skos:exactMatch,
+            skos:closeMatch,
+            skos:broadMatch,
+            skos:narrowMatch,
+            skos:relatedMatch
+          ))
+        }
+        UNION
+        {
+          ?s ?p $this .
+          FILTER (?p IN (
+            skos:broader,
+            skos:narrower,
+            skos:related,
+            skos:exactMatch,
+            skos:closeMatch,
+            skos:broadMatch,
+            skos:narrowMatch,
+            skos:relatedMatch
+          ))
+        }
+        FILTER NOT EXISTS { $this a skos:Concept }
+        FILTER NOT EXISTS { $this a skosapnl:ExternalConcept }
+      }
+    """ ;
   ] .
 
 skosapnl:UnambiguousNotations

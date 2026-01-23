@@ -1,0 +1,61 @@
+# Verslag werkgroep NL-SBB 15 januari 2025 
+
+*Aanwezig:* Frank Terpstra(Geonovum), Jos van der Arend (Kennisnet), Marco Brattinga (Sopra Steria), Kees Trautwein (Logius), Martijn Wisse (Justitie en Veiligheid), Annemieke Vliegen (Belastingdienst), Tanja Rhonzina (Geonovum), Frans van der Zande (Logius), Pano Maria (Skemu), Brian Dommisse (Kennisnet)
+
+*Afwezig*: Linda van den Brink(Geonovum), Jesse Bakker(Kadaster), Arjen Santema(Kadaster), Hans Overbeek(KOOP), Mehmet Duran (IPO),
+
+## Mededelingen
+
+Brian Dommisse van Kennisnet stelt zich voor als nieuw lid.
+Vraag vanuit belastingdienst om de omgang met de logius begrippen editor ook op de agenda te zetten.
+
+## Verslag en actiepunten vorige keer
+
+Verslag van de vorige keer https://github.com/Geonovum/NL-SBB/blob/main/sessies/verslagen/20251113%20verslag.md is vastgesteld, geen opmerkingen.
+
+## Voortgang redactioneel
+We gaan repositories splitsen https://github.com/Geonovum/NL-SBB/issues/70. Frank Vraagt bij PGDI governance na hoe het staat met vaststellingsprocedure.
+
+## Voortgang NL-SBB template
+Frank Heeft template gepresenteerd, met nog een paar toevoegingen akkoord van de werkgroep om te publiceren. Het gaat daarbij om het checken op juiste termen uit standaard. Daarnaast uitleggen wat voor teken als seperator te gebruiken. Voorkeur binnen de werkgroep is voor de puntkomma als seperator. 
+Tot slot toelichting hoe we omgaan met verwijzingen in de excel. Keuze van de werkgroep is dat we Verwijzen in de excel via de voorkeursterm. We willen het gebruikersvriendelijk houden en tegelijkertijd niet tot een tool maken.
+Na doorvoeren wijzigingen publiceert Frank template op github en gaat Geonovum een voorbeeld invulling maken met NL-SBB begrippenkader. Annemieke Vliegen gaat template uitproberen met belastingdienst begrippenkader.
+Volgende vergadering demonstreert Geonovum omzetten van ingevulde excel naar turtle.
+
+## omgang met begrippen editor Logius
+
+Is de begrippen editor van logius volledig volgens NL-SBB en zal hij dat blijven? Antw logius: JA dat is zo, wij mogen niet anders van onze opdrachtgever. 
+Vraag is de editor een zelfstandig product of een voorpoortaal voor de stelselcatalogus? antw Logius: Het is een op zichzelfstaand product.
+Wat zijn de de procedures voor publicatie vanuit de begrippen editor van logius? is traceerbaar wie wat heeft toegevoegd aan het begrippenkader?
+
+Antw Logius: Bij publicatie moet het begrippenkader valdieren en moet de de organisatie toestemming geven aan Logius voor publicatie. Hoe oranisaties tot besluit van publicatie komen is de verantwoording van die organisatie.
+Er is heel weinig proces ondersteuning, dit is buiten scope van de editor.
+
+Vanuit de werkgroepleden is er behoefte aan overkoepelend overleg/governance vanuit het FDS over procedures en afhankelijkheden(kunnen verschillende publicatieomgevingen integraal doorzoekbaar zijn bijvoorbeeld) bij het maken van begrippenkaders binnen de kaders van het FDS. Mogelijk ook betrekken NORA begrippenkaders (Erik Brouwer). 
+
+## Pull request 78
+
+[PR 78](https://github.com/Geonovum/NL-SBB/pull/78) Suggesties Jesse Bakker en Marco Brattinga worden door Tanja Rhonzhina doorgevoerd voordat deze gemerged kan worden.
+
+## Pull request 85
+
+[PR 85](https://github.com/Geonovum/NL-SBB/pull/85) Werkgroep is akkoord om deze door te voelen. Vraag aan Jesse Bakker om eerst nog te checken of het goed gaat met de gewijzigde tabellen.
+
+## Openstaande issues (historische issues)
+
+### Issue 86
+
+Deze extensie toevoegen aan NL-SBB zou nieuwe functionaliteit zijn. De verwachting is dat deze usecase vaker voorkomt binnen de publieke sector. Tegelijkertijd is het volgens de filosofie van de NL-SBB om dit vrij te laten en dus waar nodig extensies toe te voegen buiten de standaard waar nodig. Deze werkwijze toevoegen aan de best practices is ook een alternatief of tussenstap richting opnemen in de normatieve standaard. Dit onderwerp kan in een kleiner werkgroepje verder uitgewerkt worden. Voorstel: Hans Overbeek, Marco Brattinga, Tanja Rhonzina, Annemieke Vliegen.
+
+### Issue 79
+
+We willen met een kleinere werkgroep kijken naar het mogelijk uitbreiden van de bestpractice voor status informatie. Brian, Pano, Niels Hoffmann(DCAT-AP-NL). We vragen Hans Overbeek ook om input.
+
+## w.v.t.t.k.
+
+## Actiepunten
+
+* Frank neemt contact op met FDS voor overkoepelend overleg/governance
+* Frank neemt contact op met GDI governance over status vaststellingsprocedure
+* Frank start subwerkgroepen op.
+* afspraak Brian Frank over nog niet afgesloten issues NORA.

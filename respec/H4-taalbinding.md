@@ -7,7 +7,7 @@ Dit hoofdstuk is normatief wanneer begrippen via het web worden ontsloten.
 
 Het onderstaande diagram geeft een overzicht van de taalbinding in RDF die bij het conceptuele model gedefinieerd is.
 
-![](respec/media/skos-ap-nl.png "Diagram: Toepassingsprofiel skos")
+![](media/skos-ap-nl.png "Diagram: Toepassingsprofiel skos")
 
 ## Uitwerking
 Voor het representeren van de conceptuele elementen in RDF maken we gebruik van de volgende vocabulaires 1) RDF(s), 2) SKOS, 3) DCTERMS, 4) FOAF en 5) ISOTHES. We geven de taalbinding voor types en kenmerken apart in [types](#types) en [eigenschappen](#eigenschappen)

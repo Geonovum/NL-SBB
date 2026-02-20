@@ -1,3 +1,9 @@
+Deze repository is automatisch bijgewerkt naar de nieuwste workflow.
+Voor vragen, neem contact op met [Linda van den Brink](mailto:l.vandenbrink@geonovum.nl) of [Wilko Quak](mailto:w.quak@geonovum.nl).
+
+Als je een nieuwe publicatie wilt starten, lees dan eerst de instructies in de README van de NL-ReSpec-template:
+[https://github.com/Geonovum/NL-ReSpec-template](https://github.com/Geonovum/NL-ReSpec-template).
+
 # Standaard voor het beschrijven van begrippen (NL-SBB)
 
 Deze repository is voortgekomen de activiteiten voor de PLDN Werkgroep Nederlands profiel voor stelselcatalogi. Historische issues zijn nog te vinden op de [gearchiveerde PLDN github](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues?q=is%3Aissue). Inmiddels is de standaard in beheer bij Geonovum en faciliteert zij ook de werkgroep, ook actuele issues zijn in deze Github te vinden.
@@ -19,3 +25,4 @@ De volgende personen en organisaties nemen deel aan deze werkgroep:
 Trekker: Arjen Santema (Kadaster)<br>
 Deelnemers: 
 Jos van der Arend (Kennisnet), Jesse Bakker (Kadaster), Koos Boersma (IHW), Marco Brattinga (Nationale Politie), Linda van den Brink (Geonovum), Pieter van Everdingen (PLDN), Roeland Euwens (KNB), Casper le Gras (KOOP), Gerald Groot Roessink (DUO), Pano Maria (Skemu), Rik (CROW), Hans Overbeek (KOOP), Viyanti Ramdhiansing (Kennisnet), Arjen Santema (Kadaster), Frank Terpstra (Geonovum), Kees Trautwein (Logius), Jan Willem van Veen (ArchiXL)
+

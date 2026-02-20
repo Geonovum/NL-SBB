@@ -4,7 +4,7 @@ Deze repository is voortgekomen de activiteiten voor de PLDN Werkgroep Nederland
 
 De werkversie van het profiel is te vinden op [https://geonovum.github.io/NL-SBB/](https://geonovum.github.io/NL-SBB/). 
 
-Best practices en aanvullingen op de standaard staaan in een apart document, dat te vinden is op [https://geonovum.github.io/NL-SBB/bp](https://geonovum.github.io/NL-SBB/bp).
+Best practices en aanvullingen op de standaard staaan in een apart [document](https://geonovum.github.io/nl-sbb-bp) in een aparte [repository](https://github.com/Geonovum/nl-sbb-bp).
  
 De standaard beschrijft een basisprofiel voor stelselcatalogi(of iedere andere plek waar begrippen gepubliceerd worden), waarmee verschillende stelselcatalogi interoperabel ingericht kunnen worden. De bedoeling is dat catalogi gemakkelijk naar elkaars begrippen kunnen verwijzen. Daarmee ontstaat en soort van samenhangend overkoepelend stelsel van domeinen, waarbij ieder deelnemend stelsel een samenhangend domein representeert. Voorbeelden zijn de [stelselcatalogus voor de basisregistraties](https://www.stelselcatalogus.nl/) (de moeder van alle catalogi), de [stelselcatalogus voor het DSO](https://stelselcatalogus.omgevingswet.overheid.nl/) en de [stelselcatalogus voor het Zorgeloos Vastgoed Stelsel](https://taxonomie.zorgeloosvastgoed.nl/).  Naast het basisprofiel zullen meerdere extensies ontstaan. Dit kunnen extensies zijn om tot een volledige ISO compatable thesaurus te komen, maar ook extensies die relevant zijn voor een specifiek domein. Er lijkt in Nederland op dit moment echt momentum om dit gezamenlijk op te pakken en naar semantisch interoperabele publiek-private domeinen toe te werken.
  

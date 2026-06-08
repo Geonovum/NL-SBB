@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.0.0">
 <style>
 .issue-label{text-transform:initial}
 .warning>p:first-child{margin-top:0}
@@ -29,6 +29,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -65,13 +66,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -80,7 +85,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -91,6 +97,8 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px;background:0 0}
@@ -455,7 +463,7 @@ De standaard kent een taalbinding waarmee een begrippenkader als Linked data kan
     <h2>
       Geonovum Standaard<br>
       Werkversie
-      <time class="dt-published" datetime="2024-04-16">18 mei 2026</time>
+      <time class="dt-published" datetime="2024-04-16">08 juni 2026</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -517,7 +525,9 @@ De standaard kent een taalbinding waarmee een begrippenkader als Linked data kan
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/geonovum/NL-SBB/">GitHub geonovum/NL-SBB</a>
   </dd><dd>
-    <a href="https://github.com/geonovum/NL-SBB/issues/">Dien een melding in</a>
+    <a href="https://github.com/geonovum/NL-SBB/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/geonovum/NL-SBB/issues/new/choose">Dien een melding in</a>
   </dd><dd>
     <a href="https://github.com/geonovum/NL-SBB/commits/">Revisiehistorie</a>
   </dd><dd>
@@ -728,9 +738,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een begrippenkader kan worden gedefinieerd om begrippen uit verschillende bronnen op te nemen. Begrippenkaders bieden een manier om kennis te ordenen voor het later kunnen ophalen. Ze worden gebruikt in indexeringsschema's, koppen, thesauri, taxonomieën en andere kennisorganisatiesystemen. Begrippenkaders verplichten het gebruik van vooraf gedefinieerde, geautoriseerde termen die zijn geselecteerd door de ontwerpers ervan, in tegenstelling tot natuurlijke taalvocabulaires,die een dergelijke beperking niet hebben.</td>
 </tr>
 </tbody></table>
-<br>
-
-<p>Een perceel in de Basisregistratie Kadaster is een ander begrip dan een perceel in een boek over wisselteelt. Een begrippenkader is vergelijkbaar met een taal die in een bepaald gebied gesproken wordt. Net als een reguliere taal is een begrippenkader een open systeem. Zo kan een taal ook groeien na introductie van nieuwe woorden vanuit talen uit nabijgelegen gebieden. Dat wil zeggen dat een begrippenkader, net als een taal, naast vertalingen (mappings) ook leenwoorden kent. Zoals "computer", een van origine Engels woord, ook behoort tot de Nederlandse taal. Het beschrijven van welke begrippen behoren tot een begrippenkader is essentieel; maar hoe deze 'vertaald' kunnen worden naar begrippen uit andere begrippenkaders ook. Voor dit laatste gebruiken we <a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-1">harmonisatierelatie</a>s.</p>
+<br><p>Een perceel in de Basisregistratie Kadaster is een ander begrip dan een perceel in een boek over wisselteelt. Een begrippenkader is vergelijkbaar met een taal die in een bepaald gebied gesproken wordt. Net als een reguliere taal is een begrippenkader een open systeem. Zo kan een taal ook groeien na introductie van nieuwe woorden vanuit talen uit nabijgelegen gebieden. Dat wil zeggen dat een begrippenkader, net als een taal, naast vertalingen (mappings) ook leenwoorden kent. Zoals "computer", een van origine Engels woord, ook behoort tot de Nederlandse taal. Het beschrijven van welke begrippen behoren tot een begrippenkader is essentieel; maar hoe deze 'vertaald' kunnen worden naar begrippen uit andere begrippenkaders ook. Voor dit laatste gebruiken we <a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-1">harmonisatierelatie</a>s.</p>
 <table>
 <thead>
 <tr>
@@ -829,9 +837,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Dit is een overkoepelend begrip voor de verschillende soorten termen (voorkeursterm, alternatieve term, zoekterm) waarmee begrippen kunnen worden aangeduid. Good practice is om die specifieke termen te gebruiken. In de definitie moet 'iets' breed worden geïnterpreteerd. Het kan ieder onderwerp van gesprek zijn; zoals een specifiek begrip of een specifiek gebouw.  Als een naam een afkorting is, wordt dat in deze standaard niet expliciet aangegeven. Als daar een usecase voor is, kan de uitbreiding skosXL mogelijk worden gebruikt.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -863,9 +869,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>USE</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -897,9 +901,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>UF</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -923,9 +925,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een zoekterm wordt gebruikt wanneer een ontwerper van een begrippenkader wil dat die tekenreeks toegankelijk is voor op tekst gebaseerde indexering en zoekbewerkingen, maar niet wil dat die term zichtbaar is. Zoektermen kunnen bijvoorbeeld worden gebruikt om verkeerd gespelde varianten van andere lexicale labels op te nemen.</td>
 </tr>
 </tbody></table>
-<br> 
-
-</section><section id="notities"><div class="header-wrapper"><h5 id="x2-4-1-2-notities"><bdi class="secno">2.4.1.2 </bdi>Notities</h5><a class="self-link" href="#notities" aria-label="Permalink for Section 2.4.1.2"></a></div>
+<br> </section><section id="notities"><div class="header-wrapper"><h5 id="x2-4-1-2-notities"><bdi class="secno">2.4.1.2 </bdi>Notities</h5><a class="self-link" href="#notities" aria-label="Permalink for Section 2.4.1.2"></a></div>
 <p><a data-link-type="dfn|abstract-op" href="#dfn-notitie" class="internalDFN" id="ref-for-dfn-notitie-1">Notitie</a>s zijn karakteristieken waarmee een begrip op een mensleesbare manier beschreven kan worden. Notities kunnen heel breed toegepast worden. Om meer specifieke documentaire eigenschappen vast te leggen zijn ook specifiekere notities gedefinieerd. In deze sectie beschrijven we 1) notities die nadrukkelijk een verwoording van de betekenis geven en 2) aanvullende documentaire notities.</p>
 <table>
 <thead>
@@ -951,9 +951,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Dit is een overkoepelend begrip voor de verschillende soorten notities (definitie, toelichting, redactionele notitie) waarmee een begrip kan worden beschreven. Good practice is om die specifieke notities te gebruiken. Notities worden gebruikt om informatie te geven over begrippen. Er is geen beperking op de aard van deze informatie, het kan bijvoorbeeld platte tekst, hypertekst of een afbeelding zijn; het kan een definitie zijn, informatie over de reikwijdte van een begrip, redactionele informatie of elk ander type informatie. Deze eigenschap kan direct worden gebruikt, of als een supereigenschap voor meer specifieke notitietypes.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<p>De volgende notities zijn verwoordingen van de betekenis van een begrip.</p>
+<br> <p>De volgende notities zijn verwoordingen van de betekenis van een begrip.</p>
 <table>
 <thead>
 <tr>
@@ -982,9 +980,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>DEF</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1012,9 +1008,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>SN</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1042,10 +1036,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>omschrijving</td>
 </tr>
 </tbody></table>
-<br> 
-
-
-<p>De volgende notities zijn aanvullende documentaire notities.</p>
+<br> <p>De volgende notities zijn aanvullende documentaire notities.</p>
 <table>
 <thead>
 <tr>
@@ -1074,9 +1065,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>HN</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1100,9 +1089,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Redactionele notities zijn handig voor vermeldingen als -Controleer deze term nadat de bedrijfsfusie is voltooid- of -Deze term wordt genoemd in de scopenota van Concept X- of -Controleer de spelling met expert A-. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikersraadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1126,9 +1113,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een voorbeeld heeft als doel de beschrijving van het abstracte idee toe te lichten met een concrete voorstelling van het begrip in de praktijk.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1152,9 +1137,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een wijzigingsnotitie documenteert fijnmazige wijzigingen aan een begrip, ten behoeve van beheer en onderhoud.</td>
 </tr>
 </tbody></table>
-<br> 
-
-</section><section id="codes"><div class="header-wrapper"><h5 id="x2-4-1-3-codes"><bdi class="secno">2.4.1.3 </bdi>Codes</h5><a class="self-link" href="#codes" aria-label="Permalink for Section 2.4.1.3"></a></div>
+<br> </section><section id="codes"><div class="header-wrapper"><h5 id="x2-4-1-3-codes"><bdi class="secno">2.4.1.3 </bdi>Codes</h5><a class="self-link" href="#codes" aria-label="Permalink for Section 2.4.1.3"></a></div>
 <p>Naast termen en notities kunnen begrippen ook codes als kenmerken hebben. Een code is anders dan een term omdat deze niet bedoeld is als aanduiding in natuurlijke taal. Codes zijn veelal ook niet leesbaar en bestaan vaak uit cijfers.</p>
 <table>
 <thead>
@@ -1184,10 +1167,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>CC</td>
 </tr>
 </tbody></table>
-<br> 
-
-
-</section></section><section id="taxonomie"><div class="header-wrapper"><h4 id="x2-4-2-taxonomie"><bdi class="secno">2.4.2 </bdi>Taxonomie</h4><a class="self-link" href="#taxonomie" aria-label="Permalink for Section 2.4.2"></a></div>
+<br> </section></section><section id="taxonomie"><div class="header-wrapper"><h4 id="x2-4-2-taxonomie"><bdi class="secno">2.4.2 </bdi>Taxonomie</h4><a class="self-link" href="#taxonomie" aria-label="Permalink for Section 2.4.2"></a></div>
 <p>Een taxonomie kent hiërarchische relaties. Deze hiërarchische relaties zijn optioneel in een begrippenlijst en zijn bijvoorbeeld relevant als een begrip wordt gedefinieerd in termen van een ander begrip, bijvoorbeeld 'een gemaal <em>is een</em> kunstwerk dat ...'. Deze definitie impliceert dat een gemaal een 'enger begrip' is dan een kunstwerk, die ook als semantische relatie kan worden opgenomen.</p>
 <table>
 <thead>
@@ -1242,9 +1222,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een semantische relatie is een generalisatie van de verschillende hiërarchische en associatieve relaties. In de praktijk worden deze hiërarchische en associatieve relaties gebruikt.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<p>Een topbegrip kan worden gedefinieerd vanuit een begrip in relatie tot een begrippenkader of andersom. «<dfn id="dfn-is-topbegrip-van" tabindex="0" aria-haspopup="dialog">is topbegrip van</dfn>» en «<dfn id="dfn-heeft-topbegrip" tabindex="0" aria-haspopup="dialog">heeft topbegrip</dfn>» zijn elkaars inverse.</p>
+<br> <p>Een topbegrip kan worden gedefinieerd vanuit een begrip in relatie tot een begrippenkader of andersom. «<dfn id="dfn-is-topbegrip-van" tabindex="0" aria-haspopup="dialog">is topbegrip van</dfn>» en «<dfn id="dfn-heeft-topbegrip" tabindex="0" aria-haspopup="dialog">heeft topbegrip</dfn>» zijn elkaars inverse.</p>
 <table>
 <thead>
 <tr>
@@ -1269,9 +1247,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Bovenaan wil zeggen: het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1303,9 +1279,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>BT</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1337,9 +1311,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>NT</td>
 </tr>
 </tbody></table>
-<br> 
-
-</section><section id="thesaurus"><div class="header-wrapper"><h4 id="x2-4-3-thesaurus"><bdi class="secno">2.4.3 </bdi>Thesaurus</h4><a class="self-link" href="#thesaurus" aria-label="Permalink for Section 2.4.3"></a></div>
+<br> </section><section id="thesaurus"><div class="header-wrapper"><h4 id="x2-4-3-thesaurus"><bdi class="secno">2.4.3 </bdi>Thesaurus</h4><a class="self-link" href="#thesaurus" aria-label="Permalink for Section 2.4.3"></a></div>
 <p>Naast de kenmerken die voor begrippen in een begrippenlijst of taxonomie zijn geïntroduceerd, kan een begrip in een thesaurus ook associatieve, niet-hiërarchische relaties tussen begrippen kennen.</p>
 <table>
 <thead>
@@ -1365,9 +1337,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Het doel van een thesaurus is traditioneel om de indexeerder en de zoeker te helpen bij het kiezen van dezelfde term voor hetzelfde begrip. Om dit te bereiken, bevat een thesaurus in de eerste plaats alle begrippen die nuttig kunnen zijn voor zoekdoeleinden in een bepaald domein. Ten tweede moet een thesaurus de begrippen zo presenteren dat mensen ze gemakkelijk kunnen vinden. Dit wordt bereikt door relaties tussen begrippen tot stand te leggen en de relaties te gebruiken om de begrippen in een gestructureerde weergave te presenteren.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<p> Hiervoor kennen we de relatie <a data-link-type="dfn|abstract-op" href="#dfn-is-gerelateerd-aan" class="internalDFN" id="ref-for-dfn-is-gerelateerd-aan-1">is gerelateerd aan</a>.</p>
+<br> <p> Hiervoor kennen we de relatie <a data-link-type="dfn|abstract-op" href="#dfn-is-gerelateerd-aan" class="internalDFN" id="ref-for-dfn-is-gerelateerd-aan-1">is gerelateerd aan</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1396,10 +1366,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>RT</td>
 </tr>
 </tbody></table>
-<br> 
-
-
-<section id="iso-25964-hierarchische-relaties"><div class="header-wrapper"><h5 id="x2-4-3-1-iso-25964-hierarchische-relaties"><bdi class="secno">2.4.3.1 </bdi>ISO 25964 hiërarchische relaties</h5><a class="self-link" href="#iso-25964-hierarchische-relaties" aria-label="Permalink for Section 2.4.3.1"></a></div>
+<br> <section id="iso-25964-hierarchische-relaties"><div class="header-wrapper"><h5 id="x2-4-3-1-iso-25964-hierarchische-relaties"><bdi class="secno">2.4.3.1 </bdi>ISO 25964 hiërarchische relaties</h5><a class="self-link" href="#iso-25964-hierarchische-relaties" aria-label="Permalink for Section 2.4.3.1"></a></div>
 <p>Hoewel een al dan niet transitief onderliggend of bovenliggend begrip vaak gebruikt als specialisatie respectievelijk generalisatie, kan het ook een partitieve, deel-geheel relatie of een instantiële relaties zijn. De ISO 25964 standaard voor thesauri maakt in plaats van de ongespecificeerde hiërarchische relaties <a data-link-type="dfn|abstract-op" href="#dfn-heeft-bovenliggend-begrip" class="internalDFN" id="ref-for-dfn-heeft-bovenliggend-begrip-1">heeft bovenliggend begrip</a> en <a data-link-type="dfn|abstract-op" href="#dfn-heeft-onderliggend-begrip" class="internalDFN" id="ref-for-dfn-heeft-onderliggend-begrip-1">heeft onderliggend begrip</a> expliciet onderscheid tussen generalisaties/specialisaties, partitieve relaties en instantiële relaties. Begrippen worden hiermee expliciet in een hiërarchie geplaatst, waarmee deze relaties transitief zijn. Een kanttekening daarbij is wel dat de meeste tools alleen de standaard hiërarchische relaties herkennen.</p>
 <table>
 <thead>
@@ -1433,9 +1400,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>NTG</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1467,9 +1432,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>BTG</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1501,9 +1464,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>BTP</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1535,9 +1496,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>NTP</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1569,9 +1528,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>BTI</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1603,9 +1560,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>NTI</td>
 </tr>
 </tbody></table>
-<br> 
-
-</section></section><section id="harmonisatiesrelaties"><div class="header-wrapper"><h4 id="x2-4-4-harmonisatiesrelaties"><bdi class="secno">2.4.4 </bdi>Harmonisatiesrelaties</h4><a class="self-link" href="#harmonisatiesrelaties" aria-label="Permalink for Section 2.4.4"></a></div>
+<br> </section></section><section id="harmonisatiesrelaties"><div class="header-wrapper"><h4 id="x2-4-4-harmonisatiesrelaties"><bdi class="secno">2.4.4 </bdi>Harmonisatiesrelaties</h4><a class="self-link" href="#harmonisatiesrelaties" aria-label="Permalink for Section 2.4.4"></a></div>
 <p>Begrippen kunnen ook worden gerelateerd aan begrippen in een ander begrippenkader. Hiervoor gebruiken we <a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-2">harmonisatierelatie</a>.</p>
 <table>
 <thead>
@@ -1631,9 +1586,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Dit is een hulpbegrip om de 5 harmonisatierelaties met begrippen in externe begrippenkaders samen te kunnen nemen. De bedoeling is om een van deze 5 relaties te gebruiken bij het relateren van een begrip aan een begrip uit een ander begrippenkader. Het gaat niet zozeer om het harmoniseren in de zin dat iedereen dezelfde term voor een begrip moet gebruiken, maar om inzichtelijk te maken hoe het begrip samenhangt met begrippen in andere contexten.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<p>Specifiek onderscheiden we de volgende verschillende harmonisatierelaties.</p>
+<br> <p>Specifiek onderscheiden we de volgende verschillende harmonisatierelaties.</p>
 <table>
 <thead>
 <tr>
@@ -1658,9 +1611,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een dergelijke relatie is aanwezig als de betekenis van het betreffende begrip gelijk is aan de betekenis van het begrip uit het andere begrippenkader. Het begrip kan ook een 'leenwoord' zijn, dat wil zeggen dat het begrip is overgenomen uit het andere begrippenkader.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1684,9 +1635,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Een dergelijke relatie is aanwezig als de betekenis van het betreffende begrip ongeveer gelijk is aan de betekenis van het begrip uit het andere begrippenkader, dus niet precies hetzelfde.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1710,9 +1659,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Conventie is om «is overeenkomstig verwant» op dezelfde manier als gerelateerd te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1736,9 +1683,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Conventie is om «heeft overeenkomstig bovenliggend» op dezelfde manier als «heeft bovenliggend» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1762,9 +1707,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 <td>Conventie is om «heeft overeenkomstig onderliggend» op dezelfde manier als «heeft onderliggend» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken.</td>
 </tr>
 </tbody></table>
-<br> 
-
-</section></section><section id="brondocument"><div class="header-wrapper"><h3 id="x2-5-brondocument"><bdi class="secno">2.5 </bdi>Brondocument</h3><a class="self-link" href="#brondocument" aria-label="Permalink for Section 2.5"></a></div>
+<br> </section></section><section id="brondocument"><div class="header-wrapper"><h3 id="x2-5-brondocument"><bdi class="secno">2.5 </bdi>Brondocument</h3><a class="self-link" href="#brondocument" aria-label="Permalink for Section 2.5"></a></div>
 <p>Een <a data-link-type="dfn|abstract-op" href="#dfn-brondocument" class="internalDFN" id="ref-for-dfn-brondocument-2">brondocument</a> is een document dat relevant is voor een begrip. 
 Het is een good practice om voor ieder begrip een verwijzing naar een brondocument op te nemen. Het brondocument kan een heel document of een fragment daarvan zijn, denk aan een boek, een hoofdstuk of een paragraaf. Zo is het duidelijk waar bijvoorbeeld de definitie van een begrip op gebaseerd is. Dit verhoogt de kwaliteit van het begrip en vooral ook de betrouwbaarheid. Het gebruiken van de hieronder beschreven structuur wordt ten zeerste aanbevolen voor het beschrijven van bronnen en het relateren van begrippen aan brondocumenten.</p>
 <p>Een bronverwijzing wordt vastgelegd als kenmerk van een begrip. Hiervoor geldt het volgende patroon:</p>
@@ -1797,9 +1740,7 @@ Het is een good practice om voor ieder begrip een verwijzing naar een brondocume
 <td>herkomst, bronverwijzing</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1823,9 +1764,7 @@ Het is een good practice om voor ieder begrip een verwijzing naar een brondocume
 <td>bron</td>
 </tr>
 </tbody></table>
-<br> 
-
-<p>Het wordt aangeraden om een brondocument altijd te beschrijven met een <strong><a data-link-type="dfn|abstract-op" href="#dfn-bronverwijzing" class="internalDFN" id="ref-for-dfn-bronverwijzing-1">bronverwijzing</a></strong> waarin de verwijzing conform een gangbare conventie is vastgelegd. Er zijn (internationale) conventies voor de verwijzing naar passage van een artikel in een tijdschrift of in een boek. Ook voor de verwijzing naar wetgeving is er een <a href="#conv-lido">conventie</a>. Als de bron een vindplaats heeft op het web is een <strong><a data-link-type="dfn|abstract-op" href="#dfn-url" class="internalDFN" id="ref-for-dfn-url-1">url</a></strong> relevant. Hiermee kan de bron direct gevonden worden. </p>
+<br> <p>Het wordt aangeraden om een brondocument altijd te beschrijven met een <strong><a data-link-type="dfn|abstract-op" href="#dfn-bronverwijzing" class="internalDFN" id="ref-for-dfn-bronverwijzing-1">bronverwijzing</a></strong> waarin de verwijzing conform een gangbare conventie is vastgelegd. Er zijn (internationale) conventies voor de verwijzing naar passage van een artikel in een tijdschrift of in een boek. Ook voor de verwijzing naar wetgeving is er een <a href="#conv-lido">conventie</a>. Als de bron een vindplaats heeft op het web is een <strong><a data-link-type="dfn|abstract-op" href="#dfn-url" class="internalDFN" id="ref-for-dfn-url-1">url</a></strong> relevant. Hiermee kan de bron direct gevonden worden. </p>
 <table>
 <thead>
 <tr>
@@ -1850,9 +1789,7 @@ Het is een good practice om voor ieder begrip een verwijzing naar een brondocume
 <td>Een bronverwijzing wordt als tekst vastgelegd. Hier dient voldoende detail in aangebracht te zijn zodat de resource gevonden kan worden. Er bestaan verschillende conventies die toegepast kunnen worden zoals IEEE, MLA of APA. Voor Nederlandse wetgeving is dit de citeertitel.</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1876,9 +1813,7 @@ Het is een good practice om voor ieder begrip een verwijzing naar een brondocume
 <td>Een url wordt vastgelegd als het brondocument een resource is die vindbaar is op het web. Dit is bij voorkeur de uri van het brondocument en eventueel de url van de betreffende pagina op het web.</td>
 </tr>
 </tbody></table>
-<br>
-
-</section><section id="collectie"><div class="header-wrapper"><h3 id="x2-6-collectie"><bdi class="secno">2.6 </bdi>Collectie</h3><a class="self-link" href="#collectie" aria-label="Permalink for Section 2.6"></a></div>
+<br></section><section id="collectie"><div class="header-wrapper"><h3 id="x2-6-collectie"><bdi class="secno">2.6 </bdi>Collectie</h3><a class="self-link" href="#collectie" aria-label="Permalink for Section 2.6"></a></div>
 <p>Het gebruik van <a data-link-type="dfn|abstract-op" href="#dfn-collectie" class="internalDFN" id="ref-for-dfn-collectie-3">collectie</a>s is altijd optioneel binnen deze standaard. Collecties zijn geen onderdeel van een begrippenlijst, taxonomie of thesaurus. </p>
 <p>Collecties bieden de mogelijkheid om binnen een begrippenkader begrippen die voor hun betekenis niet direct via semantische relaties met elkaar zijn verbonden te groeperen. Zo hebben het begrip 'vervuild' dat in milieuwetgeving wordt gedefinieerd en het begrip 'landgoed' dat in de natuurschoonwet wordt gedefinieerd semantisch geen relatie. Beiden leiden tot beperkingen op het mogelijke gebruik van onroerende zaken en moeten als zodanig kenbaar worden gemaakt in het kader van de Wet Kenbaarheid Publiekrechtelijke Beperkingen (WKPB). Door deze begrippen samen te brengen in een collectie, kan er een lijst van publiekrechtelijke beperkingen worden gemaakt.</p>
 <p>Het maken van dergelijke lijstjes binnen een begrippenkader is een typische toepassing van collecties. Zo kunnen ook 'NV', 'BV', 'VOF' et cetera in een lijst met rechtsvormen worden ondergebracht. Collecties kunnen dus ook worden gebruikt voor het maken van lijstjes van begrippen die wel semantisch verwant zijn. In het voorbeeld zijn 'NV', 'BV' en 'VOF' ook specialisaties van 'rechtsvorm'.</p>
@@ -1911,9 +1846,7 @@ Het is een good practice om voor ieder begrip een verwijzing naar een brondocume
 <td>gelabelde collectie, verzameling</td>
 </tr>
 </tbody></table>
-<br> 
-
-<table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1954,7 +1887,7 @@ De topbegrippen zijn dan: </p>
 <ul>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-begrip" class="internalDFN" id="ref-for-dfn-begrip-5">begrip</a><ul>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-topbegrip" class="internalDFN" id="ref-for-dfn-topbegrip-1">topbegrip</a></li>
-<li><a data-link-type="dfn|abstract-op" class="respec-offending-element" title="Linking error: not matching `&lt;dfn&gt;`" id="respec-offender-linking-error-not-matching-dfn">extern begrip</a></li>
+<li><a data-link-type="dfn|abstract-op" class="respec-offending-element" title="Linking error: no matching `&lt;dfn&gt;`" id="respec-offender-linking-error-no-matching-dfn">extern begrip</a></li>
 </ul>
 </li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-begrippenkader" class="internalDFN" id="ref-for-dfn-begrippenkader-6">begrippenkader</a><ul>
@@ -2078,9 +2011,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
 <li>DublinCore (<a href="http://purl.org/dc/terms/BibliographicResource">BibliographicResource</a>) of </li>
 <li>FRBR (<a href="http://purl.org/vocab/frbr/core#term-Work">Work</a>, <a href="http://purl.org/vocab/frbr/core#term-Expression">Expression</a>, <a href="http://purl.org/vocab/frbr/core#term-Manifestation">Manifestation</a> of <a href="http://purl.org/vocab/frbr/core#term-Item">Item</a>)</li>
 </ul>
-</div></div>
-
-</section><section id="eigenschappen"><div class="header-wrapper"><h4 id="x4-2-2-eigenschappen"><bdi class="secno">4.2.2 </bdi>Eigenschappen</h4><a class="self-link" href="#eigenschappen" aria-label="Permalink for Section 4.2.2"></a></div>
+</div></div></section><section id="eigenschappen"><div class="header-wrapper"><h4 id="x4-2-2-eigenschappen"><bdi class="secno">4.2.2 </bdi>Eigenschappen</h4><a class="self-link" href="#eigenschappen" aria-label="Permalink for Section 4.2.2"></a></div>
 <table>
 <thead>
 <tr>
@@ -2225,10 +2156,6 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
 <p>Met het conceptueel model en de taalbinding die daar aan toegevoegd is kunnen we een dataspecificatie opstellen. Deze wordt in dit hoofdstuk besproken. De specificatie is ook in SHACL beschreven en is <a href="https://raw.githubusercontent.com/Geonovum/NL-SBB/refs/heads/main/profiles/skos-ap-nl.ttl">hier</a> beschikbaar. </p>
 <section id="specificatie-begrippenkader"><div class="header-wrapper"><h4 id="x4-3-1-specificatie-begrippenkader"><bdi class="secno">4.3.1 </bdi>Specificatie begrippenkader</h4><a class="self-link" href="#specificatie-begrippenkader" aria-label="Permalink for Section 4.3.1"></a></div>
 <p>Een begrippenkader wordt gerepresenteerd als een <code>skos:ConceptScheme</code>. Deze typering is verplicht.</p>
-
-
-
-
 <table>
 <thead>
 <tr>
@@ -2700,6 +2627,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-begrip" aria-label="Permalink for definition: begrip. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2722,6 +2650,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-begrippenkader" aria-label="Permalink for definition: begrippenkader. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2744,6 +2673,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-in-kader" aria-label="Permalink for definition: in kader. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2762,6 +2692,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-begrippenlijst" aria-label="Permalink for definition: begrippenlijst. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2778,6 +2709,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-relatie" aria-label="Permalink for definition: relatie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2792,6 +2724,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-naam" aria-label="Permalink for definition: naam. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2814,6 +2747,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-voorkeursterm" aria-label="Permalink for definition: voorkeursterm. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2834,6 +2768,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-alternatieve-term" aria-label="Permalink for definition: alternatieve term. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2850,6 +2785,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-zoekterm" aria-label="Permalink for definition: zoekterm. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2866,6 +2802,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-notitie" aria-label="Permalink for definition: notitie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2880,6 +2817,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-definitie" aria-label="Permalink for definition: definitie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2900,6 +2838,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-toelichting" aria-label="Permalink for definition: toelichting. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2918,6 +2857,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-uitleg" aria-label="Permalink for definition: uitleg. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2940,6 +2880,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-historienotitie" aria-label="Permalink for definition: historienotitie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2956,6 +2897,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-redactionele-notitie" aria-label="Permalink for definition: redactionele notitie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2972,6 +2914,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-voorbeeld" aria-label="Permalink for definition: voorbeeld. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2988,6 +2931,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-wijzigingsnotitie" aria-label="Permalink for definition: wijzigingsnotitie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3004,6 +2948,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-code" aria-label="Permalink for definition: code. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3022,6 +2967,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-taxonomie" aria-label="Permalink for definition: taxonomie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3036,6 +2982,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-semantische-relatie" aria-label="Permalink for definition: semantische relatie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3050,6 +2997,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-topbegrip-van" aria-label="Permalink for definition: is topbegrip van. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3064,6 +3012,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-heeft-topbegrip" aria-label="Permalink for definition: heeft topbegrip. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3078,6 +3027,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-topbegrip" aria-label="Permalink for definition: topbegrip. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3092,6 +3042,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-heeft-bovenliggend-begrip" aria-label="Permalink for definition: heeft bovenliggend begrip. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3110,6 +3061,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-heeft-onderliggend-begrip" aria-label="Permalink for definition: heeft onderliggend begrip. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3128,6 +3080,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-thesaurus" aria-label="Permalink for definition: thesaurus. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3142,6 +3095,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-gerelateerd-aan" aria-label="Permalink for definition: is gerelateerd aan. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3160,6 +3114,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-specialisatie-van" aria-label="Permalink for definition: is specialisatie van. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3176,6 +3131,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-generalisatie-van" aria-label="Permalink for definition: is generalisatie van. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3192,6 +3148,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-onderdeel-van" aria-label="Permalink for definition: is onderdeel van. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3208,6 +3165,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-omvat" aria-label="Permalink for definition: omvat. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3224,6 +3182,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-exemplaar-van" aria-label="Permalink for definition: is exemplaar van. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3240,6 +3199,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-categorie-van" aria-label="Permalink for definition: is categorie van. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3256,6 +3216,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-harmonisatierelatie" aria-label="Permalink for definition: harmonisatierelatie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3272,6 +3233,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-exact-overeenkomstig" aria-label="Permalink for definition: is exact overeenkomstig. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3288,6 +3250,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-vrijwel-overeenkomstig" aria-label="Permalink for definition: is vrijwel overeenkomstig. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3304,6 +3267,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-is-overeenkomstig-verwant" aria-label="Permalink for definition: is overeenkomstig verwant. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3320,6 +3284,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-heeft-overeenkomstig-bovenliggend" aria-label="Permalink for definition: heeft overeenkomstig bovenliggend. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3336,6 +3301,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-heeft-overeenkomstig-onderliggend" aria-label="Permalink for definition: heeft overeenkomstig onderliggend. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3352,6 +3318,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-heeft-bron" aria-label="Permalink for definition: heeft bron. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3376,6 +3343,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-brondocument" aria-label="Permalink for definition: brondocument. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3396,6 +3364,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-bronverwijzing" aria-label="Permalink for definition: bronverwijzing. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3414,6 +3383,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-url" aria-label="Permalink for definition: url. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3432,6 +3402,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-collectie" aria-label="Permalink for definition: collectie. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3450,6 +3421,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <div>
         <a class="self-link" href="#dfn-bevat" aria-label="Permalink for definition: bevat. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -3476,8 +3448,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -3485,24 +3460,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -3553,7 +3538,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -3597,9 +3583,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -3648,6 +3634,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -3677,7 +3666,7 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;

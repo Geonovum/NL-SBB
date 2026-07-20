@@ -1,10 +1,16 @@
+Deze repository is automatisch bijgewerkt naar de nieuwste workflow.
+Voor vragen, neem contact op met [Linda van den Brink](mailto:l.vandenbrink@geonovum.nl) of [Wilko Quak](mailto:w.quak@geonovum.nl).
+
+Als je een nieuwe publicatie wilt starten, lees dan eerst de instructies in de README van de NL-ReSpec-template:
+[https://github.com/Geonovum/NL-ReSpec-template](https://github.com/Geonovum/NL-ReSpec-template).
+
 # Standaard voor het beschrijven van begrippen (NL-SBB)
 
 Deze repository is voortgekomen de activiteiten voor de PLDN Werkgroep Nederlands profiel voor stelselcatalogi. Historische issues zijn nog te vinden op de [gearchiveerde PLDN github](https://github.com/pldn/nederlands-profiel-voor-stelselcatalogi/issues?q=is%3Aissue). Inmiddels is de standaard in beheer bij Geonovum en faciliteert zij ook de werkgroep, ook actuele issues zijn in deze Github te vinden.
 
 De werkversie van het profiel is te vinden op [https://geonovum.github.io/NL-SBB/](https://geonovum.github.io/NL-SBB/). 
 
-Best practices en aanvullingen op de standaard staaan in een apart document, dat te vinden is op [https://geonovum.github.io/NL-SBB/bp](https://geonovum.github.io/NL-SBB/bp).
+Best practices en aanvullingen op de standaard staaan in een apart [document](https://geonovum.github.io/nl-sbb-bp) in een aparte [repository](https://github.com/Geonovum/nl-sbb-bp).
  
 De standaard beschrijft een basisprofiel voor stelselcatalogi(of iedere andere plek waar begrippen gepubliceerd worden), waarmee verschillende stelselcatalogi interoperabel ingericht kunnen worden. De bedoeling is dat catalogi gemakkelijk naar elkaars begrippen kunnen verwijzen. Daarmee ontstaat en soort van samenhangend overkoepelend stelsel van domeinen, waarbij ieder deelnemend stelsel een samenhangend domein representeert. Voorbeelden zijn de [stelselcatalogus voor de basisregistraties](https://www.stelselcatalogus.nl/) (de moeder van alle catalogi), de [stelselcatalogus voor het DSO](https://stelselcatalogus.omgevingswet.overheid.nl/) en de [stelselcatalogus voor het Zorgeloos Vastgoed Stelsel](https://taxonomie.zorgeloosvastgoed.nl/).  Naast het basisprofiel zullen meerdere extensies ontstaan. Dit kunnen extensies zijn om tot een volledige ISO compatable thesaurus te komen, maar ook extensies die relevant zijn voor een specifiek domein. Er lijkt in Nederland op dit moment echt momentum om dit gezamenlijk op te pakken en naar semantisch interoperabele publiek-private domeinen toe te werken.
  
@@ -19,3 +25,4 @@ De volgende personen en organisaties nemen deel aan deze werkgroep:
 Trekker: Arjen Santema (Kadaster)<br>
 Deelnemers: 
 Jos van der Arend (Kennisnet), Jesse Bakker (Kadaster), Koos Boersma (IHW), Marco Brattinga (Nationale Politie), Linda van den Brink (Geonovum), Pieter van Everdingen (PLDN), Roeland Euwens (KNB), Casper le Gras (KOOP), Gerald Groot Roessink (DUO), Pano Maria (Skemu), Rik (CROW), Hans Overbeek (KOOP), Viyanti Ramdhiansing (Kennisnet), Arjen Santema (Kadaster), Frank Terpstra (Geonovum), Kees Trautwein (Logius), Jan Willem van Veen (ArchiXL)
+

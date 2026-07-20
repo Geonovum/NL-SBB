@@ -7,7 +7,7 @@ Dit hoofdstuk is normatief wanneer begrippen via het web worden ontsloten.
 
 Het onderstaande diagram geeft een overzicht van de taalbinding in RDF die bij het conceptuele model gedefinieerd is.
 
-![](respec/media/skos-ap-nl.png "Diagram: Toepassingsprofiel skos")
+![](media/skos-ap-nl.png "Diagram: Toepassingsprofiel skos")
 
 ## Uitwerking
 Voor het representeren van de conceptuele elementen in RDF maken we gebruik van de volgende vocabulaires 1) RDF(s), 2) SKOS, 3) DCTERMS, 4) FOAF en 5) ISOTHES. We geven de taalbinding voor types en kenmerken apart in [types](#types) en [eigenschappen](#eigenschappen)
@@ -50,7 +50,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
 | [=is gerelateerd aan=]                | [skos:related](http://www.w3.org/2004/02/skos/core#related)                         |
 | [=wijzigingsnotitie=]                 | [skos:changeNote](http://www.w3.org/2004/02/skos/core#changeNote)                   |
 | [=redactionele notitie=]              | [skos:editorialNote](http://www.w3.org/2004/02/skos/core#editorialNote)             |
-| [=historie notitie=]                  | [skos:historyNote](http://www.w3.org/2004/02/skos/core#historyNote)                 |
+| [=historienotitie=]                  | [skos:historyNote](http://www.w3.org/2004/02/skos/core#historyNote)                 |
 | [=toelichting=]                       | [skos:scopeNote](http://www.w3.org/2004/02/skos/core#scopeNote)                     |
 | [=voorbeeld=]                         | [skos:example](http://www.w3.org/2004/02/skos/core#example)                         |
 | [=heeft overeenkomstig bovenliggend=] | [skos:broadMatch](http://www.w3.org/2004/02/skos/core#broadMatch)                   |
@@ -106,7 +106,7 @@ Een begrip wordt gerepresenteerd als een `skos:Concept`. Deze typering is verpli
 | [=is gerelateerd aan=]                | [skos:related](http://www.w3.org/2004/02/skos/core#related)                         | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)             |
 | [=wijzigingsnotitie=]                 | [skos:changeNote](http://www.w3.org/2004/02/skos/core#changeNote)                   | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
 | [=redactionele notitie=]              | [skos:editorialNote](http://www.w3.org/2004/02/skos/core#editorialNote)             | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
-| [=historie notitie=]                  | [skos:historyNote](http://www.w3.org/2004/02/skos/core#historyNote)                 | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
+| [=historienotitie=]                  | [skos:historyNote](http://www.w3.org/2004/02/skos/core#historyNote)                 | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
 | [=toelichting=]                       | [skos:scopeNote](http://www.w3.org/2004/02/skos/core#scopeNote)                     | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
 | [=voorbeeld=]                         | [skos:example](http://www.w3.org/2004/02/skos/core#example)                         | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString) |
 | [=heeft overeenkomstig bovenliggend=] | [skos:broadMatch](http://www.w3.org/2004/02/skos/core#broadMatch)                   | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)             |

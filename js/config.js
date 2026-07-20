@@ -108,11 +108,11 @@ var documentConfig =
 alternateFormats: [
     {
       label: "SHACL",
-      uri: "https://register.geostandaarden.nl/nl-sbb/1.0/shacl/skos-ap-nl.ttl",
+      uri: "https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl",
     },
     {
       label: "SKOS",
-      uri: "https://register.geostandaarden.nl/nl-sbb/1.0/concepts/thesaurus.ttl",
+      uri: "https://register.geostandaarden.nl/concepts/nl-sbb/1.0.0/thesaurus.ttl",
     },
 ],
     labelColor: {

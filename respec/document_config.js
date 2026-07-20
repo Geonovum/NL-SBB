@@ -109,14 +109,18 @@ var documentConfig =
     maxTocLevel: 3,
     
 alternateFormats: [
-        {
-          label: "SHACL",
-          uri: "https://register.geostandaarden.nl/nl-sbb/1.0/shacl/skos-ap-nl.ttl",
-        },
-        {
-          label: "SKOS",
-          uri: "https://register.geostandaarden.nl/nl-sbb/1.0/concepts/thesaurus.ttl",
-        },
+    {
+        label:"SHACL",
+        uri:
+`https://register.geostandaarden.nl/${documentConfig.shortName}/${documentConfig.publishVersion}/shacl/skos-ap-nl.ttl`
+    },
+
+    {
+        label:"SKOS",
+        uri:
+`https://register.geostandaarden.nl/${documentConfig.shortName}/${documentConfig.publishVersion}/concepts/thesaurus.ttl`
+    }
+
 ],
     labelColor: {
         def: "#045D9F",

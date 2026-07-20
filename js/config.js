@@ -105,16 +105,16 @@ var documentConfig =
     issueBase: "https://github.com/Geonovum/NL-SBB/issues",
     maxTocLevel: 3,
     
-    alternateFormats: [
-        {
-          label: "SHACL",
-          uri: "https://raw.githubusercontent.com/geonovum/NL-SBB/main/profiles/skos-ap-nl.ttl",
-        },
-        {
-          label: "SKOS",
-          uri: "https://raw.githubusercontent.com/geonovum/NL-SBB/main/concepts/thesaurus.ttl",
-        },
-    ],
+alternateFormats: [
+    {
+      label: "SHACL",
+      uri: "https://register.geostandaarden.nl/nl-sbb/1.0/shacl/skos-ap-nl.ttl",
+    },
+    {
+      label: "SKOS",
+      uri: "https://register.geostandaarden.nl/nl-sbb/1.0/concepts/thesaurus.ttl",
+    },
+],
     labelColor: {
         def: "#045D9F",
         wv: "#FF0000",

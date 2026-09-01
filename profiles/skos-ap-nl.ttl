@@ -20,6 +20,10 @@ skosapnl:
     sh:prefix "skos" ;
     sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
   ] ;
+  sh:declare [
+    sh:prefix "isothes" ;
+    sh:namespace "http://purl.org/iso25964/skos-thes#"^^xsd:anyURI ;
+  ] ;
   owl:imports
     <http://www.w3.org/2004/02/skos/core> ,
     <http://purl.org/iso25964/skos-thes> ,
@@ -63,17 +67,21 @@ skosapnl:Concept
     skosapnl:Concept-narrowerGeneric ,
     skosapnl:Concept-broadMatch ;
   sh:sparql 
-    skosapnl:OrphanConcept ,
     skosapnl:TopConceptHavingBroader ,
-    skosapnl:UnambiguousNotations ,
-    skosapnl:UniquePreflabelWithinConceptScheme ;
-    sh:severity sh:Warning;
+    skosapnl:UnambiguousNotations ;
+    sh:severity sh:Violation;
   sh:targetClass skos:Concept .
 
 skosapnl:Concept-UniquePrefLabelWithinSchemeShape
   a sh:NodeShape ;
   sh:targetClass skos:Concept ;
   sh:sparql skosapnl:UniquePreflabelWithinConceptScheme ;
+  sh:severity sh:Warning .
+
+skosapnl:Concept-OrphanConceptShape
+  a sh:NodeShape ;
+  sh:targetClass skos:Concept ;
+  sh:sparql skosapnl:OrphanConcept ;
   sh:severity sh:Warning .
 
 skosapnl:SourceDocument
@@ -705,6 +713,12 @@ skosapnl:DisjointConceptAndCollection
   sh:targetSubjectsOf skos:narrower ;
   sh:targetSubjectsOf skos:broader ;
   sh:targetSubjectsOf skos:related ;
+  sh:targetSubjectsOf isothes:broaderGeneric ;
+  sh:targetSubjectsOf isothes:broaderPartitive ;
+  sh:targetSubjectsOf isothes:broaderInstantial ;
+  sh:targetSubjectsOf isothes:narrowerGeneric ;
+  sh:targetSubjectsOf isothes:narrowerPartitive ;
+  sh:targetSubjectsOf isothes:narrowerInstantial ;
   sh:sparql [
     sh:prefixes skosapnl: ;
     sh:message "Een begrip kan niet ook een collectie zijn."@nl ;
@@ -758,6 +772,18 @@ skosapnl:SemanticRelations
   sh:targetSubjectsOf skos:broader ;
   sh:targetSubjectsOf skos:narrower ;
   sh:targetSubjectsOf skos:related ;
+  sh:targetObjectsOf isothes:broaderGeneric ;
+  sh:targetObjectsOf isothes:broaderPartitive ;
+  sh:targetObjectsOf isothes:broaderInstantial ;
+  sh:targetObjectsOf isothes:narrowerGeneric ;
+  sh:targetObjectsOf isothes:narrowerPartitive ;
+  sh:targetObjectsOf isothes:narrowerInstantial ;
+  sh:targetSubjectsOf isothes:broaderGeneric ;
+  sh:targetSubjectsOf isothes:broaderPartitive ;
+  sh:targetSubjectsOf isothes:broaderInstantial ;
+  sh:targetSubjectsOf isothes:narrowerGeneric ;
+  sh:targetSubjectsOf isothes:narrowerPartitive ;
+  sh:targetSubjectsOf isothes:narrowerInstantial ;
   sh:targetObjectsOf skos:broadMatch ;
   sh:targetObjectsOf skos:closeMatch ;
   sh:targetObjectsOf skos:exactMatch ;
@@ -816,8 +842,11 @@ skosapnl:TopConceptHavingBroader
   sh:severity sh:Violation ;
   sh:select """SELECT $this
     WHERE {
-      ?this skos:topConceptOf|^skos:hasTopConcept ?cs ;
-      skos:broader ?other .
+      ?this skos:topConceptOf|^skos:hasTopConcept ?cs .
+      ?this skos:broader
+          | isothes:broaderGeneric
+          | isothes:broaderPartitive
+          | isothes:broaderInstantial ?other .
     }
     """ .
 
@@ -832,7 +861,13 @@ skosapnl:OrphanConcept
         ?this skos:topConceptOf|^skos:hasTopConcept ?cs .
       }
       FILTER NOT EXISTS {
-      ?this skos:broader | ^skos:broader | skos:narrower | ^skos:narrower | skos:related | ^skos:related ?other .
+      ?this skos:broader | ^skos:broader | skos:narrower | ^skos:narrower | skos:related | ^skos:related
+          | isothes:broaderGeneric     | ^isothes:broaderGeneric
+          | isothes:broaderPartitive   | ^isothes:broaderPartitive
+          | isothes:broaderInstantial  | ^isothes:broaderInstantial
+          | isothes:narrowerGeneric    | ^isothes:narrowerGeneric
+          | isothes:narrowerPartitive  | ^isothes:narrowerPartitive
+          | isothes:narrowerInstantial | ^isothes:narrowerInstantial ?other .
       }
     }""" ;
   sh:severity sh:Info .

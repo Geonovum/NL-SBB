@@ -1,0 +1,113 @@
+# verslag subwerkgroep redactionele status
+
+Gegenereerd door AI. Controleer op nauwkeurigheid.
+
+## Voorbeeld Voor Begrippenkaderdocumentatie: 
+
+Frank en Niels lichtten hun voorbeeld toe voor het documenteren van een begrippenkader met DCAT-AP NL; Brian en Jacob nemen dit voorbeeld over voor het ROSA-begrippenkader.
+
+### Voorbeeld IMEV: 
+
+Frank en Niels werkten een concreet voorbeeld uit voor het informatiemodel externe veiligheid (IMEV), gebaseerd op een eerder overzicht van toepasselijke DCAT-AP NL-velden voor NLSBB. Het voorbeeld beschrijft welke velden voor een begrippenkader relevant zijn en hoe deze kunnen worden ingevuld.
+
+### Geselecteerde Velden:
+
+De invulling bevatte volgens Frank alle verplichte velden, de conditionele velden die van toepassing waren en de aanbevolen velden die Niels benoemde als opgenomen. Versie-informatie is eveneens ingevuld, hoewel die optioneel is; een compleet begrippenkader kan ook alleen met een publicatiedatum worden beschreven.
+
+### Gebruik Van LLM: 
+
+Frank en Niels gaven aan dat een taalmodel is gebruikt om op basis van de specificaties, het gewenste formaat en de inhoud van het begrip de teksten te genereren. Zij achten deze werkwijze met de huidige kosten en techniek praktisch haalbaar; volgens Niels zou dit waarschijnlijk ook met een lokaal model kunnen.
+
+### Toepassing ROSA: 
+
+Brian en Jacob gaan het voorbeeld toepassen op het ROSA-begrippenkader. Zij beoordelen daarbij welke velden relevant zijn, welke mogelijk overbodig zijn en of er aanvullende informatie nodig is.
+
+## Versie- En Beheerinformatie: 
+
+Frank, Brian, Niels en Pano bespraken hoe versie-, publicatie- en wijzigingsinformatie zich verhoudt tot begrippenkaders, individuele begrippen en begripsbeschrijvingen.
+
+### Versie Van Releases: 
+
+Frank legde uit dat een begrippenkader vaak samenhangt met een UML-model en andere deliverables die gezamenlijk worden gereleased. Een versienummer, zoals versie 3.0, kan daarom betrekking hebben op de gehele release en niet noodzakelijk op elk afzonderlijk begrip of begrippenkader.
+
+### Publicatiedatum: 
+
+Wanneer een organisatie geen versie aan het volledige begrippenkader wil toekennen, kan volgens Frank de publicatiedatum worden gebruikt. Niels wees erop dat alleen een nieuwe datum voor een grote publicatieset weinig informatie geeft als slechts één begrip is gewijzigd.
+
+### Wijzigingen Op Begripsniveau: 
+
+Niels benadrukte dat gebruikers moeten kunnen zien welk individueel begrip is gewijzigd, zodat zij alleen de begrippen controleren die zij gebruiken. Een wijzigingsbeschrijving of vergelijkbare metadata moet daarom op het relevante niveau beschikbaar zijn.
+
+### Beheersets En Provenance: 
+
+Pano lichtte toe dat de standaard al werkt met onder meer een publicatieset, beheerset en provenance-set. Deze structuur biedt flexibiliteit om versie- en statusinformatie op verschillende niveaus vast te leggen, maar de huidige beschrijving is volgens Pano abstract en mist een praktische vertaling naar concrete usecases en tooling.
+
+### Conceptuele Niveaus: 
+
+De deelnemers onderscheidden het begrippenkader, het begrip en de begripsbeschrijving. Niels benadrukte dat provenance-informatie in de standaard vooral op het niveau van de begripsbeschrijving staat; Brian verduidelijkte dat zij in de praktijk met ‘begrip’ meestal het begrip inclusief de volledige beschrijving bedoelen.
+
+## Lifecyclestatus Van Begrippen: 
+
+De werkgroep besprak de behoefte om de status van individuele begrippen vast te leggen en moet nog bepalen of dit als best practice of als onderdeel van de standaard wordt uitgewerkt.
+
+### Huidige Behoefte: 
+
+Brian gaf aan dat de beheeromgeving al statussen ondersteunt voor individuele begrippen, zoals voorgesteld, vastgesteld, vervallen en vervangen. Ook worden een datum van eerste geldigheid en een wijzigingsdatum relevant gevonden; een begrip kan vastgesteld blijven terwijl de beschrijving later wordt gewijzigd.
+	
+### Terminologie: 
+
+De term ‘redactionele status’ wordt voor twee verschillende zaken gebruikt: de beschrijving van een begrippenkader of collectie en de workflowstatus van een individueel begrip. ‘Lifecycle status’ werd als mogelijke, meer passende term genoemd, maar Pano gaf aan dat hierover nog geen definitieve keuze is gemaakt.
+
+### Best Practice Of Standaard: 
+
+Brian vroeg of de uitgewerkte statusinformatie moet worden voorgelegd als best practice of als wijziging van de standaard. Pano en Frank constateerden dat hierover in eerdere gesprekken wel is gediscussieerd, maar nog geen concreet besluit is genomen.
+	
+### Usecases: 
+
+Als belangrijkste usecase noemde Brian dat begrippen individueel worden gewijzigd en vastgesteld, terwijl het begrippenkader als geheel gepubliceerd en beheerd blijft. Gebruikers moeten aan de buitenwereld kunnen zien of een begrip bijvoorbeeld nog voorgesteld, vastgesteld, vervallen of vervangen is.
+
+### Flexibele Implementatie: 
+
+Brian stelde voor het bestaan van een statusveld als algemene voorziening te standaardiseren, maar de concrete statussen als best practice te behandelen omdat organisaties verschillende workflows kunnen hebben. Pano gaf aan dat de bestaande beheers- en provenance-structuur technisch waarschijnlijk ruimte biedt, maar dat eerst voorbeelden moeten worden uitgewerkt.
+
+## Vervolg Voor Standaardisatie: 
+
+Frank, Brian, Jacob, Niels en Pano besloten de status- en beheerkwestie verder te concretiseren, bestaande implementaties te controleren en op 24 september een richtinggevend voorstel aan de werkgroep voor te leggen.
+
+### Vergelijking Met Standaard: 
+
+Niels stelde voor de discussie op te splitsen: enerzijds het IMEF-voorbeeld als documentatie van een publicatieset en anderzijds het beheerregime voor individuele begrippen en de bijbehorende metadata. De deelnemers moeten bepalen of beide benaderingen verenigbaar zijn met de bestaande beheerset- en provenance-setconstructie.
+
+### Praktische Voorbeelden: 
+
+Pano stelde voor eerst voorbeelden uit te werken waarin lifecyclestatussen volgens de bestaande standaardstructuur worden vastgelegd. Daarmee kan worden vastgesteld of de aanpak werkbaar is en welke aanpassingen nodig zijn.
+
+### Bestaande Implementaties: 
+
+Frank wil bij de werkgroep navragen of andere domeinen of implementaties al gebruikmaken van de beheer- en provenance-mogelijkheden uit de standaard. Dit voorkomt dat de groep een nieuwe oplossing uitwerkt zonder bestaande toepassingen mee te nemen.
+
+### Wijzigingsverzoek: 
+
+Brian en Frank spraken af om een wijzigingsverzoek voor de standaard op te stellen rond de lifecyclestatus van begrippen, eventueel onder een andere terminologie. Frank maakt het verzoek op basis van het verslag en geeft het vooraf aan Brian en anderen ter beoordeling.
+	
+### Bespreking Op 24 September: 
+
+De voortgang en voorgestelde richting worden teruggekoppeld aan de bredere werkgroep tijdens de bijeenkomst van 24 september. Daar wordt ook bepaald of het onderwerp prioriteit krijgt voor verdere uitwerking of op de backlog wordt geplaatst.
+
+## Op te volgen taken:
+
+### Voorbeeldtoepassing Begrippenkader: 
+
+Pas het uitgewerkte DKTNPL/IMEV-voorbeeld toe op het ROSA-onderwijsbegrippenkader en beoordeel welke velden relevant, overbodig of ontbrekend zijn. (Brian, Jacob)
+
+### Terugkoppeling Werkgroep: 
+
+Koppel op 24 september aan de werkgroep terug welke bevindingen uit de voorbeeldtoepassing komen en vraag of er draagvlak en prioriteit is om de lifecyclestatus verder uit te werken. (Frank)
+
+### Wijzigingsverzoek Lifecyclestatus: 
+
+Stel op basis van het verslag een wijzigingsverzoek op voor een bruikbare standaarduitwerking van lifecyclestatus op begrips- of begripsbeschrijvingsniveau, inclusief de richting voor de aansluiting op beheerset en provenanceset, en laat het vooraf beoordelen. (Frank)
+
+### Gebruikssituaties En Implementaties: 
+
+Controleer bij de werkgroep of andere organisaties de bestaande beheer- en provenanceset al gebruiken en verzamel concrete use-cases voor statusinformatie op individueel begripsniveau. (Frank)

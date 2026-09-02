@@ -41,7 +41,7 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | Excel-sjabloon NL-SBB | Overheid (beheerorganisatie) | Geleverd door Geonovum als beheerder van NL-SBB; vrij te gebruiken. |
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
-| BegrippenXL Begrippenmanager | Commercieel | SaaS |
+| BegrippenXL | Commercieel | SaaS |
 | ModelDesk | Commercieel | SaaS, licentie per seat |
 | PoolParty Semantic Suite | Commercieel | Licentie in bundels |
 | Progress Semaphore | Commercieel | — |
@@ -54,7 +54,7 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | --- | --- | --- | --- |
 | [Excel-sjabloon NL-SBB](#excel-sjabloon-nl-sbb) | Geonovum (beheerder van NL-SBB) | Spreadsheet-sjabloon | Vrij te gebruiken |
 | [Begrippeneditor (Begrippenvoorziening)](#begrippeneditor--begrippenvoorziening) | Logius | Webapplicatie, overheidsvoorziening | Overheid, geen licentiekosten |
-| [BegrippenXL Begrippenmanager](#begrippenxl-begrippenmanager) | ArchiXL | Webapplicatie (SaaS) | Commercieel |
+| [BegrippenXL](#begrippenxl) | ArchiXL | Thesaurusplatform (SaaS) | Commercieel |
 | [ModelDesk](#modeldesk) | ModelDesk | Webapplicatie (SaaS) | Commercieel, licentie per seat |
 
 ### Excel-sjabloon NL-SBB
@@ -95,16 +95,24 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 - **Licentiemodel:** overheidsvoorziening, geen licentiekosten. De broncode is niet openbaar
   gepubliceerd.
 
-### BegrippenXL Begrippenmanager
+### BegrippenXL
 
 - **Aanbieder:** ArchiXL
-- **Website:** [archixl.nl](https://www.archixl.nl/nl/producten/begrippenxl-thesaurusplatform/begrippenxl-begrippenmanager/),
+- **Website:** [BegrippenXL-thesaurusplatform](https://www.archixl.nl/nl/producten/begrippenxl-thesaurusplatform/),
   platform op [begrippenxl.nl](https://www.begrippenxl.nl/)
-- **Wat het is:** module binnen het BegrippenXL-thesaurusplatform om begrippen — desgewenst
-  meertalig — te definiëren, te relateren en over te nemen uit andere begrippenkaders.
-- **NL-SBB-ondersteuning:** ArchiXL noemt NL-SBB expliciet als ondersteunde standaard, inclusief het
-  omzetten van bestaande WikiXL-inhoud naar NL-SBB-conforme begrippen.
-- **Uitwisseling:** RDF/Turtle en CSV; bulkbewerkingen via een Excel-achtige interface.
+- **Wat het is:** een thesaurusplatform om begrippen vast te leggen, aan elkaar te relateren, te
+  doorzoeken en gebruikersvriendelijk te publiceren. Het platform bestaat uit meerdere onderdelen:
+  - de **[begrippenmanager](https://www.archixl.nl/nl/producten/begrippenxl-thesaurusplatform/begrippenxl-begrippenmanager/)**,
+    een losse module om begrippen — desgewenst meertalig — te definiëren, te relateren en over te
+    nemen uit andere begrippenkaders;
+  - het **beheerportaal**, waarin je begrippenkaders als bestand kunt uploaden en activeren;
+  - het **publicatieplatform**, dat de begrippen doorzoekbaar en toegankelijk publiceert.
+- **NL-SBB-ondersteuning:** ArchiXL noemt NL-SBB expliciet als ondersteunde standaard voor de
+  begrippenmanager.
+- **Uitwisseling:** RDF/Turtle en CSV; bulkbewerkingen via een Excel-achtige interface. Het
+  beheerportaal ondersteunt de gangbare linked-dataformaten, waaronder TTL en RDF/XML.
+- **Aandachtspunt:** sterk punt is de integratie tussen begrippen en de inhoud die een organisatie in
+  WikiXL of ArchiMedes vastlegt: die kunnen aan elkaar gerelateerd en integraal getoond worden.
 - **Licentiemodel:** commercieel, als SaaS-dienst.
 
 ### ModelDesk

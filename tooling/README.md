@@ -12,12 +12,13 @@ getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product 
 
 **Peildatum:** 2 september 2026.
 
-## Twee soorten ondersteuning
+## Soorten ondersteuning
 
 | Aanduiding | Betekenis |
 | --- | --- |
 | **Specifiek** | Het product is (mede) voor NL-SBB gemaakt: de kenmerken uit de standaard zitten er ingebouwd in en je kunt er zonder eigen inrichtingswerk NL-SBB-conforme begrippenkaders in vastleggen. |
 | **Configureerbaar** | Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het [SHACL-profiel van NL-SBB](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl) — voor gebruik met de standaard ingericht kan worden. |
+| **Publicatie en ontsluiting** | Het product is niet bedoeld om begrippen te maken of te bewerken, maar om een bestaand begrippenkader te publiceren, te doorzoeken en te doorbladeren. |
 
 Omdat de taalbinding van NL-SBB op SKOS gebaseerd is, kan in principe elk hulpmiddel dat SKOS
 kan lezen en schrijven met NL-SBB-begrippenkaders werken. Het verschil zit in hoeveel je zelf
@@ -41,6 +42,7 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | Excel-sjabloon NL-SBB | Overheid (beheerorganisatie) | Geleverd door Geonovum als beheerder van NL-SBB; vrij te gebruiken. |
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
+| Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
 | BegrippenXL | Commercieel | SaaS |
 | ModelDesk | Commercieel | SaaS, licentie per seat |
 | PoolParty Semantic Suite | Commercieel | Licentie in bundels |
@@ -218,6 +220,37 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   of hij in jouw instantie of abonnement zit.
 - **Licentiemodel:** commercieel. Er is een gratis account voor open data, waarbij de eerste miljoen
   triples gratis gehost worden; verder abonnementen en eigen instanties.
+
+## Publicatie en ontsluiting
+
+| Product | Aanbieder | Soort | Licentiemodel |
+| --- | --- | --- | --- |
+| [Skosmos](#skosmos) | Nationale Bibliotheek van Finland | Webapplicatie, zelf te installeren | Open source (MIT) |
+
+Publiceren kan ook onderdeel zijn van een product uit de vorige twee categorieën: de
+[Begrippencatalogus](https://begrippen.stelselcatalogus.nl) hoort bij de Begrippenvoorziening van
+Logius, BegrippenXL heeft een eigen publicatieplatform, en TriplyDB publiceert via
+SPARQL-endpoints en API's.
+
+### Skosmos
+
+- **Aanbieder:** Nationale Bibliotheek van Finland (NatLibFi)
+- **Website:** [skosmos.org](https://skosmos.org/), broncode op
+  [github.com/NatLibFi/Skosmos](https://github.com/NatLibFi/Skosmos). De bekendste instantie is de
+  Finse vocabulairedienst [Finto](https://finto.fi/).
+- **Wat het is:** een webapplicatie om SKOS-vocabulaires te publiceren, doorzoekbaar te maken en te
+  doorbladeren, met een meertalige gebruikersinterface, visualisatie van begrippenhiërarchieën, een
+  REST-API en linked-data-ontsluiting. Het is een viewer en publicatieplatform: je bewerkt de
+  begrippen elders en publiceert het resultaat met Skosmos.
+- **Inrichting voor NL-SBB:** Skosmos leest de begrippen uit een SPARQL-endpoint (in de praktijk vaak
+  Jena Fuseki) en wordt per vocabulaire ingericht met een klein configuratiebestand in Turtle:
+  naam, endpoint, ondersteunde talen, weergave van de hiërarchie en het gebruik van
+  SKOS-collecties. Skosmos is niet beperkt tot SKOS Core — het ondersteunt ook Dublin
+  Core-eigenschappen en ISO-uitbreidingen op SKOS, wat aansluit bij de taalbinding van NL-SBB. Voor
+  kenmerken die daarbuiten vallen is aanvullende configuratie of maatwerk in de templates nodig.
+- **Aandachtspunt:** je beheert zelf de installatie (PHP en een SPARQL-endpoint). Valideren tegen het
+  SHACL-profiel doe je vooraf, in de editor of met een aparte validator.
+- **Licentiemodel:** open source onder de MIT-licentie.
 
 ## Aan de slag met een generieke tool
 

@@ -111,7 +111,7 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   begrippenmanager.
 - **Uitwisseling:** RDF/Turtle en CSV; bulkbewerkingen via een Excel-achtige interface. Het
   beheerportaal ondersteunt de gangbare linked-dataformaten, waaronder TTL en RDF/XML.
-- **Aandachtspunt:** sterk punt is de integratie tussen begrippen en de inhoud die een organisatie in
+- **Onderscheidend punt:** de integratie tussen begrippen en de inhoud die een organisatie in
   WikiXL of ArchiMedes vastlegt: die kunnen aan elkaar gerelateerd en integraal getoond worden.
 - **Licentiemodel:** commercieel, als SaaS-dienst.
 
@@ -128,8 +128,9 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   (nog) niet bij. Vraag de actuele stand na bij de leverancier.
 - **Uitwisseling:** import van XMI, RDF (Turtle, RDF/XML, JSON-LD) en XSD; export naar MIM-XML, XMI,
   RDF (Turtle, RDF/XML, JSON-LD, N-Triples, N3), XSD en JSON Schema.
-- **Aandachtspunt:** sterk punt is de combinatie met informatiemodellering (MIM); de omgeving is
-  cloudgebaseerd met opslag in de EU en kent versiebeheer met commits en benoemde versies.
+- **Onderscheidend punt:** de combinatie met informatiemodellering (MIM).
+- **Aandachtspunt:** de omgeving is cloudgebaseerd met opslag in de EU en kent versiebeheer met
+  commits en benoemde versies.
 - **Licentiemodel:** commercieel, seat-gebaseerd per organisatie. Prijzen zijn niet openbaar.
 
 ## Generieke tools die met het NL-SBB SHACL-profiel ingericht kunnen worden

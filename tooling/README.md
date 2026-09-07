@@ -124,10 +124,7 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 - **Wat het is:** webomgeving voor informatiemodelleurs om modellen te importeren, modelleren,
   transformeren, valideren en publiceren, met automatisch gegenereerde klassendiagrammen en
   formuliergebaseerd bewerken.
-- **NL-SBB-ondersteuning:** de leverancier meldt NL-SBB-functionaliteit waarmee informatiemodellen
-  direct aan NL-SBB-begrippen gekoppeld kunnen worden. Op de productpagina zelf worden MIM, UML,
-  ER, RDFS/OWL/SHACL, XSD en JSON Schema als ondersteunde standaarden genoemd; NL-SBB staat daar
-  (nog) niet bij. Vraag de actuele stand na bij de leverancier.
+- **NL-SBB-ondersteuning:** NL-SBB is een van de standaarden die je in ModelDesk kunt kiezen. Je legt er begrippenkaders, begrippen, collecties en brondocumenten in vast, met de kenmerken uit de standaard als invoervelden en meertalige waarden waar de standaard die toestaat. De thesaurusrelaties van ISO 25964 zijn als uitbreiding beschikbaar. Zie modeldesk.io/nl/standaarden/nl-sbb.
 - **Uitwisseling:** import van XMI, RDF (Turtle, RDF/XML, JSON-LD) en XSD; export naar MIM-XML, XMI,
   RDF (Turtle, RDF/XML, JSON-LD, N-Triples, N3), XSD en JSON Schema.
 - **Onderscheidend punt:** de combinatie met informatiemodellering (MIM).

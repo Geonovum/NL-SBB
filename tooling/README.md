@@ -124,10 +124,16 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 - **Wat het is:** webomgeving voor informatiemodelleurs om modellen te importeren, modelleren,
   transformeren, valideren en publiceren, met automatisch gegenereerde klassendiagrammen en
   formuliergebaseerd bewerken.
-- **NL-SBB-ondersteuning:** NL-SBB is een van de standaarden die je in ModelDesk kunt kiezen. Je legt er begrippenkaders, begrippen, collecties en brondocumenten in vast, met de kenmerken uit de standaard als invoervelden en meertalige waarden waar de standaard die toestaat. De thesaurusrelaties van ISO 25964 zijn als uitbreiding beschikbaar. Zie modeldesk.io/nl/standaarden/nl-sbb.
+- **NL-SBB-ondersteuning:** NL-SBB is een van de standaarden die je in ModelDesk kunt kiezen. Je legt
+  er begrippenkaders, begrippen, collecties en brondocumenten in vast, met de kenmerken uit de
+  standaard als invoervelden en meertalige waarden waar de standaard die toestaat. De
+  thesaurusrelaties van ISO 25964 zijn als uitbreiding beschikbaar. Zie
+  [modeldesk.io/nl/standaarden/nl-sbb](https://modeldesk.io/nl/standaarden/nl-sbb).
 - **Uitwisseling:** import van XMI, RDF (Turtle, RDF/XML, JSON-LD) en XSD; export naar MIM-XML, XMI,
   RDF (Turtle, RDF/XML, JSON-LD, N-Triples, N3), XSD en JSON Schema.
-- **Onderscheidend punt:** de combinatie met informatiemodellering (MIM).
+- **Onderscheidend punt:** begrippen zijn te koppelen aan informatiemodellen en schema's in de andere
+  standaarden die ModelDesk ondersteunt: MIM, UML, RDFS/OWL, SHACL, XSD en JSON Schema. Daardoor is
+  te volgen van welk begrip een gegeven in een technisch schema afkomstig is.
 - **Aandachtspunt:** de omgeving is cloudgebaseerd met opslag in de EU en kent versiebeheer met
   commits en benoemde versies.
 - **Licentiemodel:** commercieel, seat-gebaseerd per organisatie. Prijzen zijn niet openbaar.

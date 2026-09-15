@@ -43,6 +43,7 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
 | Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
+| Protégé | Open source | BSD 2-Clause; Protégé Desktop lokaal, WebProtégé in de browser. |
 | BegrippenXL | Commercieel | SaaS |
 | ModelDesk | Commercieel | SaaS, licentie per seat |
 | PoolParty Semantic Suite | Commercieel | Licentie in bundels |
@@ -138,11 +139,12 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   commits en benoemde versies.
 - **Licentiemodel:** commercieel, seat-gebaseerd per organisatie. Prijzen zijn niet openbaar.
 
-## Generieke tools die met het NL-SBB SHACL-profiel ingericht kunnen worden
+## Generieke tools die voor NL-SBB ingericht kunnen worden
 
 | Product | Aanbieder | Soort | Licentiemodel |
 | --- | --- | --- | --- |
 | [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | Open source (overheid) |
+| [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Open source (BSD 2-Clause) |
 | [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | Commercieel, licentie per pakket |
 | [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | Commercieel |
 | [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | Commercieel |
@@ -163,6 +165,27 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   tegen het SHACL-profiel is geen gedocumenteerde kernfunctie; reken erop dat je daarvoor een
   aparte SHACL-validatiestap inricht.
 - **Licentiemodel:** open source; broncode en binaries staan op de downloadpagina.
+
+### Protégé
+
+- **Aanbieder:** Stanford University (Division of Computational Medicine)
+- **Website:** [protege.stanford.edu](https://protege.stanford.edu/), broncode op
+  [github.com/protegeproject](https://github.com/protegeproject/protege)
+- **Wat het is:** een breed gebruikte editor voor OWL 2-ontologieën, met een plug-inarchitectuur en
+  koppeling met redeneerders. Er zijn twee varianten: **Protégé Desktop** voor lokaal werk en
+  **WebProtégé** voor samenwerken in de browser, met rechten, discussies en een volledige
+  wijzigingshistorie. Het wordt onder meer gebruikt voor ICD-11 van de WHO en voor de ontologieën
+  van de OBO Foundry.
+- **Inrichting voor NL-SBB:** Protégé is in de eerste plaats een ontologie-editor, geen thesaurus- of
+  begrippeneditor. Er is geen ingebouwde SKOS-modus en er worden geen invoerformulieren uit een
+  SHACL-profiel gegenereerd: je kunt een NL-SBB-begrippenkader als RDF openen en bewerken, maar de
+  kenmerken uit de standaard krijg je niet als kant-en-klaar invoerscherm. Plugins van derden vullen
+  dat deels aan — een SKOS-editor voor thesauruswerk en SHACL4P voor het definiëren en valideren van
+  SHACL-constraints — maar ga na of die werken met de Protégé-versie die je gebruikt.
+- **Aandachtspunt:** voor een begrippenkader dat vooral uit SKOS bestaat is VocBench 3 of een van de
+  thesaurusplatformen doorgaans passender. Protégé komt tot zijn recht wanneer je het begrippenkader
+  combineert met een OWL-ontologie.
+- **Licentiemodel:** open source onder de BSD 2-Clause-licentie.
 
 ### TopBraid EDG
 

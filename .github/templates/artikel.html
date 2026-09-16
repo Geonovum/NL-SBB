@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="$if(lang)$$lang$$else$nl$endif$">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="pandoc, gegenereerd uit tooling/README.md in Geonovum/NL-SBB">
+<title>$if(title)$$title$$else$NL-SBB$endif$</title>
+<style>
+  :root {
+    --tekst: #1b1b1b;
+    --gedempt: #4a4a4a;
+    --lijn: #d6d6d6;
+    --vlak: #f5f5f5;
+    --link: #00669e;
+  }
+  body {
+    margin: 0;
+    padding: 2rem 1.25rem 4rem;
+    color: var(--tekst);
+    background: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  main { max-width: 52rem; margin: 0 auto; }
+  h1, h2, h3 { line-height: 1.25; }
+  h1 { font-size: 2rem; margin-bottom: 1.5rem; }
+  h2 { font-size: 1.45rem; margin-top: 2.5rem; border-bottom: 1px solid var(--lijn); padding-bottom: .3rem; }
+  h3 { font-size: 1.15rem; margin-top: 2rem; }
+  a { color: var(--link); }
+  code { background: var(--vlak); padding: .1em .3em; border-radius: 3px; font-size: .9em; }
+  ul { padding-left: 1.4rem; }
+  li { margin: .35rem 0; }
+  table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: .95rem; }
+  th, td { border: 1px solid var(--lijn); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  th { background: var(--vlak); }
+  nav#TOC { background: var(--vlak); border: 1px solid var(--lijn); padding: 1rem 1rem 1rem 1.5rem; margin: 2rem 0; }
+  nav#TOC ul { margin: 0; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--lijn); color: var(--gedempt); font-size: .9rem; }
+  @media (max-width: 700px) {
+    table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<main>
+$if(toc)$
+<nav id="TOC" role="doc-toc">
+$table-of-contents$
+</nav>
+$endif$
+$body$
+<footer>
+Gegenereerd uit <code>tooling/README.md</code> in de NL-SBB-repository op GitHub.
+</footer>
+</main>
+</body>
+</html>

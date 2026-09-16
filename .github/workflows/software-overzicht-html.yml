@@ -1,0 +1,160 @@
+name: HTML van softwareoverzicht
+
+# Genereert een losse HTML-pagina uit tooling/README.md en schrijft die terug naar
+# dezelfde branch. Bedoeld voor hergebruik buiten GitHub, bijvoorbeeld als artikel
+# op geonovum.nl.
+#
+# Optioneel mailen: de pagina wordt alleen gemaild als de onderstaande secrets zijn
+# ingesteld en de wijziging op main staat. Zonder die secrets slaat de workflow het
+# mailen over met een waarschuwing; genereren en terugschrijven werken dan gewoon.
+#   MAIL_SERVER    SMTP-server, bijvoorbeeld smtp.example.org
+#   MAIL_PORT      SMTP-poort, bijvoorbeeld 465
+#   MAIL_USERNAME  gebruikersnaam / afzenderadres
+#   MAIL_PASSWORD  wachtwoord of app-specifiek token
+#   MAIL_TO        ontvanger(s), komma-gescheiden
+
+on:
+  push:
+    paths:
+      - 'tooling/README.md'
+      - '.github/templates/artikel.html'
+      - '.github/workflows/software-overzicht-html.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  BRON: tooling/README.md
+  DOEL: tooling/software-die-nl-sbb-ondersteunt.html
+  TITEL: Software die NL-SBB ondersteunt
+
+jobs:
+  html:
+    name: Genereren, terugschrijven en mailen
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Pandoc beschikbaar maken
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pandoc >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends pandoc
+          fi
+          pandoc --version | head -1
+
+      - name: HTML genereren
+        shell: bash
+        run: |
+          set -euo pipefail
+          pandoc "$BRON" \
+            --from=gfm \
+            --to=html5 \
+            --standalone \
+            --template=.github/templates/artikel.html \
+            --metadata title="$TITEL" \
+            --metadata lang=nl \
+            --output="$DOEL"
+          echo "Gegenereerd: $DOEL ($(wc -c < "$DOEL") bytes)"
+
+      - name: Bepalen of de HTML gewijzigd is
+        id: wijziging
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- "$DOEL"; then
+            echo "gewijzigd=false" >> "$GITHUB_OUTPUT"
+            echo "De gegenereerde HTML is gelijk aan de versie in de repository."
+          else
+            echo "gewijzigd=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Alleen op main, zodat er geen gegenereerde HTML in feature-branches belandt.
+      # Op andere branches is het resultaat te bekijken via het artefact hieronder.
+      - name: Terugschrijven naar de branch
+        if: ${{ steps.wijziging.outputs.gewijzigd == 'true' && github.ref == 'refs/heads/main' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TARGET_BRANCH="${GITHUB_REF#refs/heads/}"
+          if [[ "$TARGET_BRANCH" == "$GITHUB_REF" ]]; then
+            echo "::warning title=Geen branch::Deze run hoort niet bij een branch; de HTML wordt niet teruggeschreven."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$DOEL"
+          git commit -m "HTML van softwareoverzicht gegenereerd"
+
+          # De publicatieworkflow kan tegelijk naar dezelfde branch schrijven; daarom
+          # opnieuw proberen bovenop de laatste stand.
+          for poging in 1 2 3; do
+            git fetch --no-tags origin "refs/heads/$TARGET_BRANCH:refs/remotes/origin/$TARGET_BRANCH"
+            if ! git rebase "refs/remotes/origin/$TARGET_BRANCH"; then
+              git rebase --abort || true
+              echo "::error title=Terugschrijven mislukt::De gegenereerde HTML botst met branch '$TARGET_BRANCH'."
+              exit 1
+            fi
+            if git push origin "HEAD:refs/heads/$TARGET_BRANCH"; then
+              echo "HTML teruggeschreven naar $TARGET_BRANCH."
+              exit 0
+            fi
+            echo "Push poging $poging mislukt, opnieuw proberen."
+            sleep 5
+          done
+
+          echo "::error title=Terugschrijven mislukt::Kon de gegenereerde HTML na drie pogingen niet naar '$TARGET_BRANCH' pushen."
+          exit 1
+
+      - name: HTML als artefact bewaren
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: softwareoverzicht-html
+          path: ${{ env.DOEL }}
+
+      - name: Bepalen of de HTML gemaild kan worden
+        id: mailconfig
+        shell: bash
+        env:
+          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${MAIL_SERVER:-}" && -n "${MAIL_TO:-}" ]]; then
+            echo "versturen=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "versturen=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Mailen overgeslagen::De secrets MAIL_SERVER en MAIL_TO zijn niet ingesteld."
+          fi
+
+      - name: HTML mailen
+        if: >-
+          ${{ steps.mailconfig.outputs.versturen == 'true'
+              && steps.wijziging.outputs.gewijzigd == 'true'
+              && github.ref == 'refs/heads/main' }}
+        uses: dawidd6/action-send-mail@67ce3558d613188179559c61d3565140cf389968 # v22
+        with:
+          server_address: ${{ secrets.MAIL_SERVER }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          # secure: true hoort bij SMTPS (poort 465). Bij STARTTLS (poort 587) moet
+          # dit op false staan.
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: NL-SBB <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: "Bijgewerkt: ${{ env.TITEL }}"
+          html_body: file://${{ env.DOEL }}
+          attachments: ${{ env.DOEL }}
+          convert_markdown: false

@@ -63,7 +63,8 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 ### Excel-sjabloon NL-SBB
 
 - **Aanbieder:** Geonovum, beheerder van de standaard
-- **Bestand:** [`Template_NL_SBB.xlsx`](Template_NL_SBB.xlsx) in deze repository
+- **Bestand:** [Template_NL_SBB.xlsx](https://github.com/Geonovum/NL-SBB/raw/main/tooling/Template_NL_SBB.xlsx),
+  te downloaden uit de [NL-SBB-repository op GitHub](https://github.com/Geonovum/NL-SBB/tree/main/tooling)
 - **Wat het is:** een spreadsheet-sjabloon om begrippen op een uniforme manier vast te leggen volgens
   NL-SBB. Het bevat de bladen *Overzicht*, *Begrippenkaders*, *Begrippen*, *Collecties*,
   *Brondocumenten* en *Legenda*. De kolommen volgen de kenmerken uit de standaard — onder meer URI,
@@ -284,8 +285,9 @@ Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die 
 
 1. **Het profiel inlezen.** Het SHACL-profiel staat op
    [register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl)
-   en in deze repository in [`profiles/skos-ap-nl.ttl`](../profiles/skos-ap-nl.ttl). In tools die
-   SHACL als schema gebruiken bepaalt het profiel meteen welke velden in de formulieren verschijnen.
+   en als bestand [`skos-ap-nl.ttl`](https://github.com/Geonovum/NL-SBB/blob/main/profiles/skos-ap-nl.ttl)
+   in de NL-SBB-repository op GitHub. In tools die SHACL als schema gebruiken bepaalt het profiel
+   meteen welke velden in de formulieren verschijnen.
 2. **Verplichte en aanbevolen kenmerken.** Zorg dat de kenmerken uit
    [hoofdstuk 2](https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#kenmerken-van-begrippen) vastgelegd
    kunnen worden, inclusief de publieksvriendelijke definitie.
@@ -301,15 +303,20 @@ Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die 
 5. **Publicatie.** Bepaal hoe het begrippenkader beschikbaar komt, bijvoorbeeld als linked data via
    een eigen catalogus of via de [Begrippencatalogus](https://begrippen.stelselcatalogus.nl) van Logius.
 
-Wil je klein beginnen, zonder meteen een tool in te richten? Gebruik dan het
-[Excel-sjabloon](#excel-sjabloon-nl-sbb) van Geonovum als tussenstap.
+Wil je klein beginnen, zonder meteen een tool in te richten? Gebruik dan het hierboven beschreven
+[Excel-sjabloon van Geonovum](https://github.com/Geonovum/NL-SBB/raw/main/tooling/Template_NL_SBB.xlsx)
+als tussenstap.
 
 ## Aanvullingen en correcties
 
 Ontbreekt er software, of is informatie verouderd? Help dit overzicht dan actueel te houden.
 
-1. **Bij voorkeur: een pull request.** Werk dit bestand bij en dien de wijziging in als
-   [pull request](https://github.com/Geonovum/NL-SBB/compare). Je kunt het bestand ook
+Dit overzicht wordt beheerd als het bestand
+[`tooling/README.md`](https://github.com/Geonovum/NL-SBB/blob/main/tooling/README.md) in de
+[NL-SBB-repository op GitHub](https://github.com/Geonovum/NL-SBB).
+
+1. **Bij voorkeur: een pull request.** Werk dat bestand bij en dien de wijziging in als
+   [pull request](https://github.com/Geonovum/NL-SBB/compare). Je kunt het ook
    [direct in GitHub bewerken](https://github.com/Geonovum/NL-SBB/edit/main/tooling/README.md);
    GitHub maakt dan zelf een fork en een pull request voor je aan.
 2. **Als dat niet lukt:** meld het dan via een

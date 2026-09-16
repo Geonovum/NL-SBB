@@ -1,0 +1,128 @@
+name: HTML van softwareoverzicht
+
+# Genereert platte HTML uit tooling/README.md en schrijft die terug naar dezelfde
+# branch. Het resultaat is opzettelijk kaal: geen CSS, geen <html>/<head>, alleen
+# koppen, alinea's, lijsten, links en tabellen. Bedoeld om als broncode in het CMS
+# van de Geonovum-website geplakt te worden, waar de site-eigen opmaak het overneemt.
+#
+# Het automatisch mailen van het resultaat volgt later, als er een verzendaccount is.
+
+on:
+  push:
+    paths:
+      - 'tooling/README.md'
+      - '.github/workflows/software-overzicht-html.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  BRON: tooling/README.md
+  DOEL: tooling/software-die-nl-sbb-ondersteunt.html
+
+jobs:
+  html:
+    name: Genereren en terugschrijven
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Pandoc beschikbaar maken
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pandoc >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends pandoc
+          fi
+          pandoc --version | head -1
+
+      - name: HTML genereren
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Geen --standalone: dat zou een <html>/<head> met opmaak toevoegen. Wat
+          # hier uit komt is een fragment dat rechtstreeks in het CMS kan.
+          pandoc "$BRON" \
+            --from=gfm \
+            --to=html5 \
+            --wrap=none \
+            --output="$RUNNER_TEMP/fragment.html"
+
+          {
+            echo "<!-- Gegenereerd uit tooling/README.md in de NL-SBB-repository op GitHub."
+            echo "     Platte HTML zonder opmaak, bedoeld om in het CMS te plakken. -->"
+            cat "$RUNNER_TEMP/fragment.html"
+          } > "$DOEL"
+
+          echo "Gegenereerd: $DOEL ($(wc -c < "$DOEL") bytes)"
+
+          if grep -qiE '<(style|link|html|head|body)\b|style=' "$DOEL"; then
+            echo "::error title=Opmaak aangetroffen::De gegenereerde HTML bevat opmaak of een documentomhulsel; dat hoort er niet in te zitten."
+            exit 1
+          fi
+
+      - name: Bepalen of de HTML gewijzigd is
+        id: wijziging
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- "$DOEL"; then
+            echo "gewijzigd=false" >> "$GITHUB_OUTPUT"
+            echo "De gegenereerde HTML is gelijk aan de versie in de repository."
+          else
+            echo "gewijzigd=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Alleen op main, zodat er geen gegenereerde HTML in feature-branches belandt.
+      # Op andere branches is het resultaat te bekijken via het artefact hieronder.
+      - name: Terugschrijven naar de branch
+        if: ${{ steps.wijziging.outputs.gewijzigd == 'true' && github.ref == 'refs/heads/main' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TARGET_BRANCH="${GITHUB_REF#refs/heads/}"
+          if [[ "$TARGET_BRANCH" == "$GITHUB_REF" ]]; then
+            echo "::warning title=Geen branch::Deze run hoort niet bij een branch; de HTML wordt niet teruggeschreven."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$DOEL"
+          git commit -m "HTML van softwareoverzicht gegenereerd"
+
+          # De publicatieworkflow kan tegelijk naar dezelfde branch schrijven; daarom
+          # opnieuw proberen bovenop de laatste stand.
+          for poging in 1 2 3; do
+            git fetch --no-tags origin "refs/heads/$TARGET_BRANCH:refs/remotes/origin/$TARGET_BRANCH"
+            if ! git rebase "refs/remotes/origin/$TARGET_BRANCH"; then
+              git rebase --abort || true
+              echo "::error title=Terugschrijven mislukt::De gegenereerde HTML botst met branch '$TARGET_BRANCH'."
+              exit 1
+            fi
+            if git push origin "HEAD:refs/heads/$TARGET_BRANCH"; then
+              echo "HTML teruggeschreven naar $TARGET_BRANCH."
+              exit 0
+            fi
+            echo "Push poging $poging mislukt, opnieuw proberen."
+            sleep 5
+          done
+
+          echo "::error title=Terugschrijven mislukt::Kon de gegenereerde HTML na drie pogingen niet naar '$TARGET_BRANCH' pushen."
+          exit 1
+
+      - name: HTML als artefact bewaren
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: softwareoverzicht-html
+          path: ${{ env.DOEL }}

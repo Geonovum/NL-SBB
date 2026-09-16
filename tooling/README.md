@@ -10,7 +10,7 @@ géén goedkeuring, aanbeveling of conformiteitsverklaring. De informatie is geb
 openbare informatie van leveranciers en op meldingen uit de werkgroep, en is niet door Geonovum
 getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product actueel ondersteunt.
 
-**Peildatum:** 2 september 2026.
+**Peildatum:** 16 september 2026.
 
 ## Soorten ondersteuning
 

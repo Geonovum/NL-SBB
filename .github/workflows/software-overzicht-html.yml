@@ -1,12 +1,13 @@
 name: HTML van softwareoverzicht
 
-# Genereert een losse HTML-pagina uit tooling/README.md en schrijft die terug naar
-# dezelfde branch. Bedoeld voor hergebruik buiten GitHub, bijvoorbeeld als artikel
-# op geonovum.nl.
+# Genereert platte HTML uit tooling/README.md en schrijft die terug naar dezelfde
+# branch. Het resultaat is opzettelijk kaal: geen CSS, geen <html>/<head>, alleen
+# koppen, alinea's, lijsten, links en tabellen. Bedoeld om als broncode in het CMS
+# van de Geonovum-website geplakt te worden, waar de site-eigen opmaak het overneemt.
 #
-# Optioneel mailen: de pagina wordt alleen gemaild als de onderstaande secrets zijn
-# ingesteld en de wijziging op main staat. Zonder die secrets slaat de workflow het
-# mailen over met een waarschuwing; genereren en terugschrijven werken dan gewoon.
+# Optioneel mailen: het bestand wordt als bijlage gemaild als de onderstaande secrets
+# zijn ingesteld en de wijziging op main staat. Zonder die secrets slaat de workflow
+# het mailen over met een melding; genereren en terugschrijven werken dan gewoon.
 #   MAIL_SERVER    SMTP-server, bijvoorbeeld smtp.example.org
 #   MAIL_PORT      SMTP-poort, bijvoorbeeld 465
 #   MAIL_USERNAME  gebruikersnaam / afzenderadres
@@ -17,7 +18,6 @@ on:
   push:
     paths:
       - 'tooling/README.md'
-      - '.github/templates/artikel.html'
       - '.github/workflows/software-overzicht-html.yml'
   workflow_dispatch:
 
@@ -56,15 +56,27 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
+          # Geen --standalone: dat zou een <html>/<head> met opmaak toevoegen. Wat
+          # hier uit komt is een fragment dat rechtstreeks in het CMS kan.
           pandoc "$BRON" \
             --from=gfm \
             --to=html5 \
-            --standalone \
-            --template=.github/templates/artikel.html \
-            --metadata title="$TITEL" \
-            --metadata lang=nl \
-            --output="$DOEL"
+            --wrap=none \
+            --output="$RUNNER_TEMP/fragment.html"
+
+          {
+            echo "<!-- Gegenereerd uit tooling/README.md in de NL-SBB-repository op GitHub."
+            echo "     Platte HTML zonder opmaak, bedoeld om in het CMS te plakken. -->"
+            cat "$RUNNER_TEMP/fragment.html"
+          } > "$DOEL"
+
           echo "Gegenereerd: $DOEL ($(wc -c < "$DOEL") bytes)"
+
+          if grep -qiE '<(style|link|html|head|body)\b|style=' "$DOEL"; then
+            echo "::error title=Opmaak aangetroffen::De gegenereerde HTML bevat opmaak of een documentomhulsel; dat hoort er niet in te zitten."
+            exit 1
+          fi
 
       - name: Bepalen of de HTML gewijzigd is
         id: wijziging
@@ -155,6 +167,13 @@ jobs:
           from: NL-SBB <${{ secrets.MAIL_USERNAME }}>
           to: ${{ secrets.MAIL_TO }}
           subject: "Bijgewerkt: ${{ env.TITEL }}"
-          html_body: file://${{ env.DOEL }}
+          body: |
+            Het overzicht "${{ env.TITEL }}" is bijgewerkt.
+
+            In de bijlage staat de HTML zonder opmaak, klaar om als broncode in het CMS
+            te plakken. De opmaak komt van de website zelf.
+
+            Bron: https://github.com/Geonovum/NL-SBB/blob/main/tooling/README.md
+            Wijziging: ${{ github.event.head_commit.url }}
           attachments: ${{ env.DOEL }}
           convert_markdown: false

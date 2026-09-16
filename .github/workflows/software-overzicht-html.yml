@@ -5,14 +5,7 @@ name: HTML van softwareoverzicht
 # koppen, alinea's, lijsten, links en tabellen. Bedoeld om als broncode in het CMS
 # van de Geonovum-website geplakt te worden, waar de site-eigen opmaak het overneemt.
 #
-# Optioneel mailen: het bestand wordt als bijlage gemaild als de onderstaande secrets
-# zijn ingesteld en de wijziging op main staat. Zonder die secrets slaat de workflow
-# het mailen over met een melding; genereren en terugschrijven werken dan gewoon.
-#   MAIL_SERVER    SMTP-server, bijvoorbeeld smtp.example.org
-#   MAIL_PORT      SMTP-poort, bijvoorbeeld 465
-#   MAIL_USERNAME  gebruikersnaam / afzenderadres
-#   MAIL_PASSWORD  wachtwoord of app-specifiek token
-#   MAIL_TO        ontvanger(s), komma-gescheiden
+# Het automatisch mailen van het resultaat volgt later, als er een verzendaccount is.
 
 on:
   push:
@@ -31,11 +24,10 @@ permissions:
 env:
   BRON: tooling/README.md
   DOEL: tooling/software-die-nl-sbb-ondersteunt.html
-  TITEL: Software die NL-SBB ondersteunt
 
 jobs:
   html:
-    name: Genereren, terugschrijven en mailen
+    name: Genereren en terugschrijven
     runs-on: ubuntu-24.04
 
     steps:
@@ -134,46 +126,3 @@ jobs:
         with:
           name: softwareoverzicht-html
           path: ${{ env.DOEL }}
-
-      - name: Bepalen of de HTML gemaild kan worden
-        id: mailconfig
-        shell: bash
-        env:
-          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-        run: |
-          set -euo pipefail
-          if [[ -n "${MAIL_SERVER:-}" && -n "${MAIL_TO:-}" ]]; then
-            echo "versturen=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "versturen=false" >> "$GITHUB_OUTPUT"
-            echo "::notice title=Mailen overgeslagen::De secrets MAIL_SERVER en MAIL_TO zijn niet ingesteld."
-          fi
-
-      - name: HTML mailen
-        if: >-
-          ${{ steps.mailconfig.outputs.versturen == 'true'
-              && steps.wijziging.outputs.gewijzigd == 'true'
-              && github.ref == 'refs/heads/main' }}
-        uses: dawidd6/action-send-mail@67ce3558d613188179559c61d3565140cf389968 # v22
-        with:
-          server_address: ${{ secrets.MAIL_SERVER }}
-          server_port: ${{ secrets.MAIL_PORT }}
-          # secure: true hoort bij SMTPS (poort 465). Bij STARTTLS (poort 587) moet
-          # dit op false staan.
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: NL-SBB <${{ secrets.MAIL_USERNAME }}>
-          to: ${{ secrets.MAIL_TO }}
-          subject: "Bijgewerkt: ${{ env.TITEL }}"
-          body: |
-            Het overzicht "${{ env.TITEL }}" is bijgewerkt.
-
-            In de bijlage staat de HTML zonder opmaak, klaar om als broncode in het CMS
-            te plakken. De opmaak komt van de website zelf.
-
-            Bron: https://github.com/Geonovum/NL-SBB/blob/main/tooling/README.md
-            Wijziging: ${{ github.event.head_commit.url }}
-          attachments: ${{ env.DOEL }}
-          convert_markdown: false

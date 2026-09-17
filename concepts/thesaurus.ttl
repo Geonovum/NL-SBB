@@ -133,6 +133,24 @@ beg-sbb:TopConcept
   skos:inScheme begkr-sbb:nlbegrip ;
   rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
 
+#begrip
+beg-sbb:ExternalConcept
+  a skos:Concept ;
+  rdfs:label "extern begrip";
+  skos:prefLabel
+    "external concept"@en ,
+    "extern begrip"@nl ;
+  skos:definition
+    "Een extern begrip is een begrip dat is gedefinieerd in een ander begrippenkader dan het begrippenkader van waaruit ernaar wordt verwezen."@nl ,
+    "An external concept is a concept that is defined in a concept scheme other than the one referring to it."@en ;
+  skos:scopeNote
+    "Of een begrip extern is hangt af van het begrippenkader van waaruit ernaar wordt gekeken: hetzelfde begrip is intern in het begrippenkader waarin het is gedefinieerd, en extern in elk ander begrippenkader. Een extern begrip wordt niet opnieuw gedefinieerd; er wordt met een harmonisatierelatie naar verwezen."@nl ,
+    "Whether a concept is external depends on the concept scheme it is viewed from: the same concept is internal to the scheme that defines it and external to every other scheme. An external concept is not redefined; it is referred to by means of a mapping relation."@en ;
+  skos:broader beg-sbb:Concept ;
+  skos:related beg-sbb:MatchingRelation ;
+  skos:inScheme begkr-sbb:nlbegrip ;
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+
 #alternatieve term
   beg-sbb:AltLabel
   a skos:Concept ;

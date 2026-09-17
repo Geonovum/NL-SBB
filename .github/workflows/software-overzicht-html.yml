@@ -75,7 +75,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- "$DOEL"; then
+          # git status en niet git diff: die laatste ziet een nog niet bestaand,
+          # dus untracked, bestand niet en zou de eerste generatie overslaan.
+          if [[ -z "$(git status --porcelain -- "$DOEL")" ]]; then
             echo "gewijzigd=false" >> "$GITHUB_OUTPUT"
             echo "De gegenereerde HTML is gelijk aan de versie in de repository."
           else

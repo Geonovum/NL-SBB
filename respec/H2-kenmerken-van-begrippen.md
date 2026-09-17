@@ -378,7 +378,16 @@ Hoewel een al dan niet transitief onderliggend of bovenliggend begrip vaak gebru
 </br> 
 
 ### Harmonisatiesrelaties
-Begrippen kunnen ook worden gerelateerd aan begrippen in een ander begrippenkader. Hiervoor gebruiken we [=harmonisatierelatie=].
+Begrippen kunnen ook worden gerelateerd aan begrippen in een ander begrippenkader. Een begrip uit zo'n ander begrippenkader noemen we een [=extern begrip=]. Voor de relatie naar een extern begrip gebruiken we [=harmonisatierelatie=].
+
+|                       |                                       |
+|-----------------------|---------------------------------------|
+| **voorkeursterm**   | <dfn>extern begrip</dfn> |
+| **definitie**        | Een extern begrip is een begrip dat is gedefinieerd in een ander begrippenkader dan het begrippenkader van waaruit ernaar wordt verwezen. |
+| **toelichting** | Of een begrip extern is hangt af van het begrippenkader van waaruit ernaar wordt gekeken: hetzelfde begrip is intern in het begrippenkader waarin het is gedefinieerd, en extern in elk ander begrippenkader. Een extern begrip wordt niet opnieuw gedefinieerd; er wordt met een [=harmonisatierelatie=] naar verwezen. |
+
+</br> 
+
 |                       |                                       |
 |-----------------------|---------------------------------------|
 | **voorkeursterm**   | <dfn>harmonisatierelatie</dfn> |

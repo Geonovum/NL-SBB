@@ -18,7 +18,7 @@ De topbegrippen zijn dan:
 Dezen kunnen we in een taxonomie opnemen. In een lijst ziet die er als volgt uit:
 * [=begrip=]
   * [=topbegrip=]
-  * [=extern begrip=]
+  * [extern begrip](https://docs.geostandaarden.nl/nl-sbb/bp/#dfn-extern-begrip)
 * [=begrippenkader=]
   * [=begrippenlijst=]
   * [=taxonomie=]

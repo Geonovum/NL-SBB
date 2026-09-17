@@ -155,6 +155,7 @@ De standaard kent een taalbinding waarmee een begrippenkader als Linked data kan
     }
   ],
   "postProcess": [
+    null,
     null
   ],
   "latestVersion": [
@@ -463,7 +464,7 @@ De standaard kent een taalbinding waarmee een begrippenkader als Linked data kan
     <h2>
       Geonovum Standaard<br>
       Werkversie
-      <time class="dt-published" datetime="2024-04-16">20 juli 2026</time>
+      <time class="dt-published" datetime="2024-04-16">17 september 2026</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -525,7 +526,7 @@ De standaard kent een taalbinding waarmee een begrippenkader als Linked data kan
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/geonovum/NL-SBB/">GitHub geonovum/NL-SBB</a>
   </dd><dd>
-    <a href="https://github.com/geonovum/NL-SBB/issues/">All issues</a>
+    <a href="https://github.com/geonovum/NL-SBB/issues/">Alle issues</a>
   </dd><dd>
     <a href="https://github.com/geonovum/NL-SBB/issues/new/choose">Dien een melding in</a>
   </dd><dd>
@@ -1562,8 +1563,28 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 </tr>
 </tbody></table>
 <br> </section></section><section id="harmonisatiesrelaties"><div class="header-wrapper"><h4 id="x2-4-4-harmonisatiesrelaties"><bdi class="secno">2.4.4 </bdi>Harmonisatiesrelaties</h4><a class="self-link" href="#harmonisatiesrelaties" aria-label="Permalink for Section 2.4.4"></a></div>
-<p>Begrippen kunnen ook worden gerelateerd aan begrippen in een ander begrippenkader. Hiervoor gebruiken we <a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-2">harmonisatierelatie</a>.</p>
+<p>Begrippen kunnen ook worden gerelateerd aan begrippen in een ander begrippenkader. Een begrip uit zo'n ander begrippenkader noemen we een <a data-link-type="dfn|abstract-op" href="#dfn-extern-begrip" class="internalDFN" id="ref-for-dfn-extern-begrip-1">extern begrip</a>. Voor de relatie naar een extern begrip gebruiken we <a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-2">harmonisatierelatie</a>.</p>
 <table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>voorkeursterm</strong></td>
+<td><dfn id="dfn-extern-begrip" tabindex="0" aria-haspopup="dialog">extern begrip</dfn></td>
+</tr>
+<tr>
+<td><strong>definitie</strong></td>
+<td>Een extern begrip is een begrip dat is gedefinieerd in een ander begrippenkader dan het begrippenkader van waaruit ernaar wordt verwezen.</td>
+</tr>
+<tr>
+<td><strong>toelichting</strong></td>
+<td>Of een begrip extern is hangt af van het begrippenkader van waaruit ernaar wordt gekeken: hetzelfde begrip is intern in het begrippenkader waarin het is gedefinieerd, en extern in elk ander begrippenkader. Een extern begrip wordt niet opnieuw gedefinieerd; er wordt met een <a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-3">harmonisatierelatie</a> naar verwezen.</td>
+</tr>
+</tbody></table>
+<br> <table>
 <thead>
 <tr>
 <th></th>
@@ -1765,7 +1786,7 @@ Het is een good practice om voor ieder begrip een verwijzing naar een brondocume
 <td>bron</td>
 </tr>
 </tbody></table>
-<br> <p>Het wordt aangeraden om een brondocument altijd te beschrijven met een <strong><a data-link-type="dfn|abstract-op" href="#dfn-bronverwijzing" class="internalDFN" id="ref-for-dfn-bronverwijzing-1">bronverwijzing</a></strong> waarin de verwijzing conform een gangbare conventie is vastgelegd. Er zijn (internationale) conventies voor de verwijzing naar passage van een artikel in een tijdschrift of in een boek. Ook voor de verwijzing naar wetgeving is er een <a href="#conv-lido">conventie</a>. Als de bron een vindplaats heeft op het web is een <strong><a data-link-type="dfn|abstract-op" href="#dfn-url" class="internalDFN" id="ref-for-dfn-url-1">url</a></strong> relevant. Hiermee kan de bron direct gevonden worden. </p>
+<br> <p>Het wordt aangeraden om een brondocument altijd te beschrijven met een <strong><a data-link-type="dfn|abstract-op" href="#dfn-bronverwijzing" class="internalDFN" id="ref-for-dfn-bronverwijzing-1">bronverwijzing</a></strong> waarin de verwijzing conform een gangbare conventie is vastgelegd. Er zijn (internationale) conventies voor de verwijzing naar passage van een artikel in een tijdschrift of in een boek. Ook voor de verwijzing naar wetgeving is er een <a href="https://wetten.overheid.nl/BWBR0005730/2022-04-01/#Hoofdstuk3_Paragraaf3.3">conventie</a>. Als de bron een vindplaats heeft op het web is een <strong><a data-link-type="dfn|abstract-op" href="#dfn-url" class="internalDFN" id="ref-for-dfn-url-1">url</a></strong> relevant. Hiermee kan de bron direct gevonden worden. </p>
 <table>
 <thead>
 <tr>
@@ -1888,7 +1909,7 @@ De topbegrippen zijn dan: </p>
 <ul>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-begrip" class="internalDFN" id="ref-for-dfn-begrip-5">begrip</a><ul>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-topbegrip" class="internalDFN" id="ref-for-dfn-topbegrip-1">topbegrip</a></li>
-<li><a data-link-type="dfn|abstract-op" class="respec-offending-element" title="Linking error: no matching `&lt;dfn&gt;`" id="respec-offender-linking-error-no-matching-dfn">extern begrip</a></li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-extern-begrip" class="internalDFN" id="ref-for-dfn-extern-begrip-2">extern begrip</a></li>
 </ul>
 </li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-begrippenkader" class="internalDFN" id="ref-for-dfn-begrippenkader-6">begrippenkader</a><ul>
@@ -1931,7 +1952,7 @@ De topbegrippen zijn dan: </p>
 </ul>
 </li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-is-gerelateerd-aan" class="internalDFN" id="ref-for-dfn-is-gerelateerd-aan-2">is gerelateerd aan</a></li>
-<li><a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-3">harmonisatierelatie</a><ul>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-harmonisatierelatie" class="internalDFN" id="ref-for-dfn-harmonisatierelatie-4">harmonisatierelatie</a><ul>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-is-exact-overeenkomstig" class="internalDFN" id="ref-for-dfn-is-exact-overeenkomstig-1">is exact overeenkomstig</a></li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-is-vrijwel-overeenkomstig" class="internalDFN" id="ref-for-dfn-is-vrijwel-overeenkomstig-1">is vrijwel overeenkomstig</a></li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-is-overeenkomstig-verwant" class="internalDFN" id="ref-for-dfn-is-overeenkomstig-verwant-1">is overeenkomstig verwant</a></li>
@@ -2154,7 +2175,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
 </tr>
 </tbody></table>
 </section></section><section id="specificatie"><div class="header-wrapper"><h3 id="x4-3-specificatie"><bdi class="secno">4.3 </bdi>Specificatie</h3><a class="self-link" href="#specificatie" aria-label="Permalink for Section 4.3"></a></div>
-<p>Met het conceptueel model en de taalbinding die daar aan toegevoegd is kunnen we een dataspecificatie opstellen. Deze wordt in dit hoofdstuk besproken. De specificatie is ook in SHACL beschreven en is <a href="https://raw.githubusercontent.com/Geonovum/NL-SBB/refs/heads/main/profiles/skos-ap-nl.ttl">hier</a> beschikbaar. </p>
+<p>Met het conceptueel model en de taalbinding die daar aan toegevoegd is kunnen we een dataspecificatie opstellen. Deze wordt in dit hoofdstuk besproken. De specificatie is ook in SHACL beschreven en is <a href="https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl">hier</a> beschikbaar. </p>
 <section id="specificatie-begrippenkader"><div class="header-wrapper"><h4 id="x4-3-1-specificatie-begrippenkader"><bdi class="secno">4.3.1 </bdi>Specificatie begrippenkader</h4><a class="self-link" href="#specificatie-begrippenkader" aria-label="Permalink for Section 4.3.1"></a></div>
 <p>Een begrippenkader wordt gerepresenteerd als een <code>skos:ConceptScheme</code>. Deze typering is verplicht.</p>
 <table>
@@ -2472,6 +2493,8 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
     <span class="print-only">§2.6</span></li><li>
       <a class="index-term" href="#dfn-definitie">definitie</a> 
     <span class="print-only">§2.4.1.2</span></li><li>
+      <a class="index-term" href="#dfn-extern-begrip">extern begrip</a> 
+    <span class="print-only">§2.4.4</span></li><li>
       <a class="index-term" href="#dfn-harmonisatierelatie">harmonisatierelatie</a> 
     <span class="print-only">§2.4.4</span></li><li>
       <a class="index-term" href="#dfn-heeft-bovenliggend-begrip">heeft bovenliggend begrip</a> 
@@ -3219,6 +3242,21 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
       <a href="#ref-for-dfn-is-categorie-van-3" title="§ 4.3.2 Specificatie begrip">§ 4.3.2 Specificatie begrip</a> 
     </li>
   </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-extern-begrip" aria-label="Links in this document to definition: extern begrip">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-extern-begrip" aria-label="Permalink for definition: extern begrip. Activate to close this dialog.">Permalink</a>
+         
+        
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-extern-begrip-1" title="§ 2.4.4 Harmonisatiesrelaties">§ 2.4.4 Harmonisatiesrelaties</a> 
+    </li><li>
+      <a href="#ref-for-dfn-extern-begrip-2" title="§ 3.2 Taxonomie">§ 3.2 Taxonomie</a> 
+    </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-harmonisatierelatie" aria-label="Links in this document to definition: harmonisatierelatie">
       <span class="caret"></span>
       <div>
@@ -3231,9 +3269,9 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
     <li>
       <a href="#ref-for-dfn-harmonisatierelatie-1" title="§ 2.4 Begrippenkader">§ 2.4 Begrippenkader</a> 
     </li><li>
-      <a href="#ref-for-dfn-harmonisatierelatie-2" title="§ 2.4.4 Harmonisatiesrelaties">§ 2.4.4 Harmonisatiesrelaties</a> 
+      <a href="#ref-for-dfn-harmonisatierelatie-2" title="§ 2.4.4 Harmonisatiesrelaties">§ 2.4.4 Harmonisatiesrelaties</a> <a href="#ref-for-dfn-harmonisatierelatie-3" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-harmonisatierelatie-3" title="§ 3.2 Taxonomie">§ 3.2 Taxonomie</a> 
+      <a href="#ref-for-dfn-harmonisatierelatie-4" title="§ 3.2 Taxonomie">§ 3.2 Taxonomie</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-is-exact-overeenkomstig" aria-label="Links in this document to definition: is exact overeenkomstig">

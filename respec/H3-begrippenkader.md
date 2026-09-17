@@ -18,7 +18,6 @@ De topbegrippen zijn dan:
 Dezen kunnen we in een taxonomie opnemen. In een lijst ziet die er als volgt uit:
 * [=begrip=]
   * [=topbegrip=]
-  * [=extern begrip=]
 * [=begrippenkader=]
   * [=begrippenlijst=]
   * [=taxonomie=]

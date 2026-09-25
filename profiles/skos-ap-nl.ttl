@@ -12,10 +12,12 @@
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-skosapnl:
+<https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl>
   a owl:Ontology ;
   rdfs:label "Toepassingsprofiel Nederlandse standaard voor het beschrijven van begrippen in RDF"@nl ;
-  owl:versionInfo "1.0.0" ;
+  owl:versionInfo "1.0.1" ;
+  owl:versionIRI <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  owl:priorVersion <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl> ;
   sh:declare [
     sh:prefix "skos" ;
     sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
@@ -699,7 +701,7 @@ skosapnl:DisjointConceptAndConceptScheme
   a sh:NodeShape ;
   sh:targetClass skos:Concept ;
   sh:sparql [
-    sh:prefixes skosapnl: ;
+    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
     sh:message "Een begrip kan niet ook een begrippenkader zijn."@nl ;
     sh:select """
     SELECT $this
@@ -720,7 +722,7 @@ skosapnl:DisjointConceptAndCollection
   sh:targetSubjectsOf isothes:narrowerPartitive ;
   sh:targetSubjectsOf isothes:narrowerInstantial ;
   sh:sparql [
-    sh:prefixes skosapnl: ;
+    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
     sh:message "Een begrip kan niet ook een collectie zijn."@nl ;
     sh:select """
     SELECT $this
@@ -734,7 +736,7 @@ skosapnl:DisjointConceptSchemeAndCollection
   sh:targetObjectsOf skos:topConceptOf ;
   sh:targetObjectsOf skos:inScheme ;
   sh:sparql [
-    sh:prefixes skosapnl: ;
+    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
     sh:message "Een begrippenkader kan niet ook een collectie zijn."@nl ;
     sh:select """
     SELECT $this
@@ -751,7 +753,7 @@ skosapnl:MappingRelationsMisuse
   sh:targetSubjectsOf skos:narrowMatch ;
   sh:targetSubjectsOf skos:relatedMatch ;
   sh:sparql [
-    sh:prefixes skosapnl: ;
+    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
     sh:message
       "Harmonisatierelaties mogen niet gebruikt worden tussen begrippen die tot hetzelfde begrippenkader behoren."@nl ;
     sh:select """
@@ -795,7 +797,7 @@ skosapnl:SemanticRelations
   sh:targetSubjectsOf skos:narrowMatch ;
   sh:targetSubjectsOf skos:relatedMatch ;
   sh:sparql [
-    sh:prefixes skosapnl: ;
+    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
     sh:message "Semantische relaties verwijzen altijd van en naar begrippen."@nl ;
     sh:select """
     SELECT $this
@@ -809,7 +811,7 @@ skosapnl:UnambiguousNotations
   sh:message
     "Begrippen binnen een begrippenkader mogen geen codes delen."@nl ;
   sh:severity sh:Violation ;
-  sh:prefixes skosapnl: ;
+  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
   sh:select """SELECT $this
     WHERE {
       $this skos:notation ?value  .
@@ -824,7 +826,7 @@ skosapnl:UniquePreflabelWithinConceptScheme
   a sh:SPARQLConstraint ;
   sh:message    "Meerdere begrippen met dezelfde voorkeursterm binnen een begrippenkader"@nl ;
   sh:severity sh:Warning ;
-  sh:prefixes skosapnl: ;
+  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
   sh:select """SELECT $this
     WHERE {
       $this skos:prefLabel ?value  .
@@ -837,7 +839,7 @@ skosapnl:UniquePreflabelWithinConceptScheme
 
 skosapnl:TopConceptHavingBroader
   a sh:SPARQLConstraint ;
-  sh:prefixes skosapnl: ;
+  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
   sh:message "Een topbegrip mag geen bovenliggende begrippen kennen."@nl ;
   sh:severity sh:Violation ;
   sh:select """SELECT $this
@@ -852,7 +854,7 @@ skosapnl:TopConceptHavingBroader
 
 skosapnl:OrphanConcept
   a sh:SPARQLConstraint ;
-  sh:prefixes skosapnl: ;
+  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
   sh:message "Het begrip is geen topbegrip maar heeft ook geen bovenliggende of gerelateerde begrippen."@nl ;
   sh:select """SELECT $this
     WHERE {

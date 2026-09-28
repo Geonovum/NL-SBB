@@ -10,7 +10,7 @@ géén goedkeuring, aanbeveling of conformiteitsverklaring. De informatie is geb
 openbare informatie van leveranciers en op meldingen uit de werkgroep, en is niet door Geonovum
 getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product actueel ondersteunt.
 
-**Peildatum:** 16 september 2026.
+**Peildatum:** 28 september 2026.
 
 ## Soorten ondersteuning
 
@@ -33,9 +33,12 @@ in de best practices.
 | **Overheid** | Ontwikkeld en/of beheerd door een overheidsorganisatie of door de beheerorganisatie van de standaard, en als voorziening of hulpmiddel aangeboden. Geen licentiekosten. |
 | **Open source** | De broncode is openbaar en onder een opensourcelicentie te gebruiken. Je installeert en beheert de software zelf, of gebruikt een instantie die een ander beheert. |
 | **Commercieel** | Broncode niet openbaar; gebruik op basis van een betaalde licentie of abonnement. |
+| **Gratis** | Zonder kosten te gebruiken, maar de broncode is niet openbaar en er zijn geen licentievoorwaarden vastgelegd. Je bent daarmee afhankelijk van de aanbieder. |
 
 De categorieën sluiten elkaar niet uit: VocBench 3 is open source *en* wordt door een
-overheidsorganisatie beheerd, namelijk het Publications Office van de Europese Unie.
+overheidsorganisatie beheerd, namelijk het Publications Office van de Europese Unie. Let ook op
+licenties die van je organisatie afhangen: de Intentional Arrangement SKOS editor is alleen
+opensource voor organisaties met minder dan 75 medewerkers.
 
 | Product | Categorie | Bijzonderheden |
 | --- | --- | --- |
@@ -44,6 +47,8 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
 | Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
 | Protégé | Open source | BSD 2-Clause; Protégé Desktop lokaal, WebProtégé in de browser. |
+| Intentional Arrangement SKOS editor | Open source óf commercieel, afhankelijk van de organisatiegrootte | Apache 2.0 voor organisaties met minder dan 75 medewerkers; daarboven is een bedrijfslicentie nodig. |
+| Termboard | Gratis | Gratis en zonder account te gebruiken; broncode niet openbaar en geen licentievoorwaarden vermeld. |
 | BegrippenXL | Commercieel | SaaS |
 | ModelDesk | Commercieel | SaaS, licentie per seat |
 | PoolParty Semantic Suite | Commercieel | Licentie in bundels |
@@ -146,6 +151,8 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | --- | --- | --- | --- |
 | [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | Open source (overheid) |
 | [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Open source (BSD 2-Clause) |
+| [Intentional Arrangement SKOS editor](#intentional-arrangement-skos-editor) | Contextually LLC (Jessica Talisman) | Webapplicatie, draait in de browser | Apache 2.0 onder 75 medewerkers, daarboven bedrijfslicentie |
+| [Termboard](#termboard) | Hoogkamer | Webapplicatie, draait in de browser | Gratis |
 | [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | Commercieel, licentie per pakket |
 | [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | Commercieel |
 | [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | Commercieel |
@@ -187,6 +194,52 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   thesaurusplatformen doorgaans passender. Protégé komt tot zijn recht wanneer je het begrippenkader
   combineert met een OWL-ontologie.
 - **Licentiemodel:** open source onder de BSD 2-Clause-licentie.
+
+### Intentional Arrangement SKOS editor
+
+- **Aanbieder:** Contextually LLC (Jessica Talisman)
+- **Website:** [live editor](https://jesstalisman-ia.github.io/intentional-arrangement-skos/),
+  broncode op
+  [github.com/jesstalisman-ia/intentional-arrangement-skos](https://github.com/jesstalisman-ia/intentional-arrangement-skos)
+- **Wat het is:** een editor om SKOS-taxonomieën en -thesauri op te bouwen, te valideren, te
+  visualiseren en te exporteren. De applicatie draait volledig in de browser, zonder account of
+  server; het werk blijft lokaal en wordt in de browseropslag bewaard. Je kunt hem ook als los
+  bestand openen of zelf hosten.
+- **Inrichting voor NL-SBB:** er is geen specifieke NL-SBB-ondersteuning, maar de onderdelen waar
+  NL-SBB op steunt zitten er wel in: SKOS en SKOS-XL, de thesaurusrelaties van ISO 25964,
+  SKOS-collecties, mappingrelaties naar andere begrippenkaders en bronvermelding met `foaf:Document`
+  en `prov:Agent`. Ingebouwde kwaliteitscontroles volgen qSKOS — ontbrekende labels, cykels,
+  losse begrippen — en niet het NL-SBB SHACL-profiel; valideren tegen de standaard doe je er los van.
+- **Uitwisseling:** import en export van Turtle, RDF/XML, JSON-LD, RDF/JSON, CSV en Excel; export
+  daarnaast naar Markdown.
+- **Aandachtspunt:** de licentie hangt af van de grootte van je organisatie. Lees hem voordat je
+  ermee begint; zie hieronder.
+- **Licentiemodel:** dubbel. Organisaties met minder dan 75 medewerkers mogen de software gratis
+  gebruiken onder Apache 2.0. Organisaties met 75 medewerkers of meer krijgen die rechten niet en
+  hebben vooraf een schriftelijke bedrijfslicentie van de maker nodig. Het medewerkersaantal telt
+  ook verbonden organisaties mee. Voor veel overheidsorganisaties betekent dit dus een
+  licentiegesprek, ondanks de openbare broncode.
+
+### Termboard
+
+- **Aanbieder:** Hoogkamer
+- **Website:** [termboard.com](https://termboard.com/start/), issues en gedeelde modellen op
+  [github.com/Hoogkamer/Termboard](https://github.com/Hoogkamer/Termboard)
+- **Wat het is:** een digitaal whiteboard om begrippen en hun relaties te tekenen en te doorlopen.
+  Je maakt er kennisgrafen, taxonomieën, glossaria, datamodellen en beleidsgrafieken mee, met een
+  visuele grafiekinterface in plaats van formulieren. De applicatie draait in de browser, zonder
+  account, en houdt het werk lokaal.
+- **Inrichting voor NL-SBB:** SKOS wordt in de documentatie niet genoemd; het model is van het
+  product zelf en de RDF-uitvoer gaat via JSON-LD en OWL. Om een NL-SBB-begrippenkader op te leveren
+  is dus een eigen conversieslag nodig. De ingebouwde controles zijn kwaliteitsregels van het
+  product, niet het NL-SBB SHACL-profiel.
+- **Uitwisseling:** export naar Excel, JSON, JSON-LD, OWL, PDF, PowerPoint, HTML, PNG en SVG.
+- **Onderscheidend punt:** de visuele, tekenende werkwijze maakt het geschikt om met domeinexperts
+  aan tafel een begrippenkader te verkennen, voordat het in een begrippeneditor wordt vastgelegd.
+- **Aandachtspunt:** de repository op GitHub bevat niet de broncode, maar dient voor issues en het
+  delen van modellen. Er zijn geen licentievoorwaarden gepubliceerd. Ga voor gebruik binnen een
+  organisatie na welke afspraken er gelden.
+- **Licentiemodel:** gratis te gebruiken.
 
 ### TopBraid EDG
 

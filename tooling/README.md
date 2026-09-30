@@ -155,7 +155,7 @@ opensource voor organisaties met minder dan 75 medewerkers.
 | [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | SKOS en SKOS-XL | Open source (overheid) |
 | [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Geen SKOS-modus; via een plugin van derden | Open source (BSD 2-Clause) |
 | [Intentional Arrangement SKOS editor](#intentional-arrangement-skos-editor) | Contextually LLC (Jessica Talisman) | Webapplicatie, draait in de browser | SKOS en SKOS-XL | Apache 2.0 onder 75 medewerkers, daarboven bedrijfslicentie |
-| [Termboard](#termboard) | Hoogkamer | Webapplicatie, draait in de browser | Geen; eigen model, conversie nodig | Gratis |
+| [Termboard](#termboard) | Hoogkamer | Webapplicatie, draait in de browser | Import en export, via een eigen model | Gratis |
 | [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | SKOS en SKOS-XL | Commercieel, licentie per pakket |
 | [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | SKOS en SKOS-XL | Commercieel |
 | [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | SKOS-XL in het kerndatamodel | Commercieel |
@@ -232,13 +232,22 @@ opensource voor organisaties met minder dan 75 medewerkers.
   Je maakt er kennisgrafen, taxonomieën, glossaria, datamodellen en beleidsgrafieken mee, met een
   visuele grafiekinterface in plaats van formulieren. De applicatie draait in de browser, zonder
   account, en houdt het werk lokaal.
-- **Inrichting voor NL-SBB:** SKOS wordt in de documentatie niet genoemd; het model is van het
-  product zelf en de RDF-uitvoer gaat via JSON-LD en OWL. Om een NL-SBB-begrippenkader op te leveren
-  is dus een eigen conversieslag nodig. De ingebouwde controles zijn kwaliteitsregels van het
+- **Inrichting voor NL-SBB:** Termboard kan SKOS importeren en exporteren, maar werkt intern met een
+  eigen model, en de [gedocumenteerde mapping](https://www.termboard.com/manual/page/import-export.html#skos-vocabularies)
+  is beperkter dan wat NL-SBB vastlegt. Bij import worden `skos:prefLabel`, `skos:altLabel`,
+  `skos:hiddenLabel`, `skos:definition`, `skos:broader` en `skos:related` overgenomen, en komen
+  `skos:note`, `skos:scopeNote` en `skos:example` in de beschrijving terecht. Bij export worden
+  generalisaties `skos:broader`/`skos:narrower` en associaties `skos:related`. De thesaurusrelaties
+  van ISO 25964 staan niet in die mapping. Controleer dus wat er overblijft voordat je een
+  begrippenkader via Termboard laat lopen. De ingebouwde controles zijn kwaliteitsregels van het
   product, niet het NL-SBB SHACL-profiel.
-- **Uitwisseling:** export naar Excel, JSON, JSON-LD, OWL, PDF, PowerPoint, HTML, PNG en SVG.
+- **Uitwisseling:** import van RDF/XML, Turtle en JSON-LD; export in OWL- of SKOS-stijl, of beide,
+  en daarnaast naar Excel, JSON, JSON-LD, PDF, PowerPoint, HTML, PNG en SVG.
 - **Onderscheidend punt:** de visuele, tekenende werkwijze maakt het geschikt om met domeinexperts
-  aan tafel een begrippenkader te verkennen, voordat het in een begrippeneditor wordt vastgelegd.
+  aan tafel een begrippenkader te verkennen, voordat het in een begrippeneditor wordt vastgelegd. In
+  [issue #89](https://github.com/Geonovum/NL-SBB/issues/89) is het genoemd omdat je kunt kiezen
+  welke hiërarchische relatie je wilt visualiseren, bijvoorbeeld onderliggend, generalisatie of
+  onderdeel.
 - **Aandachtspunt:** de repository op GitHub bevat niet de broncode, maar dient voor issues en het
   delen van modellen. Er zijn geen licentievoorwaarden gepubliceerd. Ga voor gebruik binnen een
   organisatie na welke afspraken er gelden.

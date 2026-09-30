@@ -19,6 +19,7 @@ getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product 
 | **Specifiek** | Het product is (mede) voor NL-SBB gemaakt: de kenmerken uit de standaard zitten er ingebouwd in en je kunt er zonder eigen inrichtingswerk NL-SBB-conforme begrippenkaders in vastleggen. |
 | **Configureerbaar** | Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het [SHACL-profiel van NL-SBB](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl) — voor gebruik met de standaard ingericht kan worden. |
 | **Publicatie en ontsluiting** | Het product is niet bedoeld om begrippen te maken of te bewerken, maar om een bestaand begrippenkader te publiceren, te doorzoeken en te doorbladeren. |
+| **Controle en validatie** | Het product maakt of bewerkt geen begrippen, maar controleert een bestaand begrippenkader — op de regels van de standaard en eventueel op eigen kwaliteitsregels. |
 
 Omdat de taalbinding van NL-SBB op SKOS gebaseerd is, kan in principe elk hulpmiddel dat SKOS
 kan lezen en schrijven met NL-SBB-begrippenkaders werken. Het verschil zit in hoeveel je zelf
@@ -46,6 +47,7 @@ opensource voor organisaties met minder dan 75 medewerkers.
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
 | Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
+| Kwaliteitsregeltaal-validator | Overheid, open source | EUPL 1.2; ontwikkeld binnen het project Federatief Datastelsel. Online te gebruiken of zelf te installeren. |
 | Protégé | Open source | BSD 2-Clause; Protégé Desktop lokaal, WebProtégé in de browser. |
 | Intentional Arrangement SKOS editor | Open source óf commercieel, afhankelijk van de organisatiegrootte | Apache 2.0 voor organisaties met minder dan 75 medewerkers; daarboven is een bedrijfslicentie nodig. |
 | Termboard | Gratis | Gratis en zonder account te gebruiken; broncode niet openbaar en geen licentievoorwaarden vermeld. |
@@ -332,6 +334,44 @@ SPARQL-endpoints en API's.
   SHACL-profiel doe je vooraf, in de editor of met een aparte validator.
 - **Licentiemodel:** open source onder de MIT-licentie.
 
+## Controle en validatie
+
+| Product | Aanbieder | Soort | Licentiemodel |
+| --- | --- | --- | --- |
+| [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator) | Federatief Datastelsel | Webapplicatie én commandline-tool | Open source (EUPL 1.2) |
+
+Validatie zit soms ook in de editors zelf: ModelDesk valideert tegen de standaard, PoolParty
+controleert de SKOS-conformiteit van de uitvoer en TopBraid EDG gebruikt SHACL-shapes als
+validatieregels. Voor het valideren tegen het NL-SBB SHACL-profiel zelf zijn losse
+SHACL-validators bruikbaar; zie [Aan de slag met een generieke tool](#aan-de-slag-met-een-generieke-tool).
+
+### Kwaliteitsregeltaal-validator
+
+- **Aanbieder:** ontwikkeld door Danny Greefhorst binnen het project Federatief Datastelsel. De taal
+  Kwaliteitsregeltaal zelf is beschreven bij NORA, dat door ICTU wordt beheerd.
+- **Website:** [online validator](https://kwaliteitsregistratie.datastelsel.nl/validator/),
+  taalbeschrijving op [NORA](https://www.noraonline.nl/wiki/Kwaliteitsregeltaal), broncode op
+  [GitLab](https://gitlab.com/datastelsel.nl/federatief/gegevenskwaliteitsregistratie)
+- **Wat het is:** Kwaliteitsregeltaal (KRT) is een formele taal om kwaliteitsregels vast te leggen in
+  een vorm die zowel voor mensen als voor software leesbaar is. De validator voert zulke regelsets
+  uit op je gegevens en rapporteert de afwijkingen. Dat kan online via een webformulier, of lokaal
+  als commandline-tool.
+- **Controle van NL-SBB:** er worden standaard regelsets meegeleverd, onder meer voor
+  NL-SBB-begrippenkaders, MIM-modellen en DCAT-records. Je kunt een begrippenkader dus laten
+  controleren zonder zelf regels te schrijven. Eigen regels toevoegen kan, en SHACL-definities
+  kunnen automatisch naar Kwaliteitsregeltaal worden omgezet — het NL-SBB SHACL-profiel kan daarmee
+  als vertrekpunt dienen.
+- **Gegevensbronnen:** online worden bestanden gecontroleerd: TTL voor linked data, en tabulaire
+  gegevens als parquet, CSV, JSON, Excel, SQLite en DuckDB. De commandline-variant controleert een
+  SPARQL-endpoint, een PostgreSQL-database of een DuckDB-database.
+- **Onderscheidend punt:** dezelfde taal is te gebruiken voor constraints bij MIM-modellen. Wie
+  begrippen en informatiemodellen naast elkaar beheert, kan daardoor met één regeltaal werken. Er is
+  ook een vertaler die KRT-regels omzet naar SPARQL en SQL.
+- **Aandachtspunt:** de conformiteitsuitspraak van NL-SBB gaat over het
+  [SHACL-profiel](https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#conformiteit). Een controle met
+  Kwaliteitsregeltaal komt daar bovenop en vervangt die validatie niet.
+- **Licentiemodel:** open source onder EUPL 1.2.
+
 ## Aan de slag met een generieke tool
 
 Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die je zelf regelt:
@@ -352,7 +392,9 @@ Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die 
    [hoofdstuk 5](https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#conformiteit). Kan de tool zelf niet
    tegen SHACL valideren, dan kun je daarvoor een losse opensource-validator gebruiken, zoals
    [pySHACL](https://github.com/RDFLib/pySHACL) of de
-   [SHACL API van TopQuadrant](https://github.com/TopQuadrant/shacl) — beide Apache 2.0.
+   [SHACL API van TopQuadrant](https://github.com/TopQuadrant/shacl) — beide Apache 2.0. Wil je
+   daarnaast op eigen kwaliteitsregels controleren, kijk dan naar de
+   [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator).
 5. **Publicatie.** Bepaal hoe het begrippenkader beschikbaar komt, bijvoorbeeld als linked data via
    een eigen catalogus of via de [Begrippencatalogus](https://begrippen.stelselcatalogus.nl) van Logius.
 

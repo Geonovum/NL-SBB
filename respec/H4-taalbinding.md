@@ -1,16 +1,16 @@
 # Toepassingsprofiel in RDF
-Dit hoofdstuk beschrijft de set aan afspraken voor het toepassen van de kenmerken zoals beschreven in hoofdstuk 2 op basis van bestaande semantische standaarden. Deze afspraken zijn vastgelegd in een RDF model.
-Een RDF model bestaat uit twee delen; 1) een RDF vocabulaire en 2) een RDF Shapesgraph. Als RDF vocabulaire hanteren we bestaande W3C standaarden. Welke dit zijn en hoe deze zich verhouden tot het conceptueel model wordt beschreven in sectie [Uitwerking](#uitwerking). Hoe deze vocabulaires toegepast moeten worden, conform het conceptuele model, is beschreven in sectie [Specificatie](#specificatie).
+Dit hoofdstuk beschrijft de set aan afspraken voor het toepassen van de kenmerken zoals beschreven in hoofdstuk 2 op basis van bestaande semantische standaarden. Deze afspraken zijn vastgelegd in een RDF-model.
+Een RDF-model bestaat uit twee delen: 1) een RDF-vocabulaire en 2) een RDF-shapesgraph. Als RDF-vocabulaire hanteren we bestaande W3C-standaarden. Welke dit zijn en hoe deze zich verhouden tot het conceptueel model wordt beschreven in sectie [Uitwerking](#uitwerking). Hoe deze vocabulaires toegepast moeten worden, conform het conceptuele model, is beschreven in sectie [Specificatie](#specificatie).
 Dit hoofdstuk is normatief wanneer begrippen via het web worden ontsloten.
 
 ## Overzicht
 
 Het onderstaande diagram geeft een overzicht van de taalbinding in RDF die bij het conceptuele model gedefinieerd is.
 
-![](media/skos-ap-nl.png "Diagram: Toepassingsprofiel skos")
+![](media/skos-ap-nl.png "Diagram: Toepassingsprofiel SKOS")
 
 ## Uitwerking
-Voor het representeren van de conceptuele elementen in RDF maken we gebruik van de volgende vocabulaires 1) RDF(s), 2) SKOS, 3) DCTERMS, 4) FOAF en 5) ISOTHES. We geven de taalbinding voor types en kenmerken apart in [types](#types) en [eigenschappen](#eigenschappen)
+Voor het representeren van de conceptuele elementen in RDF maken we gebruik van de volgende vocabulaires: 1) RDF(s), 2) SKOS, 3) DCTERMS, 4) FOAF en 5) ISOTHES. We geven de taalbinding voor types en kenmerken apart in [types](#types) en [eigenschappen](#eigenschappen).
 
 
 ### Types
@@ -23,7 +23,7 @@ Voor het representeren van de conceptuele elementen in RDF maken we gebruik van 
 | [=collectie=]       | [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)       |
 
 <div class="note">
-Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er veel verschillende toepasbare standaarden zijn op dit gebied waar de één niet per definitie beter is dan een andere. In dit profiel is wordt aangeraden om een brondocument te zien als als een `foaf:Document`. Andere toepasbare standaarden (niet limitatief) zijn bijvoorbeeld:
+Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er veel verschillende toepasbare standaarden zijn op dit gebied waarvan de ene niet per definitie beter is dan de andere. In dit profiel wordt aangeraden om een brondocument te zien als een `foaf:Document`. Andere toepasbare standaarden (niet limitatief) zijn bijvoorbeeld:
 <ul>
 <li>DublinCore (<a href="http://purl.org/dc/terms/BibliographicResource">BibliographicResource</a>) of </li>
 <li>FRBR (<a href="http://purl.org/vocab/frbr/core#term-Work">Work</a>, <a href="http://purl.org/vocab/frbr/core#term-Expression">Expression</a>, <a href="http://purl.org/vocab/frbr/core#term-Manifestation">Manifestation</a> of <a href="http://purl.org/vocab/frbr/core#term-Item">Item</a>)</li>
@@ -70,7 +70,7 @@ Een brondocument heeft niet één definitieve taalbinding. Dit komt omdat er vee
 
 # Specificatie
 
-Met het conceptueel model en de taalbinding die daar aan toegevoegd is kunnen we een dataspecificatie opstellen. Deze wordt in dit hoofdstuk besproken. De specificatie is ook in SHACL beschreven en is [hier](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl) beschikbaar. 
+Met het conceptueel model en de taalbinding die daaraan is toegevoegd kunnen we een dataspecificatie opstellen. Deze wordt in deze paragraaf besproken. De specificatie is ook in SHACL beschreven en is beschikbaar als [SHACL-profiel skos-ap-nl](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl). 
 
 ## Specificatie begrippenkader
 
@@ -141,5 +141,5 @@ Een collectie wordt gerepresenteerd als een `skos:Collection`. Deze typering is 
 | ------------------- | --------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [=naam=]            | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) | 1..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)                                                          |
 | [=uitleg=]          | [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)    | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)                                                          |
-| [=bevat=]           | [skos:member](http://www.w3.org/2004/02/skos/core#member)       | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept) OR [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection) |
+| [=bevat=]           | [skos:member](http://www.w3.org/2004/02/skos/core#member)       | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept) of [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection) |
  

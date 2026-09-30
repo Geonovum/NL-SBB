@@ -15,7 +15,7 @@ De topbegrippen zijn dan:
 * [=relatie=]
 * [=brondocument=]
 
-Dezen kunnen we in een taxonomie opnemen. In een lijst ziet die er als volgt uit:
+Deze kunnen we in een taxonomie opnemen. In een lijst ziet die er als volgt uit:
 * [=begrip=]
   * [=topbegrip=]
 * [=begrippenkader=]
@@ -63,13 +63,13 @@ Dezen kunnen we in een taxonomie opnemen. In een lijst ziet die er als volgt uit
 ## Thesaurus
 Een taxonomie geeft al meer overzicht en inzicht dan een alfabetische begrippenlijst, maar mist nog een aantal belangrijke elementen. Zo is niet zichtbaar dat de semantische relatie [=heeft bron=] is gerelateerd aan [=begrip=] en aan [=brondocument=] en bijvoorbeeld ook niet dat [=topbegrip=] is gerelateerd aan [=begrip=] en [=begrippenkader=]. In een thesaurus zijn deze semantische relaties wel zichtbaar. Onderstaand plaatje toont de in deze standaard gedefinieerde begrippen in een thesaurus. De pijlen geven hiërarchische relaties aan, de lijnen niet-hiërarchische semantische relaties.
 
-![](./media/thesaurusSBB.jpg "NL-SBB thesaurus").
+![](./media/thesaurusSBB.jpg "NL-SBB thesaurus")
 
-N.B. Dit is een thesaurus (MIM niveau 1) van alle in deze standaard gedefinieerde begrippen. Deze thesaurus is als machine leesbaar begrippenkader [beschikbaar in rdf](https://github.com/Geonovum/NL-SBB/blob/main/concepts/thesaurus.ttl). In deze thesaurus krijgen de hier beschreven begrippen een uri conform de Nederlandse uri-strategie: http://{domain}/{type}/{concept}/{reference}, waarbij:
+N.B. Dit is een thesaurus (MIM niveau 1) van alle in deze standaard gedefinieerde begrippen. Deze thesaurus is als machineleesbaar begrippenkader [beschikbaar in RDF](https://github.com/Geonovum/NL-SBB/blob/main/concepts/thesaurus.ttl). In deze thesaurus krijgen de hier beschreven begrippen een URI conform de Nederlandse uri-strategie: `http://{domain}/{type}/{concept}/{reference}`, waarbij:
 * domain = 'nlbegrip.nl'
 * type = 'id'
-* concept = 'concept' We hebben hier voor Engelstalig gekozen voor de internationale herkenbaarheid. 
+* concept = 'concept' We hebben hier voor het Engels gekozen voor de internationale herkenbaarheid. 
 * reference = een betekenisvolle aanduiding van het begrip in upper camelcase.
 
-Er zijn twee practices voor de reference, namelijk een betekenisvolle aanduiding en een betekenisloze aanduiding. Belangrijk is dat deze aanduidig persistent is. Bij de begrippen in deze standaard is dit geen issue. In deze standaard hebben we voor betekenisvolle uri's gekozen vanwege de herkenbaarheid en eenvoudige hanteerbaarheid. 
-Het volgende hoofdstuk beschrijft de samenhang van het model op MIM niveau 3).
+Er zijn twee practices voor de reference, namelijk een betekenisvolle aanduiding en een betekenisloze aanduiding. Belangrijk is dat deze aanduiding persistent is. Bij de begrippen in deze standaard is dit geen issue. In deze standaard hebben we voor betekenisvolle URI's gekozen vanwege de herkenbaarheid en eenvoudige hanteerbaarheid. 
+Het volgende hoofdstuk beschrijft de samenhang van het model op MIM-niveau 3.

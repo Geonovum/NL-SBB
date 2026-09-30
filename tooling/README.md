@@ -48,7 +48,7 @@ opensource voor organisaties met minder dan 75 medewerkers.
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
 | Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
-| Kwaliteitsregeltaal-validator | Overheid, open source | EUPL 1.2; ontwikkeld binnen het project Federatief Datastelsel. Online te gebruiken of zelf te installeren. |
+| Kwaliteitsregeltaal-validator | Open source | EUPL 1.2; persoonlijk initiatief van Danny Greefhorst vanuit zijn rol bij Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst. Online te gebruiken of zelf te installeren. |
 | Protégé | Open source | BSD 2-Clause; Protégé Desktop lokaal, WebProtégé in de browser. |
 | Intentional Arrangement SKOS editor | Open source óf commercieel, afhankelijk van de organisatiegrootte | Apache 2.0 voor organisaties met minder dan 75 medewerkers; daarboven is een bedrijfslicentie nodig. |
 | Termboard | Gratis | Gratis en zonder account te gebruiken; broncode niet openbaar en geen licentievoorwaarden vermeld. |
@@ -339,7 +339,7 @@ SPARQL-endpoints en API's.
 
 | Product | Aanbieder | Soort | Licentiemodel |
 | --- | --- | --- | --- |
-| [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator) | Federatief Datastelsel | Webapplicatie én commandline-tool | Open source (EUPL 1.2) |
+| [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator) | Danny Greefhorst (Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst) | Webapplicatie én commandline-tool | Open source (EUPL 1.2) |
 
 Validatie zit soms ook in de editors zelf: ModelDesk valideert tegen de standaard, PoolParty
 controleert de SKOS-conformiteit van de uitvoer en TopBraid EDG gebruikt SHACL-shapes als
@@ -348,8 +348,9 @@ SHACL-validators bruikbaar; zie [Aan de slag met een generieke tool](#aan-de-sla
 
 ### Kwaliteitsregeltaal-validator
 
-- **Aanbieder:** ontwikkeld door Danny Greefhorst binnen het project Federatief Datastelsel. De taal
-  Kwaliteitsregeltaal zelf is beschreven bij NORA, dat door ICTU wordt beheerd.
+- **Aanbieder:** een persoonlijk initiatief van Danny Greefhorst, vanuit zijn rol bij Bureau
+  Architectuur Digitale Overheid / Nederlandse Digitale Dienst. De taal Kwaliteitsregeltaal zelf is
+  beschreven bij NORA, dat door ICTU wordt beheerd.
 - **Website:** [online validator](https://kwaliteitsregistratie.datastelsel.nl/validator/),
   taalbeschrijving op [NORA](https://www.noraonline.nl/wiki/Kwaliteitsregeltaal), broncode op
   [GitLab](https://gitlab.com/datastelsel.nl/federatief/gegevenskwaliteitsregistratie)

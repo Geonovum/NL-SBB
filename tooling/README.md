@@ -22,7 +22,8 @@ getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product 
 | **Controle en validatie** | Het product maakt of bewerkt geen begrippen, maar controleert een bestaand begrippenkader — op de regels van de standaard en eventueel op eigen kwaliteitsregels. |
 
 Omdat de taalbinding van NL-SBB op SKOS gebaseerd is, kan in principe elk hulpmiddel dat SKOS
-kan lezen en schrijven met NL-SBB-begrippenkaders werken. Het verschil zit in hoeveel je zelf
+kan lezen en schrijven met NL-SBB-begrippenkaders werken. Bij de generieke tools staat daarom per
+product wat de SKOS-ondersteuning is. Het verschil zit in hoeveel je zelf
 moet inrichten en hoe goed de tool je helpt de verplichte kenmerken en de kwaliteitsregels van
 de standaard te halen. Zie ook de [mapping tussen NL-SBB en SKOS](https://github.com/Geonovum/nl-sbb-bp/blob/main/mapping-skos.md)
 in de best practices.
@@ -149,16 +150,16 @@ opensource voor organisaties met minder dan 75 medewerkers.
 
 ## Generieke tools die voor NL-SBB ingericht kunnen worden
 
-| Product | Aanbieder | Soort | Licentiemodel |
-| --- | --- | --- | --- |
-| [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | Open source (overheid) |
-| [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Open source (BSD 2-Clause) |
-| [Intentional Arrangement SKOS editor](#intentional-arrangement-skos-editor) | Contextually LLC (Jessica Talisman) | Webapplicatie, draait in de browser | Apache 2.0 onder 75 medewerkers, daarboven bedrijfslicentie |
-| [Termboard](#termboard) | Hoogkamer | Webapplicatie, draait in de browser | Gratis |
-| [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | Commercieel, licentie per pakket |
-| [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | Commercieel |
-| [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | Commercieel |
-| [TriplyDB](#triplydb) | Triply B.V. | Webapplicatie (publieke of eigen instantie) | Commercieel, gratis account voor open data |
+| Product | Aanbieder | Soort | SKOS-ondersteuning | Licentiemodel |
+| --- | --- | --- | --- | --- |
+| [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | SKOS en SKOS-XL | Open source (overheid) |
+| [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Geen SKOS-modus; via een plugin van derden | Open source (BSD 2-Clause) |
+| [Intentional Arrangement SKOS editor](#intentional-arrangement-skos-editor) | Contextually LLC (Jessica Talisman) | Webapplicatie, draait in de browser | SKOS en SKOS-XL | Apache 2.0 onder 75 medewerkers, daarboven bedrijfslicentie |
+| [Termboard](#termboard) | Hoogkamer | Webapplicatie, draait in de browser | Geen; eigen model, conversie nodig | Gratis |
+| [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | SKOS en SKOS-XL | Commercieel, licentie per pakket |
+| [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | SKOS en SKOS-XL | Commercieel |
+| [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | SKOS-XL in het kerndatamodel | Commercieel |
+| [TriplyDB](#triplydb) | Triply B.V. | Webapplicatie (publieke of eigen instantie) | SKOS, via de shapes graph | Commercieel, gratis account voor open data |
 
 ### VocBench 3
 

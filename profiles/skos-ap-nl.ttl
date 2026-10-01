@@ -252,18 +252,6 @@ skosapnl:Concept-narrowMatch
   a sh:PropertyShape ;
   rdfs:label "heeft overeenkomstig onderliggend"@nl ;
   sh:node skosapnl:Begripreferentie ;
-  sh:path [
-    sh:alternativePath (
-      skos:broader
-      skos:narrower
-      skos:related
-      skos:exactMatch
-      skos:closeMatch
-      skos:broadMatch
-      skos:narrowMatch
-      skos:relatedMatch
-    )
-  ] ;
   sh:disjoint skos:broadMatch ;
   sh:disjoint skos:closeMatch ;
   sh:disjoint skos:exactMatch ;
@@ -275,7 +263,8 @@ skosapnl:Concept-narrowMatch
     "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ;
   sh:order 41 ;
   sh:nodeKind sh:IRI ;
-  sh:severity sh:Warning .
+  sh:severity sh:Warning ;
+  sh:path skos:narrowMatch .
 
 skosapnl:Concept-broader
   a sh:PropertyShape ;
@@ -567,6 +556,7 @@ skosapnl:Concept-closeMatch
   sh:order 42 ;
   sh:nodeKind sh:IRI ;
   sh:name "is vrijwel overeenkomstig"@nl, "has close match"@en ;
+  sh:severity sh:Warning ;
   sh:path skos:closeMatch .
 
 skosapnl:Concept-notation

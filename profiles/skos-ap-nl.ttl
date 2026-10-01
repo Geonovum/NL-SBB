@@ -863,12 +863,6 @@ skosapnl:UniquePreflabelWithinConceptScheme
     }
     """ .
 
-skosapnl:Concept-UniquePrefLabelWithinSchemeShape
-  a sh:NodeShape ;
-  sh:targetClass skos:Concept ;
-  sh:sparql skosapnl:UniquePreflabelWithinConceptScheme ;
-  sh:severity sh:Warning .
-
 skosapnl:TopConceptHavingBroader
   a sh:SPARQLConstraint ;
   sh:prefixes skosapnl: ;

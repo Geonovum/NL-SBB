@@ -118,7 +118,7 @@ beg-sbb:TopConcept
     "Een topbegrip is een begrip dat bovenaan de hiërarchie staat in een begrippenkader."@nl ,
     "A top concept is a concept that constitutes an entry point in the hierarchy of a concept scheme."@en ;
   skos:scopeNote
-    "Bovenaan wilt zeggen; het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen."@nl ,
+    "Bovenaan wil zeggen: het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen."@nl ,
     "A top concept has no broader concepts in the given concept scheme."@en ;
   skos:notation
     "TT" ;
@@ -211,7 +211,7 @@ beg-sbb:Definition
     "A definition is a statement or formal explanation of the meaning of a concept which serves to differentiate it from related concepts."@en ,
     "Een definitie is een verwoording van de betekenis van een begrip waarmee het begrip kan worden onderscheiden van andere begrippen."@nl ;
    skos:scopeNote 
-    '''De definitie dient te voldoen aan specifieke formuleringsregels voor definitie en dient in een voor mensen leesbare taal te begrijpen zijn. In dit laatste onderscheid de definitie zich daarmee van een machine-leesbare formele beschrijving. Aan de hand van een definitie kan iemand bepalen of zijn eigen begrip behorende bij een term overeenkomt met het begrip dat gedefinieerd wordt. De uitleg of de toelichting bij een begrip kan gebruik worden voor iemand die het begrip nog niet kent om te begrijpen waar het over gaat. Formuleringsregels zijn: 
+    '''De definitie dient te voldoen aan specifieke formuleringsregels voor definitie en dient in een voor mensen leesbare taal te begrijpen zijn. In dit laatste onderscheidt de definitie zich daarmee van een machine-leesbare formele beschrijving. Aan de hand van een definitie kan iemand bepalen of zijn eigen begrip behorende bij een term overeenkomt met het begrip dat gedefinieerd wordt. De uitleg of de toelichting bij een begrip kan gebruik worden voor iemand die het begrip nog niet kent om te begrijpen waar het over gaat. Formuleringsregels zijn: 
 * Type 1: Typering (genus/differentia) - BEGRIP is afgeleide van hoger liggend begrip, met onderscheidend kenmerk X (overerving, generalisatie, supertype). Voorbeeld: bles. Een paard met een wit voorhoofd. Palomino. Een paard met witte stippen. Afgedekte relaties uit SBB: «heeft bovenliggend begrip», «is specialisatie van», «is exemplaar van», «is categorie van», «is onderdeel van» 
 * Type 2: Samenstelling (totum/dividere) - BEGRIP is een geheel dat is beschreven door de delen te beschrijven (hiërarchie, geheel/deel). Voorbeeld: organisatie. Een stel mensen die dingen doen met spullen. Voorbeeld: trein. Een locomotief met wagons. Afgedekte relaties uit SBB: «omvat» 
 * Type 3: Onderdeel (pars) - BEGRIP is een onderdeel van een groter geheel, met een specifiek kenmerk. Voorbeeld: blad – Een onderdeel van een plantaardig organisme, dat zich uitstrekt vanuit de stengel en dat een essentieel onderdeel vormt van het fotosyntheseproces. Afgedekte relaties uit SBB: «heeft bovenliggend begrip», «is onderdeel van» 
@@ -338,20 +338,20 @@ beg-sbb:NarrowMatch
   skos:inScheme begkr-sbb:nlbegrip ;
   rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
 
-#historische notitie
+#historienotitie
 beg-sbb:HistoryNote
   a skos:Concept ;
   rdfs:label "history note";
   skos:prefLabel
     "history note"@en ,
-    "historie notitie"@nl ;
+    "historienotitie"@nl ;
   skos:notation "HN" ;
   skos:definition
-    "Een historie notitie is een notitie van de voormalige status/gebruik/betekenis van het begrip."@nl ,
+    "Een historienotitie is een notitie van de voormalige status/gebruik/betekenis van het begrip."@nl ,
     "A history note is a note about the past state/use/meaning of a concept."@en ;
   skos:scopeNote 
     "A history note should be used when a new preferred term is added to the thesaurus or a change is made to an existing term that affects the concept's scope in different periods of application. While it is possible to include such information in the scope note, a separate history note is preferable. A history note may record the date of introduction, or it may give more complex advice on how to search for the concept in earlier or later times."@en,
-    "Een historie notitie wordt gebruikt wanneer een nieuw begrip wordt toegevoegd aan het begrippenkader of wanneer er een wijziging wordt aangebracht in de beschrijving van een bestaand begrip die van invloed is op de reikwijdte van het begrip in verschillende toepassingsperioden. Hoewel het mogelijk is om dergelijke informatie in de toelichting op te nemen, heeft een aparte historische notitie de voorkeur. Deze kan de datum van introductie vermelden, of het kan meer complexe informatie geven over hoe te zoeken naar het begrip op een eerder of later tijdstip."@nl; 
+    "Een «historienotitie» wordt gebruikt wanneer een nieuw begrip wordt toegevoegd aan het begrippenkader of wanneer er een wijziging wordt aangebracht in de beschrijving van een bestaand begrip die van invloed is op de reikwijdte van het begrip in verschillende toepassingsperioden. Hoewel het mogelijk is om dergelijke informatie in de toelichting op te nemen, heeft een aparte historische notitie de voorkeur. Deze kan de datum van introductie vermelden, of het kan meer complexe informatie geven over hoe te zoeken naar het begrip op een eerder of later tijdstip."@nl; 
   dct:source
     skos: ,
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes>;
@@ -656,7 +656,7 @@ beg-sbb:EditorialNote
     "Een redactionele notitie is een notitie voor de redacteur, vertaler of beheerder van het begrippenkader."@nl ;
   skos:scopeNote
     "Editorial notes are useful for entries such as -Review this term after the company merger complete- or -This term is mentioned in the scope note of Concept X- or -Check spelling with expert A-. Notes such as this, and several of the attributes, are more useful for housekeeping than for user consultation. A choice can be made whether or not to allow users to view them."@en,
-    "Redactionele notities zijn handig voor vermeldingen als -Controleer deze term nadat de bedrijfsfusie is voltooid- of -Deze term wordt genoemd in de scopenota van Concept X- of -Controleer de spelling met expert A-. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikers raadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien."@nl;
+    "Redactionele notities zijn handig voor vermeldingen als -Controleer deze term nadat de bedrijfsfusie is voltooid- of -Deze term wordt genoemd in de scopenota van Concept X- of -Controleer de spelling met expert A-. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikersraadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien."@nl;
   dct:source
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes> ,
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,

@@ -1,0 +1,43 @@
+@prefix rdf: <http://w3.org> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org> .
+@prefix foaf: <http://xmlns.com> .
+@prefix xsd: <http://w3.org> .
+
+# 1. Het begrippenkader
+<http://definities.geostandaarden.nl/id/begrippenkader/IMEV> a dcat:Dataset ;
+    dct:title "IMEV begrippen (3.0)"@nl ;
+    dct:description "Het Informatiemodel Externe Veiligheid bevat afspraken over de digitale structuur waarin overheden gegevens vastleggen over de opslag, het transport en het gebruik van gevaarlijke stoffen. Al deze gegevens komen bij elkaar in het Register Externe Veiligheidsrisico's. Op kaarten is vervolgens te zien waar externe veiligheidsrisico’s van toepassing zijn. Overheden nemen op basis van deze gegevens beslissingen die de veiligheid en kwaliteit van de leefomgeving bevorderen."@nl ;
+    dct:publisher [ a foaf:Organization ;
+        foaf:name "Stichting Geonovum" 
+    ] ;
+    dct:issued "2025-07-10"^^xsd:date ;
+    dct:modified "2025-07-10"^^xsd:date ;
+    dcat:theme <http://www.eionet.europa.eu/gemet/nl/inspire-theme/pf> ; # Faciliteiten voor productie en industrie
+    dcat:keyword "REV", "Veiligheid", "Milieu", "Beheer", "Installatie", "Mining", "Quarrying", "Manufacturing", "Electricity", "Gas" ;
+    dcat:distribution <http://definities.geostandaarden.nl/id/begrippenkader/IMEV/distributie> ;
+	dct:accessRights <https://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+	dct:conformsTo <https://docs.geostandaarden.nl/nl-sbb/def-st-nl-sbb-20241010/> ;
+	dcat:contactPoint [
+		a vcard:Kind ;
+		vcard:fn "Stichting Geonovum" ;
+		vcard:hasURL <https://www.geonovum.nl> ;
+		vcard:hasEmail <mailto:info@geonovum.nl> .
+	] ;
+	dct:creator [ a foaf:Organization ;
+		foaf:name "Stichting Geonovum" 
+    ] ;
+	dct:identifier <http://definities.geostandaarden.nl/id/begrippenkader/IMEV> ;
+	rdfs:label "IMEV begrippen (3.0)"@nl ;
+	dcat:landingPage <http://definities.geostandaarden.nl/id/begrippenkader/IMEV> ;
+	dcat:version "3.0".
+
+# 2. De Distributie
+<http://definities.geostandaarden.nl/id/begrippenkader/IMEV/distributie> a dcat:Distribution ;
+    dct:title "IMEV begrippen (3.0)"@nl ;
+	rdfs:label "IMEV begrippen (3.0)"@nl ;
+	dct:language <http://publications.europa.eu/resource/authority/language/NLD> ;
+    dcat:accessURL <https://definities.geostandaarden.nl/rest/v1/imev3/data?format=text/turtle> ;
+	dcat:downloadURL <https://definities.geostandaarden.nl/rest/v1/imev3/data?format=text/turtle> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dct:license <https://creativecommons.org/publicdomain/mark/1.0/deed.nl> . # <https://creativecommons.org/licenses/by/4.0> ?

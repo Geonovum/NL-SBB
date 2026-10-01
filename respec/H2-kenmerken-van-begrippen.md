@@ -39,7 +39,7 @@ Het hebben van gestandaardiseerde begrippen zorgt ervoor dat iedereen dezelfde t
 | **voorkeursterm**   | <dfn>begrip</dfn> |
 | **definitie**        | Een begrip is een eenheid van denken zoals een idee, een betekenis of een categorisering. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#concepts |
-| **toelichting** | De belangrijkste toepassing voor een begrippenkader is het ophalen van informatie, waarbij het doel is om te weten wat de betekenis van een begrip is. Begrippen worden weergegeven door termen. Elke term in een thesaurus moet een enkel begrip (of denkeenheid) vertegenwoordigen. Begrippen kunnen variëren van eenvoudig (bijv. katten) tot zeer complex (bijv. rassendiscriminatie onder etnische minderheden). Samengestelde termen of zinsdelen zijn over het algemeen nodig om de meer complexe begrippen uit te drukken. |
+| **toelichting** | Een begrippenkader wordt vooral gebruikt om betekenis te ontsluiten: het laat de gebruiker opzoeken wat een begrip precies inhoudt. Elk begrip wordt aangeduid met een term, waarbij één term staat voor precies één begrip (één afgebakende denkeenheid). Begrippen lopen sterk uiteen in complexiteit, van eenvoudig (zoals "katten") tot samengesteld (zoals "rassendiscriminatie onder etnische minderheden"). Voor de meer samengestelde begrippen zijn doorgaans meerwoordige termen nodig om de bedoelde betekenis nauwkeurig uit te drukken. |
 
 ## Begrippenkader
 Begrippen kunnen als zelfstandige entiteiten worden gezien, maar meestal worden ze opgesteld als onderdeel van een samenhangend begrippenkader. Een [=begrippenkader=] is een verzameling van [=begrip=]pen die in een bepaalde context relevant zijn. Voorbeelden van zo'n context zijn een bepaalde basisregistratie of een boek. Zo bevat het begrippenkader voor de Basisregistratie alle begrippen die in deze registratie worden gebruikt. Een ander voorbeeld is een index achterin een boek. 
@@ -146,7 +146,7 @@ De volgende notities zijn verwoordingen van de betekenis van een begrip.
 | **voorkeursterm**   | <dfn>definitie</dfn> |
 | **definitie**        | Een definitie is een verwoording van de betekenis van een begrip waarmee het begrip kan worden onderscheiden van andere begrippen. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes |
-| **toelichting** | De definitie dient te voldoen aan specifieke formuleringsregels voor definitie en dient in een voor mensen leesbare taal te begrijpen zijn. In dit laatste onderscheid de definitie zich daarmee van een machine-leesbare formele beschrijving. Aan de hand van een definitie kan iemand bepalen of zijn eigen begrip behorende bij een term overeenkomt met het begrip dat gedefinieerd wordt. De uitleg of de toelichting bij een begrip kan gebruik worden voor iemand die het begrip nog niet kent om te begrijpen waar het over gaat.  |
+| **toelichting** | De definitie dient te voldoen aan specifieke formuleringsregels voor definitie en dient in een voor mensen leesbare taal te begrijpen zijn. In dit laatste onderscheidt de definitie zich daarmee van een machine-leesbare formele beschrijving. Aan de hand van een definitie kan iemand bepalen of zijn eigen begrip behorende bij een term overeenkomt met het begrip dat gedefinieerd wordt. De uitleg of de toelichting bij een begrip kan gebruik worden voor iemand die het begrip nog niet kent om te begrijpen waar het over gaat.  |
 | **code** | DEF |
 
 </br> 
@@ -177,10 +177,10 @@ De volgende notities zijn aanvullende documentaire notities.
 
 |                       |                                       |
 |-----------------------|---------------------------------------|
-| **voorkeursterm**   | <dfn>historie notitie</dfn> |
-| **definitie**        | Een historie notitie is een notitie van de voormalige status/gebruik/betekenis van het begrip. |
+| **voorkeursterm**   | <dfn>historienotitie</dfn> |
+| **definitie**        | Een historienotitie is een notitie van de voormalige status/gebruik/betekenis van het begrip. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes |
-| **toelichting** | Een «historie notitie» wordt gebruikt wanneer een nieuw begrip wordt toegevoegd aan het begrippenkader of wanneer er een wijziging wordt aangebracht in de beschrijving van een bestaand begrip die van invloed is op de reikwijdte van het begrip in verschillende toepassingsperioden. Hoewel het mogelijk is om dergelijke informatie in de toelichting op te nemen, heeft een aparte historische notitie de voorkeur. Deze kan de datum van introductie vermelden, of het kan meer complexe informatie geven over hoe te zoeken naar het begrip op een eerder of later tijdstip. |
+| **toelichting** | Een «historienotitie» wordt gebruikt wanneer een nieuw begrip wordt toegevoegd aan het begrippenkader of wanneer er een wijziging wordt aangebracht in de beschrijving van een bestaand begrip die van invloed is op de reikwijdte van het begrip in verschillende toepassingsperioden. Hoewel het mogelijk is om dergelijke informatie in de toelichting op te nemen, heeft een aparte historische notitie de voorkeur. Deze kan de datum van introductie vermelden, of het kan meer complexe informatie geven over hoe te zoeken naar het begrip op een eerder of later tijdstip. |
 | **code** | HN |
 
 </br> 
@@ -190,7 +190,7 @@ De volgende notities zijn aanvullende documentaire notities.
 | **voorkeursterm**   | <dfn>redactionele notitie</dfn> |
 | **definitie**        | Een redactionele notitie is een notitie voor de redacteur, vertaler of beheerder van het begrippenkader. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes |
-| **toelichting** | Redactionele notities zijn handig voor vermeldingen als -Controleer deze term nadat de bedrijfsfusie is voltooid- of -Deze term wordt genoemd in de scopenota van Concept X- of -Controleer de spelling met expert A-. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikers raadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien. |
+| **toelichting** | Redactionele notities zijn handig voor vermeldingen als -Controleer deze term nadat de bedrijfsfusie is voltooid- of -Deze term wordt genoemd in de scopenota van Concept X- of -Controleer de spelling met expert A-. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikersraadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien. |
 
 </br> 
 
@@ -256,7 +256,7 @@ Een topbegrip kan worden gedefinieerd vanuit een begrip in relatie tot een begri
 | **voorkeursterm** | <dfn>topbegrip</dfn>            |
 | **definitie** |  Een topbegrip is een begrip dat bovenaan de hiërarchie staat in een begrippenkader. |
 | **heeft bron** | http://www.w3.org/2004/02/skos/core#, https://www.w3.org/TR/2009/REC-skos-reference-20090818/#schemes |
-| **toelichting** | Bovenaan wilt zeggen; het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen. |
+| **toelichting** | Bovenaan wil zeggen: het heeft geen bovenliggende begrippen. Dit maakt het gemakkelijker om bij het importeren van een thesaurus alle begrippen op het hoogste niveau eruit te halen en van daaruit een navigatieboom op te bouwen. |
 
 </br> 
 
@@ -463,7 +463,7 @@ Een **[=begrip=]** heeft een kenmerk '**[=heeft bron=]**'. Dit kenmerk relateert
 
 </br> 
 
-Het wordt aangeraden om een brondocument altijd te beschrijven met een **[=bronverwijzing=]** waarin de verwijzing conform een gangbare conventie is vastgelegd. Er zijn (internationale) conventies voor de verwijzing naar passage van een artikel in een tijdschrift of in een boek. Ook voor de verwijzing naar wetgeving is er een [conventie](#conv-lido). Als de bron een vindplaats heeft op het web is een **[=url=]** relevant. Hiermee kan de bron direct gevonden worden. 
+Het wordt aangeraden om een brondocument altijd te beschrijven met een **[=bronverwijzing=]** waarin de verwijzing conform een gangbare conventie is vastgelegd. Er zijn (internationale) conventies voor de verwijzing naar passage van een artikel in een tijdschrift of in een boek. Ook voor de verwijzing naar wetgeving is er een [conventie](https://wetten.overheid.nl/BWBR0005730/2022-04-01/#Hoofdstuk3_Paragraaf3.3). Als de bron een vindplaats heeft op het web is een **[=url=]** relevant. Hiermee kan de bron direct gevonden worden. 
 
 |                       |                                       |
 |-----------------------|---------------------------------------|

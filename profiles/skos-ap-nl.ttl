@@ -21,6 +21,10 @@ skosapnl:
     sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
   ] ;
   sh:declare [
+    sh:prefix "skosapnl" ;
+    sh:namespace "http://nlbegrip.nl/def/skosapnl#"^^xsd:anyURI ;
+  ] ;
+  sh:declare [
     sh:prefix "isothes" ;
     sh:namespace "http://purl.org/iso25964/skos-thes#"^^xsd:anyURI ;
   ] ;
@@ -706,21 +710,6 @@ skosapnl:ConceptScheme-label
 
 ## logical constraints
 
-skosapnl:
-  a owl:Ontology ;
-  sh:declare [
-    sh:prefix "skos" ;
-    sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-  ] ;
-  sh:declare [
-    sh:prefix "skosapnl" ;
-    sh:namespace "http://nlbegrip.nl/def/skosapnl#"^^xsd:anyURI ;
-  ] ;
-  sh:declare [
-    sh:prefix "isothes" ;
-    sh:namespace "http://purl.org/iso25964/skos-thes#"^^xsd:anyURI ;
-  ] .
-  
 skosapnl:DisjointConceptAndConceptScheme
   a sh:NodeShape ;
   sh:targetClass skos:Concept ;

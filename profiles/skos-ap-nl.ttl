@@ -12,7 +12,7 @@
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl>
+skosapnl:
   a owl:Ontology ;
   rdfs:label "Toepassingsprofiel Nederlandse standaard voor het beschrijven van begrippen in RDF"@nl ;
   owl:versionInfo "1.0.1" ;
@@ -719,7 +719,7 @@ skosapnl:DisjointConceptAndConceptScheme
   a sh:NodeShape ;
   sh:targetClass skos:Concept ;
   sh:sparql [
-    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+    sh:prefixes skosapnl: ;
     sh:message "Een begrip kan niet ook een begrippenkader zijn."@nl ;
     sh:select """
     SELECT $this
@@ -740,7 +740,7 @@ skosapnl:DisjointConceptAndCollection
   sh:targetSubjectsOf isothes:narrowerPartitive ;
   sh:targetSubjectsOf isothes:narrowerInstantial ;
   sh:sparql [
-    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+    sh:prefixes skosapnl: ;
     sh:message "Een begrip kan niet ook een collectie zijn."@nl ;
     sh:select """
     SELECT $this
@@ -754,7 +754,7 @@ skosapnl:DisjointConceptSchemeAndCollection
   sh:targetObjectsOf skos:topConceptOf ;
   sh:targetObjectsOf skos:inScheme ;
   sh:sparql [
-    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+    sh:prefixes skosapnl: ;
     sh:message "Een begrippenkader kan niet ook een collectie zijn."@nl ;
     sh:select """
     SELECT $this
@@ -771,7 +771,7 @@ skosapnl:MappingRelationsMisuse
   sh:targetSubjectsOf skos:narrowMatch ;
   sh:targetSubjectsOf skos:relatedMatch ;
   sh:sparql [
-    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+    sh:prefixes skosapnl: ;
     sh:message
       "Harmonisatierelaties mogen niet gebruikt worden tussen begrippen die tot hetzelfde begrippenkader behoren."@nl ;
     sh:select """
@@ -815,7 +815,7 @@ skosapnl:SemanticRelations
   sh:targetSubjectsOf skos:narrowMatch ;
   sh:targetSubjectsOf skos:relatedMatch ;
   sh:sparql [
-    sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+    sh:prefixes skosapnl: ;
     sh:message "Semantische relaties verwijzen altijd van en naar begrippen."@nl ;
     sh:select """
       SELECT DISTINCT $this
@@ -831,7 +831,7 @@ skosapnl:UnambiguousNotations
   sh:message
     "Begrippen binnen een begrippenkader mogen geen codes delen."@nl ;
   sh:severity sh:Violation ;
-  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  sh:prefixes skosapnl: ;
   sh:select """SELECT $this
     WHERE {
       $this skos:notation ?value  .
@@ -846,7 +846,7 @@ skosapnl:UniquePreflabelWithinConceptScheme
   a sh:SPARQLConstraint ;
   sh:message    "Meerdere begrippen met dezelfde voorkeursterm binnen een begrippenkader"@nl ;
   sh:severity sh:Warning ;
-  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  sh:prefixes skosapnl: ;
   sh:select """SELECT $this
     WHERE {
       $this skos:prefLabel ?value  .
@@ -860,7 +860,7 @@ skosapnl:UniquePreflabelWithinConceptScheme
 
 skosapnl:TopConceptHavingBroader
   a sh:SPARQLConstraint ;
-  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  sh:prefixes skosapnl: ;
   sh:message "Een topbegrip mag geen bovenliggende begrippen kennen."@nl ;
   sh:severity sh:Violation ;
   sh:select """SELECT $this
@@ -875,7 +875,7 @@ skosapnl:TopConceptHavingBroader
 
 skosapnl:OrphanConcept
   a sh:SPARQLConstraint ;
-  sh:prefixes <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  sh:prefixes skosapnl: ;
   sh:message "Het begrip is geen topbegrip maar heeft ook geen bovenliggende of gerelateerde begrippen."@nl ;
   sh:select """SELECT $this
     WHERE {

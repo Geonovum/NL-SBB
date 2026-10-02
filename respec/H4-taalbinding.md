@@ -141,5 +141,5 @@ Een collectie wordt gerepresenteerd als een `skos:Collection`. Deze typering is 
 | ------------------- | --------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [=naam=]            | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) | 1..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)                                                          |
 | [=uitleg=]          | [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)    | 0..*          | [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)                                                          |
-| [=bevat=]           | [skos:member](http://www.w3.org/2004/02/skos/core#member)       | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept) of [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection) |
+| [=bevat=]           | [skos:member](http://www.w3.org/2004/02/skos/core#member)       | 0..*          | [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept) OR [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection) |
  

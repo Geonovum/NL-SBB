@@ -48,7 +48,7 @@ opensource voor organisaties met minder dan 75 medewerkers.
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
 | Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
-| Kwaliteitsregeltaal-validator | Open source | EUPL 1.2; persoonlijk initiatief van Danny Greefhorst vanuit zijn rol bij Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst. Online te gebruiken of zelf te installeren. |
+| Kwaliteitsregeltaal-validator | Open source | EUPL 1.2; persoonlijk initiatief van Danny Greefhorst vanuit zijn rol bij Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst. Online te gebruiken, zelf te installeren of via MCP aan te roepen vanuit een AI-assistent. |
 | Protégé | Open source | BSD 2-Clause; Protégé Desktop lokaal, WebProtégé in de browser. |
 | Intentional Arrangement SKOS editor | Open source óf commercieel, afhankelijk van de organisatiegrootte | Apache 2.0 voor organisaties met minder dan 75 medewerkers; daarboven is een bedrijfslicentie nodig. |
 | Termboard | Gratis | Gratis en zonder account te gebruiken; broncode niet openbaar en geen licentievoorwaarden vermeld. |
@@ -348,7 +348,7 @@ SPARQL-endpoints en API's.
 
 | Product | Aanbieder | Soort | Licentiemodel |
 | --- | --- | --- | --- |
-| [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator) | Danny Greefhorst (Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst) | Webapplicatie én commandline-tool | Open source (EUPL 1.2) |
+| [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator) | Danny Greefhorst (Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst) | Webapplicatie, commandline-tool en MCP-server | Open source (EUPL 1.2) |
 
 Validatie zit soms ook in de editors zelf: ModelDesk valideert tegen de standaard, PoolParty
 controleert de SKOS-conformiteit van de uitvoer en TopBraid EDG gebruikt SHACL-shapes als
@@ -375,6 +375,14 @@ SHACL-validators bruikbaar; zie [Aan de slag met een generieke tool](#aan-de-sla
 - **Gegevensbronnen:** online worden bestanden gecontroleerd: TTL voor linked data, en tabulaire
   gegevens als parquet, CSV, JSON, Excel, SQLite en DuckDB. De commandline-variant controleert een
   SPARQL-endpoint, een PostgreSQL-database of een DuckDB-database.
+- **MCP-server:** de validator is ook te benaderen via het
+  [Model Context Protocol](https://modelcontextprotocol.io), op
+  `https://kwaliteitsregistratie.datastelsel.nl/validator/mcp` (Streamable HTTP). Een AI-assistent
+  die MCP ondersteunt kan daarmee een begrippenkader laten controleren met de tool `validate_nl_sbb`,
+  of met `validate` eigen KRT-regels of een van de andere regelsets uitvoeren. Daarnaast zijn er tools
+  om regels te vertalen naar SPARQL of SQL (`translate_rule`, `translate_rules`) en om SHACL om te
+  zetten naar Kwaliteitsregeltaal (`shacl_to_krt`). De gegevens worden daarbij naar de server
+  gestuurd, net als bij de online validator.
 - **Onderscheidend punt:** dezelfde taal is te gebruiken voor constraints bij MIM-modellen. Wie
   begrippen en informatiemodellen naast elkaar beheert, kan daardoor met één regeltaal werken. Er is
   ook een vertaler die KRT-regels omzet naar SPARQL en SQL.

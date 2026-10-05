@@ -223,6 +223,18 @@ td.txt { overflow-wrap: anywhere }
   let meta = null, ready = false, runId = 0, bron = "IMGeo-mini.ttl (voorbeeld)", laatste = null, filter = "alle";
   let voorbeeld = "";
 
+  // Machineleesbare toestand, voor scripts en AI-assistenten die de pagina bedienen:
+  //   <html data-nlsbb-status="laden|klaar|bezig|resultaat|fout|kan-niet-starten">
+  //   window.nlsbbResultaat   laatste volledige resultaat (zelfde JSON als `python engine.py --json`)
+  //   window.nlsbbValideer({ data, format, profiel })  -> Promise met het resultaat
+  //   event "nlsbb:resultaat" op window, met het resultaat in event.detail
+  const root = document.documentElement;
+  const zetStatus = (st) => { root.dataset.nlsbbStatus = st; };
+  zetStatus("laden");
+  const wachtend = new Map();
+  let klaarResolve;
+  const klaarBelofte = new Promise((r) => { klaarResolve = r; });
+
   const worker = new Worker("worker.js");
   worker.onmessage = ({ data: m }) => {
     if (m.type === "status") {
@@ -230,6 +242,8 @@ td.txt { overflow-wrap: anywhere }
       $("#engineBar").style.width = m.pct + "%";
     } else if (m.type === "ready") {
       ready = true;
+      zetStatus("klaar");
+      klaarResolve();
       $("#engine").classList.add("ready");
       $("#runBtn").disabled = false;
       run();
@@ -237,13 +251,24 @@ td.txt { overflow-wrap: anywhere }
       meta = m.meta;
       $("#engineText").textContent = `Klaar · ${PROFIELNAAM[meta.profielBron]} · pySHACL ${meta.pyshacl}`;
     } else if (m.type === "bootError") {
+      zetStatus("kan-niet-starten");
+      window.nlsbbResultaat = { fout: m.message };
+      wachtend.forEach((w) => w.reject(new Error(m.message)));
       $("#engine").classList.add("err");
       $("#engineText").textContent = "Validator kon niet laden";
       $("#out").innerHTML = `<div class="err"><b>De validator kon niet starten.</b><br>${esc(m.message)}<br><br>Controleer of de browser jsdelivr.net kan bereiken en WebAssembly toestaat. Lokaal openen via file:// werkt niet; gebruik een webserver (zie README).</div>`;
-    } else if (m.type === "result" && m.id === runId) {
+    } else if (m.type === "result") {
+      const out = m.out;
+      if (!out.fout) out.samenvatting = samenvatting(out);
+      const w = wachtend.get(m.id);
+      if (w) { wachtend.delete(m.id); w.resolve(out); }
+      if (m.id !== runId) return;
+      window.nlsbbResultaat = out;
+      zetStatus(out.fout ? "fout" : "resultaat");
+      window.dispatchEvent(new CustomEvent("nlsbb:resultaat", { detail: out }));
       $("#runBtn").disabled = false;
       $("#runBtn").textContent = "Valideren";
-      render(m.out);
+      render(out);
     }
   };
 
@@ -252,10 +277,32 @@ td.txt { overflow-wrap: anywhere }
     const data = $("#src").value;
     if (!data.trim()) { $("#out").innerHTML = `<div class="panel empty">Kies een bestand of plak RDF om te valideren.</div>`; return; }
     runId++;
+    zetStatus("bezig");
     $("#runBtn").disabled = true;
     $("#runBtn").textContent = "Bezig…";
     $("#out").innerHTML = `<div class="panel empty">Bezig met SHACL-validatie en inhoudelijke scan van <b>${esc(bron)}</b>…</div>`;
     worker.postMessage({ type: "run", id: runId, data, fmt: $("#fmt").value, profiel: $("#profiel").value });
+    return runId;
+  }
+
+  // Valideer vanuit een script; de pagina toont het resultaat ook.
+  window.nlsbbValideer = async ({ data, format = "turtle", profiel = "register", naam = "aangeleverd via script" } = {}) => {
+    if (typeof data !== "string" || !data.trim()) throw new Error("Geef de RDF-inhoud mee als { data: '...' }.");
+    if (![...$("#fmt").options].some((o) => o.value === format)) throw new Error(`Onbekend formaat '${format}'.`);
+    if (!["register", "werkversie"].includes(profiel)) throw new Error("profiel is 'register' of 'werkversie'.");
+    await klaarBelofte;
+    $("#src").value = data; $("#fmt").value = format; $("#profiel").value = profiel; bron = naam;
+    $("#fileName").innerHTML = `Bron: <b>${esc(naam)}</b>`;
+    const id = run();
+    return new Promise((resolve, reject) => wachtend.set(id, { resolve, reject }));
+  };
+
+  function samenvatting(out) {
+    const shacl = { fout: 0, waarschuwing: 0, info: 0 };
+    out.shacl.forEach((r) => shacl[r.ernst]++);
+    const scan = {};
+    out.scan.forEach((k) => { scan[k.titel] = k.items.length; });
+    return { profiel: out.meta.profielBron, profielVersie: out.meta.profielVersie, begrippen: out.stat.begrippen, shacl, scan };
   }
 
   const FMT = { ttl: "turtle", n3: "turtle", rdf: "xml", xml: "xml", owl: "xml", jsonld: "json-ld", json: "json-ld", nt: "nt", trig: "trig" };

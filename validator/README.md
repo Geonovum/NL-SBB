@@ -49,6 +49,38 @@ bereikbaarheid van bronnen, Excel/Word-invoer, totaaloordeel of publicatieadvies
 | `rules/skos-ap-nl-extensie.ttl` | Aanvullende regels: topbegrip met bovenliggend begrip (ook via `isothes:broader*`), harmonisatierelatie binnen hetzelfde kader, dubbele `skos:notation`, verweesd begrip, identieke definities, ontbrekende bron |
 | `rules/voorbeeld-imgeo-mini.ttl` | Testset afgeleid van IMGeo, met opzettelijk aangebrachte fouten |
 
+## Vanaf de commandoregel
+
+`engine.py` is dezelfde code als in de browser en geeft dus dezelfde uitkomst. Nodig:
+Python 3.10+ met `pip install pyshacl rdflib`.
+
+```bash
+python validator/engine.py mijn-kader.ttl                  # samenvatting per ernstniveau
+python validator/engine.py mijn-kader.ttl --json           # volledig resultaat als JSON
+python validator/engine.py mijn-kader.ttl --profiel profiles/skos-ap-nl.ttl
+```
+
+Het formaat wordt afgeleid van de bestandsextensie (`--format` om te overschrijven).
+Exitcode `1` als er een `sh:Violation` is, `2` als het bestand niet te lezen is; zo
+is de validator ook in een CI-stap te gebruiken.
+
+## Vanuit een script of AI-assistent
+
+De pagina stelt het resultaat machineleesbaar beschikbaar, zodat een script of een
+AI-assistent die de browser bedient de uitkomst niet van het scherm hoeft af te lezen:
+
+| | |
+|---|---|
+| `<html data-nlsbb-status="…">` | `laden`, `klaar`, `bezig`, `resultaat`, `fout` of `kan-niet-starten` |
+| `window.nlsbbResultaat` | Laatste resultaat; dezelfde JSON als `engine.py --json`, plus `samenvatting` met de aantallen |
+| `window.nlsbbValideer({ data, format, profiel, naam })` | Valideert en geeft een Promise met het resultaat; de pagina toont het ook. `format`: `turtle` (standaard), `xml`, `json-ld`, `nt`, `trig`. `profiel`: `register` (standaard) of `werkversie` |
+| event `nlsbb:resultaat` op `window` | Het resultaat in `event.detail` |
+
+```js
+const r = await window.nlsbbValideer({ data: turtleTekst });
+r.samenvatting.shacl;   // { fout: 3, waarschuwing: 17, info: 20 }
+```
+
 ## Lokaal draaien
 
 Openen via `file://` werkt niet; elke statische webserver volstaat. Vanuit de root van

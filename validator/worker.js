@@ -64,8 +64,10 @@ onmessage = async (ev) => {
     await kiesProfiel(profiel || "register");
     const t0 = performance.now();
     const out = JSON.parse(engine.run(data, fmt));
-    out.meta.profielBron = profielNu;
-    out.meta.profielPad = PROFIELEN[profielNu];
+    if (out.meta) {
+      out.meta.profielBron = profielNu;
+      out.meta.profielPad = PROFIELEN[profielNu];
+    }
     out.duurTotaal = Math.round(performance.now() - t0) / 1000;
     postMessage({ type: "result", id, out });
   } catch (e) {

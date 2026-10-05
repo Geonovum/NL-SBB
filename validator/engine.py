@@ -4,6 +4,12 @@ Dezelfde controles als de skill validatie-nl-sbb:
   1. SHACL-validatie tegen skos-ap-nl 1.0.0 + extensie (advanced, rdfs-inferentie)
   2. Inhoudelijke scan van alle termen en definities (inhoudelijke-scan.py)
 Geeft een JSON-string terug die de pagina rendert.
+
+Ook bruikbaar vanaf de commandoregel, met dezelfde uitkomst als de pagina:
+  python engine.py data.ttl                 # samenvatting per ernstniveau
+  python engine.py data.ttl --json          # volledig resultaat als JSON
+  python engine.py data.ttl --profiel ../profiles/skos-ap-nl.ttl
+Exitcode 1 als er een sh:Violation is, 2 als het bestand niet te lezen is.
 """
 import json, re, time, unicodedata
 from collections import defaultdict, Counter
@@ -203,3 +209,63 @@ def registreer_extensie(extensie_ttl):
         if isinstance(s, URIRef):
             EXT_SHAPES.add(kort(s))
     return json.dumps(sorted(EXT_SHAPES))
+
+
+def _samenvatting(out):
+    sh = Counter(r["ernst"] for r in out["shacl"])
+    m, st = out["meta"], out["stat"]
+    regels = [
+        f"Profiel: {m.get('profielPad', '?')} (owl:versionInfo {m['profielVersie']}, {m['triplesProfiel']} triples)"
+        f" + extensie ({m['triplesProfielPlusExtensie'] - m['triplesProfiel']} triples)",
+        f"Instellingen: advanced=True, inference=rdfs · pySHACL {m['pyshacl']}, rdflib {m['rdflib']}",
+        f"Begrippen: {st['begrippen']}, topbegrippen: {st['topbegrippen']}, collecties: {st['collecties']}",
+        "",
+        f"SHACL: {sh['fout']} sh:Violation, {sh['waarschuwing']} sh:Warning, {sh['info']} sh:Info",
+    ]
+    groepen = Counter((r["ernst"], r["shape"]) for r in out["shacl"])
+    for (ernst, shape), n in sorted(groepen.items(), key=lambda x: (["fout", "waarschuwing", "info"].index(x[0][0]), -x[1])):
+        ext = " [extensie]" if shape in EXT_SHAPES else ""
+        regels.append(f"  {ernst:<13}{n:>4}  {shape}{ext}")
+    regels += ["", "Inhoudelijke scan (alle termen en definities):"]
+    for k in out["scan"]:
+        regels.append(f"  {k['ernst']:<15}{len(k['items']):>4}  {k['titel']}")
+        for i in k["items"][:5]:
+            tekst = i["tekst"] if i["tekst"] and i["tekst"] != i["term"] else ""
+            regels.append(f"{'':>21}- {i['term'] or i['focusKort']}{': ' + tekst[:70] if tekst else ''}")
+        if len(k["items"]) > 5:
+            regels.append(f"{'':>21}  ... en {len(k['items']) - 5} meer")
+    return "\n".join(regels)
+
+
+def main(argv=None):
+    import argparse, os, sys
+    from rdflib.util import guess_format
+    hier = os.path.dirname(os.path.abspath(__file__))
+    ap = argparse.ArgumentParser(description="Valideer een begrippenkader tegen NL-SBB (SHACL + inhoudelijke scan).")
+    ap.add_argument("data", help="begrippenkader (Turtle, RDF/XML, JSON-LD, N-Triples, TriG)")
+    ap.add_argument("--profiel", default=os.path.join(hier, "rules", "skos-ap-nl-1.0.0.ttl"),
+                    help="SHACL-profiel (standaard: 1.0.0 uit het register)")
+    ap.add_argument("--extensie", default=os.path.join(hier, "rules", "skos-ap-nl-extensie.ttl"))
+    ap.add_argument("--format", help="RDF-formaat; standaard afgeleid van de extensie")
+    ap.add_argument("--json", action="store_true", help="volledig resultaat als JSON")
+    a = ap.parse_args(argv)
+    lees = lambda p: open(p, encoding="utf-8").read()
+    extensie = lees(a.extensie)
+    init(lees(a.profiel), extensie)
+    META["profielPad"] = os.path.relpath(a.profiel)
+    registreer_extensie(extensie)
+    out = json.loads(run(lees(a.data), a.format or guess_format(a.data) or "turtle"))
+    if "fout" in out:
+        print(out["fout"], file=sys.stderr)
+        return 2
+    if a.json:
+        sys.stdout.reconfigure(encoding="utf-8")
+        print(json.dumps(out, ensure_ascii=False, indent=1))
+    else:
+        sys.stdout.reconfigure(encoding="utf-8")
+        print(_samenvatting(out))
+    return 1 if any(r["ernst"] == "fout" for r in out["shacl"]) else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,183 @@
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix isothes:  <http://purl.org/iso25964/skos-thes#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix ext:      <https://register.geostandaarden.nl/shacl/nl-sbb/ext/> .
+
+ext:
+  a owl:Ontology ;
+  rdfs:label "NL-SBB Review Skill — SHACL-extensie"@nl ;
+  rdfs:comment "Aanvullende shapes voor NL-SBB-regels uit de reviewskill die het officiële profiel skos-ap-nl.ttl (v1.0.0) niet toetst. Te gebruiken náást het officiële profiel, niet in plaats daarvan."@nl ;
+  owl:versionInfo "1.0.0" ;
+  sh:declare [
+    sh:prefix "skos" ;
+    sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+  ] , [
+    sh:prefix "isothes" ;
+    sh:namespace "http://purl.org/iso25964/skos-thes#"^^xsd:anyURI ;
+  ] , [
+    sh:prefix "dct" ;
+    sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+  ] .
+
+#################################################################
+# 1. FOUT: Topbegrip met bovenliggend begrip
+#    reference.md "Topbegrippen, verweesde begrippen en codes":
+#    "Een topbegrip met een bovenliggend begrip is een fout."
+#    Dekt zowel skos:broader als de ISO 25964-broader-varianten.
+#################################################################
+
+ext:TopConceptWithBroaderShape
+  a sh:NodeShape ;
+  rdfs:label "Topbegrip zonder bovenliggend begrip"@nl ;
+  sh:targetClass skos:Concept ;
+  sh:severity sh:Violation ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Topbegrip heeft een bovenliggend begrip ({?path} naar {?value}); een topbegrip mag geen bovenliggend begrip hebben."@nl ;
+    sh:prefixes ext: ;
+    sh:select """
+      SELECT $this ?path ?value
+      WHERE {
+        { $this skos:topConceptOf ?scheme . }
+        UNION
+        { ?scheme skos:hasTopConcept $this . }
+        $this ?path ?value .
+        FILTER (?path IN (skos:broader, isothes:broaderGeneric, isothes:broaderPartitive, isothes:broaderInstantial))
+      }
+    """ ;
+  ] .
+
+#################################################################
+# 2. FOUT: Harmonisatierelatie binnen hetzelfde begrippenkader
+#    reference.md "Harmonisatierelaties": harmonisatierelaties zijn
+#    bedoeld voor begrippen uit verschillende begrippenkaders.
+#################################################################
+
+ext:MappingWithinSameSchemeShape
+  a sh:NodeShape ;
+  rdfs:label "Harmonisatierelaties alleen tussen verschillende begrippenkaders"@nl ;
+  sh:targetClass skos:Concept ;
+  sh:severity sh:Violation ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Harmonisatierelatie ({?path}) naar {?value} binnen hetzelfde begrippenkader; gebruik hiervoor een semantische relatie."@nl ;
+    sh:prefixes ext: ;
+    sh:select """
+      SELECT $this ?path ?value
+      WHERE {
+        $this ?path ?value .
+        FILTER (?path IN (skos:exactMatch, skos:closeMatch, skos:broadMatch, skos:narrowMatch, skos:relatedMatch))
+        $this skos:inScheme ?scheme .
+        ?value skos:inScheme ?scheme .
+      }
+    """ ;
+  ] .
+
+#################################################################
+# 3. FOUT: Dubbele code (skos:notation) binnen hetzelfde begrippenkader
+#    reference.md "Topbegrippen, verweesde begrippen en codes":
+#    "dubbele codes binnen één begrippenkader zijn een fout."
+#################################################################
+
+ext:DuplicateNotationWithinSchemeShape
+  a sh:NodeShape ;
+  rdfs:label "Unieke code binnen het begrippenkader"@nl ;
+  sh:targetClass skos:Concept ;
+  sh:severity sh:Violation ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Code (skos:notation) '{?value}' komt bij meerdere begrippen binnen hetzelfde begrippenkader voor."@nl ;
+    sh:prefixes ext: ;
+    sh:select """
+      SELECT $this ?value
+      WHERE {
+        $this skos:notation ?value ;
+              skos:inScheme ?scheme .
+        ?other skos:notation ?value ;
+               skos:inScheme ?scheme .
+        FILTER (?other != $this)
+      }
+    """ ;
+  ] .
+
+#################################################################
+# 4. WAARSCHUWING: Verweesd begrip
+#    reference.md "Topbegrippen, verweesde begrippen en codes":
+#    niet-topbegrippen horen minimaal één semantische
+#    verbinding te hebben (broader/narrower/related of ISO-thes),
+#    in ongeacht welke richting.
+#################################################################
+
+ext:OrphanConceptShape
+  a sh:NodeShape ;
+  rdfs:label "Geen verweesde begrippen"@nl ;
+  sh:targetClass skos:Concept ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Verweesd begrip: geen topbegrip en geen enkele semantische relatie (in- of uitgaand)."@nl ;
+    sh:prefixes ext: ;
+    sh:select """
+      SELECT $this
+      WHERE {
+        FILTER NOT EXISTS { $this skos:topConceptOf ?s1 . }
+        FILTER NOT EXISTS { ?s2 skos:hasTopConcept $this . }
+        FILTER NOT EXISTS {
+          { $this ?p ?x . } UNION { ?x ?p $this . }
+          FILTER (?p IN (skos:broader, skos:narrower, skos:related,
+                         isothes:broaderGeneric, isothes:narrowerGeneric,
+                         isothes:broaderPartitive, isothes:narrowerPartitive,
+                         isothes:broaderInstantial, isothes:narrowerInstantial))
+        }
+      }
+    """ ;
+  ] .
+
+#################################################################
+# 5. WAARSCHUWING: Identieke definitie bij meerdere begrippen
+#    reference.md "Definities en notities": de definitie moet onderscheidend zijn.
+#################################################################
+
+ext:DuplicateDefinitionWithinSchemeShape
+  a sh:NodeShape ;
+  rdfs:label "Onderscheidende definities binnen het begrippenkader"@nl ;
+  sh:targetClass skos:Concept ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Definitie is niet onderscheidend: exact dezelfde definitie komt bij een ander begrip in hetzelfde begrippenkader voor ({?value})."@nl ;
+    sh:prefixes ext: ;
+    sh:select """
+      SELECT $this ?value
+      WHERE {
+        $this skos:definition ?def ;
+              skos:inScheme ?scheme .
+        ?value skos:definition ?def ;
+               skos:inScheme ?scheme .
+        FILTER (?value != $this)
+      }
+    """ ;
+  ] .
+
+#################################################################
+# 6. INFORMATIEF: Ontbrekende bron
+#    reference.md "Bronnen": een ontbrekende bron is niet automatisch een fout,
+#    daarom ernst sh:Info.
+#################################################################
+
+ext:MissingSourceShape
+  a sh:NodeShape ;
+  rdfs:label "Bronvermelding bij begrippen"@nl ;
+  sh:targetClass skos:Concept ;
+  sh:property ext:MissingSourceShape-source .
+
+ext:MissingSourceShape-source
+  a sh:PropertyShape ;
+  sh:path dct:source ;
+  sh:minCount 1 ;
+  sh:severity sh:Info ;
+  sh:message "Begrip heeft geen bron (dct:source); overweeg een bronverwijzing toe te voegen."@nl .

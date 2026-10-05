@@ -1,0 +1,192 @@
+PREFIX dct:      <http://purl.org/dc/terms/>
+PREFIX foaf:     <http://xmlns.com/foaf/0.1/>
+PREFIX isothes:  <http://purl.org/iso25964/skos-thes#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:     <http://www.w3.org/2004/02/skos/core#>
+
+# ---------------------------------------------------------------------------
+# Testbegrippenkader, afgeleid van IMGeo. Termen en definities zijn ontleend
+# aan het IMGeo-begrippenkader; de fouten zijn opzettelijk aangebracht.
+# ---------------------------------------------------------------------------
+
+<http://definities.geostandaarden.nl/imgeomini>
+        a             skos:ConceptScheme ;
+        rdfs:label    "Model"@nl .
+
+# --- correcte begrippen (controlegroep) ----------------------------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Kolk>
+        a                  skos:Concept ;
+        skos:prefLabel     "kolk"@nl ;
+        skos:definition    "Op het riool aangesloten voorziening voor de opvang van hemel- en afvalwater afkomstig van erop aangesloten oppervlakken."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Watervlakte>
+        a                  skos:Concept ;
+        skos:prefLabel     "watervlakte"@nl ;
+        skos:definition    "Alle oppervlakken die vrij permanent met zoet water zijn bedekt."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# correcte hiërarchie: goot is topbegrip, molgoot hangt eronder
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Goot>
+        a                        skos:Concept ;
+        skos:prefLabel           "goot"@nl ;
+        skos:definition          "Langgerekte verlaging in het maaiveld voor de afvoer van water."@nl ;
+        skos:inScheme            <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf        <http://definities.geostandaarden.nl/imgeomini> ;
+        isothes:narrowerGeneric  <http://definities.geostandaarden.nl/imgeomini/id/begrip/Molgoot> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Molgoot>
+        a                       skos:Concept ;
+        skos:prefLabel          "molgoot"@nl ;
+        skos:definition         "Smalle goot in de lengterichting van de verharding, met veelal een cirkelsegment als dwarsprofiel."@nl ;
+        skos:inScheme           <http://definities.geostandaarden.nl/imgeomini> ;
+        isothes:broaderGeneric  <http://definities.geostandaarden.nl/imgeomini/id/begrip/Goot> .
+
+# --- FOUT 1: topbegrip met bovenliggend begrip (bovenligger bestaat wel) ---
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Mast>
+        a                       skos:Concept ;
+        skos:prefLabel          "mast"@nl ;
+        skos:definition         "Hoog, rechtopstaand draagelement voor bijvoorbeeld verlichting of bovenleiding."@nl ;
+        skos:inScheme           <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf       <http://definities.geostandaarden.nl/imgeomini> ;
+        isothes:broaderGeneric  <http://definities.geostandaarden.nl/imgeomini/id/begrip/Inrichtingselement> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Inrichtingselement>
+        a                  skos:Concept ;
+        skos:prefLabel     "CityFurniture"@nl ;
+        skos:definition    "Object dat deel uitmaakt van de inrichting van de openbare ruimte."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- FOUT 2: topbegrip + bovenligger die nergens als begrip bestaat --------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Bak>
+        a                       skos:Concept ;
+        skos:prefLabel          "bak"@nl ;
+        skos:definition         "Verplaatsbare houder voor de opvang van afval of voor beplanting."@nl ;
+        skos:inScheme           <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf       <http://definities.geostandaarden.nl/imgeomini> ;
+        isothes:broaderGeneric  <http://definities.geostandaarden.nl/imgeomini/id/begrip/Cityfurniture> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Begroeidterreindeel>
+        a                       skos:Concept ;
+        skos:prefLabel          "begroeid terreindeel"@nl ;
+        skos:definition         "Terreindeel met een begroeid oppervlak."@nl ;
+        skos:inScheme           <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf       <http://definities.geostandaarden.nl/imgeomini> ;
+        isothes:broaderGeneric  <http://definities.geostandaarden.nl/imgeomini/id/begrip/Plantcover> .
+
+# --- dubbele voorkeursterm binnen het kader -------------------------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Plustype_wegdeel>
+        a                  skos:Concept ;
+        skos:prefLabel     "plus-type"@nl ;
+        skos:definition    "Nadere typering van een wegdeel binnen de plus-variant van het model."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Plustype_terrein>
+        a                  skos:Concept ;
+        skos:prefLabel     "plus-type"@nl ;
+        skos:definition    "Nadere typering van een terreindeel binnen de plus-variant van het model."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- niet-onderscheidende (identieke) definities --------------------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/NietBgtWegdeel>
+        a                  skos:Concept ;
+        skos:prefLabel     "niet-bgt wegdeel"@nl ;
+        skos:definition    "Het object is geen BGT object."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/NietBgtTerrein>
+        a                  skos:Concept ;
+        skos:prefLabel     "niet-bgt terreindeel"@nl ;
+        skos:definition    "Het object is geen BGT object."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/NietBgtWater>
+        a                  skos:Concept ;
+        skos:prefLabel     "niet-bgt waterdeel"@nl ;
+        skos:definition    "Het object is geen BGT object."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- termconventies (Best Practice 1) -------------------------------------
+
+# hoofdletter
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Buurt>
+        a                  skos:Concept ;
+        skos:prefLabel     "Buurt"@nl ;
+        skos:definition    "Deel van een wijk dat als samenhangend woongebied wordt beschouwd."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# leestekens: komma
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Greppel>
+        a                  skos:Concept ;
+        skos:prefLabel     "greppel, droge sloot"@nl ;
+        skos:definition    "Ondiepe, meestal droogstaande watergang voor de afvoer van overtollig water."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# leestekens: schuine streep
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Put>
+        a                  skos:Concept ;
+        skos:prefLabel     "inspectie- / rioolput"@nl ;
+        skos:definition    "Put die toegang geeft tot het rioolstelsel voor inspectie en onderhoud."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# werkwoord als term
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Verhardenwegdeel>
+        a                  skos:Concept ;
+        skos:prefLabel     "verharden wegdeel"@nl ;
+        skos:definition    "Wegdeel voorzien van een gesloten of open verharding."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- tekstcoderingsfout (mojibake) in de definitie ------------------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Duiker>
+        a                  skos:Concept ;
+        skos:prefLabel     "duiker"@nl ;
+        skos:definition    "Een voorziening om de waterloop dan wel Ã©Ã©n of meerdere objecten benedenstrooms te verbinden."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- vage / circulaire definitie (alleen inhoudelijk te zien) -------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Overigbouwwerk>
+        a                  skos:Concept ;
+        skos:prefLabel     "overig bouwwerk"@nl ;
+        skos:definition    "Een bouwwerk dat een overig bouwwerk is."@nl ;
+        skos:inScheme      <http://definities.geostandaarden.nl/imgeomini> ;
+        skos:topConceptOf  <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- verweesd begrip: geen topbegrip, geen enkele relatie -----------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/begrip/Paal>
+        a                skos:Concept ;
+        skos:prefLabel   "paal"@nl ;
+        skos:definition  "Rechtopstaand element van beperkte omvang, geplaatst in de openbare ruimte."@nl ;
+        skos:inScheme    <http://definities.geostandaarden.nl/imgeomini> .
+
+# --- collecties: één met en één zonder skos:prefLabel ---------------------
+
+<http://definities.geostandaarden.nl/imgeomini/id/waardelijst/Functiewegdeel>
+        a                skos:Collection ;
+        rdfs:label       "Functie wegdeel"@nl ;
+        skos:member      <http://definities.geostandaarden.nl/imgeomini/id/begrip/Verhardenwegdeel> .
+
+<http://definities.geostandaarden.nl/imgeomini/id/waardelijst/Functiewater>
+        a                skos:Collection ;
+        skos:prefLabel   "functie waterdeel"@nl ;
+        skos:member      <http://definities.geostandaarden.nl/imgeomini/id/begrip/Watervlakte> .

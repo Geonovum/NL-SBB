@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NL-SBB Browservalidator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: werkbank — smalle invoerkolom links, rapport rechts; op telefoon onder elkaar. */
+:root {
+  --bg: #f4f6f7;
+  --surface: #ffffff;
+  --sunken: #eaeef0;
+  --fg: #16222b;
+  --muted: #5a6872;
+  --line: #d5dde1;
+  --accent: #155e75;
+  --accent-soft: #dcecf1;
+  --fout: #b42318;      --fout-bg: #fdecea;
+  --warn: #9a5b00;      --warn-bg: #fdf1dc;
+  --info: #44566a;      --info-bg: #e8edf2;
+  --oordeel: #6b3fa0;   --oordeel-bg: #f0e9f8;
+  --ok: #1e7a46;        --ok-bg: #e3f3e9;
+  --font-ui: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f171c; --surface: #16222a; --sunken: #1c2a33; --fg: #e3eaee; --muted: #93a3ad; --line: #2b3b45;
+  --accent: #6cc3dc; --accent-soft: #173a47;
+  --fout: #ff8a7a; --fout-bg: #3a1b18; --warn: #f2b84b; --warn-bg: #33270f; --info: #a9b9c8; --info-bg: #1f2b36;
+  --oordeel: #c7a6f0; --oordeel-bg: #2a2038; --ok: #6fd39a; --ok-bg: #15301f; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f171c; --surface: #16222a; --sunken: #1c2a33; --fg: #e3eaee; --muted: #93a3ad; --line: #2b3b45;
+  --accent: #6cc3dc; --accent-soft: #173a47;
+  --fout: #ff8a7a; --fout-bg: #3a1b18; --warn: #f2b84b; --warn-bg: #33270f; --info: #a9b9c8; --info-bg: #1f2b36;
+  --oordeel: #c7a6f0; --oordeel-bg: #2a2038; --ok: #6fd39a; --ok-bg: #15301f; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--font-ui); margin: 0 }
+.wrap { max-width: 1280px; margin: 0 auto; padding-inline: 20px; padding-block: 20px 48px }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.2 }
+code, .mono { font-family: var(--font-mono); font-size: .86em }
+button, select, textarea { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+
+header.top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-block: 4px 18px; border-bottom: 1px solid var(--line); margin-bottom: 20px }
+.brand { display: flex; flex-direction: column; gap: 2px; min-width: 0 }
+.brand h1 { font-size: 1.45rem; font-weight: 700; letter-spacing: -.01em }
+.brand p { margin: 0; color: var(--muted); font-size: .9rem }
+.engine { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: .85rem; color: var(--muted); min-width: 0 }
+.engine .bar { width: 120px; height: 6px; background: var(--sunken); border-radius: 3px; overflow: hidden }
+.engine .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .3s }
+.engine.ready .bar { display: none }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--warn); flex: none }
+.engine.ready .dot { background: var(--ok) }
+.engine.err .dot { background: var(--fout) }
+
+.grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; align-items: start }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr) } }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: flex; flex-direction: column; gap: 14px }
+aside.panel { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px) }
+@media (max-width: 900px) { aside.panel { position: static } }
+.label { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+.drop { border: 1.5px dashed var(--line); border-radius: var(--r); padding: 18px 14px; text-align: center; background: var(--sunken); cursor: pointer; display: flex; flex-direction: column; gap: 4px }
+.drop.over { border-color: var(--accent); background: var(--accent-soft) }
+.drop strong { font-weight: 600 }
+.drop span { color: var(--muted); font-size: .85rem }
+.file { font-size: .85rem; color: var(--muted); word-break: break-all }
+.file b { color: var(--fg); font-weight: 600 }
+textarea { width: 100%; min-height: 150px; resize: vertical; background: var(--sunken); border: 1px solid var(--line); border-radius: var(--r); padding: 10px; font: 12px/1.45 var(--font-mono) }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center }
+select { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 6px 8px; font-size: .9rem }
+.btn { border: 1px solid var(--line); background: var(--surface); padding: 8px 14px; border-radius: var(--r); cursor: pointer; font-weight: 500 }
+.btn:hover { border-color: var(--accent) }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600 }
+.btn:disabled { opacity: .5; cursor: not-allowed }
+.privacy { font-size: .82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; margin: 0 }
+
+main { display: flex; flex-direction: column; gap: 20px; min-width: 0 }
+.empty { padding: 40px 20px; text-align: center; color: var(--muted) }
+.verdict { display: flex; flex-direction: column; gap: 14px }
+.verdict-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between }
+.verdict h2 { font-size: 1.2rem }
+.verdict .src { color: var(--muted); font-size: .88rem; word-break: break-all }
+.tally { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px }
+@media (max-width: 560px) { .tally { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+.t { border-radius: var(--r); padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; border: 1px solid transparent }
+.t b { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1 }
+.t span { font-size: .8rem }
+.t.fout { background: var(--fout-bg); color: var(--fout) }
+.t.waarschuwing { background: var(--warn-bg); color: var(--warn) }
+.t.oordeel { background: var(--oordeel-bg); color: var(--oordeel) }
+.t.info { background: var(--info-bg); color: var(--info) }
+.t.zero { background: var(--sunken); color: var(--muted) }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .85rem; color: var(--muted) }
+.facts b { color: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums }
+
+section.block { display: flex; flex-direction: column; gap: 10px }
+.block-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: baseline }
+.block-head h2 { font-size: 1.05rem }
+.block-head p { margin: 0; color: var(--muted); font-size: .86rem }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 3px 10px; font-size: .8rem; cursor: pointer }
+.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600 }
+
+details.group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r) }
+details.group + details.group { margin-top: -1px }
+details.group > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 10px 14px }
+details.group > summary::-webkit-details-marker { display: none }
+details.group[open] > summary { border-bottom: 1px solid var(--line) }
+.sum-title { display: flex; flex-direction: column; gap: 1px; min-width: 0 }
+.sum-title b { font-weight: 600; overflow-wrap: anywhere }
+.sum-title small { color: var(--muted); font-size: .82rem }
+.count { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--muted) }
+.pill { font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; white-space: nowrap }
+.pill.fout { background: var(--fout-bg); color: var(--fout) }
+.pill.waarschuwing { background: var(--warn-bg); color: var(--warn) }
+.pill.info { background: var(--info-bg); color: var(--info) }
+.pill.oordeel, .pill.te\ beoordelen { background: var(--oordeel-bg); color: var(--oordeel) }
+.pill.aanbeveling { background: var(--accent-soft); color: var(--accent) }
+.ext { font-size: .68rem; font-weight: 600; color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 0 4px; margin-left: 6px; vertical-align: 1px }
+.tbl { overflow-x: auto }
+table { border-collapse: collapse; width: 100%; font-size: .86rem }
+th, td { text-align: left; padding: 7px 14px; border-bottom: 1px solid var(--line); vertical-align: top }
+tr:last-child td { border-bottom: 0 }
+th { font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 600 }
+td.uri { font-family: var(--font-mono); font-size: .78rem; color: var(--muted); overflow-wrap: anywhere }
+td.txt { overflow-wrap: anywhere }
+.uitleg { padding: 10px 14px 0; margin: 0; color: var(--muted); font-size: .86rem }
+.clean { display: flex; flex-wrap: wrap; gap: 6px; font-size: .8rem; color: var(--muted) }
+.clean span { background: var(--ok-bg); color: var(--ok); padding: 2px 8px; border-radius: 4px }
+
+.scope { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px }
+@media (max-width: 700px) { .scope { grid-template-columns: minmax(0, 1fr) } }
+.scope h3 { font-size: .95rem; margin-bottom: 6px }
+.scope ul { margin: 0; padding-left: 18px; font-size: .88rem; display: flex; flex-direction: column; gap: 4px }
+.scope li::marker { color: var(--muted) }
+.note { font-size: .82rem; color: var(--muted); margin: 0 }
+.note a { color: var(--accent) }
+.copybox { width: 100%; min-height: 160px }
+.err { background: var(--fout-bg); color: var(--fout); border-radius: var(--r); padding: 12px 14px }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>NL-SBB Browservalidator</h1>
+      <p>Toetst een begrippenkader aan NL-SBB 1.0.0 — volledig in je browser.</p>
+    </div>
+    <div class="engine" id="engine" role="status" aria-live="polite">
+      <span class="dot"></span><span id="engineText">Validator laden…</span>
+      <span class="bar"><i id="engineBar"></i></span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <aside class="panel" aria-label="Invoer">
+      <div class="label">Begrippenkader</div>
+      <label class="drop" id="drop" for="fileInput">
+        <strong>Kies of sleep een bestand</strong>
+        <span>Turtle, RDF/XML, JSON-LD of N-Triples</span>
+      </label>
+      <input type="file" id="fileInput" accept=".ttl,.rdf,.xml,.owl,.jsonld,.json,.nt,.n3,.trig" hidden>
+      <div class="file" id="fileName">Voorbeeld geladen: <b>IMGeo-mini.ttl</b> (testset met opzettelijke fouten)</div>
+      <div class="label">Of plak de inhoud</div>
+      <textarea id="src" spellcheck="false" aria-label="RDF-inhoud"></textarea>
+      <div class="row">
+        <label for="fmt" class="label" style="margin-right:2px">Formaat</label>
+        <select id="fmt">
+          <option value="turtle">Turtle</option>
+          <option value="xml">RDF/XML</option>
+          <option value="json-ld">JSON-LD</option>
+          <option value="nt">N-Triples</option>
+          <option value="trig">TriG</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="profiel" class="label" style="margin-right:2px">Profiel</label>
+        <select id="profiel">
+          <option value="register">1.0.0 uit het register (normatief)</option>
+          <option value="werkversie">Werkversie in deze repository</option>
+        </select>
+      </div>
+      <div class="row">
+        <button class="btn primary" id="runBtn" disabled>Valideren</button>
+        <button class="btn" id="exampleBtn">Voorbeeld laden</button>
+      </div>
+      <p class="privacy">Je bestand verlaat je computer niet. De validatie draait met Python (Pyodide) in deze pagina. Alleen de Python-runtime wordt van jsDelivr geladen, de eerste keer ongeveer 15 MB.</p>
+    </aside>
+
+    <main id="out">
+      <div class="panel empty" id="placeholder">De validator wordt geladen. Daarna wordt het voorbeeld automatisch gecontroleerd.</div>
+    </main>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const ORDER = { fout: 0, waarschuwing: 1, "te beoordelen": 2, aanbeveling: 3, info: 4 };
+  const PROFIELNAAM = { register: "profiel 1.0.0 (register)", werkversie: "werkversie van het profiel" };
+  const NAAM = { fout: "Fout", waarschuwing: "Waarschuwing", "te beoordelen": "Te beoordelen", aanbeveling: "Aanbeveling", info: "Informatief" };
+  let meta = null, ready = false, runId = 0, bron = "IMGeo-mini.ttl (voorbeeld)", laatste = null, filter = "alle";
+  let voorbeeld = "";
+
+  const worker = new Worker("worker.js");
+  worker.onmessage = ({ data: m }) => {
+    if (m.type === "status") {
+      $("#engineText").textContent = m.stap + "…";
+      $("#engineBar").style.width = m.pct + "%";
+    } else if (m.type === "ready") {
+      ready = true;
+      $("#engine").classList.add("ready");
+      $("#runBtn").disabled = false;
+      run();
+    } else if (m.type === "profiel") {
+      meta = m.meta;
+      $("#engineText").textContent = `Klaar · ${PROFIELNAAM[meta.profielBron]} · pySHACL ${meta.pyshacl}`;
+    } else if (m.type === "bootError") {
+      $("#engine").classList.add("err");
+      $("#engineText").textContent = "Validator kon niet laden";
+      $("#out").innerHTML = `<div class="err"><b>De validator kon niet starten.</b><br>${esc(m.message)}<br><br>Controleer of de browser jsdelivr.net kan bereiken en WebAssembly toestaat. Lokaal openen via file:// werkt niet; gebruik een webserver (zie README).</div>`;
+    } else if (m.type === "result" && m.id === runId) {
+      $("#runBtn").disabled = false;
+      $("#runBtn").textContent = "Valideren";
+      render(m.out);
+    }
+  };
+
+  function run() {
+    if (!ready) return;
+    const data = $("#src").value;
+    if (!data.trim()) { $("#out").innerHTML = `<div class="panel empty">Kies een bestand of plak RDF om te valideren.</div>`; return; }
+    runId++;
+    $("#runBtn").disabled = true;
+    $("#runBtn").textContent = "Bezig…";
+    $("#out").innerHTML = `<div class="panel empty">Bezig met SHACL-validatie en inhoudelijke scan van <b>${esc(bron)}</b>…</div>`;
+    worker.postMessage({ type: "run", id: runId, data, fmt: $("#fmt").value, profiel: $("#profiel").value });
+  }
+
+  const FMT = { ttl: "turtle", n3: "turtle", rdf: "xml", xml: "xml", owl: "xml", jsonld: "json-ld", json: "json-ld", nt: "nt", trig: "trig" };
+  function loadFile(f) {
+    if (!f) return;
+    const ext = f.name.split(".").pop().toLowerCase();
+    if (FMT[ext]) $("#fmt").value = FMT[ext];
+    f.text().then((t) => {
+      $("#src").value = t; bron = f.name;
+      $("#fileName").innerHTML = `Bestand: <b>${esc(f.name)}</b> (${(f.size / 1024).toFixed(1)} kB)`;
+      run();
+    });
+  }
+  $("#fileInput").addEventListener("change", (e) => loadFile(e.target.files[0]));
+  const drop = $("#drop");
+  ["dragenter", "dragover"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+  ["dragleave", "drop"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+  drop.addEventListener("drop", (e) => loadFile(e.dataTransfer.files[0]));
+  $("#src").addEventListener("input", () => { bron = "geplakte inhoud"; $("#fileName").innerHTML = "Bron: <b>geplakte inhoud</b>"; });
+  $("#runBtn").addEventListener("click", run);
+  $("#profiel").addEventListener("change", run);
+  $("#exampleBtn").addEventListener("click", () => {
+    $("#src").value = voorbeeld; $("#fmt").value = "turtle"; bron = "IMGeo-mini.ttl (voorbeeld)";
+    $("#fileName").innerHTML = "Voorbeeld geladen: <b>IMGeo-mini.ttl</b> (testset met opzettelijke fouten)";
+    run();
+  });
+  fetch("rules/voorbeeld-imgeo-mini.ttl").then((r) => r.text()).then((t) => { voorbeeld = t; if (!$("#src").value) $("#src").value = t; }).catch(() => {});
+
+  function tel(out) {
+    const c = { fout: 0, waarschuwing: 0, "te beoordelen": 0, info: 0, aanbeveling: 0 };
+    out.shacl.forEach((r) => c[r.ernst] = (c[r.ernst] || 0) + 1);
+    out.scan.forEach((k) => { if (k.ernst !== "fout" && k.ernst !== "info") c[k.ernst] += k.items.length; });
+    return c;
+  }
+
+  function render(out) {
+    laatste = out;
+    if (out.fout) { $("#out").innerHTML = `<div class="err"><b>Validatie mislukt.</b><br>${esc(out.fout)}</div>`; return; }
+    const sh = { fout: 0, waarschuwing: 0, info: 0 };
+    out.shacl.forEach((r) => sh[r.ernst]++);
+    const sc = tel({ shacl: [], scan: out.scan });
+    const s = out.stat;
+    const extOk = out.meta.triplesProfielPlusExtensie > out.meta.triplesProfiel;
+    const oordeel = sh.fout > 0 ? "Bevat harde fouten tegen NL-SBB" : sh.waarschuwing + sc.waarschuwing > 0 ? "Geen harde SHACL-fouten, wel waarschuwingen" : "Geen fouten of waarschuwingen gevonden";
+
+    const tile = (n, cls, lbl) => `<div class="t ${n ? cls : "zero"}"><b>${n}</b><span>${lbl}</span></div>`;
+    const rel = Object.entries(s.relaties).map(([k, v]) => `${esc(k)} ${v}`).join(", ") || "geen";
+    const talen = Object.entries(s.talen).map(([k, v]) => `${esc(k)} (${v})`).join(", ") || "geen";
+
+    let html = `
+    <section class="panel verdict" aria-label="Samenvatting">
+      <div class="verdict-head"><h2>${oordeel}</h2><span class="src">${esc(bron)}</span></div>
+      <div class="tally">
+        ${tile(sh.fout, "fout", "SHACL-fouten (sh:Violation)")}
+        ${tile(sh.waarschuwing + sc.waarschuwing, "waarschuwing", `Waarschuwingen (${sh.waarschuwing} SHACL, ${sc.waarschuwing} scan)`)}
+        ${tile(sc["te beoordelen"], "oordeel", "Te beoordelen door een mens")}
+        ${tile(sh.info + sc.aanbeveling, "info", "Informatief en aanbevelingen")}
+      </div>
+      <div class="facts">
+        <span><b>${s.begrippen}</b> begrippen</span><span><b>${s.topbegrippen}</b> topbegrippen</span>
+        <span><b>${s.collecties}</b> collecties</span><span><b>${s.begrippenkaders}</b> kader</span>
+        <span>talen: <b>${talen}</b></span><span>relaties: <b>${rel}</b></span>
+      </div>
+      <div class="row"><button class="btn" id="copyBtn">Rapport kopiëren als Markdown</button><span class="note" id="copyNote"></span></div>
+    </section>`;
+
+    // SHACL, gegroepeerd per shape + ernst
+    const groups = new Map();
+    out.shacl.forEach((r) => {
+      const m = algemeen(r.melding);
+      const k = r.ernst + "|" + r.shape + "|" + (r.pad || "") + "|" + m;
+      if (!groups.has(k)) groups.set(k, { ...r, melding: m, rows: [] });
+      groups.get(k).rows.push(r);
+    });
+    const gl = [...groups.values()].sort((a, b) => ORDER[a.ernst] - ORDER[b.ernst] || b.rows.length - a.rows.length);
+    html += `
+    <section class="block" aria-label="SHACL-validatie">
+      <div class="block-head">
+        <h2>SHACL-validatie</h2>
+        <p>${out.shacl.length} resultaten in ${gl.length} groepen</p>
+        <div class="filters" role="group" aria-label="Filter op ernst">
+          ${["alle", "fout", "waarschuwing", "info"].map((f) => `<button class="chip" data-f="${f}" aria-pressed="${filter === f}">${f === "alle" ? "Alle" : NAAM[f]}</button>`).join("")}
+        </div>
+      </div>
+      <div id="shaclGroups">${gl.map((g) => `
+        <details class="group" data-ernst="${g.ernst}" ${g.ernst === "fout" ? "open" : ""}>
+          <summary>
+            <span class="pill ${g.ernst}">${NAAM[g.ernst]}</span>
+            <span class="sum-title"><b>${esc(g.shape)}${g.extensie ? '<span class="ext" title="Regel uit de extensie van de skill, niet uit het normatieve profiel">extensie</span>' : ""}</b>
+              <small>${esc(g.melding || "(geen melding)")}${g.pad ? ` · pad <code>${esc(g.pad)}</code>` : ""}</small></span>
+            <span class="count">${g.rows.length}</span>
+          </summary>
+          <div class="tbl"><table><thead><tr><th>Term</th><th>Begrip</th><th>Waarde</th></tr></thead><tbody>
+            ${g.rows.map((r) => `<tr><td class="txt">${esc(r.term || "—")}</td><td class="uri" title="${esc(r.focus)}">${esc(r.focusKort)}</td><td class="uri">${esc(r.waarde ? r.waarde.split(/[\/#]/).pop() : "—")}</td></tr>`).join("")}
+          </tbody></table></div>
+        </details>`).join("") || `<div class="panel clean"><span>Geen SHACL-resultaten</span></div>`}
+      </div>
+    </section>`;
+
+    // Inhoudelijke scan
+    const scanVol = out.scan.filter((k) => k.items.length && !(k.id || "").startsWith("ontbreekt-")).sort((a, b) => ORDER[a.ernst] - ORDER[b.ernst]);
+    const scanLeeg = out.scan.filter((k) => !k.items.length);
+    const ontbreekt = out.scan.filter((k) => (k.id || "").startsWith("ontbreekt-") && k.items.length);
+    html += `
+    <section class="block" aria-label="Inhoudelijke scan">
+      <div class="block-head"><h2>Inhoudelijke scan</h2><p>Elke term en elke definitie getoetst, geen steekproef</p></div>
+      <div>${scanVol.map((k) => `
+        <details class="group" open>
+          <summary><span class="pill ${k.oordeel ? "oordeel" : k.ernst}">${NAAM[k.ernst]}</span>
+            <span class="sum-title"><b>${esc(k.titel)}</b></span><span class="count">${k.items.length}</span></summary>
+          <p class="uitleg">${esc(k.uitleg)}</p>
+          <div class="tbl"><table><thead><tr><th>Term</th><th>Begrip</th><th>Tekst</th></tr></thead><tbody>
+            ${k.items.map((i) => `<tr><td class="txt">${esc(i.term || "—")}</td><td class="uri" title="${esc(i.focus)}">${esc(i.focusKort)}</td><td class="txt">${esc(i.tekst && i.tekst !== i.term ? i.tekst : "—")}</td></tr>`).join("")}
+          </tbody></table></div>
+        </details>`).join("")}
+      </div>
+      ${ontbreekt.length ? `<p class="note">Ontbrekende eigenschappen: ${ontbreekt.map((k) => `${esc(k.titel.replace("Ontbrekende ", ""))} bij ${k.items.length} begrippen`).join("; ")}. Deze staan ook in de SHACL-resultaten.</p>` : ""}
+      ${scanLeeg.length ? `<div class="clean">${scanLeeg.map((k) => `<span>✓ ${esc(k.titel)}</span>`).join("")}</div>` : ""}
+    </section>`;
+
+    html += `
+    <section class="panel" aria-label="Reikwijdte">
+      <div class="scope">
+        <div><h3>Gecontroleerd</h3><ul>
+          <li>SHACL-profiel <code>skos-ap-nl</code>: ${out.meta.profielBron === "register" ? "1.0.0 uit het Geonovum-register (normatief)" : `werkversie in deze repository, <code>${esc(out.meta.profielPad)}</code> (niet normatief)`}; <code>owl:versionInfo</code> ${esc(out.meta.profielVersie)}, ${out.meta.triplesProfiel} triples</li>
+          <li>Extensie van de skill: ${extOk ? `meegenomen (${out.meta.triplesProfielPlusExtensie - out.meta.triplesProfiel} triples, ${out.extensieShapesGeraakt.length} regels gaven resultaten)` : "<b>niet meegenomen</b>"}</li>
+          <li>Instellingen: <code>advanced=True</code>, <code>inference=rdfs</code>, geen allow-warnings</li>
+          <li>Termconventies, identieke en circulaire definities, tekstcodering</li>
+          <li>pySHACL ${esc(out.meta.pyshacl)}, rdflib ${esc(out.meta.rdflib)} · duur ${out.duurTotaal ?? "?"} s</li>
+        </ul></div>
+        <div><h3>Niet gecontroleerd</h3><ul>
+          <li>Inhoudelijk oordeel: vaagheid, begripsafbakening, of relaties kloppen. Daarvoor is de skill of een vakexpert nodig.</li>
+          <li>Bronnencontrole: een browser kan externe bronnen niet betrouwbaar testen (CORS).</li>
+          <li>Excel- en Word-invoer.</li>
+          <li>Geen totaaloordeel of publicatieadvies; het oordeel bovenaan volgt alleen uit de telling.</li>
+        </ul></div>
+      </div>
+      <p class="note">Concept-hulpmiddel, geen officieel product van Geonovum. De <a href="https://docs.geostandaarden.nl/nl-sbb/nl-sbb/">publicatie van NL-SBB</a> en het SHACL-profiel in het <a href="https://register.geostandaarden.nl/">register</a> zijn leidend. Let op: het registerprofiel 1.0.0 ziet relaties via <code>isothes:broaderGeneric</code> niet als hiërarchie, waardoor zo'n begrip ten onrechte als "zonder relaties" kan worden gemeld.</p>
+    </section>`;
+
+    $("#out").innerHTML = html;
+    applyFilter();
+    $("#shaclGroups").parentElement.querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => { filter = b.dataset.f; document.querySelectorAll(".chip").forEach((x) => x.setAttribute("aria-pressed", x.dataset.f === filter)); applyFilter(); }));
+    $("#copyBtn").addEventListener("click", copyReport);
+  }
+
+  // Meldingen bevatten soms de URI van één begrip; haal die weg voor de groepskop.
+  function algemeen(m) {
+    return String(m || "").replace(/\s*\([^)]*https?:[^)]*\)/g, "").replace(/<[^>]+>->/g, "").replace(/<[^>]+>/g, "…").trim();
+  }
+
+  function applyFilter() {
+    document.querySelectorAll("#shaclGroups details").forEach((d) => d.hidden = filter !== "alle" && d.dataset.ernst !== filter);
+  }
+
+  function markdown(out) {
+    const L = [`# NL-SBB-validatie: ${bron}`, "", `Profiel skos-ap-nl ${out.meta.profielVersie} + extensie · advanced=True · inference=rdfs · pySHACL ${out.meta.pyshacl}`, ""];
+    const sh = { fout: 0, waarschuwing: 0, info: 0 }; out.shacl.forEach((r) => sh[r.ernst]++);
+    L.push(`- Profiel: ${out.meta.profielBron === "register" ? "1.0.0 (register)" : "werkversie " + out.meta.profielPad}`);
+    L.push(`- Begrippen: ${out.stat.begrippen}, topbegrippen: ${out.stat.topbegrippen}, collecties: ${out.stat.collecties}`);
+    L.push(`- SHACL: ${sh.fout} sh:Violation, ${sh.waarschuwing} sh:Warning, ${sh.info} sh:Info`, "", "## SHACL-resultaten", "", "| Ernst | Shape | Begrip | Melding |", "|---|---|---|---|");
+    out.shacl.forEach((r) => L.push(`| ${NAAM[r.ernst]} | ${r.shape} | ${r.term || r.focusKort} | ${(r.melding || "").replace(/\|/g, "/")} |`));
+    L.push("", "## Inhoudelijke scan", "");
+    out.scan.forEach((k) => {
+      L.push(`### ${k.titel}: ${k.items.length}`);
+      k.items.slice(0, 50).forEach((i) => L.push(`- ${i.term || i.focusKort}${i.tekst && i.tekst !== i.term ? `: ${i.tekst}` : ""}`));
+      L.push("");
+    });
+    L.push("_Niet gecontroleerd: inhoudelijk oordeel, bronnencontrole, Excel/Word._");
+    return L.join("\n");
+  }
+
+  function copyReport() {
+    const md = markdown(laatste);
+    const note = $("#copyNote");
+    const fallback = () => {
+      note.textContent = "Kopiëren lukte niet; selecteer de tekst hieronder.";
+      let ta = $("#copyBox");
+      if (!ta) { ta = document.createElement("textarea"); ta.id = "copyBox"; ta.className = "copybox"; $("#copyBtn").closest("section").appendChild(ta); }
+      ta.value = md; ta.focus(); ta.select();
+    };
+    try { navigator.clipboard.writeText(md).then(() => { note.textContent = "Gekopieerd"; }, fallback); } catch (e) { fallback(); }
+  }
+})();
+</script>
+</body>
+</html>

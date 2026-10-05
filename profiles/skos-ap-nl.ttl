@@ -15,7 +15,9 @@
 skosapnl:
   a owl:Ontology ;
   rdfs:label "Toepassingsprofiel Nederlandse standaard voor het beschrijven van begrippen in RDF"@nl ;
-  owl:versionInfo "1.0.0" ;
+  owl:versionInfo "1.0.1" ;
+  owl:versionIRI <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  owl:priorVersion <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl> ;
   sh:declare [
     sh:prefix "skos" ;
     sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
@@ -239,7 +241,7 @@ skosapnl:Concept-broadMatch
   rdfs:label "heeft overeenkomstig bovenliggend"@nl ;
   sh:node skosapnl:ConceptReference ;
   sh:description
-    "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ,
+    "Relateert een begrip aan een bovenliggend begrip uit een ander begrippenkader."@nl ,
     "Used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ;
   sh:disjoint skos:narrowMatch ;
   sh:disjoint skos:closeMatch ;
@@ -571,6 +573,7 @@ skosapnl:Concept-notation
   sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme."@en, "Een code voor een begrip is een tekenreeks ter aanduiding van precies één begrip uit een begrippenkader."@nl ;
   sh:severity sh:Warning ;
   sh:name "code"@nl, "notation"@en ;
+  sh:nodeKind sh:Literal ;
   sh:path skos:notation .
 
 skosapnl:Concept-label
@@ -653,6 +656,8 @@ skosapnl:Collection-member
     "Relates a collection to one of its members."@en ,
     "Relateert een collectie aan een begrip dat onderdeel is van deze collectie."@nl ;
   sh:name "bevat"@nl, "member"@en ;
+  sh:group skosapnl:SemanticRelationPropertyGroup ;
+  sh:order 6 ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Warning ;
   sh:path skos:member .
@@ -849,6 +854,7 @@ skosapnl:UniquePreflabelWithinConceptScheme
       ?this skos:inScheme ?cs .
       ?other skos:inScheme ?cs .
       FILTER (?this != ?other)
+      FILTER NOT EXISTS { ?other a skos:Collection }
     }
     """ .
 

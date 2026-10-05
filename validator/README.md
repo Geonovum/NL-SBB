@@ -1,6 +1,6 @@
 # NL-SBB Browservalidator
 
-> **Concept.** Een hulpmiddel voor review, geen officieel product van Geonovum. De
+> **Bèta, concept.** Een hulpmiddel in ontwikkeling voor review, geen officieel product van Geonovum. De
 > [publicatie van NL-SBB](https://docs.geostandaarden.nl/nl-sbb/nl-sbb/) en het
 > SHACL-profiel in het [register](https://register.geostandaarden.nl/) zijn leidend.
 

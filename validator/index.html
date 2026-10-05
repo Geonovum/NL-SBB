@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NL-SBB Browservalidator</title>
+<title>NL-SBB Browservalidator (bèta)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -46,6 +46,12 @@ code, .mono { font-family: var(--font-mono); font-size: .86em }
 button, select, textarea { font: inherit; color: inherit }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
 
+.beta { background: var(--warn-bg); color: var(--fg); border-bottom: 2px solid var(--warn); padding-block: 12px; padding-inline: 20px }
+.beta-in { max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline }
+.beta strong { color: var(--warn); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border: 1.5px solid var(--warn); border-radius: 4px; padding: 1px 7px; flex: none }
+.beta p { margin: 0; font-size: .9rem; min-width: 0; flex: 1 1 30ch }
+.beta a { color: var(--accent); font-weight: 600 }
+.tag-beta { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--warn); background: var(--warn-bg); border: 1px solid var(--warn); border-radius: 4px; padding: 1px 6px; margin-left: 8px; vertical-align: 4px }
 header.top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-block: 4px 18px; border-bottom: 1px solid var(--line); margin-bottom: 20px }
 .brand { display: flex; flex-direction: column; gap: 2px; min-width: 0 }
 .brand h1 { font-size: 1.45rem; font-weight: 700; letter-spacing: -.01em }
@@ -147,11 +153,17 @@ td.txt { overflow-wrap: anywhere }
 </style>
 </head>
 <body>
+<div class="beta" role="note" aria-label="Bètaversie">
+  <div class="beta-in">
+    <strong>Bèta</strong>
+    <p>Deze validator is in ontwikkeling en nog niet vastgesteld. Uitkomsten kunnen onvolledig of onjuist zijn: gebruik ze als hulpmiddel bij een review, niet als officiële toetsing aan NL-SBB. De <a href="https://docs.geostandaarden.nl/nl-sbb/nl-sbb/">publicatie van de standaard</a> en het SHACL-profiel in het <a href="https://register.geostandaarden.nl/">register</a> zijn leidend. Iets gevonden? <a href="https://github.com/Geonovum/NL-SBB/issues">Meld het als issue</a>.</p>
+  </div>
+</div>
 
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <h1>NL-SBB Browservalidator</h1>
+      <h1>NL-SBB Browservalidator<span class="tag-beta">bèta</span></h1>
       <p>Toetst een begrippenkader aan NL-SBB 1.0.0 — volledig in je browser.</p>
     </div>
     <div class="engine" id="engine" role="status" aria-live="polite">

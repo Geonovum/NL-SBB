@@ -15,8 +15,8 @@
 skosapnl:
   a owl:Ontology ;
   rdfs:label "Toepassingsprofiel Nederlandse standaard voor het beschrijven van begrippen in RDF"@nl ;
-  owl:versionInfo "1.0.1" ;
-  owl:versionIRI <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1/skos-ap-nl.ttl> ;
+  owl:versionInfo "1.0.1.cv" ;
+  owl:versionIRI <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1.cv/skos-ap-nl.ttl> ;
   owl:priorVersion <https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl> ;
   sh:declare [
     sh:prefix "skos" ;

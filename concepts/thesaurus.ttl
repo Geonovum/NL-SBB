@@ -95,7 +95,7 @@ beg-sbb:Concept
     "concept"@en ,
     "begrip"@nl ;
   skos:definition
-    "Een begrip is een eenheid van denken — idee, betekenis of catgorisering."@nl ,
+    "Een begrip is een eenheid van denken zoals een idee, een betekenis of een categorisering."@nl ,
     "A concept is a unit of thought — idea, meaning or category"@en ;
   skos:scopeNote
     "The prime application for a thesaurus is in information retrieval, where the aim is to search for concepts. Concepts are represented by terms. Each term included in a thesaurus should represent a single concept (or unit of thought). Concepts can range from the simple (e.g. cats) to the very complex (e.g. racial discrimination among ethnic minorities). Compound terms or phrases are generally needed to express the more complex concepts."@en ,

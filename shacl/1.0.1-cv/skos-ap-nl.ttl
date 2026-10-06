@@ -656,7 +656,7 @@ skosapnl:Collection-member
     "Relates a collection to one of its members."@en ,
     "Relateert een collectie aan een begrip dat onderdeel is van deze collectie."@nl ;
   sh:name "bevat"@nl, "member"@en ;
-  sh:group skosapnl:SemanticRelationPropertyGroup ;
+  sh:group skosapnl:LabelsAndDescriptionPropertyGroup ;
   sh:order 6 ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Warning ;

@@ -51,10 +51,10 @@ begkr-sbb:nlbegrip
     beg-sbb:SourceDocument ;
   skos:prefLabel "Begrippenkader Nederlandse standaard voor het beschrijven van begrippen"@nl ;
   skos:altLabel "sbb"@nl ;
-  owl:versionInfo "Versie 1.0.0 snapshot 1";
+  owl:versionInfo "Versie 1.0.1-cv";
 .
 
-<http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> a dcat:Dataset;
+<http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> a dcat:Dataset;
     # dcat-ap-nl proprties
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dcat:contactPoint  [
@@ -69,7 +69,7 @@ begkr-sbb:nlbegrip
       a foaf:Agent ;
       foaf:name "Geonovum"@nl
       ] ;
-    dct:description "Versie 1.0.0 snapshot 1 van het begrippenkader nlbegrip" ;
+    dct:description "Versie 1.0.1-cv van het begrippenkader nlbegrip" ;
     dct:identifier <https://github.com/Geonovum/NL-SBB/blob/main/concepts/thesaurus.ttl> ;
     dct:publisher [
       dct:type <http://purl.org/adms/publishertype/StandardisationBody> ;
@@ -79,7 +79,7 @@ begkr-sbb:nlbegrip
     dcat:theme <https://identifier.overheid.nl/tooi/def/thes/top/c_f37fd49d> ;
     dct:title "Begrippenkader nlbegrip"@nl ;
     # end dcat-ap-nl
-    rdfs:label "Versie 1.0.0 snapshot 1 van het begrippenkader nlbegrip"@nl;
+    rdfs:label "Versie 1.0.1-cv van het begrippenkader nlbegrip"@nl;
     dct:isVersionOf begkr-sbb:nlbegrip;
 .
 
@@ -105,7 +105,7 @@ beg-sbb:Concept
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#concepts> ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #begrip
 beg-sbb:TopConcept
@@ -131,7 +131,7 @@ beg-sbb:TopConcept
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     <https://www.w3.org/TR/skos-reference/#schemes> ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #alternatieve term
   beg-sbb:AltLabel
@@ -314,7 +314,7 @@ beg-sbb:BroadMatch
   skos:broader beg-sbb:MatchingRelation ;
   skos:related beg-sbb:Broader ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #heeft overeenkomstig onderliggend
 beg-sbb:NarrowMatch
@@ -336,7 +336,7 @@ beg-sbb:NarrowMatch
   skos:broader beg-sbb:MatchingRelation ;
   skos:related beg-sbb:Narrower ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #historienotitie
 beg-sbb:HistoryNote
@@ -403,7 +403,7 @@ beg-sbb:NarrowerInstantial
   skos:related beg-sbb:Concept ;
   skosthes:broaderGeneric beg-sbb:Narrower;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is exact overeenkomstig
 beg-sbb:ExactMatch
@@ -447,7 +447,7 @@ beg-sbb:BroaderInstantial
   skos:broader beg-sbb:Broader ;
   skosthes:broaderGeneric beg-sbb:Broader;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is generalisatie van
 beg-sbb:NarrowerGeneric
@@ -471,7 +471,7 @@ beg-sbb:NarrowerGeneric
   skosthes:broaderGeneric beg-sbb:Narrower ;
   skos:broader beg-sbb:Narrower ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is gerelateerd aan
 beg-sbb:Related
@@ -494,7 +494,7 @@ beg-sbb:Related
     skos: ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is onderdeel van
 beg-sbb:BroaderPartitive
@@ -520,7 +520,7 @@ beg-sbb:BroaderPartitive
   skos:broader beg-sbb:Broader ;
   skosthes:broaderGeneric beg-sbb:Broader ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is overeenkomstig verwant
 beg-sbb:RelatedMatch
@@ -562,7 +562,7 @@ beg-sbb:BroaderGeneric
   skos:broader beg-sbb:Broader ;
   skosthes:broaderGeneric beg-sbb:Broader;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is vrijwel overeenkomstig
 beg-sbb:CloseMatch
@@ -583,7 +583,7 @@ beg-sbb:CloseMatch
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:MatchingRelation ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #naam
 beg-sbb:Label
@@ -600,7 +600,7 @@ beg-sbb:Label
   dct:source <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:term:2.61> ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #notitie
 beg-sbb:Note
@@ -642,7 +642,7 @@ beg-sbb:NarrowerPartitive
   skos:broader beg-sbb:Narrower ;
   skosthes:broaderGeneric beg-sbb:Narrower;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #redactionele notitie
 beg-sbb:EditorialNote
@@ -664,7 +664,7 @@ beg-sbb:EditorialNote
   skos:broader beg-sbb:Note ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #relatie
 beg-sbb:Association
@@ -677,7 +677,7 @@ beg-sbb:Association
     "An association is a structural connection between two objects."@en ,
     "Een relatie is het structurele verband tussen twee objecten."@nl ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #semantische relatie
 beg-sbb:SemanticRelation
@@ -697,7 +697,7 @@ beg-sbb:SemanticRelation
     <https://www.w3.org/TR/skos-reference/#semantic-relations> ,
     skos: ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #toelichting
 beg-sbb:ScopeNote
@@ -719,7 +719,7 @@ beg-sbb:ScopeNote
   skos:broader beg-sbb:Note ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #uitleg
 beg-sbb:Comment
@@ -741,7 +741,7 @@ beg-sbb:Comment
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:Note ; 
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #voorbeeld
 beg-sbb:Example
@@ -763,7 +763,7 @@ beg-sbb:Example
   skos:broader beg-sbb:Note ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #voorkeursterm
 beg-sbb:PrefLabel
@@ -786,7 +786,7 @@ beg-sbb:PrefLabel
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:Label ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #wijzigingsnotitie
 beg-sbb:ChangeNote
@@ -806,7 +806,7 @@ beg-sbb:ChangeNote
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes> ;
   skos:broader beg-sbb:Note ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #zoekterm
 beg-sbb:HiddenLabel
@@ -827,7 +827,7 @@ beg-sbb:HiddenLabel
   skos:broader beg-sbb:Label ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 # BRONDOCUMENT
 
@@ -872,7 +872,7 @@ beg-sbb:BibliographicCitation
     foaf: ;
   skos:broader beg-sbb:Label ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 
 
@@ -893,7 +893,7 @@ beg-sbb:Page
     foaf: ;
   skos:broader beg-sbb:Association ;
 skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 # BESCHRIJVING BEGRIPPENKADER
 
@@ -925,7 +925,7 @@ beg-sbb:ConceptScheme
     beg-sbb:TopConcept ;
   skos:example "Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies."@en ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #begrippenlijst
 beg-sbb:Glossary
@@ -962,7 +962,7 @@ beg-sbb:Glossary
     beg-sbb:Example ;
   skos:broader beg-sbb:ConceptScheme ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #taxonomie
 beg-sbb:Taxonomy
@@ -987,7 +987,7 @@ beg-sbb:Taxonomy
     beg-sbb:TopConcept ;
   dct:source <https://en.wikipedia.org/wiki/Taxonomy> ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #thesaurus
 beg-sbb:Thesaurus
@@ -1022,7 +1022,7 @@ beg-sbb:Thesaurus
     beg-sbb:CloseMatch ;
   skos:broader beg-sbb:ConceptScheme ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 
 
@@ -1071,4 +1071,4 @@ beg-sbb:Member
     "has member"@en ,
     "bevat"@nl ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .

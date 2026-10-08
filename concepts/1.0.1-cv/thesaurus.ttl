@@ -30,7 +30,9 @@ begkr-sbb:nlbegrip
      foaf:name "Geonovum"@nl
      ] ;
   dct:description "Het begrippenkader behorend bij de NL-SBB standaard." ;
-  dct:identifier <https://github.com/Geonovum/NL-SBB/blob/main/concepts/thesaurus.ttl> ;
+  dct:identifier "http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip" ;
+  dcat:hasVersion <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> ;
+  # dcat:landingPage toevoegen zodra de publicatieplek op definities.geostandaarden.nl vastligt (#122)
   dct:publisher [
      dct:type <http://purl.org/adms/publishertype/StandardisationBody> ;
      a foaf:Agent ;
@@ -51,10 +53,10 @@ begkr-sbb:nlbegrip
     beg-sbb:SourceDocument ;
   skos:prefLabel "Begrippenkader Nederlandse standaard voor het beschrijven van begrippen"@nl ;
   skos:altLabel "sbb"@nl ;
-  owl:versionInfo "Versie 1.0.0 snapshot 1";
+  owl:versionInfo "Versie 1.0.1-cv";
 .
 
-<http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> a dcat:Dataset;
+<http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> a dcat:Dataset;
     # dcat-ap-nl proprties
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     dcat:contactPoint  [
@@ -69,8 +71,10 @@ begkr-sbb:nlbegrip
       a foaf:Agent ;
       foaf:name "Geonovum"@nl
       ] ;
-    dct:description "Versie 1.0.0 snapshot 1 van het begrippenkader nlbegrip" ;
-    dct:identifier <https://github.com/Geonovum/NL-SBB/blob/main/concepts/thesaurus.ttl> ;
+    dct:description "Versie 1.0.1-cv van het begrippenkader nlbegrip" ;
+    dct:identifier "http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv" ;
+    dcat:version "1.0.1-cv" ;
+    # dcat:distribution (met dcat:downloadURL) toevoegen zodra de publicatieplek vastligt (#122)
     dct:publisher [
       dct:type <http://purl.org/adms/publishertype/StandardisationBody> ;
       a foaf:Agent ;
@@ -79,7 +83,7 @@ begkr-sbb:nlbegrip
     dcat:theme <https://identifier.overheid.nl/tooi/def/thes/top/c_f37fd49d> ;
     dct:title "Begrippenkader nlbegrip"@nl ;
     # end dcat-ap-nl
-    rdfs:label "Versie 1.0.0 snapshot 1 van het begrippenkader nlbegrip"@nl;
+    rdfs:label "Versie 1.0.1-cv van het begrippenkader nlbegrip"@nl;
     dct:isVersionOf begkr-sbb:nlbegrip;
 .
 
@@ -95,7 +99,7 @@ beg-sbb:Concept
     "concept"@en ,
     "begrip"@nl ;
   skos:definition
-    "Een begrip is een eenheid van denken — idee, betekenis of catgorisering."@nl ,
+    "Een begrip is een eenheid van denken zoals een idee, een betekenis of een categorisering."@nl ,
     "A concept is a unit of thought — idea, meaning or category"@en ;
   skos:scopeNote
     "The prime application for a thesaurus is in information retrieval, where the aim is to search for concepts. Concepts are represented by terms. Each term included in a thesaurus should represent a single concept (or unit of thought). Concepts can range from the simple (e.g. cats) to the very complex (e.g. racial discrimination among ethnic minorities). Compound terms or phrases are generally needed to express the more complex concepts."@en ,
@@ -105,7 +109,7 @@ beg-sbb:Concept
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#concepts> ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #begrip
 beg-sbb:TopConcept
@@ -131,7 +135,7 @@ beg-sbb:TopConcept
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     <https://www.w3.org/TR/skos-reference/#schemes> ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #alternatieve term
   beg-sbb:AltLabel
@@ -145,7 +149,7 @@ beg-sbb:TopConcept
     "An alternative lexical label for a resource."@en ,
     "Een alternatieve term is een naam die gebruikt kan worden als alternatief voor de voorkeursterm van een object, maar niet de voorkeur heeft."@nl ;
   skos:scopeNote 
-    "Synoniemen en bijna synoniemen zoals acroniemen en afkortingen kunnen als alternatieve term worden behandeld. Het is niet de bedoeling een specifieker begrip als alternatieve term op te nemen (ookwel upward-posting). Bijvoorbeeld door 'rechtshandeling' als alternatieve term bij een begrip met de voorkeursterm 'handeling' op te nemen. Ook is het niet de bedoeling meervouden, onregelmatige vormen, spellingsvarianten op te nemen als alternatieve term. "@nl,
+    "Synoniemen en bijna-synoniemen zoals acroniemen en afkortingen kunnen als alternatieve term worden behandeld. Het is niet de bedoeling een specifieker begrip als alternatieve term op te nemen (ook wel upward-posting). Bijvoorbeeld door 'rechtshandeling' als alternatieve term bij een begrip met de voorkeursterm 'handeling' op te nemen. Ook is het niet de bedoeling meervouden, onregelmatige vormen, spellingsvarianten op te nemen als alternatieve term. "@nl,
     "Abbreviations and their full forms can be treated as synonyms."@en;
   skos:example
     "Acroniemen, afkortingen, en dergelijke kunnen worden opgenomen als alternatieve termen voor een begrip. Specifiekere begrippen worden beschreven als onderliggende begrippen. Verkeerd gespelde termen en onregelmatige meervouds-/enkelvoudsvormen worden normaal gesproken als zoektermen opgenomen (zie skos:hiddenLabel)."@nl ,
@@ -211,7 +215,7 @@ beg-sbb:Definition
     "A definition is a statement or formal explanation of the meaning of a concept which serves to differentiate it from related concepts."@en ,
     "Een definitie is een verwoording van de betekenis van een begrip waarmee het begrip kan worden onderscheiden van andere begrippen."@nl ;
    skos:scopeNote 
-    '''De definitie dient te voldoen aan specifieke formuleringsregels voor definitie en dient in een voor mensen leesbare taal te begrijpen zijn. In dit laatste onderscheidt de definitie zich daarmee van een machine-leesbare formele beschrijving. Aan de hand van een definitie kan iemand bepalen of zijn eigen begrip behorende bij een term overeenkomt met het begrip dat gedefinieerd wordt. De uitleg of de toelichting bij een begrip kan gebruik worden voor iemand die het begrip nog niet kent om te begrijpen waar het over gaat. Formuleringsregels zijn: 
+    '''De definitie dient te voldoen aan specifieke formuleringsregels voor definities en dient in een voor mensen leesbare taal te begrijpen zijn. Hierin onderscheidt de definitie zich van een machineleesbare formele beschrijving. Aan de hand van een definitie kan iemand bepalen of zijn eigen begrip behorende bij een term overeenkomt met het begrip dat gedefinieerd wordt. De uitleg of de toelichting bij een begrip kan gebruikt worden voor iemand die het begrip nog niet kent om te begrijpen waar het over gaat. Formuleringsregels zijn: 
 * Type 1: Typering (genus/differentia) - BEGRIP is afgeleide van hoger liggend begrip, met onderscheidend kenmerk X (overerving, generalisatie, supertype). Voorbeeld: bles. Een paard met een wit voorhoofd. Palomino. Een paard met witte stippen. Afgedekte relaties uit SBB: «heeft bovenliggend begrip», «is specialisatie van», «is exemplaar van», «is categorie van», «is onderdeel van» 
 * Type 2: Samenstelling (totum/dividere) - BEGRIP is een geheel dat is beschreven door de delen te beschrijven (hiërarchie, geheel/deel). Voorbeeld: organisatie. Een stel mensen die dingen doen met spullen. Voorbeeld: trein. Een locomotief met wagons. Afgedekte relaties uit SBB: «omvat» 
 * Type 3: Onderdeel (pars) - BEGRIP is een onderdeel van een groter geheel, met een specifiek kenmerk. Voorbeeld: blad – Een onderdeel van een plantaardig organisme, dat zich uitstrekt vanuit de stengel en dat een essentieel onderdeel vormt van het fotosyntheseproces. Afgedekte relaties uit SBB: «heeft bovenliggend begrip», «is onderdeel van» 
@@ -259,7 +263,7 @@ beg-sbb:Broader
     "«has broader» relates a concept to a concept that is more general in meaning."@en ,
     "«heeft bovenliggend begrip» relateert een begrip aan een begrip met een meer algemene betekenis."@nl ;
   skos:scopeNote 
-    "Conventie is om «heeft bovenliggend begrip» alleen te gebruiken om een directe hiërarchische link tussen twee begrippen te beschrijven. In 'nette' taxonomieën zijn hiërarchische relaties in een begrippenkader transitief. Dat wil zeggen als «dier» een bovenliggend begrip is van «zoogdier» en «zoogdier» een bovenliggend begrip van «kat», dan is de bewering dat «dier» een bovenliggend begrip van «kat» is correct. In 'slordige' taxonomieën is dit niet zo, bijvoorbeeld als «voertuig» wordt gedefinieerd als bovenliggend begrip van «auto» en «wiel» als onderliggend begrip van «auto» dan is «wiel» niet echt een onderliggend begrip van «voertuig»."@nl,
+    "Conventie is om «heeft bovenliggend begrip» alleen te gebruiken om een directe hiërarchische link tussen twee begrippen te beschrijven. In 'nette' taxonomieën zijn hiërarchische relaties in een begrippenkader transitief. Dat wil zeggen als «dier» een bovenliggend begrip is van «zoogdier» en «zoogdier» een bovenliggend begrip van «kat», dan is de bewering dat «dier» een bovenliggend begrip is van «kat» correct. In 'slordige' taxonomieën is dit niet zo, bijvoorbeeld als «voertuig» wordt gedefinieerd als bovenliggend begrip van «auto» en «wiel» als onderliggend begrip van «auto» dan is «wiel» niet echt een onderliggend begrip van «voertuig»."@nl,
     "By convention, «has broader» is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources."@en;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
@@ -284,7 +288,7 @@ beg-sbb:Narrower
     "«has narrower» relates a concept to a concept that is more specific in meaning."@en ,
     "«heeft onderliggend begrip» relateert een begrip aan een begrip met een specifiekere betekenis."@nl ;
   skos:scopeNote
-    "Conventie is om «heeft onderliggend begrip» alleen te gebruiken om een directe hiërarchische link tussen twee begrippen te beschrijven. In 'nette' taxonomieën zijn hiërarchische relaties in een begrippenkader transitief. Dat wil zeggen als «dier» een bovenliggend begrip is van «zoogdier» en «zoogdier» een bovenliggend begrip van «kat», dan is de bewering dat «dier» een bovenliggend begrip van «kat» is correct. In 'slordige' taxonomieën is dit niet zo, bijvoorbeeld als «voertuig» wordt gedefinieerd als bovenliggend begrip van «auto» en «wiel» als onderliggend begrip van «auto» dan is «wiel» niet echt een onderliggend begrip van «voertuig»."@nl, 
+    "Conventie is om «heeft onderliggend begrip» alleen te gebruiken om een directe hiërarchische link tussen twee begrippen te beschrijven. In 'nette' taxonomieën zijn hiërarchische relaties in een begrippenkader transitief. Dat wil zeggen als «dier» een bovenliggend begrip is van «zoogdier» en «zoogdier» een bovenliggend begrip van «kat», dan is de bewering dat «dier» een bovenliggend begrip is van «kat» correct. In 'slordige' taxonomieën is dit niet zo, bijvoorbeeld als «voertuig» wordt gedefinieerd als bovenliggend begrip van «auto» en «wiel» als onderliggend begrip van «auto» dan is «wiel» niet echt een onderliggend begrip van «voertuig»."@nl, 
     "By convention, «has narrower» is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources."@en ;
   dct:source
     <https://www.w3.org/TR/skos-reference/#semantic-relations> ,
@@ -305,7 +309,7 @@ beg-sbb:BroadMatch
     "«has broader match» is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ,
     "«heeft overeenkomstig bovenliggend» relateert een begrip aan een bovenliggend begrip uit een ander begrippenkader."@nl ;
   skos:scopeNote 
-    "Conventie is om «heeft overeenkomstig bovenliggend» op dezelfde manier als «heeft bovenliggend» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken."@nl ,
+    "Conventie is om «heeft overeenkomstig bovenliggend» op dezelfde manier als «heeft bovenliggend begrip» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie-eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken."@nl ,
     "By convention, «has broader match» is used to represent a link to a semantically related term in another term frame that has the same intended meaning as the standard broader relation, but with a different application scope. One might say that mapping relationships are less inherent to the meaning of the concepts they involve. From the point of view of the original designer of a mapped concept scheme, they might even sometimes be wrong. Mapping properties are expected to be useful in specific applications that use multiple, conceptually overlapping KOSs. By convention, mapping relationships are expected to be asserted between concepts that belong to different concept schemes."@en;
   dct:source
     <https://www.w3.org/TR/skos-reference/#mapping> ,
@@ -314,7 +318,7 @@ beg-sbb:BroadMatch
   skos:broader beg-sbb:MatchingRelation ;
   skos:related beg-sbb:Broader ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #heeft overeenkomstig onderliggend
 beg-sbb:NarrowMatch
@@ -327,7 +331,7 @@ beg-sbb:NarrowMatch
     "«has narrower match» is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."@en ,
     "«heeft overeenkomstig onderliggend» relateert een begrip aan een specifieker begrip uit een ander begrippenkader."@nl ;
   skos:scopeNote 
-    "Conventie is om «heeft overeenkomstig onderliggend» op dezelfde manier als «heeft onderliggend» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken."@nl ,
+    "Conventie is om «heeft overeenkomstig onderliggend» op dezelfde manier als «heeft onderliggend begrip» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie-eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken."@nl ,
     "By convention, «has narrower match» is used to represent a link that has the same intended meaning as the standard narrower relation, but with a different application scope. One might say that mapping relationships are less inherent to the meaning of the concepts they involve. From the point of view of the original designer of a mapped concept scheme, they might even sometimes be wrong. Mapping properties are expected to be useful in specific applications that use multiple, conceptually overlapping KOSs. By convention, mapping relationships are expected to be asserted between concepts that belong to different concept schemes."@en;
   dct:source
     <https://www.w3.org/TR/skos-reference/#mapping> ,
@@ -336,7 +340,7 @@ beg-sbb:NarrowMatch
   skos:broader beg-sbb:MatchingRelation ;
   skos:related beg-sbb:Narrower ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #historienotitie
 beg-sbb:HistoryNote
@@ -351,7 +355,7 @@ beg-sbb:HistoryNote
     "A history note is a note about the past state/use/meaning of a concept."@en ;
   skos:scopeNote 
     "A history note should be used when a new preferred term is added to the thesaurus or a change is made to an existing term that affects the concept's scope in different periods of application. While it is possible to include such information in the scope note, a separate history note is preferable. A history note may record the date of introduction, or it may give more complex advice on how to search for the concept in earlier or later times."@en,
-    "Een «historienotitie» wordt gebruikt wanneer een nieuw begrip wordt toegevoegd aan het begrippenkader of wanneer er een wijziging wordt aangebracht in de beschrijving van een bestaand begrip die van invloed is op de reikwijdte van het begrip in verschillende toepassingsperioden. Hoewel het mogelijk is om dergelijke informatie in de toelichting op te nemen, heeft een aparte historische notitie de voorkeur. Deze kan de datum van introductie vermelden, of het kan meer complexe informatie geven over hoe te zoeken naar het begrip op een eerder of later tijdstip."@nl; 
+    "Een «historienotitie» wordt gebruikt wanneer een nieuw begrip wordt toegevoegd aan het begrippenkader of wanneer er een wijziging wordt aangebracht in de beschrijving van een bestaand begrip die van invloed is op de reikwijdte van het begrip in verschillende toepassingsperioden. Hoewel het mogelijk is om dergelijke informatie in de toelichting op te nemen, heeft een aparte historienotitie de voorkeur. Deze kan de datum van introductie vermelden, of het kan meer complexe informatie geven over hoe te zoeken naar het begrip op een eerder of later tijdstip."@nl; 
   dct:source
     skos: ,
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes>;
@@ -366,7 +370,7 @@ beg-sbb:InScheme
     "in kader"@nl ,
     "in scheme"@en ;
   skos:definition
-    "«In kader» relateert een begrip aan een begrippenkader waarin het is opgenomen."@nl ,
+    "«in kader» relateert een begrip aan een begrippenkader waarin het is opgenomen."@nl ,
     "Is in scheme relates a resource (for example a concept) to a concept scheme in which it is included."@en ;
    skos:scopeNote
     "According to the SKOS-standard, concepts can be linked to multiple conceptschemes. Practically, this can only be the case when conceptschemes overlap in terms of scope."@en ,
@@ -390,10 +394,10 @@ beg-sbb:NarrowerInstantial
     "is categorie van"@nl ;
   skos:notation "NTI" ;
   skos:definition
-    "«is categorie van» relateert een begrip, de categorie, aan een begrip dat exemplarisch is voor eerstgenoemde begrip."@nl ,
+    "«is categorie van» relateert een begrip, de categorie, aan een begrip dat exemplarisch is voor het eerstgenoemde begrip."@nl ,
     "Narrower term (instantial) is the immediate (direct or one-step) class - instance relationship."@en ;
   skos:scopeNote
-    "Bij deze instantiële relatie gaat het om begrippen die een bovengeschikte positie in een hiërarchie hebben. Het gaat hierbij om een hogere categorie van individuele voorbeelden en niet van soorten of delen van deze catagorie. "@nl;
+    "Bij deze instantiële relatie gaat het om begrippen die een bovengeschikte positie in een hiërarchie hebben. Het gaat hierbij om een hogere categorie van individuele voorbeelden en niet van soorten of delen van deze categorie. "@nl;
   skos:example
     "Een van de provinciehoofdsteden is Utrecht."@nl;
   dct:source
@@ -403,7 +407,7 @@ beg-sbb:NarrowerInstantial
   skos:related beg-sbb:Concept ;
   skosthes:broaderGeneric beg-sbb:Narrower;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is exact overeenkomstig
 beg-sbb:ExactMatch
@@ -435,7 +439,7 @@ beg-sbb:BroaderInstantial
   skos:notation "BTI" ;
   skos:definition
     "Broader term (instantial) is the immediate (direct or one-step) instance - class relationship."@en ,
-    "«is exemplaar van» relateert een begrip, een exemplaar, aan een ander begrip, de categorie, waartoe eerstgenoemde begrip behoort."@nl ;
+    "«is exemplaar van» relateert een begrip, een exemplaar, aan een ander begrip, de categorie, waartoe het eerstgenoemde begrip behoort."@nl ;
   skos:scopeNote
     "Bij deze instantiële relatie gaat het om begrippen die een ondergeschikte positie in een hiërarchie hebben. Dit zijn geen soorten of delen van een hogere categorie, maar individuele voorbeelden."@nl;
   skos:example
@@ -447,7 +451,7 @@ beg-sbb:BroaderInstantial
   skos:broader beg-sbb:Broader ;
   skosthes:broaderGeneric beg-sbb:Broader;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is generalisatie van
 beg-sbb:NarrowerGeneric
@@ -462,7 +466,7 @@ beg-sbb:NarrowerGeneric
     "«is generalisatie van» relateert een begrip aan een specifieker begrip."@nl ;
   skos:scopeNote
     "The hierarchical relationship should be established between a pair of concepts when the scope of one of them falls completely within the scope of the other. It should be based on degrees or levels of superordination and subordination, where the superordinate concept represents a class or whole, and subordinate concepts refer to its members or species. A generalization is used when it is relevant to distinguish the relation from a partial or instantaneous hierarchical relation."@en,
-    "De hiërarchische relatie tussen een paar begrippen wordt gebruikt wanneer de reikwijdte van het ene begrip volledig binnen de reikwijdte van het andere begrip valt. Deze relatie is gebaseerd op graden of niveaus van bovenliggend en onderliggend, waarbij het bovenliggende concept een klasse of geheel vertegenwoordigt, en onderliggende begrippen verwijzen naar haar leden of soorten. Een generalisatie wordt gebruikt wanneer het relevant is om deze relatie te onderscheiden van een partiële of instantiële hiërarchische relatie."@nl;
+    "De hiërarchische relatie tussen een paar begrippen wordt gebruikt wanneer de reikwijdte van het ene begrip volledig binnen de reikwijdte van het andere begrip valt. Deze relatie is gebaseerd op graden of niveaus van bovenliggend en onderliggend, waarbij het bovenliggende begrip een klasse of geheel vertegenwoordigt, en onderliggende begrippen verwijzen naar haar leden of soorten. Een generalisatie wordt gebruikt wanneer het relevant is om deze relatie te onderscheiden van een partitieve of instantiële hiërarchische relatie."@nl;
   skos:example "Een pers is een kat en een kat is een dier."@nl;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
@@ -471,7 +475,7 @@ beg-sbb:NarrowerGeneric
   skosthes:broaderGeneric beg-sbb:Narrower ;
   skos:broader beg-sbb:Narrower ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is gerelateerd aan
 beg-sbb:Related
@@ -494,7 +498,7 @@ beg-sbb:Related
     skos: ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is onderdeel van
 beg-sbb:BroaderPartitive
@@ -508,9 +512,9 @@ beg-sbb:BroaderPartitive
     "«is onderdeel van» relateert een begrip aan een meer omvattend begrip."@nl ,
     "Broader term (partitive) relates a concept to a more including concept."@en ;
   skos:scopeNote
-    "De hiërarchische geheel-deel-relatie omvat een beperkt aantal situaties. Het gaat daarbij om situaties waarin een deel van een entiteit of systeem behoort tot een bepaald geheel. Dit geldt voor vier soorten begrippen, namelijk: (1) systemen en organen van het lichaam, (2) geografische locaties, (3) disciplines onderzoeksgebieden of (4) hiërarchische sociale structuren. De meeste andere gevallen van de geheel-deelrelatie komen niet in aanmerking voor een hiërarchische koppeling omdat het deel tot meer dan één geheel kan behoren."@nl,
+    "De hiërarchische geheel-deel-relatie omvat een beperkt aantal situaties. Het gaat daarbij om situaties waarin een deel van een entiteit of systeem behoort tot een bepaald geheel. Dit geldt voor vier soorten begrippen, namelijk: (1) systemen en organen van het lichaam, (2) geografische locaties, (3) disciplines of onderzoeksgebieden of (4) hiërarchische sociale structuren. De meeste andere gevallen van de geheel-deelrelatie komen niet in aanmerking voor een hiërarchische koppeling omdat het deel tot meer dan één geheel kan behoren."@nl,
     "The hierarchical whole-part relationship covers a limited range of situations in which a part of an entity or system belongs uniquely to a particular possessing whole. This applies to four main classes of terms: systems and organs of the body, geographical locations, disciplines or fields of discourse and hierarchical social structures. Most other cases of the whole-part relationship are not eligible for a hierarchical linkage because the part could belong to more than one whole."@en;
-  skos:example "(1) een slagader is een bloedvat, (2) Amersfoort ligt in de provincie Utrecht. (3) zoölogie is ene discipline van de biologie of (4) Een bataljon is een legereenheid. Fout is de onderdeel van relatie tussen een wiel en een fiets omdat een wiel ook een onderdeel van een auto of machine kan zijn."@nl;
+  skos:example "(1) een slagader is een bloedvat, (2) Amersfoort ligt in de provincie Utrecht, (3) zoölogie is een discipline van de biologie of (4) een bataljon is een legereenheid. Fout is de «is onderdeel van»-relatie tussen een wiel en een fiets omdat een wiel ook een onderdeel van een auto of machine kan zijn."@nl;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     skosthes: ;
@@ -520,7 +524,7 @@ beg-sbb:BroaderPartitive
   skos:broader beg-sbb:Broader ;
   skosthes:broaderGeneric beg-sbb:Broader ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is overeenkomstig verwant
 beg-sbb:RelatedMatch
@@ -533,7 +537,7 @@ beg-sbb:RelatedMatch
     "Has related match is used to state an associative mapping link between two conceptual resources in different concept schemes."@en ,
     "«is overeenkomstig verwant» relateert een begrip aan een verwant begrip uit een ander begrippenkader."@nl ;
   skos:scopeNote 
-    "Conventie is om «is overeenkomstig verwant» op dezelfde manier als gerelateerd te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken."@nl ,
+    "Conventie is om «is overeenkomstig verwant» op dezelfde manier als «is gerelateerd aan» te gebruiken, maar dan om een begrip te verbinden met een begrip in een ander begrippenkader, dus ook in een andere context. Je zou kunnen zeggen dat het in kaart brengen van dit soort relaties minder inherent is aan de betekenis van de betreffende begrippen. Vanuit het standpunt van de oorspronkelijke ontwerper van een begrippenkader kunnen ze soms zelfs verkeerd zijn. Harmonisatie-eigenschappen zijn nuttig in toepassingen die meerdere, conceptueel overlappende begrippenkaders gebruiken."@nl ,
     "By convention, has related match is used to represent a link that has the same intended meaning as the standard related relation, but with a different application scope. One might say that mapping relationships are less inherent to the meaning of the concepts they involve. From the point of view of the original designer of a mapped concept scheme, they might even sometimes be wrong. Mapping properties are expected to be useful in specific applications that use multiple, conceptually overlapping KOSs. By convention, mapping relationships are expected to be asserted between concepts that belong to different concept schemes."@en;
   skos:broader beg-sbb:MatchingRelation ;
   skos:related beg-sbb:Concept ;
@@ -555,14 +559,14 @@ beg-sbb:BroaderGeneric
     "Broader term (generic)is the immediate (direct or one-step) class - generalized class relationship."@en ;
   skos:scopeNote
     "The hierarchical relationship should be established between a pair of concepts when the scope of one of them falls completely within the scope of the other. It should be based on degrees or levels of superordination and subordination, where the superordinate concept represents a class or whole, and subordinate concepts refer to its members or species. A generalization is used when it is relevant to distinguish the relation from a partial or instantaneous hierarchical relation."@en,
-    "De hiërarchische relatie tussen een paar begrippen wordt gebruikt wanneer de reikwijdte van het ene begrip volledig binnen de reikwijdte van het andere begrip valt. Deze relatie is gebaseerd op graden of niveaus van bovenliggend en onderliggend, waarbij het bovenliggende concept een klasse of geheel vertegenwoordigt, en onderliggende begrippen verwijzen naar haar leden of soorten. Een generalisatie wordt gebruikt wanneer het relevant is om deze relatie te onderscheiden van een partiële of instantiële hiërarchische relatie."@nl;
+    "De hiërarchische relatie tussen een paar begrippen wordt gebruikt wanneer de reikwijdte van het ene begrip volledig binnen de reikwijdte van het andere begrip valt. Deze relatie is gebaseerd op graden of niveaus van bovenliggend en onderliggend, waarbij het bovenliggende begrip een klasse of geheel vertegenwoordigt, en onderliggende begrippen verwijzen naar haar leden of soorten. Een generalisatie wordt gebruikt wanneer het relevant is om deze relatie te onderscheiden van een partitieve of instantiële hiërarchische relatie."@nl;
   skos:example "Sommige dieren zijn katten en sommige katten zijn perzen."@nl;
   dct:source skosthes: ;
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:Broader ;
   skosthes:broaderGeneric beg-sbb:Broader;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #is vrijwel overeenkomstig
 beg-sbb:CloseMatch
@@ -583,7 +587,7 @@ beg-sbb:CloseMatch
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:MatchingRelation ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #naam
 beg-sbb:Label
@@ -595,12 +599,12 @@ beg-sbb:Label
     "Een naam is een mensleesbare term ter aanduiding van iets."@nl ,
     "A human-readable label is a word or phrase used to label a resource."@en ;
   skos:scopeNote
-    "Dit is een overkoepelend begrip voor de verschillende soorten termen (voorkeursterm, alternatieve term, zoekterm) waarmee begrippen kunnen worden aangeduid. Good practice is om die specifieke termen te gebruiken. In de definitie moet 'iets' breed worden geïnterpreteerd. Het kan ieder onderwerp van gesprek zijn; zoals een specifiek begrip of een specifiek gebouw. Als een naam een afkorting is, wordt dat in deze standaard niet expliciet aangegeven. Als daar een usecase voor is, kan de uitbreiding skosXL mogelijk worden gebruikt."@nl ,
+    "Dit is een overkoepelend begrip voor de verschillende soorten termen (voorkeursterm, alternatieve term, zoekterm) waarmee begrippen kunnen worden aangeduid. Good practice is om die specifieke termen te gebruiken. In de definitie moet 'iets' breed worden geïnterpreteerd. Het kan ieder onderwerp van gesprek zijn; zoals een specifiek begrip of een specifiek gebouw. Als een naam een afkorting is, wordt dat in deze standaard niet expliciet aangegeven. Als daar een use case voor is, kan de uitbreiding SKOS-XL mogelijk worden gebruikt."@nl ,
     "This is an umbrella term for the different types of labels (preferred label, alternative label, hidden label) with which concepts can be indicated. Good practice is to use those specific terms. In the definition, 'resource' should be interpreted broadly. A resource can be any subject; such as a particular concept or a particular building."@en;
   dct:source <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:term:2.61> ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #notitie
 beg-sbb:Note
@@ -629,12 +633,12 @@ beg-sbb:NarrowerPartitive
     "narrower term (partitive)"@en ;
   skos:notation "NTP" ;
   skos:definition
-    "Omvat relateert een begrip aan een minder omvattend begrip."@nl ,
+    "«omvat» relateert een begrip aan een minder omvattend begrip."@nl ,
     "Narrower term (partitive) relates a concept to a less including concept."@en ;
   skos:scopeNote
-    "De hiërarchische geheel-deel-relatie omvat een beperkt aantal situaties. Het gaat daarbij om situaties waarin een deel van een entiteit of systeem behoort tot een bepaald geheel. Dit geldt voor vier soorten begrippen, namelijk: (1) systemen en organen van het lichaam, (2) geografische locaties, (3) disciplines onderzoeksgebieden of (4) hiërarchische sociale structuren. De meeste andere gevallen van de geheel-deelrelatie komen niet in aanmerking voor een hiërarchische koppeling omdat het deel tot meer dan één geheel kan behoren."@nl,
+    "De hiërarchische geheel-deel-relatie omvat een beperkt aantal situaties. Het gaat daarbij om situaties waarin een deel van een entiteit of systeem behoort tot een bepaald geheel. Dit geldt voor vier soorten begrippen, namelijk: (1) systemen en organen van het lichaam, (2) geografische locaties, (3) disciplines of onderzoeksgebieden of (4) hiërarchische sociale structuren. De meeste andere gevallen van de geheel-deelrelatie komen niet in aanmerking voor een hiërarchische koppeling omdat het deel tot meer dan één geheel kan behoren."@nl,
     "The hierarchical whole-part relationship covers a limited range of situations in which a part of an entity or system belongs uniquely to a particular possessing whole. This applies to four main classes of terms: systems and organs of the body, geographical locations, disciplines or fields of discourse and hierarchical social structures. Most other cases of the whole-part relationship are not eligible for a hierarchical linkage because the part could belong to more than one whole."@en;
-  skos:example "(1) een bloedvat kan een slagader zijn, (2) in de provincie Utrecht ligt Amersfoort, (3) biologie heeft als discipline zoölogie, (4) een legereenheid kan een bataljon zijn. Fout is de omvat relatie tussen een fiets en een wiel omdat een loopfiets bijvoorbeeld geen wielen heeft."@nl;
+  skos:example "(1) een bloedvat kan een slagader zijn, (2) in de provincie Utrecht ligt Amersfoort, (3) biologie heeft als discipline zoölogie, (4) een legereenheid kan een bataljon zijn. Fout is de «omvat»-relatie tussen een fiets en een wiel omdat een loopfiets bijvoorbeeld geen wielen heeft."@nl;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     skosthes: ;
@@ -642,7 +646,7 @@ beg-sbb:NarrowerPartitive
   skos:broader beg-sbb:Narrower ;
   skosthes:broaderGeneric beg-sbb:Narrower;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #redactionele notitie
 beg-sbb:EditorialNote
@@ -656,7 +660,7 @@ beg-sbb:EditorialNote
     "Een redactionele notitie is een notitie voor de redacteur, vertaler of beheerder van het begrippenkader."@nl ;
   skos:scopeNote
     "Editorial notes are useful for entries such as -Review this term after the company merger complete- or -This term is mentioned in the scope note of Concept X- or -Check spelling with expert A-. Notes such as this, and several of the attributes, are more useful for housekeeping than for user consultation. A choice can be made whether or not to allow users to view them."@en,
-    "Redactionele notities zijn handig voor vermeldingen als -Controleer deze term nadat de bedrijfsfusie is voltooid- of -Deze term wordt genoemd in de scopenota van Concept X- of -Controleer de spelling met expert A-. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikersraadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien."@nl;
+    "Redactionele notities zijn handig voor vermeldingen als 'Controleer deze term nadat de bedrijfsfusie is voltooid', 'Deze term wordt genoemd in de toelichting van begrip X' of 'Controleer de spelling met expert A'. Opmerkingen zoals deze, en verschillende attributen, zijn nuttiger voor housekeeping dan voor gebruikersraadpleging. Er kan een keuze worden gemaakt of gebruikers deze al dan niet mogen inzien."@nl;
   dct:source
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes> ,
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
@@ -664,7 +668,7 @@ beg-sbb:EditorialNote
   skos:broader beg-sbb:Note ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #relatie
 beg-sbb:Association
@@ -677,7 +681,7 @@ beg-sbb:Association
     "An association is a structural connection between two objects."@en ,
     "Een relatie is het structurele verband tussen twee objecten."@nl ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #semantische relatie
 beg-sbb:SemanticRelation
@@ -697,7 +701,7 @@ beg-sbb:SemanticRelation
     <https://www.w3.org/TR/skos-reference/#semantic-relations> ,
     skos: ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #toelichting
 beg-sbb:ScopeNote
@@ -719,7 +723,7 @@ beg-sbb:ScopeNote
   skos:broader beg-sbb:Note ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #uitleg
 beg-sbb:Comment
@@ -741,7 +745,7 @@ beg-sbb:Comment
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:Note ; 
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #voorbeeld
 beg-sbb:Example
@@ -763,7 +767,7 @@ beg-sbb:Example
   skos:broader beg-sbb:Note ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #voorkeursterm
 beg-sbb:PrefLabel
@@ -778,15 +782,15 @@ beg-sbb:PrefLabel
     "Een voorkeursterm is een naam die in een specifieke taal de geprefereerde lexicale naam is."@nl ;
   skos:scopeNote
     "The terms selected to represent concepts may be single-word terms or multi-word terms. In ordinary discourse, a single term might have more than one meaning, and the most common meaning is not always the one needed to represent the concept wanted in the thesaurus. If the context provided by the hierarchy of broader and narrower concepts linked to the concept in question is insufficient to elucidate the intended scope, additional measures should be applied. While all thesaurus terms should be expressed as unambiguously as possible, it is especially important to formulate the preferred term of a given concept in such a way that it conveys the intended scope to any user. For example, the multi-meaning term \"depression\" could be reformulated as \"economic depression\" or \"meteorological depression\", as appropriate. Alternatively a qualifier may be used. In cases where these measures are not appropriate or sufficient, or where additional information would help to clarify the meaning and make the usage more consistent, an explicit scope note should be used."@en ,
-    "De term om een begrip weer te geven, kan bestaan uit één of meerdere woorden. In het gewone spraakgebruik kan een enkele term meer dan één betekenis hebben. De meest voorkomende betekenis is niet altijd de betekenis die nodig is om het in het begrippenkader gezochte begrip weer te geven. Indien de context die wordt geboden door de hiërarchie van bovenliggende en onderliggende begrippen gekoppeld aan het betreffende begrip onvoldoende is om de beoogde reikwijdte te verduidelijken, dienen aanvullende maatregelen te worden genomen. Hoewel alle termen in een begrippenkader zo ondubbelzinnig mogelijk moeten worden uitgedrukt, is het vooral belangrijk om de voorkeursterm van een bepaald concept zo te formuleren dat het de beoogde reikwijdte aan elke gebruiker overbrengt. De term \"depressie\" met meerdere betekenissen kan bijvoorbeeld worden geherformuleerd als \"economische depressie\" of \"meteorologische depressie\", al naar gelang het geval. Als alternatief kan een kwalificatie worden gebruikt. In gevallen waarin deze maatregelen niet passend of voldoende zijn, of waar aanvullende informatie zou helpen om de betekenis te verduidelijken en het gebruik consistenter te maken, moet een expliciete toelichting worden gebruikt."@nl ;
-  rdfs:comment "Een begrip heeft één voorkeursterm per taal. Deze voorkeursterm hoeft niet persé uniek te zijn. Het is goed mogelijk dat binnen een bepaald domein één term meerdere betekenissen heeft en dus gaat over meerdere begrippen, mogelijk is het doel van een Thesaurus zelfs om dit inzicht te geven. We gebruiken geen post of prefix om voorkeurstermen context te geven of uniek te maken, tenzij deze post/prefix algemeen gebruikt wordt. Denk aan Hengelo (OV) voor de plaats in Overijssel en Hengelo (GLD) voor de plaats in Gelderland."@nl ;
+    "De term om een begrip weer te geven, kan bestaan uit één of meerdere woorden. In het gewone spraakgebruik kan een enkele term meer dan één betekenis hebben. De meest voorkomende betekenis is niet altijd de betekenis die nodig is om het in het begrippenkader gezochte begrip weer te geven. Indien de context die wordt geboden door de hiërarchie van bovenliggende en onderliggende begrippen gekoppeld aan het betreffende begrip onvoldoende is om de beoogde reikwijdte te verduidelijken, dienen aanvullende maatregelen te worden genomen. Hoewel alle termen in een begrippenkader zo ondubbelzinnig mogelijk moeten worden uitgedrukt, is het vooral belangrijk om de voorkeursterm van een bepaald begrip zo te formuleren dat het de beoogde reikwijdte aan elke gebruiker overbrengt. De term \"depressie\" met meerdere betekenissen kan bijvoorbeeld worden geherformuleerd als \"economische depressie\" of \"meteorologische depressie\", al naar gelang het geval. Als alternatief kan een kwalificatie worden gebruikt. In gevallen waarin deze maatregelen niet passend of voldoende zijn, of waar aanvullende informatie zou helpen om de betekenis te verduidelijken en het gebruik consistenter te maken, moet een expliciete toelichting worden gebruikt."@nl ;
+  rdfs:comment "Een begrip heeft één voorkeursterm per taal. Deze voorkeursterm hoeft niet per se uniek te zijn. Het is goed mogelijk dat binnen een bepaald domein één term meerdere betekenissen heeft en dus gaat over meerdere begrippen, mogelijk is het doel van een thesaurus zelfs om dit inzicht te geven. We gebruiken geen post of prefix om voorkeurstermen context te geven of uniek te maken, tenzij deze post/prefix algemeen gebruikt wordt. Denk aan Hengelo (OV) voor de plaats in Overijssel en Hengelo (GLD) voor de plaats in Gelderland."@nl ;
   dct:source
     <https://www.w3.org/TR/skos-reference/#labels> ,
     skos: ;
   skos:related beg-sbb:Concept ;
   skos:broader beg-sbb:Label ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #wijzigingsnotitie
 beg-sbb:ChangeNote
@@ -806,7 +810,7 @@ beg-sbb:ChangeNote
     <https://www.w3.org/TR/2009/REC-skos-reference-20090818/#notes> ;
   skos:broader beg-sbb:Note ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #zoekterm
 beg-sbb:HiddenLabel
@@ -827,7 +831,7 @@ beg-sbb:HiddenLabel
   skos:broader beg-sbb:Label ;
   skos:related beg-sbb:Concept ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 # BRONDOCUMENT
 
@@ -872,7 +876,7 @@ beg-sbb:BibliographicCitation
     foaf: ;
   skos:broader beg-sbb:Label ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 
 
@@ -887,13 +891,13 @@ beg-sbb:Page
     "Een url is de vindplaats van een brondocument op het internet."@nl ,
     "A page is the location of a resource on the internet."@en ;
   skos:scopeNote
-    "Een url wordt vastgelegd als het brondocument een resource is die vindbaar is op het web. Dit is bij voorkeur de uri van het brondocument en eventueel de url van de betreffende pagina op het web."@nl,
+    "Een url wordt vastgelegd als het brondocument een resource is die vindbaar is op het web. Dit is bij voorkeur de URI van het brondocument en eventueel de url van de betreffende pagina op het web."@nl,
     "A URL is captured if the resource is a resource that can be found on the web. This is preferably the uri of the resource and possibly the url of the relevant page on the web."@en;
   dct:source
     foaf: ;
   skos:broader beg-sbb:Association ;
 skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 # BESCHRIJVING BEGRIPPENKADER
 
@@ -915,7 +919,7 @@ beg-sbb:ConceptScheme
     "A set of concepts that are relevant in a given context."@en ,
     "Een begrippenkader is een verzameling van begrippen die in een bepaalde context relevant zijn."@nl ;
   skos:scopeNote 
-    "Een begrippenkader kan worden gedefinieerd om begrippen uit verschillende bronnen op te nemen. Begrippenkaders bieden een manier om kennis te ordenen voor het later kunnen ophalen. Ze worden gebruikt in indexeringsschema's, koppen, thesauri, taxonomieën en andere kennisorganisatiesystemen. Begrippenkaders verplichten het gebruik van vooraf gedefinieerde, geautoriseerde termen die zijn geselecteerd door de ontwerpers ervan, in tegenstelling tot natuurlijke taalvocabulaires,die een dergelijke beperking niet hebben."@nl,
+    "Een begrippenkader kan worden gedefinieerd om begrippen uit verschillende bronnen op te nemen. Begrippenkaders bieden een manier om kennis te ordenen voor het later kunnen ophalen. Ze worden gebruikt in indexeringsschema's, koppen, thesauri, taxonomieën en andere kennisorganisatiesystemen. Begrippenkaders verplichten het gebruik van vooraf gedefinieerde, geautoriseerde termen die zijn geselecteerd door de ontwerpers ervan, in tegenstelling tot natuurlijke taalvocabulaires, die een dergelijke beperking niet hebben."@nl,
     "A concept scheme may be defined to include concepts from different sources. Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. They are used in subject indexing schemes,subject headings,thesauri,taxonomies and other knowledge organization systems. Controlled vocabulary schemes mandate the use of predefined,authorised terms that have been preselected by the designers of the schemes, in contrast to natural language vocabularies, which have no such restriction."@en ;
   dct:source
     <https://www.w3.org/TR/skos-reference/#schemes> ,
@@ -925,7 +929,7 @@ beg-sbb:ConceptScheme
     beg-sbb:TopConcept ;
   skos:example "Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies."@en ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #begrippenlijst
 beg-sbb:Glossary
@@ -942,7 +946,7 @@ beg-sbb:Glossary
     "Een begrippenlijst is een alfabetische lijst van termen met hun definities."@nl,
     "A glossary is an alphabetical list of terms with their definitions."@en ;
   skos:scopeNote 
-    "In de praktijk worden de termen begrippenlijst en woordenlijst vaak door elkaar gebruikt. In dit geval gaat het nadrukkelijk om een lijst van begrippen, dus inclusief de uitleg van de betekenis. Traditioneel verschijnt er aan het einde van een boek een verklarende woordenlijst met termen in dat boek die ofwel nieuw geïntroduceerd, ongebruikelijk of gespecialiseerd zijn. Semantisch gezien gaat de definitie over het begrip wat met de term wordt aangeduid en niet over de term zelf."@nl,
+    "In de praktijk worden de termen begrippenlijst en woordenlijst vaak door elkaar gebruikt. In dit geval gaat het nadrukkelijk om een lijst van begrippen, dus inclusief de uitleg van de betekenis. Traditioneel verschijnt er aan het einde van een boek een verklarende woordenlijst met termen in dat boek die ofwel nieuw geïntroduceerd, ongebruikelijk of gespecialiseerd zijn. Semantisch gezien gaat de definitie over het begrip dat met de term wordt aangeduid en niet over de term zelf."@nl,
     "In practice, the glossary is uses as well for a list of terms as fora list of concepts. In this case it is emphatically a list of concepts, including an explanation of the meaning. Traditionally, a glossary of terms in that book appears at the end of a book that are either newly introduced, uncommon, or specialized. Semantically, the definition is about the concept the term denotes and not about the term itself."@en ;
   dct:source <https://en.wikipedia.org/wiki/Controlled_vocabulary>;
   skos:related
@@ -962,7 +966,7 @@ beg-sbb:Glossary
     beg-sbb:Example ;
   skos:broader beg-sbb:ConceptScheme ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #taxonomie
 beg-sbb:Taxonomy
@@ -987,7 +991,7 @@ beg-sbb:Taxonomy
     beg-sbb:TopConcept ;
   dct:source <https://en.wikipedia.org/wiki/Taxonomy> ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 #thesaurus
 beg-sbb:Thesaurus
@@ -1000,7 +1004,7 @@ beg-sbb:Thesaurus
     "Een thesaurus is een begrippenkader waarin begrippen semantisch en hiërarchisch zijn geordend."@nl ,
     "A thesaurus is a controlled and structured vocabulary in which concepts are organized semantically and hierarchically."@en;
   skos:scopeNote
-    "Het doel van een thesaurus is traditioneel om de indexeerder en de zoeker te helpen bij het kiezen van dezelfde term voor hetzelfde begrip. Om dit te bereiken, bevat een thesaurus in de eerste plaats alle begrippen die nuttig kunnen zijn voor zoekdoeleinden in een bepaald domein. Ten tweede moet een thesaurus de begrippen zo presenteren dat mensen ze gemakkelijk kunnen vinden. Dit wordt bereikt door relaties tussen begrippen tot stand te leggen en de relaties te gebruiken om de begrippen in een gestructureerde weergave te presenteren."@nl ,
+    "Het doel van een thesaurus is traditioneel om de indexeerder en de zoeker te helpen bij het kiezen van dezelfde term voor hetzelfde begrip. Om dit te bereiken, bevat een thesaurus in de eerste plaats alle begrippen die nuttig kunnen zijn voor zoekdoeleinden in een bepaald domein. Ten tweede moet een thesaurus de begrippen zo presenteren dat mensen ze gemakkelijk kunnen vinden. Dit wordt bereikt door relaties tussen begrippen te leggen en de relaties te gebruiken om de begrippen in een gestructureerde weergave te presenteren."@nl ,
     "The traditional aim of a thesaurus of a thesaurus is to help the indexer and searcher choose the same term for the same concept. To achieve this, a thesaurus primarily contains all concepts that can be useful for search purposes in a particular domain. Second, a thesaurus should present the concepts in such a way that people can find them easily. This is achieved by establishing relationships between concepts and using the relationships to present the concepts in a structured representation."@en ;
   dct:source
     <https://en.wikipedia.org/wiki/Thesaurus> ,
@@ -1022,7 +1026,7 @@ beg-sbb:Thesaurus
     beg-sbb:CloseMatch ;
   skos:broader beg-sbb:ConceptScheme ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .
 
 
 
@@ -1058,7 +1062,7 @@ beg-sbb:Member
   a skos:Concept ;
   skos:definition
     "Relates a collection to one of its members."@en ,
-    "Bevat relateert een collectie aan een begrip of een collectie van begrippen dat onderdeel is van deze collectie."@nl ;
+    "«bevat» relateert een collectie aan een begrip of een collectie van begrippen die onderdeel is van deze collectie."@nl ;
   dct:source
     <https://www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en:sec:2.12> ,
     skos: ,
@@ -1071,4 +1075,4 @@ beg-sbb:Member
     "has member"@en ,
     "bevat"@nl ;
   skos:inScheme begkr-sbb:nlbegrip ;
-  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.0-snapshot-1> .
+  rdfs:isDefinedBy <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> .

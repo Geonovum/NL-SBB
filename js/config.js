@@ -87,6 +87,9 @@ var documentConfig =
         },
         {
             name: "Jan Willem van Veen (ArchiXL)"
+        },
+                {
+            name: "Tanja Ronzhina (Geonovum)"
         }
   ],
   editors: [

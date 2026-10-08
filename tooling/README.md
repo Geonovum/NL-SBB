@@ -10,7 +10,7 @@ géén goedkeuring, aanbeveling of conformiteitsverklaring. De informatie is geb
 openbare informatie van leveranciers en op meldingen uit de werkgroep, en is niet door Geonovum
 getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product actueel ondersteunt.
 
-**Peildatum:** 16 september 2026.
+**Peildatum:** 28 september 2026.
 
 ## Soorten ondersteuning
 
@@ -19,9 +19,11 @@ getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product 
 | **Specifiek** | Het product is (mede) voor NL-SBB gemaakt: de kenmerken uit de standaard zitten er ingebouwd in en je kunt er zonder eigen inrichtingswerk NL-SBB-conforme begrippenkaders in vastleggen. |
 | **Configureerbaar** | Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het [SHACL-profiel van NL-SBB](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl) — voor gebruik met de standaard ingericht kan worden. |
 | **Publicatie en ontsluiting** | Het product is niet bedoeld om begrippen te maken of te bewerken, maar om een bestaand begrippenkader te publiceren, te doorzoeken en te doorbladeren. |
+| **Controle en validatie** | Het product maakt of bewerkt geen begrippen, maar controleert een bestaand begrippenkader — op de regels van de standaard en eventueel op eigen kwaliteitsregels. |
 
 Omdat de taalbinding van NL-SBB op SKOS gebaseerd is, kan in principe elk hulpmiddel dat SKOS
-kan lezen en schrijven met NL-SBB-begrippenkaders werken. Het verschil zit in hoeveel je zelf
+kan lezen en schrijven met NL-SBB-begrippenkaders werken. Bij de generieke tools staat daarom per
+product wat de SKOS-ondersteuning is. Het verschil zit in hoeveel je zelf
 moet inrichten en hoe goed de tool je helpt de verplichte kenmerken en de kwaliteitsregels van
 de standaard te halen. Zie ook de [mapping tussen NL-SBB en SKOS](https://github.com/Geonovum/nl-sbb-bp/blob/main/mapping-skos.md)
 in de best practices.
@@ -33,9 +35,12 @@ in de best practices.
 | **Overheid** | Ontwikkeld en/of beheerd door een overheidsorganisatie of door de beheerorganisatie van de standaard, en als voorziening of hulpmiddel aangeboden. Geen licentiekosten. |
 | **Open source** | De broncode is openbaar en onder een opensourcelicentie te gebruiken. Je installeert en beheert de software zelf, of gebruikt een instantie die een ander beheert. |
 | **Commercieel** | Broncode niet openbaar; gebruik op basis van een betaalde licentie of abonnement. |
+| **Gratis** | Zonder kosten te gebruiken, maar de broncode is niet openbaar en er zijn geen licentievoorwaarden vastgelegd. Je bent daarmee afhankelijk van de aanbieder. |
 
 De categorieën sluiten elkaar niet uit: VocBench 3 is open source *en* wordt door een
-overheidsorganisatie beheerd, namelijk het Publications Office van de Europese Unie.
+overheidsorganisatie beheerd, namelijk het Publications Office van de Europese Unie. Let ook op
+licenties die van je organisatie afhangen: de Intentional Arrangement SKOS editor is alleen
+opensource voor organisaties met minder dan 75 medewerkers.
 
 | Product | Categorie | Bijzonderheden |
 | --- | --- | --- |
@@ -43,7 +48,10 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 | Begrippeneditor (Begrippenvoorziening) | Overheid | Voorziening van Logius; geen licentiekosten. Broncode is niet openbaar gepubliceerd. |
 | VocBench 3 | Open source, beheer door overheidsorganisatie | Zelf te installeren; er zijn ook instanties van de EU en van PLDN. |
 | Skosmos | Open source | MIT-licentie; zelf te installeren, met PHP en een SPARQL-endpoint. |
+| Kwaliteitsregeltaal-validator | Open source | EUPL 1.2; persoonlijk initiatief van Danny Greefhorst vanuit zijn rol bij Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst. Online te gebruiken, zelf te installeren of via MCP aan te roepen vanuit een AI-assistent. |
 | Protégé | Open source | BSD 2-Clause; Protégé Desktop lokaal, WebProtégé in de browser. |
+| Intentional Arrangement SKOS editor | Open source óf commercieel, afhankelijk van de organisatiegrootte | Apache 2.0 voor organisaties met minder dan 75 medewerkers; daarboven is een bedrijfslicentie nodig. |
+| Termboard | Gratis | Gratis en zonder account te gebruiken; broncode niet openbaar en geen licentievoorwaarden vermeld. |
 | BegrippenXL | Commercieel | SaaS |
 | ModelDesk | Commercieel | SaaS, licentie per seat |
 | PoolParty Semantic Suite | Commercieel | Licentie in bundels |
@@ -142,14 +150,16 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
 
 ## Generieke tools die voor NL-SBB ingericht kunnen worden
 
-| Product | Aanbieder | Soort | Licentiemodel |
-| --- | --- | --- | --- |
-| [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | Open source (overheid) |
-| [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Open source (BSD 2-Clause) |
-| [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | Commercieel, licentie per pakket |
-| [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | Commercieel |
-| [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | Commercieel |
-| [TriplyDB](#triplydb) | Triply B.V. | Webapplicatie (publieke of eigen instantie) | Commercieel, gratis account voor open data |
+| Product | Aanbieder | Soort | SKOS-ondersteuning | Licentiemodel |
+| --- | --- | --- | --- | --- |
+| [VocBench 3](#vocbench-3) | Publications Office of the EU / Universiteit van Rome Tor Vergata | Webapplicatie, zelf te installeren | SKOS en SKOS-XL | Open source (overheid) |
+| [Protégé](#protégé) | Stanford University | Desktopapplicatie en webapplicatie | Geen SKOS-modus; via een plugin van derden | Open source (BSD 2-Clause) |
+| [Intentional Arrangement SKOS editor](#intentional-arrangement-skos-editor) | Contextually LLC (Jessica Talisman) | Webapplicatie, draait in de browser | SKOS en SKOS-XL | Apache 2.0 onder 75 medewerkers, daarboven bedrijfslicentie |
+| [Termboard](#termboard) | Hoogkamer | Webapplicatie, draait in de browser | Import en export, via een eigen model | Gratis |
+| [TopBraid EDG](#topbraid-edg) | TopQuadrant | Webapplicatie | SKOS en SKOS-XL | Commercieel, licentie per pakket |
+| [PoolParty Semantic Suite](#poolparty-semantic-suite) | Graphwise (Semantic Web Company) | Webapplicatie | SKOS en SKOS-XL | Commercieel |
+| [Progress Semaphore](#progress-semaphore) | Progress Software | Webapplicatie | SKOS-XL in het kerndatamodel | Commercieel |
+| [TriplyDB](#triplydb) | Triply B.V. | Webapplicatie (publieke of eigen instantie) | SKOS, via de shapes graph | Commercieel, gratis account voor open data |
 
 ### VocBench 3
 
@@ -187,6 +197,61 @@ overheidsorganisatie beheerd, namelijk het Publications Office van de Europese U
   thesaurusplatformen doorgaans passender. Protégé komt tot zijn recht wanneer je het begrippenkader
   combineert met een OWL-ontologie.
 - **Licentiemodel:** open source onder de BSD 2-Clause-licentie.
+
+### Intentional Arrangement SKOS editor
+
+- **Aanbieder:** Contextually LLC (Jessica Talisman)
+- **Website:** [live editor](https://jesstalisman-ia.github.io/intentional-arrangement-skos/),
+  broncode op
+  [github.com/jesstalisman-ia/intentional-arrangement-skos](https://github.com/jesstalisman-ia/intentional-arrangement-skos)
+- **Wat het is:** een editor om SKOS-taxonomieën en -thesauri op te bouwen, te valideren, te
+  visualiseren en te exporteren. De applicatie draait volledig in de browser, zonder account of
+  server; het werk blijft lokaal en wordt in de browseropslag bewaard. Je kunt hem ook als los
+  bestand openen of zelf hosten.
+- **Inrichting voor NL-SBB:** er is geen specifieke NL-SBB-ondersteuning, maar de onderdelen waar
+  NL-SBB op steunt zitten er wel in: SKOS en SKOS-XL, de thesaurusrelaties van ISO 25964,
+  SKOS-collecties, mappingrelaties naar andere begrippenkaders en bronvermelding met `foaf:Document`
+  en `prov:Agent`. Ingebouwde kwaliteitscontroles volgen qSKOS — ontbrekende labels, cykels,
+  losse begrippen — en niet het NL-SBB SHACL-profiel; valideren tegen de standaard doe je er los van.
+- **Uitwisseling:** import en export van Turtle, RDF/XML, JSON-LD, RDF/JSON, CSV en Excel; export
+  daarnaast naar Markdown.
+- **Aandachtspunt:** de licentie hangt af van de grootte van je organisatie. Lees hem voordat je
+  ermee begint; zie hieronder.
+- **Licentiemodel:** dubbel. Organisaties met minder dan 75 medewerkers mogen de software gratis
+  gebruiken onder Apache 2.0. Organisaties met 75 medewerkers of meer krijgen die rechten niet en
+  hebben vooraf een schriftelijke bedrijfslicentie van de maker nodig. Het medewerkersaantal telt
+  ook verbonden organisaties mee. Voor veel overheidsorganisaties betekent dit dus een
+  licentiegesprek, ondanks de openbare broncode.
+
+### Termboard
+
+- **Aanbieder:** Hoogkamer
+- **Website:** [termboard.com](https://termboard.com/start/), issues en gedeelde modellen op
+  [github.com/Hoogkamer/Termboard](https://github.com/Hoogkamer/Termboard)
+- **Wat het is:** een digitaal whiteboard om begrippen en hun relaties te tekenen en te doorlopen.
+  Je maakt er kennisgrafen, taxonomieën, glossaria, datamodellen en beleidsgrafieken mee, met een
+  visuele grafiekinterface in plaats van formulieren. De applicatie draait in de browser, zonder
+  account, en houdt het werk lokaal.
+- **Inrichting voor NL-SBB:** Termboard kan SKOS importeren en exporteren, maar werkt intern met een
+  eigen model, en de [gedocumenteerde mapping](https://www.termboard.com/manual/page/import-export.html#skos-vocabularies)
+  is beperkter dan wat NL-SBB vastlegt. Bij import worden `skos:prefLabel`, `skos:altLabel`,
+  `skos:hiddenLabel`, `skos:definition`, `skos:broader` en `skos:related` overgenomen, en komen
+  `skos:note`, `skos:scopeNote` en `skos:example` in de beschrijving terecht. Bij export worden
+  generalisaties `skos:broader`/`skos:narrower` en associaties `skos:related`. De thesaurusrelaties
+  van ISO 25964 staan niet in die mapping. Controleer dus wat er overblijft voordat je een
+  begrippenkader via Termboard laat lopen. De ingebouwde controles zijn kwaliteitsregels van het
+  product, niet het NL-SBB SHACL-profiel.
+- **Uitwisseling:** import van RDF/XML, Turtle en JSON-LD; export in OWL- of SKOS-stijl, of beide,
+  en daarnaast naar Excel, JSON, JSON-LD, PDF, PowerPoint, HTML, PNG en SVG.
+- **Onderscheidend punt:** de visuele, tekenende werkwijze maakt het geschikt om met domeinexperts
+  aan tafel een begrippenkader te verkennen, voordat het in een begrippeneditor wordt vastgelegd. In
+  [issue #89](https://github.com/Geonovum/NL-SBB/issues/89) is het genoemd omdat je kunt kiezen
+  welke hiërarchische relatie je wilt visualiseren, bijvoorbeeld onderliggend, generalisatie of
+  onderdeel.
+- **Aandachtspunt:** de repository op GitHub bevat niet de broncode, maar dient voor issues en het
+  delen van modellen. Er zijn geen licentievoorwaarden gepubliceerd. Ga voor gebruik binnen een
+  organisatie na welke afspraken er gelden.
+- **Licentiemodel:** gratis te gebruiken.
 
 ### TopBraid EDG
 
@@ -279,6 +344,53 @@ SPARQL-endpoints en API's.
   SHACL-profiel doe je vooraf, in de editor of met een aparte validator.
 - **Licentiemodel:** open source onder de MIT-licentie.
 
+## Controle en validatie
+
+| Product | Aanbieder | Soort | Licentiemodel |
+| --- | --- | --- | --- |
+| [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator) | Danny Greefhorst (Bureau Architectuur Digitale Overheid / Nederlandse Digitale Dienst) | Webapplicatie, commandline-tool en MCP-server | Open source (EUPL 1.2) |
+
+Validatie zit soms ook in de editors zelf: ModelDesk valideert tegen de standaard, PoolParty
+controleert de SKOS-conformiteit van de uitvoer en TopBraid EDG gebruikt SHACL-shapes als
+validatieregels. Voor het valideren tegen het NL-SBB SHACL-profiel zelf zijn losse
+SHACL-validators bruikbaar; zie [Aan de slag met een generieke tool](#aan-de-slag-met-een-generieke-tool).
+
+### Kwaliteitsregeltaal-validator
+
+- **Aanbieder:** een persoonlijk initiatief van Danny Greefhorst, vanuit zijn rol bij Bureau
+  Architectuur Digitale Overheid / Nederlandse Digitale Dienst. De taal Kwaliteitsregeltaal zelf is
+  beschreven bij NORA, dat door ICTU wordt beheerd.
+- **Website:** [online validator](https://kwaliteitsregistratie.datastelsel.nl/validator/),
+  taalbeschrijving op [NORA](https://www.noraonline.nl/wiki/Kwaliteitsregeltaal), broncode op
+  [GitLab](https://gitlab.com/datastelsel.nl/federatief/gegevenskwaliteitsregistratie)
+- **Wat het is:** Kwaliteitsregeltaal (KRT) is een formele taal om kwaliteitsregels vast te leggen in
+  een vorm die zowel voor mensen als voor software leesbaar is. De validator voert zulke regelsets
+  uit op je gegevens en rapporteert de afwijkingen. Dat kan online via een webformulier, of lokaal
+  als commandline-tool.
+- **Controle van NL-SBB:** er worden standaard regelsets meegeleverd, onder meer voor
+  NL-SBB-begrippenkaders, MIM-modellen en DCAT-records. Je kunt een begrippenkader dus laten
+  controleren zonder zelf regels te schrijven. Eigen regels toevoegen kan, en SHACL-definities
+  kunnen automatisch naar Kwaliteitsregeltaal worden omgezet — het NL-SBB SHACL-profiel kan daarmee
+  als vertrekpunt dienen.
+- **Gegevensbronnen:** online worden bestanden gecontroleerd: TTL voor linked data, en tabulaire
+  gegevens als parquet, CSV, JSON, Excel, SQLite en DuckDB. De commandline-variant controleert een
+  SPARQL-endpoint, een PostgreSQL-database of een DuckDB-database.
+- **MCP-server:** de validator is ook te benaderen via het
+  [Model Context Protocol](https://modelcontextprotocol.io), op
+  `https://kwaliteitsregistratie.datastelsel.nl/validator/mcp` (Streamable HTTP). Een AI-assistent
+  die MCP ondersteunt kan daarmee een begrippenkader laten controleren met de tool `validate_nl_sbb`,
+  of met `validate` eigen KRT-regels of een van de andere regelsets uitvoeren. Daarnaast zijn er tools
+  om regels te vertalen naar SPARQL of SQL (`translate_rule`, `translate_rules`) en om SHACL om te
+  zetten naar Kwaliteitsregeltaal (`shacl_to_krt`). De gegevens worden daarbij naar de server
+  gestuurd, net als bij de online validator.
+- **Onderscheidend punt:** dezelfde taal is te gebruiken voor constraints bij MIM-modellen. Wie
+  begrippen en informatiemodellen naast elkaar beheert, kan daardoor met één regeltaal werken. Er is
+  ook een vertaler die KRT-regels omzet naar SPARQL en SQL.
+- **Aandachtspunt:** de conformiteitsuitspraak van NL-SBB gaat over het
+  [SHACL-profiel](https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#conformiteit). Een controle met
+  Kwaliteitsregeltaal komt daar bovenop en vervangt die validatie niet.
+- **Licentiemodel:** open source onder EUPL 1.2.
+
 ## Aan de slag met een generieke tool
 
 Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die je zelf regelt:
@@ -299,7 +411,9 @@ Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die 
    [hoofdstuk 5](https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#conformiteit). Kan de tool zelf niet
    tegen SHACL valideren, dan kun je daarvoor een losse opensource-validator gebruiken, zoals
    [pySHACL](https://github.com/RDFLib/pySHACL) of de
-   [SHACL API van TopQuadrant](https://github.com/TopQuadrant/shacl) — beide Apache 2.0.
+   [SHACL API van TopQuadrant](https://github.com/TopQuadrant/shacl) — beide Apache 2.0. Wil je
+   daarnaast op eigen kwaliteitsregels controleren, kijk dan naar de
+   [Kwaliteitsregeltaal-validator](#kwaliteitsregeltaal-validator).
 5. **Publicatie.** Bepaal hoe het begrippenkader beschikbaar komt, bijvoorbeeld als linked data via
    een eigen catalogus of via de [Begrippencatalogus](https://begrippen.stelselcatalogus.nl) van Logius.
 

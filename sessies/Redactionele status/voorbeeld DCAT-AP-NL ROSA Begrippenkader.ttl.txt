@@ -1,0 +1,42 @@
+@prefix rdf: <http://w3.org> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org> .
+@prefix foaf: <http://xmlns.com> .
+@prefix xsd: <http://w3.org> .
+
+# 1. Het begrippenkader
+<https://data.onderwijsbegrippen.nl/id/begrippenkader/rosa> a dcat:Dataset ;
+    dct:title "ROSA Begrippenkader"@nl ;
+    dct:description "Het ROSA Begrippenkader is begrippenkader voor het gehele onderwijsdomein, zowel de publiek/wettelijke kant (inschrijvingen, bekostiging, verzuim etc.) als het publiek/private deel (leermiddelen, toetsen etc.). Die beschrijving geschiedt door middel van de binnen het gekozen domein gehanteerde begrippen en hun relaties tot elkaar. "@nl ;
+    dct:publisher [ a foaf:Organization ;
+        foaf:name "Edustandaard" 
+    ] ;
+    dct:issued "2026-02-16"^^xsd:date ; [[ROSA Begrippenkader kent als issue-datum voor versies van het begrippenkader de periodiek vastgestelde begrippen door de Architectuurraad, de datum vaststelling geldt als versie.]]
+    dct:modified "2026-09-16"^^xsd:date ; [[Begrippen in het ROSA Begrippenkader kunnen elke dag wijzigen. Idealiter zou de datum van het laatst gewijzigde begrip hier ingevuld worden]]
+    dcat:theme "onderwijs" ; # architectuur-, gemeenschappelijke informatievoorzienings- en domeinbegrippen [[We hebben geen idee wat "theme" precies is en wat we hier zouden moeten invullen]]
+    dcat:keyword "" ; [[We zien hier geen meerwaarde in om dit in te vullen]]
+    dcat:distribution <https://data.onderwijsbegrippen.nl/id/begrippenkader/rosa> ;
+	dct:accessRights <https://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+	dct:conformsTo <https://docs.geostandaarden.nl/nl-sbb/def-st-nl-sbb-20241010/> ;
+	dcat:contactPoint [
+		a vcard:Kind ;
+		vcard:fn "Edustandaard" ;
+		vcard:hasURL <https://www.edustandaard.nl/> ;
+		vcard:hasEmail <mailto:info@edustandaard.nl> .
+	] ;
+	dct:creator [ a foaf:Organization ;
+		foaf:name "Edustandaard" [[Of de Werkgroep Onderwijssemantiek, ligt eraan of het hier gaat om accountable of responsible??]]
+    ] ;
+	dct:identifier <https://data.onderwijsbegrippen.nl/id/begrippenkader/rosa> ;
+	rdfs:label "ROSA Begrippenkader"@nl ;
+	dcat:landingPage <https://data.onderwijsbegrippen.nl/id/begrippenkader/rosa> ;
+	dcat:version "2026-02".
+
+# 2. De Distributie
+<https://onderwijsbegrippen.nl/id/begrippenkader/rosa> a dcat:Distribution ;
+    dct:title "ROSA Begrippenkader"@nl ;
+	rdfs:label "ROSA Begrippenkader"@nl ;
+	dct:language <http://publications.europa.eu/resource/authority/language/NLD> ;
+    dcat:accessURL <https://onderwijsbegrippen.nl/rosa/nl/> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/http> ;
+    dct:license <https://creativecommons.org/publicdomain/mark/1.0/deed.nl> . # <https://creativecommons.org/licenses/by/4.0>

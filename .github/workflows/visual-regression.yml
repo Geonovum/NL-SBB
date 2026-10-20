@@ -1,3 +1,4 @@
+# Beheerd vanuit Geonovum/NL-ReSpec-workflows. Pas dit bestand niet aan in een documentrepo.
 name: Visual regression
 
 on:
@@ -6,9 +7,6 @@ on:
 
 jobs:
   visual-regression:
-    # Het template test zijn eigen reusable workflow in template-regression.yml.
-    # Documentrepositories blijven de centrale workflow en hetzelfde beleid gebruiken.
-    if: ${{ github.repository != 'Geonovum/NL-ReSpec-template' }}
-    uses: Geonovum/NL-ReSpec-template/.github/workflows/visual-regression-reusable.yml@v1
+    uses: Geonovum/NL-ReSpec-workflows/.github/workflows/visual-regression-reusable.yml@v1
     with:
       fail_on_difference: false

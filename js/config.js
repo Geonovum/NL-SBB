@@ -111,11 +111,11 @@ var documentConfig =
 alternateFormats: [
     {
       label: "SHACL",
-      uri: "https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl",
+      uri: "https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl",
     },
     {
       label: "SKOS",
-      uri: "https://register.geostandaarden.nl/concepts/nl-sbb/1.0.0/thesaurus.ttl",
+      uri: "https://staging-definities.geostandaarden.nl/rest/v1/stelsel/data?format=text/turtle",
     },
 ],
     labelColor: {

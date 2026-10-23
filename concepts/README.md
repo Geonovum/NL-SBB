@@ -7,7 +7,7 @@ Deze map bevat de thesaurus van NL-SBB: alle begrippen die in de standaard zijn 
 | Bestand | Versie | Gepubliceerd op |
 |---|---|---|
 | `1.0.0/thesaurus.ttl` | 1.0.0 | <https://register.geostandaarden.nl/concepts/nl-sbb/1.0.0/thesaurus.ttl> |
-| `1.0.1-cv/thesaurus.ttl` | 1.0.1-cv (consultatieversie) | nog niet gepubliceerd, zie [#122](https://github.com/Geonovum/NL-SBB/issues/122) |
+| `1.0.1-cv/thesaurus.ttl` | 1.0.1-cv (consultatieversie) | <https://staging-definities.geostandaarden.nl/stelsel/nl/> (mensleesbaar) en <https://staging-definities.geostandaarden.nl/rest/v1/stelsel/data?format=text/turtle> (Turtle), zie [#122](https://github.com/Geonovum/NL-SBB/issues/122) |
 
 De thesaurus wordt bijgehouden in een submap per versie, zoals het SHACL-profiel in [`shacl/`](../shacl/).
 
@@ -15,7 +15,7 @@ De thesaurus wordt bijgehouden in een submap per versie, zoals het SHACL-profiel
 - Een gepubliceerde versie wijzig je niet meer.
 - Verwijs in documentatie naar de publicatieplek, niet naar een bestand op GitHub.
 
-Anders dan bij `shacl/` pakt de autodeploy van het technisch register `concepts/` niet op. Publicatie op register.geostandaarden.nl en definities.geostandaarden.nl gebeurt (nog) met de hand.
+Anders dan het SHACL-profiel wordt de thesaurus vanaf 1.0.1 niet op register.geostandaarden.nl gepubliceerd, maar alleen op definities.geostandaarden.nl (BegrippenXL), conform het Geonovum-beleid voor begrippenkaders. De consultatieversie staat op de stagingomgeving; de vastgestelde versie komt in productie. Versie 1.0.0 blijft op het register staan. Publicatie gebeurt met de hand; de autodeploy van het technisch register pakt `concepts/` niet op.
 
 ## `thesaurus.ttl` in deze map (legacy)
 

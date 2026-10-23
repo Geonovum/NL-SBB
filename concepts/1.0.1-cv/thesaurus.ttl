@@ -32,7 +32,7 @@ begkr-sbb:nlbegrip
   dct:description "Het begrippenkader behorend bij de NL-SBB standaard." ;
   dct:identifier "http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip" ;
   dcat:hasVersion <http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv> ;
-  # dcat:landingPage toevoegen zodra de publicatieplek op definities.geostandaarden.nl vastligt (#122)
+  dcat:landingPage <https://staging-definities.geostandaarden.nl/stelsel/nl/> ;
   dct:publisher [
      dct:type <http://purl.org/adms/publishertype/StandardisationBody> ;
      a foaf:Agent ;
@@ -74,7 +74,11 @@ begkr-sbb:nlbegrip
     dct:description "Versie 1.0.1-cv van het begrippenkader nlbegrip" ;
     dct:identifier "http://begrippen.nlbegrip.nl/id/begrippenkader/nlbegrip/1.0.1-cv" ;
     dcat:version "1.0.1-cv" ;
-    # dcat:distribution (met dcat:downloadURL) toevoegen zodra de publicatieplek vastligt (#122)
+    dcat:distribution [
+      a dcat:Distribution ;
+      dcat:downloadURL <https://staging-definities.geostandaarden.nl/rest/v1/stelsel/data?format=text/turtle> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle>
+    ] ;
     dct:publisher [
       dct:type <http://purl.org/adms/publishertype/StandardisationBody> ;
       a foaf:Agent ;

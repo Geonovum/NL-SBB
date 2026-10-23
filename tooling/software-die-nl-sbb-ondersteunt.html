@@ -19,7 +19,7 @@
 </tr>
 <tr class="even">
 <td><strong>Configureerbaar</strong></td>
-<td>Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het <a href="https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl">SHACL-profiel van NL-SBB</a> — voor gebruik met de standaard ingericht kan worden.</td>
+<td>Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het <a href="https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl">SHACL-profiel van NL-SBB</a> — voor gebruik met de standaard ingericht kan worden.</td>
 </tr>
 <tr class="odd">
 <td><strong>Publicatie en ontsluiting</strong></td>
@@ -429,7 +429,7 @@
 <h2 id="aan-de-slag-met-een-generieke-tool">Aan de slag met een generieke tool</h2>
 <p>Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die je zelf regelt:</p>
 <ol type="1">
-<li><strong>Het profiel inlezen.</strong> Het SHACL-profiel staat op <a href="https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl">register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl</a> en als bestand <a href="https://github.com/Geonovum/NL-SBB/blob/main/profiles/skos-ap-nl.ttl"><code>skos-ap-nl.ttl</code></a> in de NL-SBB-repository op GitHub. In tools die SHACL als schema gebruiken bepaalt het profiel meteen welke velden in de formulieren verschijnen.</li>
+<li><strong>Het profiel inlezen.</strong> Het SHACL-profiel staat op <a href="https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl">register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl</a> en als bestand <a href="https://github.com/Geonovum/NL-SBB/blob/main/shacl/1.0.1-cv/skos-ap-nl.ttl"><code>skos-ap-nl.ttl</code></a> in de NL-SBB-repository op GitHub. In tools die SHACL als schema gebruiken bepaalt het profiel meteen welke velden in de formulieren verschijnen.</li>
 <li><strong>Verplichte en aanbevolen kenmerken.</strong> Zorg dat de kenmerken uit <a href="https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#kenmerken-van-begrippen">hoofdstuk 2</a> vastgelegd kunnen worden, inclusief de publieksvriendelijke definitie.</li>
 <li><strong>URI-strategie.</strong> Kies persistente URI's voor begrippen en begrippenkader, zodat andere catalogi naar je begrippen kunnen verwijzen.</li>
 <li><strong>Validatie inrichten.</strong> Valideer de uitvoer tegen het SHACL-profiel. Een begrippenkader met een of meer <code>sh:Violation</code>-meldingen is niet conform de standaard; <code>sh:Warning</code> en <code>sh:Info</code> gaan over kwaliteit en aanbevelingen. Zie <a href="https://docs.geostandaarden.nl/nl-sbb/nl-sbb/#conformiteit">hoofdstuk 5</a>. Kan de tool zelf niet tegen SHACL valideren, dan kun je daarvoor een losse opensource-validator gebruiken, zoals <a href="https://github.com/RDFLib/pySHACL">pySHACL</a> of de <a href="https://github.com/TopQuadrant/shacl">SHACL API van TopQuadrant</a> — beide Apache 2.0. Wil je daarnaast op eigen kwaliteitsregels controleren, kijk dan naar de <a href="#kwaliteitsregeltaal-validator">Kwaliteitsregeltaal-validator</a>.</li>

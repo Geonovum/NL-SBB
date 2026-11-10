@@ -7,7 +7,7 @@ Deze map bevat de thesaurus van NL-SBB: alle begrippen die in de standaard zijn 
 | Bestand | Versie | Gepubliceerd op |
 |---|---|---|
 | `1.0.0/thesaurus.ttl` | 1.0.0 | <https://register.geostandaarden.nl/concepts/nl-sbb/1.0.0/thesaurus.ttl> |
-| `1.0.1-cv/thesaurus.ttl` | 1.0.1-cv (consultatieversie) | <https://staging-definities.geostandaarden.nl/stelsel/nl/> (mensleesbaar) en <https://staging-definities.geostandaarden.nl/rest/v1/stelsel/data?format=text/turtle> (Turtle), zie [#122](https://github.com/Geonovum/NL-SBB/issues/122) |
+| `1.0.1-cv/thesaurus.ttl` | 1.0.1-cv (consultatieversie) | <https://staging-definities.geostandaarden.nl/sbb/nl/> (mensleesbaar) en <https://staging-definities.geostandaarden.nl/rest/v1/sbb/data?format=text/turtle> (Turtle), zie [#122](https://github.com/Geonovum/NL-SBB/issues/122) |
 
 De thesaurus wordt bijgehouden in een submap per versie, zoals het SHACL-profiel in [`shacl/`](../shacl/).
 

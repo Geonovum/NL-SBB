@@ -65,7 +65,7 @@ Een taxonomie geeft al meer overzicht en inzicht dan een alfabetische begrippenl
 
 ![](./media/thesaurusSBB.jpg "NL-SBB thesaurus")
 
-N.B. Dit is een thesaurus (MIM niveau 1) van alle in deze standaard gedefinieerde begrippen. Deze thesaurus is als machineleesbaar begrippenkader [beschikbaar in RDF](https://staging-definities.geostandaarden.nl/rest/v1/stelsel/data?format=text/turtle). In deze thesaurus krijgen de hier beschreven begrippen een URI conform de Nederlandse uri-strategie: `http://{domain}/{type}/{concept}/{reference}`, waarbij:
+N.B. Dit is een thesaurus (MIM niveau 1) van alle in deze standaard gedefinieerde begrippen. Deze thesaurus is als machineleesbaar begrippenkader [beschikbaar in RDF](https://staging-definities.geostandaarden.nl/rest/v1/sbb/data?format=text/turtle). In deze thesaurus krijgen de hier beschreven begrippen een URI conform de Nederlandse uri-strategie: `http://{domain}/{type}/{concept}/{reference}`, waarbij:
 * domain = 'begrippen.nlbegrip.nl/sbb'
 * type = 'id'
 * concept = 'concept' We hebben hier voor het Engels gekozen voor de internationale herkenbaarheid. 

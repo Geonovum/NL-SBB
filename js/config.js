@@ -115,7 +115,7 @@ alternateFormats: [
     },
     {
       label: "SKOS",
-      uri: "https://staging-definities.geostandaarden.nl/rest/v1/stelsel/data?format=text/turtle",
+      uri: "https://staging-definities.geostandaarden.nl/rest/v1/sbb/data?format=text/turtle",
     },
 ],
     labelColor: {

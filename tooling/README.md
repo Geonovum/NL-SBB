@@ -17,7 +17,7 @@ getest. Controleer bij een keuze altijd zelf bij de leverancier wat een product 
 | Aanduiding | Betekenis |
 | --- | --- |
 | **Specifiek** | Het product is (mede) voor NL-SBB gemaakt: de kenmerken uit de standaard zitten er ingebouwd in en je kunt er zonder eigen inrichtingswerk NL-SBB-conforme begrippenkaders in vastleggen. |
-| **Configureerbaar** | Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het [SHACL-profiel van NL-SBB](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl) — voor gebruik met de standaard ingericht kan worden. |
+| **Configureerbaar** | Het product is een generieke thesaurus-, taxonomie- of ontologie-omgeving die niet specifiek voor NL-SBB is gemaakt, maar die met eigen schema's — in de meeste gevallen met het [SHACL-profiel van NL-SBB](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl) — voor gebruik met de standaard ingericht kan worden. |
 | **Publicatie en ontsluiting** | Het product is niet bedoeld om begrippen te maken of te bewerken, maar om een bestaand begrippenkader te publiceren, te doorzoeken en te doorbladeren. |
 | **Controle en validatie** | Het product maakt of bewerkt geen begrippen, maar controleert een bestaand begrippenkader — op de regels van de standaard en eventueel op eigen kwaliteitsregels. |
 
@@ -396,8 +396,8 @@ SHACL-validators bruikbaar; zie [Aan de slag met een generieke tool](#aan-de-sla
 Wil je een generieke tool voor NL-SBB inrichten, dan zijn dit de onderdelen die je zelf regelt:
 
 1. **Het profiel inlezen.** Het SHACL-profiel staat op
-   [register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.0/skos-ap-nl.ttl)
-   en als bestand [`skos-ap-nl.ttl`](https://github.com/Geonovum/NL-SBB/blob/main/profiles/skos-ap-nl.ttl)
+   [register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl](https://register.geostandaarden.nl/shacl/nl-sbb/1.0.1-cv/skos-ap-nl.ttl)
+   en als bestand [`skos-ap-nl.ttl`](https://github.com/Geonovum/NL-SBB/blob/main/shacl/1.0.1-cv/skos-ap-nl.ttl)
    in de NL-SBB-repository op GitHub. In tools die SHACL als schema gebruiken bepaalt het profiel
    meteen welke velden in de formulieren verschijnen.
 2. **Verplichte en aanbevolen kenmerken.** Zorg dat de kenmerken uit

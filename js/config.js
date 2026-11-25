@@ -24,15 +24,12 @@ var documentConfig =
 {
   title: "NL-SBB - Standaard voor het beschrijven van begrippen",
   shortName: "nl-sbb",
-  pubDomain: "NL-SBB",
-  specStatus: "wv",
+  pubDomain: "nl-sbb",
+  specStatus: "cv",
   specType: "st",
   license: "cc-by",
-  latestVersion: [
-    "https://docs.geostandaarden.nl/NL-SBB"
-  ],
-  publishDate: "2024-04-16",
-  publishVersion: [],
+  publishDate: "2026-11-25",
+  publishVersion: "1.0.1",
   previousPublishDate: "2024-10-10",
   previousMaturity: "def",
   edDraftURI: "https://geonovum.github.io/NL-SBB/",

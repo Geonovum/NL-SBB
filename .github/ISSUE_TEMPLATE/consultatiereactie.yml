@@ -1,0 +1,136 @@
+name: Consultatiereactie NL-SBB 1.0.1
+description: Dien een reactie in op de consultatieversie van NL-SBB 1.0.1, het SHACL-profiel of de thesaurus
+title: "[Consultatie] "
+labels: ["consultatie"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt voor uw reactie op de consultatieversie van
+        [NL-SBB 1.0.1, de standaard voor het beschrijven van begrippen](https://docs.geostandaarden.nl/nl-sbb/cv-st-nl-sbb-20261125/).
+
+        De consultatie loopt tot en met 31 januari 2027.
+
+        Enkele aandachtspunten vooraf:
+
+        - Deze versie is een redactionele release: de standaard is verduidelijkt en opnieuw ingedeeld.
+          Voorstellen voor nieuwe functionaliteit zijn welkom, maar worden meegenomen naar een volgende
+          inhoudelijke versie.
+        - Wilt u reageren op de best practices? Gebruik dan het formulier in de repository
+          [nl-sbb-bp](https://github.com/Geonovum/nl-sbb-bp/issues/new/choose).
+        - Dien per onderwerp een aparte reactie in. Dat maakt de verwerking en de terugkoppeling
+          navolgbaar.
+        - Kijk eerst of uw punt al is ingediend. Sluit u in dat geval aan bij de bestaande reactie
+          met een opmerking, in plaats van een nieuwe aan te maken.
+        - Reacties zijn openbaar. Deel geen vertrouwelijke of persoonlijke gegevens.
+        - Liever niet via GitHub reageren? Dat kan per e-mail via
+          [f.terpstra@geonovum.nl](mailto:f.terpstra@geonovum.nl).
+
+  - type: input
+    id: indiener
+    attributes:
+      label: Naam en organisatie
+      description: Optioneel. Helpt ons de reactie in de juiste context te plaatsen en zo nodig contact op te nemen.
+      placeholder: "Bijvoorbeeld: J. Jansen, gemeente Voorbeeld"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: rol
+    attributes:
+      label: Vanuit welke rol reageert u?
+      description: Optioneel. Het perspectief van de indiener weegt mee bij de beoordeling.
+      options:
+        - Beheerder of redacteur van een begrippenkader
+        - Gebruiker of afnemer van begrippenkaders
+        - Informatie- of data-architect, modelleur
+        - Softwareleverancier of ontwikkelaar van tooling
+        - Beleid, toezicht of standaardisatie
+        - Anders of niet van toepassing
+    validations:
+      required: false
+
+  - type: dropdown
+    id: onderdeel
+    attributes:
+      label: Op welk onderdeel heeft uw reactie betrekking?
+      options:
+        - Samenvatting
+        - 1. Inleiding
+        - 2. Kenmerken van begrippen
+        - 3. Begrippenkader
+        - 4. Toepassingsprofiel in RDF
+        - 5. Conformiteit
+        - SHACL-profiel skos-ap-nl 1.0.1-cv
+        - Thesaurus van NL-SBB
+        - Meerdere hoofdstukken of het document als geheel
+    validations:
+      required: true
+
+  - type: input
+    id: vindplaats
+    attributes:
+      label: Vindplaats
+      description: Paragraafnummer, kopje of een kort citaat, zodat de passage terug te vinden is. Bij het SHACL-profiel de naam van de shape, bij de thesaurus het begrip.
+      placeholder: "Bijvoorbeeld: 2.5 Brondocument, toelichting bij bronverwijzing, of skosapnl:Concept-broader"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: soort
+    attributes:
+      label: Soort reactie
+      options:
+        - Inhoudelijke opmerking of bezwaar
+        - Feitelijke onjuistheid
+        - Onduidelijke of voor meerdere uitleg vatbare tekst
+        - Tekst, SHACL-profiel of thesaurus spreken elkaar tegen
+        - Onterechte of ontbrekende melding bij SHACL-validatie
+        - Redactionele of tekstuele correctie
+        - Ontbrekend onderwerp of voorstel voor nieuwe functionaliteit
+        - Vraag om toelichting
+    validations:
+      required: true
+
+  - type: textarea
+    id: reactie
+    attributes:
+      label: Uw reactie
+      description: Beschrijf uw punt zo concreet mogelijk. Benoem waar de standaard volgens u tekortschiet, en waarom.
+    validations:
+      required: true
+
+  - type: textarea
+    id: voorstel
+    attributes:
+      label: Voorstel voor aanpassing
+      description: Optioneel. Een concrete voorgestelde formulering of richting helpt bij de verwerking.
+    validations:
+      required: false
+
+  - type: textarea
+    id: voorbeeld
+    attributes:
+      label: Voorbeeld
+      description: Optioneel. Bijvoorbeeld een klein stukje Turtle of een validatiemelding. Dit wordt als code weergegeven.
+      render: turtle
+    validations:
+      required: false
+
+  - type: textarea
+    id: onderbouwing
+    attributes:
+      label: Onderbouwing of context
+      description: Optioneel. Bijvoorbeeld praktijkervaring, gebruikte tooling, of verwijzingen naar standaarden, wet- en regelgeving of andere documenten.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: voorwaarden
+    attributes:
+      label: Voorwaarden
+      options:
+        - label: Ik heb gecontroleerd of dit punt nog niet als reactie is ingediend.
+          required: true
+        - label: Ik begrijp dat deze reactie openbaar is en dat de reactie en de verwerking ervan onder [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.nl) beschikbaar komen.
+          required: true

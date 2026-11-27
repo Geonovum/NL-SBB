@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Consultatieversie NL-SBB 1.0.1
+    url: https://docs.geostandaarden.nl/nl-sbb/cv-st-nl-sbb-20261125/
+    about: Lees eerst de consultatieversie van de standaard waarop de consultatie betrekking heeft.
+  - name: Reactie op de best practices
+    url: https://github.com/Geonovum/nl-sbb-bp/issues/new/choose
+    about: Reacties op "Best Practices en aanvullingen voor NL-SBB" dient u in bij de repository nl-sbb-bp.
+  - name: Contact met de beheerder
+    url: https://www.geonovum.nl/contact
+    about: "Liever niet via GitHub reageren, of een vraag vooraf? Mail naar f.terpstra@geonovum.nl."
